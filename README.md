@@ -6,4 +6,4 @@
 
 ### Git
 
-- [Branch 기본](https://github.com/InKyoJeong/TIL/Git/Git_Branch)
+- [Branch 기본](https://github.com/InKyoJeong/TIL/blob/master/Git/Git_Branch.md)
