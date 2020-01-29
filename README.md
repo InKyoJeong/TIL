@@ -7,3 +7,7 @@
 ### Git
 
 - [Git Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Git_Basic.md)
+
+### JS
+
+- [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/1_Basic.md)
