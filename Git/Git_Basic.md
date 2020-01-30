@@ -23,6 +23,7 @@ $ git commit -am "[message]"
 ## 3. 로그 확인하기
 
 ```
+$ git log
 $ git log --oneline
 $ git log --oneline --branches
 $ git log --oneline --branches --graph
@@ -36,7 +37,7 @@ $ git status -s
 
 <!-- 원격저장소로부터 clone을 받으면 로컬저장소로 모든 브랜치를 다 가져오는게 아니라 master 브랜치만 가져온다 -->
 
-## 5. 브랜치 전환하기
+## 5. 브랜치 생성&전환하기
 
 > checkout 명령에 -b 옵션을 넣으면 브랜치 작성과 체크아웃을 한꺼번에 실행할 수 있다.
 

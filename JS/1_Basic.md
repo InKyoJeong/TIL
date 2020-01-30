@@ -5,7 +5,7 @@
 ```
 Create : 먼저 변수를 생성하고
 Initialize : 다음으로 이걸 초기화하고
-Use : 이걸 사용하면 된다.
+Use : 사용한다
 ```
 
 필요에 따라 생성과 초기화를 동시에 할 수 있다.
@@ -17,7 +17,7 @@ a = 4;
 console.log(b, a); // 216 , 4
 ```
 
-const = constant, 상수 = stable (변하지 않는다.)
+`const` (= constant)는 `상수` = stable (변하지 않는다)
 
 ```js
 const a = 22;
@@ -57,7 +57,7 @@ const what = "1234567";
 const what = true;
 ```
 
-true/false는 텍스트가 아니다. 소문자로 쓰고, "" 없이 사용한다. 이진법에서 true는 1, false는 0이다.
+true/false는 텍스트가 아니다. 소문자로 쓰고, `""` 없이 사용한다. 이진법에서 `true`는 `1`, `false`는 `0`이다.
 
 #### Float : 소숫점이 있는것
 
@@ -97,7 +97,7 @@ console.log(daysOfWeek[2]); // Wed
 
 #### Object
 
-Array와 Object의 다른점은 Object에는 각 value에 이름을 줄 수 있다는 것이다.
+Array와 Object의 다른점은 Object에는 각 `value`에 이름을 줄 수 있다는 것이다.
 
 ```js
 const info = {
@@ -158,4 +158,108 @@ const info = {
 };
 
 console.log(info.favFood[0].fatty); //false
+```
+
+##### console.log vs info.favFood
+
+`console`은 info가 object인 것처럼 object다.
+`console`이라는 object가 있고 `log`라는 키가 있다.
+
+만약 console object를 `console.log`로 찍어보면?
+
+```js
+console.log(console);
+// debug: ƒ debug()
+// error: ƒ error()
+// info: ƒ info()
+// log: ƒ log()
+// warn: ƒ warn()
+// dir: ƒ dir()
+// dirxml: ƒ dirxml()
+// table: ƒ table()
+// trace: ƒ trace()
+// group: ƒ group()
+// groupCollapsed: ƒ groupCollapsed()
+// groupEnd: ƒ groupEnd()
+// clear: ƒ clear()
+// count: ƒ count()
+// (...)
+```
+
+이런것들을 `내장함수(built-in function)`라고 한다.
+
+#### Function
+
+```js
+function sayHello() {
+  console.log("Hello");
+}
+
+sayHello(); // Hello
+```
+
+함수는 `argument`를 받는다. argument는 변수같은 것이다. 함수는 인수를 여러개 받을 수 있다.
+
+```js
+function sayHello(apple) {
+  console.log("Hello", apple);
+}
+
+sayHello("Nico"); // Hello Nico
+```
+
+- 자바스크립트에서는 `""`도 string이고 `''`도 string이다
+
+#### 백틱활용
+
+```js
+function sayHello(name, age) {
+  console.log(`Hello ${name} you are ${age} years old`);
+}
+
+sayHello("Nico", 25); // Hello Nico you are 25 years old
+```
+
+#### return (x) vs console.log
+
+```js
+function sayHello(name, age) {
+  console.log(`Hello ${name} you are ${age} years old`);
+}
+
+const greetNico = sayHello("Nico", 12);
+
+console.log(greetNico);
+
+// Hello Nico you are 12 years old
+// undefined
+```
+
+greetNico가 `정의되지않은(undefined)`게 아니려면 뭔가를 반환해보자.
+
+```js
+function sayHello(name, age) {
+  return `Hello ${name} you are ${age} years old`;
+}
+
+const greetNico = sayHello("Nico", 12);
+
+console.log(greetNico);
+
+// Hello Nico you are 12 years old
+```
+
+sayHello함수는 어떤 값을 반환하지만 `console.log`로 찍어주진않기 때문에 여기선 하나의 console.log를 갖게 된다.
+
+##### 계산 연습
+
+```js
+const calculator = {
+  plus: function(a, b) {
+    return a + b;
+  }
+};
+
+const plusNumber = calculator.plus(5, 5);
+console.log(plusNumber); // 10
 ```
