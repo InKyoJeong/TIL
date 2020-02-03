@@ -14,4 +14,4 @@
 
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
 
-- [Hoisting](<(https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)>)
+- [Hoisting](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
