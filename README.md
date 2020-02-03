@@ -14,4 +14,6 @@
 
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
 
+- [Array](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
+
 - [Hoisting](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
