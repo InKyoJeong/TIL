@@ -33,3 +33,19 @@ const whatisShift = number.shift();
 console.log(number); //["2", "3"]
 console.log(whatisShift); // 1
 ```
+
+#### Array.forEach()
+
+인수로받은 함수를 배열의 요소별로 한번씩 실행한다. **각각의 아이템에 대해서 어떠한 시행만 하는 것**을 의미한다. 새로운 배열을 `return`하는 `map`과 `filter`와 다르다. user에 저장, 로컬스토리지에 저장, API로 보낸다던가 경고를 보낸다던가 할 수 있다.
+
+```js
+let posts = ["Hi", "Hello", "Bye"];
+
+posts.forEach(post => console.log(post));
+
+// Hi
+// Hello
+// Bye
+```
+
+#### Array.filter()
