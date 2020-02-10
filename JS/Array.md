@@ -48,4 +48,4 @@ posts.forEach(post => console.log(post));
 // Bye
 ```
 
-#### Array.filter()
+<!-- #### Array.filter() -->
