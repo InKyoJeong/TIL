@@ -8,7 +8,7 @@
 
 - [Git Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Git_Basic.md)
 
-### JS
+### Javascript
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/Basic.md)
 - [Array](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
@@ -18,4 +18,9 @@
 - [객체지향 프로그래밍(OOP)](https://github.com/InKyoJeong/TIL/blob/master/JS//OOP/intro.md)
   - [This](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/This.md)
   - [생성자, Prototype](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor&prototype.md)
-  - [클래스(Class)](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
+  - [클래스(Class), 상속](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
+
+### Python
+
+- [Basic](https://github.com/InKyoJeong/TIL/blob/master/Python/1_Basic.md)
+- [변수와 입력](https://github.com/InKyoJeong/TIL/blob/master/Python/2_var.md)
