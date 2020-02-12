@@ -24,7 +24,11 @@
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/Python/1_Basic.md)
 - [변수와 입,출력](https://github.com/InKyoJeong/TIL/blob/master/Python/2_var.md)
-- [불과 비교연산자](https://github.com/InKyoJeong/TIL/blob/master/Python/3_operator.md)
-- [리스트와 튜플](https://github.com/InKyoJeong/TIL/blob/master/Python/4_list-tuple.md)
+- [불, 비교연산자](https://github.com/InKyoJeong/TIL/blob/master/Python/3_operator.md)
+- [리스트, 튜플](https://github.com/InKyoJeong/TIL/blob/master/Python/4_list-tuple.md)
 - [시퀀스](https://github.com/InKyoJeong/TIL/blob/master/Python/5_sequence.md)
 - [인덱스, 슬라이스](https://github.com/InKyoJeong/TIL/blob/master/Python/6_index-slice.md)
+- [딕셔너리](https://github.com/InKyoJeong/TIL/blob/master/Python/7_dic.md)
+- [if, else 조건문](https://github.com/InKyoJeong/TIL/blob/master/Python/8_if.md)
+- [for, while 반복문 / 중첩](https://github.com/InKyoJeong/TIL/blob/master/Python/9_for.md)
+- [도형 그리기](https://github.com/InKyoJeong/TIL/blob/master/Python/10_turtle.md)
