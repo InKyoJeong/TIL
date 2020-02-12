@@ -17,7 +17,7 @@
 >>> t.forward(100)
 ```
 
-![turtle](./images/turtle1.png)
+![turtle](./images/10_turtle/turtle1.png)
 
 - 방향을 바꾸기
 
@@ -26,7 +26,7 @@
 >>> t.forward(100)
 ```
 
-![turtle2](./images/turtle2.png)
+![turtle2](./images/10_turtle/turtle2.png)
 
 - 같은 방법으로 사각형 이어 그리기
 
@@ -39,11 +39,45 @@
 >>> t.forward(100)
 ```
 
-![turtle3](./images/turtle3.png)
+![turtle3](./images/10_turtle/turtle3.png)
 
 ```
 앞으로 이동 : forward, fd
 뒤로 이동 : backward, bk, back
 왼쪽으로 회전 : left, lt
 오른쪽으로 회전 : right, rt
+```
+
+### 반복문으로 사각형 그리기
+
+```py
+>>> import turtle as t
+
+>>> t.shape('turtle')
+>>> for i in range(4):
+	    t.forward(30)
+	    t.right(90)
+```
+
+![turtle4](./images/10_turtle/turtle4.png)
+
+## 오각형 그리기
+
+```py
+>>> import turtle as t
+
+>>> t.shape('turtle')
+>>> for i in range(5):
+	t.forward(50)
+	t.right(360 / 5)
+```
+
+![turtle5](./images/10_turtle/turtle5.png)
+
+## 원 그리기
+
+```py
+>>> import turtle as t
+>>> t.shape('turtle')
+>>> t.circle(60)
 ```
