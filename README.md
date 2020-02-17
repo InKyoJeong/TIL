@@ -7,6 +7,11 @@
 ### Git
 
 - [Git Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Git_Basic.md)
+- [커밋 메세지 작성 Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Commit_Message.md)
+
+### Algorithm
+
+- [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
 
 ### Javascript
 
