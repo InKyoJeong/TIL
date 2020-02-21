@@ -12,12 +12,12 @@
 
 IIFE 내부에서 정의된 변수는 외부 범위에서 접근이 불가능하다.
 
-```java
+```js
 (function() {
-  var aName = "Mary"
-})()
+  var aName = "Mary";
+})();
 
-aName // Uncaught ReferenceError: aName is not defined
+aName; // Uncaught ReferenceError: aName is not defined
 ```
 
 <br>
