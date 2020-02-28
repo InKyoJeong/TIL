@@ -12,4 +12,26 @@
 
 - `em` 단위를 쓰면 변환되는 픽셀값은 스타일을 지정한 요소의 폰트 크기를 곱한 값
 
-참고 : [https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984](https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984)
+<!-- 참고 : [https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984](https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984) -->
+
+## scroll-behavior Property
+
+> 부드러운 스크롤 기능을 추가할 수 있다.
+
+```html
+html { scroll-behavior: smooth; }
+```
+
+### 브라우저 지원상황
+
+- Chrome : 61.0
+- IE : Not supported
+- FireFox : 36.0
+- Safari : Not supported
+
+### Property Value
+
+- auto : Allows a straight jump "scroll effect" between elements within the scrolling box. This is default
+- smooth : Allows a smooth animated "scroll effect" between elements within the scrolling box.
+- initial : Sets this property to its default value.
+- inherit : Inherits this property from its parent element.
