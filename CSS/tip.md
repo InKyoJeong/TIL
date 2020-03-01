@@ -4,7 +4,7 @@
 
 ---
 
-## em과 rem차이
+## 1. em과 rem차이
 
 > em과 rem 모두 길이가 유연한 가변 단위로서, 디자인에 설정된 폰트 크기에 따라 브라우저에 의해 픽셀값으로 변환됨
 
@@ -14,7 +14,7 @@
 
 <!-- 참고 : [https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984](https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984) -->
 
-## scroll-behavior Property
+## 2. [scroll-behavior Property](https://www.w3schools.com/cssref/pr_scroll-behavior.asp)
 
 > 부드러운 스크롤 기능을 추가할 수 있다.
 
