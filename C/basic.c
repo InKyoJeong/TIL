@@ -33,3 +33,386 @@ int main(void)
 // A다음은 B입니다.
 // 2곱하기 3는 6입니다.
 // 따옴표를 출력하기: " 백슬래시 출력하기: \
+
+#include <stdio.h>
+int main(void)
+{
+    int number;  //정수형 변수선언
+    float grade; //실수형 변수선언
+
+    number = 10;
+    grade = 13.2343;
+
+    printf("%d %f\n", number, grade); //10 13.234300
+    //형식지정자와 변수의 자료형은 일치해야한다.
+
+    number = 20;            // 변수에 새로운 값을 대입하면 기존의 값이 지워지고 새로운 값이 저장된다.
+    printf("%d\n", number); //20
+    return 0;
+}
+
+//원의면적 구하기
+#include <stdio.h>
+int main(void)
+{
+    float radius;
+    float area;
+
+    printf("원의 반지름을 입력하세요: ");
+    scanf("%f", &radius);
+
+    area = 3.141592 * radius * radius;
+    printf("원의 면적은 %f입니다.", area);
+
+    return 0;
+}
+//원의 반지름을 입력하세요: 11
+//원의 면적은 380.132629입니다.
+
+// ----------------------------
+//기호상수
+#include <stdio.h>
+#define PI 3.141592
+
+int main(void)
+{
+    float radius;
+    float area;
+
+    printf("반지름을 입력: ");
+    scanf("%f", &radius);
+
+    area = PI * radius * radius;
+    printf("원의면적은 %f이다.", area);
+}
+//반지름을 입력: 10
+//원의면적은 314.159210이다.
+
+// ----------------------------
+//두수의 합 구하기
+#include <stdio.h>
+
+int main(void)
+{
+    int x = 100;
+    int y = 200;
+    int sum;
+    sum = x + y;
+
+    printf("두수의 합은 %d이다\n", sum);
+}
+
+// ----------------------------
+//형식지정자 , scanf함수
+#include <stdio.h>
+
+int main(void)
+{
+    //실수는 float와 double형이 있다. double형이 더 넓은 범위의실수를 표현한다.
+    //double형을 입력받는경우 형식지정자를 %lf로 한다.
+
+    double score;
+
+    printf("학점을 입력하세요: ");
+    scanf("%lf", &score);
+
+    printf("학점은 %f입니다.", score);
+    return 0;
+}
+//학점을 입력하세요: 4.3
+//학점은 4.300000입니다.
+
+// ----------------------------
+//입력받은 정수 합계 구하기
+#include <stdio.h>
+int main(void)
+{
+    int x;
+    int y;
+    int sum;
+
+    printf("첫번째 정수를 입력하세요: ");
+    scanf("%d", &x);
+
+    printf("두번째 정수를 입력하세요: ");
+    scanf("%d", &y);
+
+    sum = x + y;
+
+    printf("두 수의 합은 %d이다.", sum);
+}
+
+//세 수의 평균 구하기
+#include <stdio.h>
+int main(void)
+{
+    int x, y, z, sum, avg;
+
+    printf("첫번째 정수를 입력하세요: ");
+    scanf("%d", &x);
+
+    printf("두번째 정수를 입력하세요: ");
+    scanf("%d", &y);
+
+    printf("두번째 정수를 입력하세요: ");
+    scanf("%d", &z);
+
+    sum = x + y + z;
+    avg = sum / 3;
+    printf("세 수의 평균은 %d이다.", avg);
+}
+//첫번째 정수를 입력하세요: 10
+//두번째 정수를 입력하세요: 20
+//두번째 정수를 입력하세요: 100
+//세 수의 평균은 43이다.
+
+// ----------------------------
+//부호없는 정수
+#include <stdio.h>
+int main(void)
+{
+    unsigned short value;
+    value = 65535;
+    printf("%u", value);
+    return 0;
+    //unsigned키워드가 정수형 앞에 붙으면 변수가 0과 양의정수만 나타낸다.
+    //unsigned변수를 출력할 경우 형식지정자는 %u사용.
+}
+
+// ----------------------------
+//문자 입출력
+#include <stdio.h>
+int main(void)
+{
+    char initial;
+    char grade;
+
+    printf("이니셜 입력: ");
+    scanf(" %c", &initial);
+
+    printf("학점을 A~F중에 입력하세요: ");
+    scanf(" %c", &grade);
+
+    printf("%c의 성적은 %c이다.", initial, grade);
+
+    return 0;
+
+    // %c앞에 공백이 없으면 엔터키도 문자로 인식한다.
+}
+
+// ----------------------------
+//나머지연산자
+#include <stdio.h>
+int main(void)
+{
+    int remain;
+    int num;
+
+    printf("정수를 입력하세요: ");
+    scanf("%d", &num);
+
+    remain = num % 2;
+    printf("이것을 2로 나눈 나머지는 %d이다.", remain);
+    return 0;
+}
+// 정수를 입력하세요: 11
+// 이것을 2로 나눈 나머지는 1이다
+
+// 거스름돈 구하기
+#include <stdio.h>
+int main(void)
+{
+    int remain;
+    int money;
+    int price;
+
+    printf("받은 돈: ");
+    scanf("%d", &money);
+
+    printf("물건 가격: ");
+    scanf("%d", &price);
+
+    remain = (money - price);
+    printf("오천원: %d \n", remain / 5000);
+    printf("천원: %d \n", (remain % 5000) / 1000);
+    printf("오백원: %d \n", (remain % 5000 % 1000) / 500);
+    printf("백원: %d \n", (remain % 5000 % 1000 % 500) / 100);
+    return 0;
+}
+// 받은 돈: 10000
+// 물건 가격: 3400
+// 오천원: 1
+// 천원: 1
+// 오백원: 1
+// 백원: 1
+
+//---------------------
+// 명시적인형변환
+#include <stdio.h>
+int main(void)
+{
+    int i;
+    printf("%d \n", 3 / 2);         //1
+    printf("%f \n", 3.0 / 2);       //1.500000
+    printf("%f \n", (double)3 / 2); //1.500000
+
+    i = (int)1.4 + (int)1.3;
+    printf("%d\n", i); //2
+    return 0;
+}
+
+//---------------------
+// 홀짝구분하기
+#include <stdio.h>
+int main(void)
+{
+    int i;
+    printf("정수를 입력하세요: ");
+    scanf("%d", &i);
+
+    if (i % 2 == 0)
+    {
+        printf("짝수입니다.");
+    }
+    else
+    {
+        printf("홀수입니다.");
+    }
+    return 0;
+}
+
+// 큰수 판별하기
+#include <stdio.h>
+int main(void)
+{
+    int x, y;
+    printf("첫번째 정수: ");
+    scanf("%d", &x);
+
+    printf("두번째 정수: ");
+    scanf("%d", &y);
+
+    if (x > y)
+    {
+        printf("%d가 더 큰수다.", x);
+    }
+    else
+    {
+        printf("%d가 더 큰수다.", y);
+    }
+    return 0;
+}
+
+// 윤년 판별하기
+#include <stdio.h>
+int main(void)
+{
+    int year;
+
+    printf("년도를 입력하세요 : ");
+    scanf("%d", &year);
+
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+    {
+        printf("%d는 윤년이다.", year);
+    }
+    else
+    {
+        printf("%d는 윤년이 아니다", year);
+    }
+    return 0;
+}
+
+//성적에따라 학점 매기기
+#include <stdio.h>
+int main(void)
+{
+    int score;
+    printf("점수를 입력하세요 : ");
+    scanf("%d", &score);
+
+    if (score >= 90)
+    {
+        printf("학점 A");
+    }
+    else if (score >= 80)
+    {
+        printf("학점 B");
+    }
+    else if (score >= 70)
+    {
+        printf("학점 C");
+    }
+    else if (score >= 60)
+    {
+        printf("학점 D");
+    }
+    else
+    {
+        printf("학점 F");
+    }
+    return 0;
+}
+
+//계산기 만들기
+#include <stdio.h>
+int main(void)
+{
+    int x, y, result;
+    char cal;
+    printf("수식을 입력하세요 <예시: 5 / 2> :");
+    scanf("%d %c %d", &x, &cal, &y);
+
+    if (cal == '+')
+    {
+        result = x + y;
+    }
+    else if (cal == '-')
+    {
+        result = x - y;
+    }
+    else if (cal == '/')
+    {
+        result = x / y;
+    }
+    else if (cal == '*')
+    {
+        result = x * y;
+    }
+    else
+    {
+        printf("계산불가");
+    }
+
+    printf("결과: %d \n", result);
+    return 0;
+}
+
+// switch문으로 월의 날짜 구하기
+#include <stdio.h>
+int main(void)
+{
+    int days, month;
+
+    printf("달을입력하세요: ");
+    scanf("%d", &month);
+
+    switch (month)
+    {
+    case 2:
+        days = 28;
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        days = 30;
+        break;
+    default:
+        days = 31;
+        break;
+    }
+
+    printf("달의 일수는 %d이다.\n", days);
+    return 0;
+}

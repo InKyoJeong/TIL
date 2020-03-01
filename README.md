@@ -63,4 +63,4 @@
 
 ### C
 
-- [Basic](https://github.com/InKyoJeong/TIL/blob/master/C/basic.c)
+- [기초예제 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic.c)
