@@ -1,6 +1,6 @@
 //  Created by Inkyo on 2020/03/01.
 //  Copyright © 2020 Inkyo. All rights reserved.
-//
+// printf, scanf, if
 
 #include <stdio.h>
 
@@ -385,34 +385,5 @@ int main(void)
     }
 
     printf("결과: %d \n", result);
-    return 0;
-}
-
-// switch문으로 월의 날짜 구하기
-#include <stdio.h>
-int main(void)
-{
-    int days, month;
-
-    printf("달을입력하세요: ");
-    scanf("%d", &month);
-
-    switch (month)
-    {
-    case 2:
-        days = 28;
-        break;
-    case 4:
-    case 6:
-    case 9:
-    case 11:
-        days = 30;
-        break;
-    default:
-        days = 31;
-        break;
-    }
-
-    printf("달의 일수는 %d이다.\n", days);
     return 0;
 }
