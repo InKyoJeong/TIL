@@ -36,6 +36,10 @@
   - [클래스(Class), 상속](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
 - [IIFE (즉시실행 함수)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
 
+### React
+
+- [누구든지 하는 리액트](https://github.com/InKyoJeong/TIL/blob/master/React/basic.md)
+
 ### Python
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/Python/1_Basic.md)
@@ -64,4 +68,4 @@
 ### C
 
 - [기초 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic.c)
-- [반복문 연습 2](https://github.com/InKyoJeong/TIL/blob/master/C/basic2.c)
+- [반복문 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic2.c)
