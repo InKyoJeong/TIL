@@ -35,6 +35,8 @@
   - [생성자, Prototype](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor&prototype.md)
   - [클래스(Class), 상속](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
 - [IIFE (즉시실행 함수)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
+- ES6
+  - [비구조화 할당](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/destructuring.md)
 
 ### React
 

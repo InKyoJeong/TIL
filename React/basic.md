@@ -318,10 +318,24 @@ shouldComponentUpdate(nextProps, nextState) {
 
 이 함수는 기본적으로 `true` 를 반환한다. 우리가 따로 작성을 해주어서 조건에 따라 false 를 반환하면 해당 조건에는 render 함수를 호출하지 않습니다.
 
-<!-- #### componentWillUpdate
+#### componentDidUpdate
 
 ```js
-componentWillUpdate(nextProps, nextState) {
+componentDidUpdate(prevProps, prevState, snapshot) {
 
 }
-``` -->
+```
+
+이 API는 컴포넌트에서 `render()` 를 호출하고난 다음에 발생한다. 이 시점에선 this.props 와 this.state 가 바뀌어있다. 그리고 파라미터를 통해 이전의 값인 prevProps 와 prevState 를 조회 할 수 있다. 그리고, getSnapshotBeforeUpdate 에서 반환한 snapshot 값은 세번째 값으로 받아온다.
+
+### 컴포넌트 제거
+
+컴포넌트가 더 이상 필요하지 않게 되면 단 하나의 API 가 호출된다.
+
+#### componentWillUnmount
+
+```js
+componentWillUnmount() {
+  // 이벤트, setTimeout, 외부 라이브러리 인스턴스 제거
+}
+```
