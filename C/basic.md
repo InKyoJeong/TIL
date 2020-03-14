@@ -1,7 +1,6 @@
-//  Created by Inkyo on 2020/03/01.
-//  Copyright © 2020 Inkyo. All rights reserved.
-// printf, scanf, if
+## printf, scanf, if
 
+```c
 #include <stdio.h>
 
 int main(void)
@@ -33,7 +32,9 @@ int main(void)
 // A다음은 B입니다.
 // 2곱하기 3는 6입니다.
 // 따옴표를 출력하기: " 백슬래시 출력하기: \
+```
 
+```c
 #include <stdio.h>
 int main(void)
 {
@@ -50,7 +51,9 @@ int main(void)
     printf("%d\n", number); //20
     return 0;
 }
+```
 
+```c
 //원의면적 구하기
 #include <stdio.h>
 int main(void)
@@ -68,8 +71,9 @@ int main(void)
 }
 //원의 반지름을 입력하세요: 11
 //원의 면적은 380.132629입니다.
+```
 
-// ----------------------------
+```c
 //기호상수
 #include <stdio.h>
 #define PI 3.141592
@@ -87,8 +91,9 @@ int main(void)
 }
 //반지름을 입력: 10
 //원의면적은 314.159210이다.
+```
 
-// ----------------------------
+```c
 //두수의 합 구하기
 #include <stdio.h>
 
@@ -101,15 +106,19 @@ int main(void)
 
     printf("두수의 합은 %d이다\n", sum);
 }
+```
 
-// ----------------------------
-//형식지정자 , scanf함수
+### 형식지정자 , scanf함수
+
+- 실수는 `float`와 `double`형이 있다. double형이 더 넓은 범위의실수를 표현한다.
+- double형을 입력받는경우 형식지정자를 `%lf`로 한다.
+
+````c
 #include <stdio.h>
 
 int main(void)
 {
-    //실수는 float와 double형이 있다. double형이 더 넓은 범위의실수를 표현한다.
-    //double형을 입력받는경우 형식지정자를 %lf로 한다.
+
 
     double score;
 
@@ -122,7 +131,7 @@ int main(void)
 //학점을 입력하세요: 4.3
 //학점은 4.300000입니다.
 
-// ----------------------------
+```c
 //입력받은 정수 합계 구하기
 #include <stdio.h>
 int main(void)
@@ -141,7 +150,9 @@ int main(void)
 
     printf("두 수의 합은 %d이다.", sum);
 }
+````
 
+```c
 //세 수의 평균 구하기
 #include <stdio.h>
 int main(void)
@@ -165,27 +176,33 @@ int main(void)
 //두번째 정수를 입력하세요: 20
 //두번째 정수를 입력하세요: 100
 //세 수의 평균은 43이다.
+```
 
-// ----------------------------
-//부호없는 정수
+### 부호없는 정수
+
+- `unsigned`키워드가 정수형 앞에 붙으면 변수가 0과 **양의정수**만 나타낸다.
+- `unsigned`변수를 출력할 경우 형식지정자는 `%u`사용.
+
+```c
 #include <stdio.h>
 int main(void)
 {
-    unsigned short value;
-    value = 65535;
-    printf("%u", value);
-    return 0;
-    //unsigned키워드가 정수형 앞에 붙으면 변수가 0과 양의정수만 나타낸다.
-    //unsigned변수를 출력할 경우 형식지정자는 %u사용.
+unsigned short value;
+value = 65535;
+printf("%u", value);
+return 0;
+
 }
+```
 
-// ----------------------------
-//문자 입출력
+### 문자 입출력
+
+```c
 #include <stdio.h>
 int main(void)
 {
-    char initial;
-    char grade;
+char initial;
+char grade;
 
     printf("이니셜 입력: ");
     scanf(" %c", &initial);
@@ -198,15 +215,18 @@ int main(void)
     return 0;
 
     // %c앞에 공백이 없으면 엔터키도 문자로 인식한다.
-}
 
-// ----------------------------
-//나머지연산자
+}
+```
+
+### 나머지연산자
+
+```c
 #include <stdio.h>
 int main(void)
 {
-    int remain;
-    int num;
+int remain;
+int num;
 
     printf("정수를 입력하세요: ");
     scanf("%d", &num);
@@ -214,17 +234,20 @@ int main(void)
     remain = num % 2;
     printf("이것을 2로 나눈 나머지는 %d이다.", remain);
     return 0;
+
 }
 // 정수를 입력하세요: 11
 // 이것을 2로 나눈 나머지는 1이다
+```
 
+```c
 // 거스름돈 구하기
 #include <stdio.h>
 int main(void)
 {
-    int remain;
-    int money;
-    int price;
+int remain;
+int money;
+int price;
 
     printf("받은 돈: ");
     scanf("%d", &money);
@@ -238,6 +261,7 @@ int main(void)
     printf("오백원: %d \n", (remain % 5000 % 1000) / 500);
     printf("백원: %d \n", (remain % 5000 % 1000 % 500) / 100);
     return 0;
+
 }
 // 받은 돈: 10000
 // 물건 가격: 3400
@@ -245,30 +269,34 @@ int main(void)
 // 천원: 1
 // 오백원: 1
 // 백원: 1
+```
 
-//---------------------
-// 명시적인형변환
+### 명시적인형변환
+
+```c
 #include <stdio.h>
 int main(void)
 {
-    int i;
-    printf("%d \n", 3 / 2);         //1
-    printf("%f \n", 3.0 / 2);       //1.500000
-    printf("%f \n", (double)3 / 2); //1.500000
+int i;
+printf("%d \n", 3 / 2); //1
+printf("%f \n", 3.0 / 2); //1.500000
+printf("%f \n", (double)3 / 2); //1.500000
 
     i = (int)1.4 + (int)1.3;
     printf("%d\n", i); //2
     return 0;
-}
 
-//---------------------
+}
+```
+
+```c
 // 홀짝구분하기
 #include <stdio.h>
 int main(void)
 {
-    int i;
-    printf("정수를 입력하세요: ");
-    scanf("%d", &i);
+int i;
+printf("정수를 입력하세요: ");
+scanf("%d", &i);
 
     if (i % 2 == 0)
     {
@@ -279,15 +307,18 @@ int main(void)
         printf("홀수입니다.");
     }
     return 0;
-}
 
+}
+```
+
+```c
 // 큰수 판별하기
 #include <stdio.h>
 int main(void)
 {
-    int x, y;
-    printf("첫번째 정수: ");
-    scanf("%d", &x);
+int x, y;
+printf("첫번째 정수: ");
+scanf("%d", &x);
 
     printf("두번째 정수: ");
     scanf("%d", &y);
@@ -301,13 +332,16 @@ int main(void)
         printf("%d가 더 큰수다.", y);
     }
     return 0;
-}
 
+}
+```
+
+```c
 // 윤년 판별하기
 #include <stdio.h>
 int main(void)
 {
-    int year;
+int year;
 
     printf("년도를 입력하세요 : ");
     scanf("%d", &year);
@@ -321,15 +355,18 @@ int main(void)
         printf("%d는 윤년이 아니다", year);
     }
     return 0;
-}
 
+}
+```
+
+```c
 //성적에따라 학점 매기기
 #include <stdio.h>
 int main(void)
 {
-    int score;
-    printf("점수를 입력하세요 : ");
-    scanf("%d", &score);
+int score;
+printf("점수를 입력하세요 : ");
+scanf("%d", &score);
 
     if (score >= 90)
     {
@@ -352,16 +389,19 @@ int main(void)
         printf("학점 F");
     }
     return 0;
-}
 
+}
+```
+
+```c
 //계산기 만들기
 #include <stdio.h>
 int main(void)
 {
-    int x, y, result;
-    char cal;
-    printf("수식을 입력하세요 <예시: 5 / 2> :");
-    scanf("%d %c %d", &x, &cal, &y);
+int x, y, result;
+char cal;
+printf("수식을 입력하세요 <예시: 5 / 2> :");
+scanf("%d %c %d", &x, &cal, &y);
 
     if (cal == '+')
     {
@@ -386,4 +426,6 @@ int main(void)
 
     printf("결과: %d \n", result);
     return 0;
+
 }
+```

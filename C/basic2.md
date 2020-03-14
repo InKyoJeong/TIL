@@ -1,6 +1,8 @@
-//switch, while, do-while, for
+## switch, while, do-while, for
 
-// switch문으로 월의 날짜 구하기
+### switch문으로 월의 날짜 구하기
+
+```c
 #include <stdio.h>
 int main(void)
 {
@@ -28,7 +30,9 @@ int main(void)
     printf("달의 일수는 %d이다.\n", days);
     return 0;
 }
+```
 
+```c
 // 0부터 9까지 출력하기
 #include <stdio.h>
 int main(void)
@@ -42,7 +46,9 @@ int main(void)
     }
     return 0;
 }
+```
 
+```c
 // 1부터 10까지 더하기
 #include <stdio.h>
 int main(void)
@@ -57,7 +63,9 @@ int main(void)
     printf("%d", sum);
     return 0;
 }
+```
 
+```c
 // 팩토리얼 구하기
 #include <stdio.h>
 int main(void)
@@ -76,7 +84,9 @@ int main(void)
     printf("%d", result);
     return 0;
 }
+```
 
+```c
 // 구구단 3단 출력하기
 #include <stdio.h>
 int main(void)
@@ -90,7 +100,9 @@ int main(void)
 
     return 0;
 }
+```
 
+```c
 // 카운트다운
 #include <stdio.h>
 int main(void)
@@ -109,7 +121,9 @@ int main(void)
 
     return 0;
 }
+```
 
+```c
 // 3의 배수의 합
 #include <stdio.h>
 int main(void)
@@ -129,8 +143,11 @@ int main(void)
 
     return 0;
 }
+```
 
-// do-while
+### do-while
+
+```c
 #include <stdio.h>
 int main(void)
 {
@@ -145,12 +162,14 @@ int main(void)
 
     return 0;
 }
+```
 
+```c
 #include <stdio.h>
 int main(void)
 {
-    int n = 1;
-    int sum = 0;
+int n = 1;
+int sum = 0;
 
     while (n)
     { //0이 아니면 계속반복
@@ -159,15 +178,18 @@ int main(void)
         sum += n;
     }
     return 0;
-}
 
-//---------------------------------
-// for문
+}
+```
+
+### for문
+
+```c
 #include <stdio.h>
 int main(void)
 {
-    int i, limit;
-    int num = 0;
+int i, limit;
+int num = 0;
 
     printf("계산할 숫자를 입력하세요: ");
     scanf("%d", &limit);
@@ -178,16 +200,19 @@ int main(void)
     }
     printf("정수의 합은 %d이다.\n", num);
     return 0;
-}
 
+}
+```
+
+```c
 // 1^2 + 2^2 + 3^3 ... 수열 구하기
 //숫자n의 값을 입력하라: 10
 //결과는 385이다.
 #include <stdio.h>
 int main(void)
 {
-    int i, n;
-    int result = 0;
+int i, n;
+int result = 0;
 
     printf("숫자n의 값을 입력하라: ");
     scanf("%d", &n);
@@ -197,15 +222,18 @@ int main(void)
     }
     printf("결과는 %d이다.\n", result);
     return 0;
-}
 
+}
+```
+
+```c
 // 약수구하기
 // 양의 정수를 입력: 100
 // 1 2 4 5 10 20 25 50 100
 #include <stdio.h>
 int main(void)
 {
-    int x, i;
+int x, i;
 
     printf("양의 정수를 입력: ");
     scanf("%d", &x);
@@ -218,77 +246,81 @@ int main(void)
         }
     }
     return 0;
-}
 
-// 중첩 for문
-//**********
-//**********
-//**********
-//**********
-//**********
+}
+```
+
+### 중첩 for문
+
+```c
+//*********
+//*********
+//*********
+//*********
+//*********
+
 #include <stdio.h>
 int main(void)
 {
     int i, j;
-    for (i = 0; i < 5; i++)
-    {
-        for (j = 0; j < 10; j++)
-        {
-            printf("*");
+    for (i = 0; i < 5; i++){
+        for (j = 0; j < 10; j++){
+        printf("\*");
         }
-        printf("\n");
+    printf("\n");
     }
     return 0;
 }
+```
 
+```c
 // 구구단 전부출력하기
 #include <stdio.h>
 int main(void)
 {
-    int i, j;
-    for (i = 2; i < 10; i++)
-    {
-        for (j = 1; j < 10; j++)
-        {
+        int i, j;
+        for (i = 2; i < 10; i++){
+            for (j = 1; j < 10; j++){
             printf("%d*%d=%2d ", i, j, j * i); // %2d는 정수출력할때 2칸사용, 오른쪽정렬
-        }
+            }
         printf("\n");
-    }
-    return 0;
+        }
+        return 0;
 }
+```
 
+```c
 // 주사위의합이 7인경우구하기
-// 주사위A 	 주사위B
-// 1 		 6
-// 2 		 5
-// 3 		 4
-// 4 		 3
-// 5 		 2
-// 6 		 1
+// 주사위A 주사위B
+// 1 6
+// 2 5
+// 3 4
+// 4 3
+// 5 2
+// 6 1
 #include <stdio.h>
 int main(void)
 {
     int i, j;
     printf("주사위A \t 주사위B \n");
-    for (i = 1; i <= 6; i++)
-    {
-        for (j = 1; j <= 6; j++)
-        {
-            if (i + j == 7)
-            {
-                printf("%d \t\t %d\n", i, j);
+    for (i = 1; i <= 6; i++){
+        for (j = 1; j <= 6; j++){
+            if (i + j == 7){
+            printf("%d \t\t %d\n", i, j);
             }
         }
     }
     return 0;
 }
+```
 
+```c
 // continue문으로 3의배수 제외하고 출력하기
 // 1 2 4 5 7 8
 #include <stdio.h>
 int main(void)
 {
-    int i;
+int i;
 
     for (i = 0; i < 10; i++)
     {
@@ -299,4 +331,6 @@ int main(void)
         printf("%d ", i);
     }
     return 0;
+
 }
+```
