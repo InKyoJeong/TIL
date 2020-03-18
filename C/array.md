@@ -152,3 +152,51 @@ int main(void){
     return 0;
 }
 ```
+
+#### 문자열 입출력
+
+```c
+//Is Seoul the Capital city of Korea?(y or n)n
+//틀렸음
+
+#include <stdio.h>
+int main(void){
+    char question[] = "Is Seoul the Capital city of Korea?(y or n)";
+    char answer[100];
+
+    printf("%s", question);
+    scanf("%s", answer);
+
+    if(answer[0] == 'y'){
+        printf("맞았음\n");
+    }
+    else{
+        printf("틀렸음\n");
+    }
+    return 0;
+}
+```
+
+배열의 이름은 바로 배열의 주소이기 때문에 문자열의 경우 scanf("%s", &answer); 같이 하면 안된다. (`&`를 넣지않음)
+
+#### 문자열 길이 구하기
+
+```c
+// 문자열을 입력하세요 : university
+// 문자열의 길이 : 10
+
+#include <stdio.h>
+int main(void){
+    char n[10], i;
+
+    printf("문자열을 입력하세요 : ");
+    scanf("%s", n);
+
+    i = 0;
+    while( n[i] != '\0')
+        i++;
+
+    printf("문자열의 길이 : %d", i);
+    return 0;
+}
+```

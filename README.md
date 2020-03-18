@@ -68,4 +68,5 @@
 ### C
 
 - [기초 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic.md)
-- [반복문 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic2.md)
+- [반복문](https://github.com/InKyoJeong/TIL/blob/master/C/for.md)
+- [배열](https://github.com/InKyoJeong/TIL/blob/master/C/array.md)
