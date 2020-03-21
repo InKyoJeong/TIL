@@ -19,7 +19,7 @@
 
 ### Operating System
 
-- [Intro](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/intro.md)
+- [Intro](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
 
 ### Javascript
 

@@ -110,3 +110,30 @@ int is_prime(int n){
     return 1;
 }
 ```
+
+### 지역변수와 전역변수
+
+```c
+#include <stdio.h>
+
+int x = 1;  // 전역변수
+
+void sub(void){
+    int y = 2 ;     // 지역변수
+    printf("x = %d\n", x);
+    printf("y = %d\n", y);
+//  printf("z = %d\n", z);    //선언되지않은 식별자
+}
+int main(void){
+    int z = 3;      // 지역변수
+    printf("x = %d\n", x);
+//  printf("y = %d\n", y);    //선언되지않은 식별자
+    printf("z = %d\n", z);
+
+    return 0;
+}
+```
+
+- 전역변수는 컴파일러에 의해 자동적으로 0으로 초기화 된다.
+- 지역변수는 자동으로 초기화되지않으며 초깃값을 정하지않으면 쓰레기값이 저장된다.
+- 지역변수는 블록이 시작될때 생성되고 블록 끝에서 소멸된다.
