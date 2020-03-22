@@ -65,4 +65,17 @@ friends.map(current => {
 // friends.map(current => current + "Test"); 와 같다.
 ```
 
+### Array.concat()
+
+> concat 메서드는 인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환한다.
+
+```js
+const x = ["A", "B", "C"];
+const y = ["D", "E"];
+
+const z = x.concat(y);
+
+console.log(z); // (5) ["A", "B", "C", "D", "E"]
+```
+
 <!-- #### Array.filter() -->
