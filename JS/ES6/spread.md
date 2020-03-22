@@ -1,6 +1,6 @@
 ## Spread Operator(전개 연산자)
 
-`...`은 **전개 연산자(spread operator)**라고 한다. 반복가능한 객체를 반환하는 표현식 앞에 표기하며, 반복 가능한 객체를 배열 리터럴 또는 함수의 인수 목록으로 펼칠 수 있다.
+`...`은 **전개 연산자(spread operator)** 라고 한다. 반복가능한 객체를 반환하는 표현식 앞에 표기하며, 반복 가능한 객체를 배열 리터럴 또는 함수의 인수 목록으로 펼칠 수 있다.
 
 ```js
 console.log([..."ABC"]); // (3) ["A", "B", "C"]
@@ -37,7 +37,7 @@ const allDays = [day1, day2];
 console.log(allDays); // ▶(2) [Array(3), Array(3)]
 ```
 
-배열을 없애고 콘텐츠만 얻으려면? **_Spread Operator_**는 배열로부터 아이템을 가져와서 `Unpack`한다.
+배열을 없애고 콘텐츠만 얻으려면? **_Spread Operator_** 는 배열로부터 아이템을 가져와서 `Unpack`한다.
 
 ```js
 const day1 = ["Mon", "Tues", "Wed"];
@@ -48,7 +48,7 @@ const allDays = [...day1, ...day2];
 console.log(allDays); //["Mon", "Tues", "Wed", "Thu", "Fri", "Sat"]
 ```
 
-이러면 두배열의 콘텐츠를 한 배열에 가지게 된다. 이게바로 **_Spread Operator_**이다.
+이러면 두배열의 콘텐츠를 한 배열에 가지게 된다. 이게바로 **_Spread Operator_** 이다.
 
 #### push 메서드
 
@@ -89,7 +89,7 @@ const two = { a, b };
 console.log(two); // ▶ {a: {…}, b: {…}}
 ```
 
-이렇게 하면 **두개의 Object가 있는 하나의 Object**를 얻게된다. 따라서, 두개의 object를 합치는 two객체를 만들고 싶다면 **_Spread Operator_**를 사용한다.
+이렇게 하면 **두개의 Object가 있는 하나의 Object**를 얻게된다. 따라서, 두개의 object를 합치는 two객체를 만들고 싶다면 **_Spread Operator_** 를 사용한다.
 
 ```js
 const a = {
@@ -116,4 +116,4 @@ const info = (something, args) => console.log(...args);
 
 이렇게 하면 누군가 제공한 *Argument*를 `console.log`할 수 있다.
 
-> 전개 연산자는 React프로젝트에서 자주사용한다. 두개의 Object를 병합할 일이 생기때문 , 어떤 대상의 복사본을 만들고 싶을 수도 있고, 어떤 한 콘텐츠를 다른 배열에 넣고 싶을수도 있고..
+> 전개 연산자는 React프로젝트에서 자주 사용한다. 두개의 Object를 병합하거나, 어떤 대상의 복사본을 만들거나, 어떤 한 콘텐츠를 다른 배열에 넣는 등의 상황에 사용한다.
