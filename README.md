@@ -70,3 +70,5 @@
 - [기초 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic.md)
 - [반복문](https://github.com/InKyoJeong/TIL/blob/master/C/for.md)
 - [배열](https://github.com/InKyoJeong/TIL/blob/master/C/array.md)
+- [함수](https://github.com/InKyoJeong/TIL/blob/master/C/function.md)
+- [포인터](https://github.com/InKyoJeong/TIL/blob/master/C/pointer.md)
