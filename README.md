@@ -13,14 +13,6 @@
 
 - [CSS Tip](https://github.com/InKyoJeong/TIL/blob/master/CSS/tip.md)
 
-### Algorithm
-
-- [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
-
-### Operating System
-
-- [Intro](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
-
 ### Javascript
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/Basic.md)
@@ -40,6 +32,26 @@
 ### React
 
 - [누구든지 하는 리액트](https://github.com/InKyoJeong/TIL/blob/master/React/basic.md)
+
+### C
+
+- [기초 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic.md)
+- [반복문](https://github.com/InKyoJeong/TIL/blob/master/C/for.md)
+- [배열](https://github.com/InKyoJeong/TIL/blob/master/C/array.md)
+- [함수](https://github.com/InKyoJeong/TIL/blob/master/C/function.md)
+- [포인터](https://github.com/InKyoJeong/TIL/blob/master/C/pointer.md)
+
+### Algorithm
+
+- [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
+
+### Operating System
+
+- [Intro](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
+
+### Database
+
+- [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/Intro.md)
 
 ### Python
 
@@ -65,11 +77,3 @@
 - [함수](https://github.com/InKyoJeong/TIL/blob/master/Python/20_function.md)
 - [재귀호출 / 람다표현식](https://github.com/InKyoJeong/TIL/blob/master/Python/21_recursive.md)
 - [클로저](https://github.com/InKyoJeong/TIL/blob/master/Python/22_closure.md)
-
-### C
-
-- [기초 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic.md)
-- [반복문](https://github.com/InKyoJeong/TIL/blob/master/C/for.md)
-- [배열](https://github.com/InKyoJeong/TIL/blob/master/C/array.md)
-- [함수](https://github.com/InKyoJeong/TIL/blob/master/C/function.md)
-- [포인터](https://github.com/InKyoJeong/TIL/blob/master/C/pointer.md)
