@@ -47,7 +47,7 @@
 
 ### Operating System
 
-- [Intro](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
+- [운영체제](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
 
 ### Database
 
