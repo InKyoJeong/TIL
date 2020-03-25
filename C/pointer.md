@@ -289,3 +289,145 @@ int main(void)
 배열은 원본이 전달되는 것처럼 보인다.
 
 배열의 이름 a는 배열을 가리키는 주소. 따라서 배열 a를 update_array()에 전달하면 배열의 주소가 변수 x에 복사되어 원본이 전달되는 것과 마찬가지이다. 주소를 통해 요소들의 값을 변경할 수 있기 때문이다.
+
+### 배열 원소의 합 계산 (배열버전)
+
+```c
+#include <stdio.h>
+int get_sum(int a[], int n);
+
+int main(void)
+{
+    int data[] = {10,20,30,40,50};
+    int value;
+
+    value = get_sum(data, 5);
+
+    printf("%d \n", value);
+    return 0;
+}
+
+int get_sum(int a[], int n)
+{
+    int i;
+    int sum =0;
+
+    for(i =0; i<n; i++){
+        sum += a[i];
+
+    }
+    return sum;
+}
+//150
+```
+
+### 배열 원소의 합 계산 (포인터버전)
+
+```c
+#include <stdio.h>
+int get_sum(int *p, int n);
+
+int main(void)
+{
+    int data[] = {10,20,30,40,50};
+    int value;
+
+    value = get_sum(data, 5);
+
+    printf("%d \n", value);
+    return 0;
+}
+
+int get_sum(int *p, int n)
+{
+    int i;
+    int sum =0;
+
+    for(i =0; i<n; i++){
+        sum += *(p+i);
+
+    }
+    return sum;
+}
+//150
+```
+
+### 함수포인터
+
+> 포인터는 변수뿐만 아니라 함수도 가리킬 수 있다.
+
+- 예제
+
+```c
+#include <stdio.h>
+int get_min(int, int);
+int main(void)
+{
+    int n1, n2, result;
+    int(*pf)(int, int);     //함수포인터 선언
+
+    printf("첫번째값: ");
+    scanf("%d", &n1);
+    printf("두번째값: ");
+    scanf("%d", &n2);
+
+    pf = get_min;       //함수포인터에 get_min()함수의 주소대입
+    result = pf(n1,n2);     //원칙적으로 (*pf)(n1,n2)지만 *을 생략해도됨
+
+    printf("더 작은값: %d입니다.\n", result);
+
+    return 0;
+}
+
+int get_min(int a, int b)
+{
+    if( a<b){
+        return a;
+    }else{
+        return b;
+    }
+}
+//첫번째값: 44
+//두번째값: 22
+//더 작은값: 22입니다.
+```
+
+### 함수포인터 용도
+
+> 입력에따라 서로 다른 함수를 호출할때 함수포인터를 사용하면 편리하게 작성할수있다.
+
+```c
+#include <stdio.h>
+void menu1(void);
+void menu2(void);
+void menu3(void);
+
+int main(void)
+{
+    int choice;
+
+    int (*pf[3])(void);
+
+    pf[0] = menu1;
+    pf[1] = menu2;
+    pf[2] = menu3;
+
+    printf("메뉴를 입력하세요 (0:김밥, 1:라면, 2:냉면)");
+    scanf("%d", &choice);
+
+    if(choice >= 0 && choice <= 2){
+        pf[choice]();       //함수포인터를 사용하지않았으면 if-esle문이나 switch문을 사용했어야함
+    }
+    return 0;
+}
+
+void menu1(void){
+    printf("김밥");
+}
+void menu2(void){
+    printf("라면");
+}
+void menu3(void){
+    printf("냉면");
+}
+```
