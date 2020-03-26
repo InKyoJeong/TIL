@@ -40,6 +40,7 @@
 - [배열](https://github.com/InKyoJeong/TIL/blob/master/C/array.md)
 - [함수](https://github.com/InKyoJeong/TIL/blob/master/C/function.md)
 - [포인터](https://github.com/InKyoJeong/TIL/blob/master/C/pointer.md)
+- [문자열함수](https://github.com/InKyoJeong/TIL/blob/master/C/char.md)
 
 ### Algorithm
 

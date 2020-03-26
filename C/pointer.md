@@ -431,3 +431,125 @@ void menu3(void){
     printf("냉면");
 }
 ```
+
+## 문자열과 포인터
+
+### 포인터로 문자열 가리키기
+
+```c
+char s[ ] = "HelloWorld";       //배열로 문자열을 초기화해서 저장
+
+s : H e l l o W o r l d \0      //데이터세그먼트(값을 변경할 수 있는 메모리영역)
+```
+
+```c
+char *p = "HelloWorld";     //포인터를 정의하고 문자열의 주소로 포인터를 초기화
+
+p
+데이터 세그먼트(값을 변경할 수 있는 메모리 영역)
+
+H e l l o W o r l \0
+텍스트 세그먼트(값을 읽기만 하고 변경할 수 없는 메모리 영역)
+```
+
+- 차이점
+
+```c
+char s[ ] = "HelloWorld";
+s = "Goodbye";      // 실행오류
+```
+
+```c
+char *p = "HelloWorld";
+p = "Goodbye";  //"Goodbye"가 저장된 주소로 포인터의 값을 변경함
+```
+
+포인터 변수 p는 데이터 세그먼트에 있으므로 값을 변경할 수 있다. 따라서 다른 문자열 상수의 주소를 p에 저장할 수 있다. 또한 배열 s에는 새로운 문자열을 저장할 수 있다.
+
+```c
+char s[] = "HelloWorld";
+s[0] = 'a';     // 가능함
+```
+
+```c
+char *p = "HelloWorld";
+p[0] = 'a'      //실행오류. p가 가리키는 공간은 변경불가
+```
+
+### 여러개의 문자열 저장하기
+
+```c
+char s[3][6] = {
+    "init",
+    "add",
+    "push"
+};
+
+printf("%s", s[1]);     //add
+```
+
+포인터의 배열을 사용하여 여러개의 문자열을 저장할 수도 있다.
+
+```c
+int main(void)
+{
+    char *p[3] = {"January", "February", "March"};
+    int i;
+
+    for(i = 0; i < 3; i++){
+        printf("%d월은 %s입니다.\n", i, p[i]);
+    }
+    return 0;
+}
+// 0월은 January입니다.
+// 1월은 February입니다.
+// 2월은 March입니다.
+```
+
+#### 대소문자,숫자 포함된 암호입력받기
+
+```c
+// 암호를 생성하시오: 123456
+// 숫자,소문자,대문자를 섞어서 암호를 다시 만드세요!
+// 암호를 생성하시오: abcdef
+// 숫자,소문자,대문자를 섞어서 암호를 다시 만드세요!
+// 암호를 생성하시오: ABCDEF
+// 숫자,소문자,대문자를 섞어서 암호를 다시 만드세요!
+// 암호를 생성하시오: abCDe3
+// 적절한 암호입니다.
+
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+    int i;
+    char password[10];
+    int is_number = 0;
+    int is_lower = 0;
+    int is_upper = 0;
+
+
+
+    while(1){
+        printf("암호를 생성하시오: ");
+        scanf(" %s", password);
+        for(i = 0; i < strlen(password); i++){
+            if(password[i] >= '0' && password[i] <= '9'){
+                is_number = 1;
+            }else if(password[i] >= 'a' && password[i] <= 'z'){
+                is_lower = 1;
+            }else if(password[i] >= 'A' && password[i] <= 'Z'){
+                is_upper = 1;
+            }
+        }
+
+        if((is_number == 1) && (is_upper == 1) && (is_lower == 1)){
+            printf("적절한 암호입니다.");
+            break;
+        }else{
+            printf("숫자,소문자,대문자를 섞어서 암호를 다시 만드세요! ");
+        }
+    }
+    return (0);
+}
+```

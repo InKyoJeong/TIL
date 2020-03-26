@@ -1,4 +1,4 @@
-## Spread Operator(전개 연산자)
+## 전개 연산자 (Spread Operator)
 
 `...`은 **전개 연산자(spread operator)** 라고 한다. 반복가능한 객체를 반환하는 표현식 앞에 표기하며, 반복 가능한 객체를 배열 리터럴 또는 함수의 인수 목록으로 펼칠 수 있다.
 
@@ -37,7 +37,7 @@ const allDays = [day1, day2];
 console.log(allDays); // ▶(2) [Array(3), Array(3)]
 ```
 
-배열을 없애고 콘텐츠만 얻으려면? **_Spread Operator_** 는 배열로부터 아이템을 가져와서 `Unpack`한다.
+**_Spread Operator_** 는 배열로부터 아이템을 가져와서 `Unpack`한다. 따라서 배열을 없애고 콘텐츠만 얻으려면 다음과 같이 한다.
 
 ```js
 const day1 = ["Mon", "Tues", "Wed"];
@@ -89,7 +89,7 @@ const two = { a, b };
 console.log(two); // ▶ {a: {…}, b: {…}}
 ```
 
-이렇게 하면 **두개의 Object가 있는 하나의 Object**를 얻게된다. 따라서, 두개의 object를 합치는 two객체를 만들고 싶다면 **_Spread Operator_** 를 사용한다.
+이렇게 하면 **두개의 Object가 있는 하나의 Object**를 얻게된다. 따라서, 두개의 object를 합치는 _two_ 객체를 만들고 싶다면 **_Spread Operator_** 를 사용한다.
 
 ```js
 const a = {
