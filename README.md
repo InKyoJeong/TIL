@@ -15,6 +15,7 @@
 
 ### Javascript
 
+- [JavaScript 동작원리](https://github.com/InKyoJeong/TIL/blob/master/JS/js-work.md)
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/Basic.md)
 - [Array](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
 - [Hoisting](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
