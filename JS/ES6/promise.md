@@ -1,7 +1,5 @@
 ## 프로미스(Promise)
 
-<hr>
-
 ```js
 function say(callback) {
   setTimeout(function() {
@@ -96,7 +94,7 @@ _then_ 메서드에 두 번째 인수로 실패 콜백함수를 지정할 수 �
 
 위의 **_then/catch_** 예시를 아래와 같이 수정할 수 있다.
 
-```js{13-18}
+```js
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
     const input = parseInt(prompt("10미만 숫자를 입력하시오"));
@@ -161,7 +159,7 @@ buySomething(1000)
 
 _then_ 이나 _catch_ 에서 다시 다른 _then_ 이나 _catch_ 를 붙일 수 있다. 이전 _then_ 의 return값을 다음 _then_ 의 매개변수로 넘긴다. 프로미스를 return한 경우 프로미스가 수행된 후 다음 _then_ 또는 _catch_ 가 호출된다.
 
-```js{21-28}
+```js
 function buySomething(nowMoney) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -221,7 +219,7 @@ Promise.all(iterable);
 
 - **_iterable_** : Array와 같이 순회(반복) 가능한(iterable) 객체. 예를 들어 **Promise**객체가 요소로 들어있는 배열을 넘기면 **Promise.all** 메서드는 그 안의 요소로 들어있는 모든 **Promise** 객체를 병렬로 실행한다.
 
-```js{1,4,7,10,16-26}
+```js
 function buySomething(name, nowMoney) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
