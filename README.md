@@ -15,7 +15,6 @@
 
 ### Javascript
 
-- [JavaScript 동작원리](https://github.com/InKyoJeong/TIL/blob/master/JS/js-work.md)
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/Basic.md)
 - [Array](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
 - [Hoisting](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
@@ -31,6 +30,7 @@
   - [화살표 함수 (Arrow Function)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/arrow.md)
   - [비구조화 할당 (Object Destructuring)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/destructuring.md)
   - [전개 연산자 (Spread Operator)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/spread.md)
+  - [프로미스 (Promise)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/promise.md)
 
 ### React
 
