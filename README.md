@@ -31,6 +31,7 @@
   - [비구조화 할당 (Object Destructuring)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/destructuring.md)
   - [전개 연산자 (Spread Operator)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/spread.md)
   - [프로미스 (Promise)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/promise.md)
+  - [async/await](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/async-await.md)
 
 ### React
 
