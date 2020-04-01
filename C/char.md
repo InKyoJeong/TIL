@@ -147,3 +147,47 @@ int main(void)
 //두번째 문자를 입력하세요: asdf
 //문자열이 일치
 ```
+
+### 문자열 토큰 분리
+
+`strtok()`를 사용하면 문장을 토큰으로 분리할 수 있다. 토큰이란 문법적으로 더 이상 나눌 수 없는 기본적인 언어 요소이다.
+
+나머지 토큰들을 계속해서 읽으려면 `s` 대신 `NULL`을 넣는다. 즉 나머지 토큰들은 연속적으로 `strtok(NULL, " ")` 호출로 추출된다.
+
+```c
+char s [] = "your name is.";
+char *t1, *t2, *t3, *t4;
+
+t1 = strtok(s, " ");    //첫번째 토큰: "your" 반환  (분리자는 스페이스)
+t2 = strtok(NULL, " "); //두번째 토큰: "name" 반환
+t3 = strtok(NULL, " "); //세번째 토큰: "is." 반환
+t4 = strtok(NULL, " "); //NULL반환
+```
+
+#### 토큰 분리 예제
+
+```c
+//토큰: Hi
+//토큰: I
+//토큰: like
+//토큰: apples
+
+#include <string.h>
+#include <stdio.h>
+
+char s[] = "Hi, I like apples";
+
+char seps[] = " ,\t\n";     //분리자는 스페이스,쉼표,탭,줄바꿈
+char *token;
+
+int main(void){
+    token = strtok(s, seps);
+
+    while(token != NULL)
+    {
+        printf("토큰: %s\n", token);
+        token = strtok(NULL, seps);
+    }
+    return 0;
+}
+```

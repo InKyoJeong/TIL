@@ -34,11 +34,13 @@ makeRequest("Google")
   .catch(error => {
     console.log(error);
   });
+```
 
-// Making Request to Google
-// Response Received
-// Processing response
-// Extra Information + Google, Hi
+```
+Making Request to Google
+Response Received
+Processing response
+Extra Information + Google, Hi
 ```
 
 에러를 받기위해 `makeRequest('Google').then(...)` 이부분을 `makeRequest('Facebook').then(...)` 으로 바꿔보면 이렇게 출력된다.
@@ -48,7 +50,9 @@ Making Request to Facebook
 It's not Google
 ```
 
-이번에는 위의 코드를 _async/await_ 으로 바꿔보자.
+<br>
+
+이번에는 위의 코드를 **_async/await_** 으로 바꿔보자.
 
 ```js
 function makeRequest(company) {
