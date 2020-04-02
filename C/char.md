@@ -191,3 +191,26 @@ int main(void){
     return 0;
 }
 ```
+
+### 문자열 수치변환
+
+문자열을 수치값으로 바꿀때는 `sscanf()`와 `sprintf()`를 사용한다. `sscanf()`는 키보드대신 문자열에서 입력받는다. `sprintf()`는 모니터로 출력하는 대신 문자열로 출력한다.
+
+```c
+#include <stdio.h>
+int main(void)
+{
+    char s1[] = "100";
+    char s2[30];
+    int value;
+
+    sscanf(s1, "%d", &value);   // s1에서 "%d" 형식으로 읽어 value에 저장. 문자열->수치로 변환
+    printf("%d\n", value);
+    sprintf(s2, "%d", value);   // value에 저장된 값을 문자열로 변환해서 s2에 저장. 수치->문자열로 변환
+    printf("%s\n", s2);
+    return 0;
+}
+//100
+//100
+
+```
