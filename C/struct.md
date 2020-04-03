@@ -206,3 +206,98 @@ int main(void)
 // 나이=25 이름=아이유 학점=4.300000
 // 나이=25 이름=아이유 학점=4.300000
 ```
+
+### 공용체
+
+구조체는 각 멤버가 독립된 공간을 할당받는 반면 공용체는 메모리공간을 여러 멤버가 공유한다.
+
+```c
+union test2{
+    char a;
+    short b;
+    int c;
+}
+```
+
+공용체에서도 멤버를 참조하려면 `.`연산자를 사용한다.
+
+### 열거형
+
+열거형은 변수가 가질수 있는 값을 하나씩 나열해놓은 자료형이다.
+
+```c
+enum colors {white, red, blue, purple, yellow};
+```
+
+각 기호상수에 구체적 값을지정할 수도 있다. 일부만 지정해도 된다.
+
+```c
+enum colors {
+    white=1, red=2, blue=3, purple=4, yellow=5
+};
+```
+
+열거형도 구조체와 마찬가지로 어떤 틀만 정의한 것이다. 실제로 변수를 생성해야 값을 저장할 수 있다.
+
+```c
+enum colors { white, red, blue, purple, yellow};
+enum colors c;
+c = white;
+```
+
+#### 열거형 예제
+
+```c
+#include <stdio.h>
+
+enum days {
+    SUN=0, MON=1, TUE=2, WED=3, THU=4, FRI=5, SAT=6
+};
+
+char *days_name[] = {
+    "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"
+};
+
+int main(void){
+    enum days d;
+
+    d = MON;
+    printf("%d번째 요일은 %s입니다\n", d, days_name[d]);
+
+    return 0;
+}
+
+//1번째 요일은 monday입니다
+```
+
+### typedef
+
+자신이 필요한 자료형을 정의하여 사용할 수 있다.
+
+```c
+struct point{
+    int x;
+    int y;
+}
+```
+
+구조체를 새로운 타임으로 정의할 수 있다.
+
+```c
+typedef struct point POINT;
+```
+
+구조체 선언과 `typedef`를 같이 사용할 수 있다.
+
+```c
+typedef struct point{
+    int x;
+    int y;
+} POINT;
+```
+
+이제 point구조체 변수를 생성하려면 이렇게 할 수 있다.
+
+```
+POINT a, b;
+```

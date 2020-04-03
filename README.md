@@ -46,6 +46,7 @@
 - [포인터](https://github.com/InKyoJeong/TIL/blob/master/C/pointer.md)
 - [문자열함수](https://github.com/InKyoJeong/TIL/blob/master/C/char.md)
 - [구조체](https://github.com/InKyoJeong/TIL/blob/master/C/struct.md)
+- [파일 입출력](https://github.com/InKyoJeong/TIL/blob/master/C/file.md)
 
 ### Algorithm
 
