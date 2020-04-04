@@ -41,7 +41,7 @@ console.log(whatisShift); // 1
 ```js
 let posts = ["Hi", "Hello", "Bye"];
 
-posts.forEach(post => console.log(post));
+posts.forEach((post) => console.log(post));
 
 // Hi
 // Hello
@@ -58,7 +58,7 @@ const friends = ["AAA", "BBB", "CCC", "DDD"];
 friends;
 // ["AAA","BBB","CCC","DDD"]
 
-friends.map(current => {
+friends.map((current) => {
   return current + "Test"; //["AAATest", "BBBTest", "CCCTest", "DDDTest"]
 });
 
@@ -76,6 +76,15 @@ const y = ["D", "E"];
 const z = x.concat(y);
 
 console.log(z); // (5) ["A", "B", "C", "D", "E"]
+```
+
+### Array.join()
+
+> 배열의 모든 요소값을 문자열로 바꾼후에 인수로 받은 문자로 연결해서 반환한다.
+
+```js
+const x = ["AA", "BB", "CC"];
+x.join("-"); // "AA-BB-CC"
 ```
 
 <!-- #### Array.filter() -->
