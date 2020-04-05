@@ -48,6 +48,7 @@
 - [문자열함수](https://github.com/InKyoJeong/TIL/blob/master/C/char.md)
 - [구조체](https://github.com/InKyoJeong/TIL/blob/master/C/struct.md)
 - [파일 입출력](https://github.com/InKyoJeong/TIL/blob/master/C/file.md)
+- [전처리기](https://github.com/InKyoJeong/TIL/blob/master/C/preprocessor.md)
 
 ### Algorithm
 
