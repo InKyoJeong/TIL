@@ -49,6 +49,7 @@
 - [구조체](https://github.com/InKyoJeong/TIL/blob/master/C/struct.md)
 - [파일 입출력](https://github.com/InKyoJeong/TIL/blob/master/C/file.md)
 - [전처리기](https://github.com/InKyoJeong/TIL/blob/master/C/preprocessor.md)
+- [동적 메모리](https://github.com/InKyoJeong/TIL/blob/master/C/dynamic.md)
 
 ### Algorithm
 

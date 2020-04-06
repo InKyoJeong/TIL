@@ -34,3 +34,18 @@ JSON.stringify(value[, replacer[, space]])
 ```js
 JSON.parse(text[, reviver])
 ```
+
+## Object.keys()
+
+> 주어진 객체의 속성 이름의 배열을 반환한다.
+
+```js
+const object1 = {
+  a: "somestring",
+  b: 42,
+  c: false,
+};
+
+console.log(Object.keys(object1));
+// expected output: Array ["a", "b", "c"]
+```
