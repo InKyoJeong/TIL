@@ -65,6 +65,18 @@ friends.map((current) => {
 // friends.map(current => current + "Test"); 와 같다.
 ```
 
+### Array.filter()
+
+> filter() 메서드는 주어진 함수의 테스트를 통과하는 모든 요소를 모아 새로운 배열로 반환한다.
+
+```js
+const words = ["spray", "limit", "elite", "exuberant", "destruction"];
+
+const result = words.filter((word) => word.length > 6);
+
+console.log(result); // expected output: Array ["exuberant", "destruction"]
+```
+
 ### Array.concat()
 
 > concat 메서드는 인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환한다.
@@ -87,4 +99,28 @@ const x = ["AA", "BB", "CC"];
 x.join("-"); // "AA-BB-CC"
 ```
 
-<!-- #### Array.filter() -->
+### Array.reduce()
+
+```js
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+```
+
+```js
+arr.reduce(callback[, initialValue])
+```
+
+- `callback` : 4가지 인수를 받는다.
+  - `accumulator` : 반복될때마다 축적되는 값
+  - `currentValue` : 처리할 현재 요소. accumulator와 currentValue 더해진 값이 다시 accumulator 들어가는 반복문이라고 보면 편함
+  - `currentIndex` : 처리할 현재 요소의 인덱스. initialValue를 제공한 경우 0, 아니면 1부터 시작
+  - `array` : reduce()를 호출한 배열.
+- `initialValue` : callback의 최초 호출에서 첫 번째 인수에 제공하는 값. 초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용함
