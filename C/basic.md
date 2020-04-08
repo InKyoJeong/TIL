@@ -289,8 +289,30 @@ printf("%f \n", (double)3 / 2); //1.500000
 }
 ```
 
+#### 실수부와 정수부 나눠보기
+
 ```c
-// 홀짝구분하기
+// 실수를입력하세요 : 3.13
+// 정수부값은 3이고 소수부값은 0.13입니다.
+
+#include <stdio.h>
+int main()
+{
+    double x;
+    int y;
+
+
+    printf("실수를입력하세요 : ");
+    scanf("%lf", &x);
+      y = (int)x;
+    printf("정수부값은 %d이고 소수부값은 %.2f입니다.", y , x - y);
+    return 0;
+}
+```
+
+### 홀짝 구분하기
+
+```c
 #include <stdio.h>
 int main(void)
 {
@@ -311,8 +333,9 @@ scanf("%d", &i);
 }
 ```
 
+### 큰 수 판별하기
+
 ```c
-// 큰수 판별하기
 #include <stdio.h>
 int main(void)
 {

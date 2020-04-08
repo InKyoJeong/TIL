@@ -61,7 +61,7 @@
 
 ### Database
 
-- [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/Intro.md)
+- [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md)
 
 ### Python
 
