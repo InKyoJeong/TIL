@@ -51,6 +51,11 @@
 - [전처리기](https://github.com/InKyoJeong/TIL/blob/master/C/preprocessor.md)
 - [동적 메모리](https://github.com/InKyoJeong/TIL/blob/master/C/dynamic.md)
 
+### Database
+
+- [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md)
+- [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/mysql.md)
+
 ### Algorithm
 
 - [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
@@ -58,11 +63,6 @@
 ### Operating System
 
 - [운영체제](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
-
-### Database
-
-- [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md)
-- [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/mysql.md)
 
 ### Python
 
