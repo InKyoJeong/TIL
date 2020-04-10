@@ -120,7 +120,7 @@ arr.reduce(callback[, initialValue])
 
 - `callback` : 4가지 인수를 받는다.
   - `accumulator` : 반복될때마다 축적되는 값
-  - `currentValue` : 처리할 현재 요소. accumulator와 currentValue 더해진 값이 다시 accumulator 들어가는 반복문이라고 보면 편함
+  - `currentValue` : 처리할 현재 요소. accumulator와 currentValue 더해진 값이 다시 accumulator 들어가는 반복문이라고 보면 편함
   - `currentIndex` : 처리할 현재 요소의 인덱스. initialValue를 제공한 경우 0, 아니면 1부터 시작
   - `array` : reduce()를 호출한 배열.
 - `initialValue` : callback의 최초 호출에서 첫 번째 인수에 제공하는 값. 초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용함
