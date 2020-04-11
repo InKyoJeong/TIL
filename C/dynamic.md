@@ -111,3 +111,57 @@ int main(void){
 //점수를 입력: 30
 //평균 = 20
 ```
+
+### 구조체 배열
+
+구조체를 저장할 수 있는 공간도 할당받을 수 있다. 구조체의 크기에 필요한 개수를 곱한다.
+
+```c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Book{
+    int number;
+    char title[50];
+};
+
+int main(void){
+    struct Book *p;     //구조체를 가리키는 포인터 변수 선언
+    p = (struct Book *)malloc(2* sizeof(struct Book));      // malloc()으로 구조체 2개분량 메모리를 동적으로 할당받음. 이 메모리블록의 시작주소를 p에 대입
+
+    if(p == NULL){
+        printf("메모리 할당 오류\n");
+        exit(1);
+    }
+
+
+    p[0].number = 1;        // 동적으로 할당받은 첫 번째 구조체 배열 원소에 데이터를 대입
+    strcpy(p[0].title, "C program");
+
+    p[1].number = 2;
+    strcpy(p[1].title, "Data Structure");
+
+    free(p);
+    return 0;
+}
+```
+
+### realloc() 함수
+
+`malloc()`으로 할당받은 메모리가 부족해질때 할당했던 메모리 블록의 크기를 변경한다.
+
+```c
+void *realloc(void *p, size_t szie);
+```
+
+```c
+//예시
+int *p;
+
+p = (int *)mallic(5*sizeof(int));
+realloc(p, 7*sizeof(int));
+```
+
+5개 정수를 저장하는 동적 메모리를 할당하고 다시 7개의 정수를 저장할 수 있도록 할당하였다. 기존 값은 유지된다.
