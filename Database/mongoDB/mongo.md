@@ -219,3 +219,27 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 > db.users.remove({ name: 'Mary'})
 WriteResult({ "nRemoved" : 1 })
 ```
+
+## 몽구스(Mongoose)
+
+MySQL에 시퀄라이즈가 있다면 몽고디비에는 몽구스(mongoose)가 있다. 몽구스는 시퀄라이즈와 달리 ODM(Object Document Mapping)이다. 몽고디비는 릴레이션이 아니라 다큐먼트를 사용한다.
+
+ES2015 프로미스와 가독성이 높은 쿼리빌더를 지원한다.
+
+```
+$ express [프로젝트명] --view=pug
+
+$ cd [프로젝트명]
+$ npm install
+$ npm i mongoose
+```
+
+### 몽고디비 연결
+
+아래와 같은 형식의 주소를 사용해서 노드와 몽고디비를 연결한다.
+
+```
+mongodb://[username:password@]host[:port]/[database][?options]]
+```
+
+`[]`부분은 있어도되고 없어도된다. `username`과 `password`에 몽고디비 계정이름과 비밀번호, `host`에 localhost, `port`에 27017, `database`에 admin을 넣는다.
