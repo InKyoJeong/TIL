@@ -34,18 +34,20 @@
   - [프로미스 (Promise)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/promise.md)
   - [async/await](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/async-await.md)
 
+### Node.js
+
+- 익스프레스(Express.js)
+
+  - [라우터 요청(req), 응답(res) 객체](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/reqres.md)
+  - [미들웨어(middleware)](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/middleware.md)
+  - [템플릿 엔진(Pug)](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/pug.md)
+
 ### Database
 
 - [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md)
 - [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/mysql.md)
   - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
 - [몽고디비(mongoDB)](https://github.com/InKyoJeong/TIL/blob/master/Database/mongoDB/mongo.md)
-
-### Node.js
-
-- 익스프레스(Express.js)
-  - [라우터 요청(req), 응답(res) 객체](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/reqres.md)
-  - [미들웨어(middleware)](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/middleware.md)
 
 ### React
 

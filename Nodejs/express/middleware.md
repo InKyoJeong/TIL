@@ -1,8 +1,8 @@
-## 미들웨어
+# 미들웨어
 
 요청과 응답의 중간에 위치하여 미들웨어라고 한다. 주로 `app.use`와 함께 사용된다.
 
-### 커스텀 미들웨어
+## 커스텀 미들웨어
 
 ```js
 //app.js
@@ -27,7 +27,7 @@ GET /stylesheets/style.css 200 3.659 ms - 111
 
 각각의 요청이 커스텀 미들웨어를 작동시켰다. 이렇게 서버가 받은 요청은 미들웨어를타고 라우터까지 전달된다. `next()`를 호출해야 다음 미들웨어로 넘어간다.
 
-### morgan
+## morgan
 
 GET / 200 248.630 ms - 170 과 같은 로그는 `morgan`미들웨어에서 나오는것이다. 요청에 대한 정보를 콘솔에 기록한다.
 
@@ -46,7 +46,7 @@ GET / 200 248.630 ms - 170 의 의미는..
 HTTP요청(GET) 주소(/) HTTP상태코드(200) 응답속도(248.630 ms) 응답바이트( - 170)
 ```
 
-### body-parser
+## body-parser
 
 요청의 본문을 해석해주는 미들웨어. 폼 데이터나 AJAX요청의 데이터를 처리한다.
 
@@ -75,7 +75,7 @@ app.use(bodyParser.raw());
 app.use(bodyParser.text());
 ```
 
-### cookie-parser
+## cookie-parser
 
 요청에 동봉된 쿠키를 해석해준다.
 
@@ -90,7 +90,7 @@ app.use(cookieParser());
 
 해석된 쿠키들은 `req.cookies`객체에 들어간다.
 
-### static
+## static
 
 `static`미들웨어는 정적인 파일들을 제공한다. 익스프레스를 설치하면 따라오므로 따로 설치할 필요없다.
 
@@ -113,7 +113,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //...
 ```
 
-### express-session
+## express-session
 
 세션관리 미들웨어이다. 로그인 등의 세션을 구현할때 유용하다. 직접설치해야한다.
 
@@ -146,7 +146,7 @@ app.use(
 
 express-session은 `req`객체 안에 `req.session`객체를 만든다.
 
-### connect-flash
+## connect-flash
 
 일회성 메세지들을 웹 브라우저에 나타낼때 좋다.
 
