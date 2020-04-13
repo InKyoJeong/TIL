@@ -37,10 +37,9 @@
 ### Node.js
 
 - 익스프레스(Express.js)
-
   - [라우터 요청(req), 응답(res) 객체](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/reqres.md)
   - [미들웨어(middleware)](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/middleware.md)
-  - [템플릿 엔진(Pug)](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/pug.md)
+  - [템플릿 엔진 : Pug](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/pug.md)
 
 ### Database
 

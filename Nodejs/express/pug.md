@@ -124,7 +124,7 @@ router.get("/", function (req, res, next) {
 
 `res.render(템플릿, 변수객체)`는 _index.pug_ 를 HTML로 렌더링하면서 `{ title: 'Express' }`라는 객체를 변수로 집어넣는다. _layout.pug_ 와 _index.pug_ 의 **title** 부분이 모두 **Express**로 치횐된다.
 
-`res.render`메서드의 두번째 인자로 변수 객체를 넣는대신. **_app.js_**의 에러 처리 미들웨어처럼 `res.locals`객체로 변수를 넣을 수도 있다.
+`res.render`메서드의 두번째 인자로 변수 객체를 넣는대신. **_app.js_** 의 에러 처리 미들웨어처럼 `res.locals`객체로 변수를 넣을 수도 있다.
 
 ```js
 router.get("/", function (req, res, next) {

@@ -15,4 +15,10 @@
 
 ## 응답 객체 (response)
 
-res.render는 jade, pug 같은 템플릿 엔진을 사용하여 뷰를 렌더링한다.
+- **res.render** : jade, pug 같은 템플릿 엔진을 사용하여 뷰를 렌더링한다.
+- **res.send(버퍼 또는 문자열 또는 HTML또는 JSON)** : 클라이언트에 응답을 보낸다.
+- **res.sendFile(파일경로)** : 파일을 응답으로 보내준다.
+- **res.redirect(주소)** : 응답을 다른 라우터로 보냄. 예를 들어 로그인 완료 후 다시 메인화면으로 돌릴때 res.redirect(메인주소)를 하면 된다.
+- **res.json** : 클라이언트로 JSON 값을 보낸다.
+- **res.status(code)** : HTTP 응답 코드를 설정한다. 응답 코드가 redirect(30x)라면 res.redirect를 쓰는게 낫다.
+  - 기본적으로는 200 HTTP 상태코드를 응답하지만 (res.redirect는 302), 직접 바꿀수도 있다. status메서드를 먼저 사용하면 된다. `res.status(404).send('Not Found')`
