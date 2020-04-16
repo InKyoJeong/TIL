@@ -65,6 +65,8 @@
 - [전처리기](https://github.com/InKyoJeong/TIL/blob/master/C/preprocessor.md)
 - [동적 메모리](https://github.com/InKyoJeong/TIL/blob/master/C/dynamic.md)
 
+### Data Structure
+
 ### Algorithm
 
 - [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
