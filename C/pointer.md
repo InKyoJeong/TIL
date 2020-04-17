@@ -506,6 +506,27 @@ int main(void)
 // 2월은 March입니다.
 ```
 
+#### 여러개의 단어들을 포인터를 이용하여 저장하기
+
+```c
+#define BUFFER_SIZE 100
+#include <stdio.h>
+int main(){
+    char *words[100];
+    int n = 0;
+    char buffer[BUFFER_SIZE];
+
+    while (n<4 && scanf("%s", buffer) != EOF){
+        words[n] = strdup(buffer);
+        n++;
+    }
+    for(int i=0; i<4; i++){
+        printf("%s\n", words[i]);
+    }
+    return 0;
+}
+```
+
 #### 대소문자,숫자 포함된 암호입력받기
 
 ```c
