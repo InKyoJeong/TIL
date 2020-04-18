@@ -21,3 +21,61 @@
 - **_res.status(code)_** : HTTP 응답 코드를 설정한다. 응답 코드가 redirect(30x)라면 _res.redirect_ 를 쓰는게 낫다.
   - 기본적으로는 200 HTTP 상태코드를 응답하지만 (res.redirect는 302), 직접 바꿀수도 있다. status메서드를 먼저 사용하면 된다. `res.status(404).send('Not Found')`
 - **_res.locals_** : res.locals은 앱이 사용하는 렌더링 엔진에 전달되는 객체이다.
+
+# 쿼리스트링
+
+```
+http://a.com/topic?id=1
+```
+
+전체를 **url**, `id=1`과 같은 정보를 **query string** 이라고 한다.
+
+사용자 입력값에따라 다른 출력을 가지려면 (사용자가 요청 하는 것이므로 req)
+
+```js
+app.get("/topic", function (req, res) {
+  res.send(req.query.id);
+});
+```
+
+이렇게하면 id=1일때 화면에 1이출력
+
+```
+http://a.com/topic?name=kyo
+```
+
+`req.query.name` 이면 화면에 kyo가 출력
+
+### Reference
+
+[https://expressjs.com/ko/4x/api.html#req.query](https://expressjs.com/ko/4x/api.html#req.query)
+
+```js
+// GET /search?q=tobi+ferret
+console.dir(req.query.q);
+// => 'tobi ferret'
+
+// GET /shoes?order=desc&shoe[color]=blue&shoe[type]=converse
+console.dir(req.query.order);
+// => 'desc'
+
+console.dir(req.query.shoe.color);
+// => 'blue'
+
+console.dir(req.query.shoe.type);
+// => 'converse'
+
+// GET /shoes?color[]=blue&color[]=black&color[]=red
+console.dir(req.query.color);
+// => ['blue', 'black', 'red']
+```
+
+<!-- # 시멘틱 URL
+
+가변적인 정보
+
+```js
+app.get("/topic/:id", function (req, res) {
+  res.send(req.params.id);
+});
+``` -->
