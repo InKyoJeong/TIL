@@ -452,3 +452,44 @@ scanf("%d %c %d", &x, &cal, &y);
 
 }
 ```
+
+## 아스키코드
+
+> 숫자입력해서 바꾸기
+
+```c
+#include <stdio.h>
+int main()
+{
+    int x;
+    printf("ASCII CODE: ");
+    scanf("%d", &x);
+    printf("The Character : %c \n", x);
+
+    return 0;
+}
+
+//ASCII CODE: 67
+//The Character : C
+```
+
+## 8진수와 16진수 출력하기
+
+```c
+#include <stdio.h>
+int main()
+{
+    char ch = 'a';
+
+     printf("%c     %d      0%o     0x%x \n", ch, ch, ch, ch);
+     printf("%c     %d      0%o     0x%x \n", ch +1, ch +1,ch +1,ch +1);
+     printf("%c     %d      0%o     0x%x \n", ch+2, ch+2, ch+2, ch+2);
+     printf("%c     %d      0%o     0x%x \n", ch+3, ch+3, ch+3, ch+3);
+
+return 0;
+}
+// a     97      0141     0x61
+// b     98      0142     0x62
+// c     99      0143     0x63
+// d     100      0144     0x64
+```
