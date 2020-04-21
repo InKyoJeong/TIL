@@ -42,6 +42,14 @@ score = (int *) malloc(100);    //100 바이트 만큼 메모리를 동적 할�
 score = (int *) mallic(100*sizeof(int));
 ```
 
+### calloc()
+
+```c
+void *calloc(size_tnmemb, size_t size);
+```
+
+크키가 size인 자료가 nmemb개만큼 들어갈 메모리를 할당한다. 할당한 메모리 영역은 모든 비트가 0으로 초기화된다.
+
 ### 동적 메모리 사용
 
 1. `*`연산자 사용
@@ -160,7 +168,7 @@ void *realloc(void *p, size_t szie);
 //예시
 int *p;
 
-p = (int *)mallic(5*sizeof(int));
+p = (int *)malloc(5*sizeof(int));
 realloc(p, 7*sizeof(int));
 ```
 
