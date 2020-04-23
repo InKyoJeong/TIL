@@ -256,7 +256,7 @@ void main(void)
 void DisplayTable(void)
 {
     int i;
-    int Total[2] = {0,0};
+    int Total[2] = {0,0}; //배열을 초기화
 
     printf("학생 번호\t영어 점수\t수학 점수\n");
 

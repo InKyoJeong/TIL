@@ -173,3 +173,26 @@ realloc(p, 7*sizeof(int));
 ```
 
 5개 정수를 저장하는 동적 메모리를 할당하고 다시 7개의 정수를 저장할 수 있도록 할당하였다. 기존 값은 유지된다.
+
+<!-- #### 실습
+
+```c
+// int형 객체를 동적으로 생성하고 해제
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+    int * x;
+    x = calloc(1, sizeof(int));
+    if(x == NULL){
+        puts("메모리 할당 실패");
+    }else{
+        *x = 57;
+        printf("*x = %d\n", *x);
+        free(x);
+    }
+    return 0;
+}
+
+// *x = 57
+``` -->

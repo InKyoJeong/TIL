@@ -67,6 +67,8 @@
 
 ### Data Structure
 
+- [연결리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/linkedlist.md)
+
 ### Algorithm
 
 - [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
