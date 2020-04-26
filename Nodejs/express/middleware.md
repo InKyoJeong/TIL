@@ -34,7 +34,7 @@ GET / 200 248.630 ms - 170 과 같은 로그는 `morgan`미들웨어에서 나�
 ```js
 // app.js
 //...
-var logger = require("morgan");
+const logger = require("morgan");
 //...
 app.use(logger("dev"));
 //...
@@ -46,13 +46,28 @@ GET / 200 248.630 ms - 170 의 의미는..
 HTTP요청(GET) 주소(/) HTTP상태코드(200) 응답속도(248.630 ms) 응답바이트( - 170)
 ```
 
+## helmet
+
+노드앱의 보안에 도움을 준다.
+
+```js
+const express = require("express");
+const helmet = require("helmet");
+
+const app = express();
+
+app.use(helmet());
+
+// ...
+```
+
 ## body-parser
 
 요청의 본문을 해석해주는 미들웨어. 폼 데이터나 AJAX요청의 데이터를 처리한다.
 
 ```js
 //...
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 //...
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -82,7 +97,7 @@ app.use(bodyParser.text());
 ```js
 //app.js
 //...
-var cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 //...
 app.use(cookieParser());
 //...
