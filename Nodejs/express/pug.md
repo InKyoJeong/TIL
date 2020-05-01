@@ -305,6 +305,88 @@ block javascript
 
 페이지마다 달라지는 부분을 `block`으로 비워두고 `block`이 되는 파일에서는 `extends`키워드로 레이아웃 파일을 지정하고 `block`부분을 넣는다.
 
+## Mixins
+
+> 재사용가능한 블럭을 만든다.
+
+- Pug
+
+```pug
+//- Declaration
+mixin list
+  ul
+    li foo
+    li bar
+    li baz
+//- Use
++list
++list
+```
+
+- HTML
+
+```html
+<ul>
+  <li>foo</li>
+  <li>bar</li>
+  <li>baz</li>
+</ul>
+<ul>
+  <li>foo</li>
+  <li>bar</li>
+  <li>baz</li>
+</ul>
+```
+
+인자를 받을 수도 있다.
+
+#### 예시1
+
+```pug
+mixin pet(name)
+  li.pet= name
+ul
+  +pet('cat')
+  +pet('dog')
+  +pet('pig')
+```
+
+```html
+<ul>
+  <li class="pet">cat</li>
+  <li class="pet">dog</li>
+  <li class="pet">pig</li>
+</ul>
+```
+
+#### 예시2
+
+```pug
+//- Declaration
+mixin article(title='Default Title')
+  .article
+    .article-wrapper
+      h1= title
+
+//- Use
++article()
+
++article('Hello world')
+```
+
+```html
+<div class="article">
+  <div class="article-wrapper">
+    <h1>Default Title</h1>
+  </div>
+</div>
+<div class="article">
+  <div class="article-wrapper">
+    <h1>Hello world</h1>
+  </div>
+</div>
+```
+
 ## 에러처리 미들웨어
 
 ```js
