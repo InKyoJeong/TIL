@@ -66,10 +66,10 @@ SQL구문을 입력할때는 마지막에 세미콜론`;`을 붙여야 실행된
 
 ```sql
 mysql> CREATE SCHEMA nodejs;
-//Query OK, 1 row affected (0.00 sec)
+-- Query OK, 1 row affected (0.00 sec)
 
 mysql> use nodejs;
-//Database changed
+-- Database changed
 ```
 
 ### 테이블 생성하기
@@ -191,15 +191,15 @@ mysql> SHOW TABLES;
 
 ```sql
 mysql> INSERT INTO nodejs.users (name, age, married, comment) VALUES ('zero', 24, 0, '자기소개1');
-// Query OK, 1 row affected (0.00 sec)
+-- Query OK, 1 row affected (0.00 sec)
 
 mysql> INSERT INTO nodejs.users (name, age, married, comment) VALUES ('nero', 44, 1, '자기소개2');
-// Query OK, 1 row affected (0.00 sec)
+-- Query OK, 1 row affected (0.00 sec)
 ```
 
 ```sql
 mysql> INSERT INTO nodejs.comments (commenter, comment) VALUES (1, '안녕하세요. 제로의  댓글입니다.');
-// Query OK, 1 row affected (0.00 sec)
+-- Query OK, 1 row affected (0.00 sec)
 ```
 
 _users_ 와 _comments_ 테이블에 데이터를 넣어보았다. `use nodejs;`명령어를 사용했으면 nodejs.users대신 users만 해도 된다.
@@ -294,8 +294,8 @@ mysql> SELECT id, name FROM nodejs.users ORDER BY age DESC LIMIT 1 OFFSET 1;
 
 ```sql
 mysql> UPDATE nodejs.users SET comment = '바꿀내용입니다.' WHERE id = 2;
-// Query OK, 1 row affected (0.00 sec)
-// Rows matched: 1  Changed: 1  Warnings: 0
+-- Query OK, 1 row affected (0.00 sec)
+-- Rows matched: 1  Changed: 1  Warnings: 0
 ```
 
 comment가 바뀐것을 확인할 수 있다.
@@ -314,11 +314,11 @@ mysql> SELECT * FROM nodejs.users;
 
 > Delete는 데이터베이스 데이터를 삭제한다.
 
-`DELETE FROM [테이블명 WHERE [조건]`명령어로 삭제한다.
+`DELETE FROM [테이블명] WHERE [조건]`명령어로 삭제한다.
 
 ```sql
 mysql> DELETE FROM nodejs.users WHERE id = 2;
-// Query OK, 1 row affected (0.00 sec)
+-- Query OK, 1 row affected (0.00 sec)
 ```
 
 id가 2인 로우가 삭제된 것을 확인할 수 있다.

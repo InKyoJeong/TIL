@@ -243,3 +243,13 @@ mongodb://[username:password@]host[:port]/[database][?options]]
 ```
 
 `[]`부분은 있어도되고 없어도된다. `username`과 `password`에 몽고디비 계정이름과 비밀번호, `host`에 localhost, `port`에 27017, `database`에 admin을 넣는다.
+
+## Mongoku
+
+[https://github.com/huggingface/Mongoku](https://github.com/huggingface/Mongoku)
+
+```
+$ mongoku start
+```
+
+설치하면 localhost:3100 에서 mongoDB를 관리할 수 있다.
