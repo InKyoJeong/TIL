@@ -154,7 +154,7 @@ css 파일을 이렇게 작성하면 된다.
 }
 ```
 
-### CSS 속성들
+### CSS 기본적인 속성들
 
 - `font-size : 값(px);`
   글씨 크기를 지정한다.
@@ -178,9 +178,16 @@ css 파일을 이렇게 작성하면 된다.
 * `align-items : center;`
   항목을 수직에서 중앙정렬한다. `display: flex;` 와 같이 쓰인다.
 
-- `border-radius: 값(px 또는 %);`
-  테두리를 값에따라 둥글게 만든다.
-  <br>
+<br>
+
+- `border-radius: 값(px 또는 %);` 테두리를 값에따라 둥글게 만든다.
+  - border-width: 5px;
+  - border-color: black;
+  - border-style: solid;
+
+예를들어, 위의 세줄은 이렇게 한줄로 표현 가능하다. `border : 5px solid black;` (폭,스타일,색상 순서)
+
+<br>
 
 - `border : px값 solid 색상;`
   테두리를 직선(solid)으로 설정한 색상으로 픽셀값(px)만큼 지정한다.
@@ -205,3 +212,85 @@ css 파일을 이렇게 작성하면 된다.
 - `padding` : 경계선(border) 기준 `안쪽`의 여백의 크기를 지정한다. margin과 마찬가지로 (top, right, bottom, left)를 지정가능하고 한줄로 쓸수도 있다.
 
 <br>
+
+## CSS Position
+
+- `relative, absolute` : absolute는 포지션 relative에 상대적으로 포지션을 잡는것.
+
+아래와 같은 html파일과 css파일이 있다고 하자.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Position</title>
+  </head>
+  <body>
+    <div class="father">
+      <div class="child"></div>
+    </div>
+  </body>
+</html>
+```
+
+```css
+.father{
+	width: 400px;
+	height: 400px;
+	background-color: yellow;
+	position: relative;
+}
+.child{
+	width: 100px;
+	height: 100px;
+	background-color: green;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+```
+
+포지션 `absolute`가 설정되면 html상에서 해당 요소와 관계가 있는 `relative`(부모박스) element를 살펴보고 이에상응해서 포지션이 결정된다.
+
+**fathe**r라는 이름의 **div**박스에 포지션을 `relative`를 주면 그 안에 있는 태그 이름인 **child** 가 **father** 박스 안에서 움직인다. (`right: 10px;` `top: 10px;` 만큼 남기고 이동한다.)
+
+만약 `relative`가 없다면 **father** 박스와 관계없이 **웹전체를 기준**으로 움직인다. (position: relative; 를 지우고 실행시켜서 비교)
+
+<br>
+
+## CSS State
+
+- `active, focus, visited, hover`를 이용해서 효과를 줄 수 있다.
+- 이중에서 `hover`를 특히 자주쓴다.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS State</title>
+  </head>
+  <body>
+    <textarea class="box">lalalala</textarea>
+  </body>
+</html>
+```
+
+```css
+.box {
+  background-color: red;
+  font-size: 40px;
+}
+.box:hover {
+  background-color: skyblue;
+}
+/* hover : 커서를 올리면 색 바꾸기*/
+
+.box:active {
+  background-color: green;
+}
+/* active : 클릭할때마다 색 바꾸기*/
+
+.box:focus {
+  background-color: purple;
+}
+/* focus: 경계선 같은것. 누르면 색 바뀜 */
+```
