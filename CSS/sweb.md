@@ -219,11 +219,14 @@ css 파일을 이렇게 작성하면 된다.
 
 아래와 같은 html파일과 css파일이 있다고 하자.
 
+- index.html 파일
+
 ```html
 <!DOCTYPE html>
 <html>
   <head>
     <title>Position</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="father">
@@ -232,6 +235,8 @@ css 파일을 이렇게 작성하면 된다.
   </body>
 </html>
 ```
+
+- style.css 파일
 
 ```css
 .father{
@@ -267,6 +272,7 @@ css 파일을 이렇게 작성하면 된다.
 <html>
   <head>
     <title>CSS State</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <textarea class="box">lalalala</textarea>
@@ -307,6 +313,7 @@ css 파일을 이렇게 작성하면 된다.
 <html>
   <head>
     <title>Transitions</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <span class="box">Text</span>
