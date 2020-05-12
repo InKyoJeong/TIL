@@ -4,7 +4,7 @@
 
 > 웹에서 기본적인 뼈대를 담당한다.
 
-1. HTML은 **'태그'**들로 이루어진다.
+1. HTML은 **태그**들로 이루어진다.
 
 태그는 `<열린태그>내용</닫힌태그>` 로 구성된다.
 
@@ -28,7 +28,7 @@
 
 3. 텍스트 관련 태그
 
-- `<h1> ~ <h6>` 태그 : h1이 제일크고 h6이 제일 작다. (크기를 변경할예정이면 css에서 _font-size_ 속성으로 글씨 크기를 조절할 수 있기 때문에 뭘쓰냐가 중요하진않아요)
+- `<h1> ~ <h6>` 태그 : h1이 제일크고 h6이 제일 작다. (크기를 변경할예정이면 css에서 _font-size_ 속성으로 글씨 크기를 조절할 수 있기 때문에 뭘쓰냐가 중요하진않음)
 - `<p>` 태그 : 주로 문단을 넣을때 쓴다.
 - `<textarea>` 태그 : 텍스트 영역을 지정한다.
 
@@ -239,19 +239,20 @@ css 파일을 이렇게 작성하면 된다.
 - style.css 파일
 
 ```css
-.father{
-	width: 400px;
-	height: 400px;
-	background-color: yellow;
-	position: relative;
+.father {
+  width: 400px;
+  height: 400px;
+  background-color: yellow;
+  position: relative;
 }
-.child{
-	width: 100px;
-	height: 100px;
-	background-color: green;
-	position: absolute;
-	right: 10px;
-	top: 10px;
+.child {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 ```
 
 포지션 `absolute`가 설정되면 html상에서 해당 요소와 관계가 있는 `relative`(부모박스) element를 살펴보고 이에상응해서 포지션이 결정된다.
