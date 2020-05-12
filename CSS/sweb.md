@@ -294,3 +294,36 @@ css 파일을 이렇게 작성하면 된다.
 }
 /* focus: 경계선 같은것. 누르면 색 바뀜 */
 ```
+
+## CSS Transition
+
+- 어떤 상태(state)가 바뀔때 적용이 되는것을 말한다.
+- state들은 hover, active, focus, visited가 있다.
+
+위의 `hover`를 이용해서 변화하는 효과를 지정해보면
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transitions</title>
+  </head>
+  <body>
+    <span class="box">Text</span>
+  </body>
+</html>
+```
+
+```css
+.box {
+  background-color: green;
+  color: white;
+  transition: all 1s ease-in-out;
+}
+.box:hover {
+  background-color: red;
+  color: blue;
+}
+```
+
+커서를 가져다놓으면 1초안에 hover로 지정한 배경이 red색상, 글씨는 blue색으로 변화하는것을 볼 수 있다.
