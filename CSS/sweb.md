@@ -264,7 +264,7 @@ css 파일을 이렇게 작성하면 된다.
 
 ## CSS State
 
-- `active, focus, visited, hover`를 이용해서 효과를 줄 수 있다.
+- `active, focus, visited, hover`를 이용해서 효과를 줄 수 있다. 태그나 클래스명뒤에 `:`를 붙이고 지정한다.
 - 이중에서 `hover`를 특히 자주쓴다.
 
 ```html
@@ -306,7 +306,7 @@ css 파일을 이렇게 작성하면 된다.
 - 어떤 상태(state)가 바뀔때 적용이 되는것을 말한다.
 - state들은 hover, active, focus, visited가 있다.
 
-위의 `hover`를 이용해서 변화하는 효과를 지정해보면
+위의 `hover`를 이용해서 변화하는 효과를 지정해보자.
 
 ```html
 <!DOCTYPE html>
@@ -333,4 +333,5 @@ css 파일을 이렇게 작성하면 된다.
 }
 ```
 
-커서를 가져다놓으면 1초안에 hover로 지정한 배경이 red색상, 글씨는 blue색으로 변화하는것을 볼 수 있다.
+배경이 green색, 글씨가 white색인 상태의 Text 위에 커서를 가져다놓으면,<br>
+1초안에 배경이 red색상, 글씨는 blue색으로 변화하는것을 볼 수 있다.
