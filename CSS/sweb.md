@@ -43,7 +43,6 @@
 ```html
 <ol>
   <li>사과</li>
-  <li></li>
   <li>포도</li>
   <li>오렌지</li>
 </ol>
@@ -56,7 +55,6 @@
 ```html
 <ol>
   <li>사과</li>
-  <li></li>
   <li>포도</li>
   <li>오렌지</li>
 </ol>
@@ -257,7 +255,7 @@ css 파일을 이렇게 작성하면 된다.
 
 포지션 `absolute`가 설정되면 html상에서 해당 요소와 관계가 있는 `relative`(부모박스) element를 살펴보고 이에상응해서 포지션이 결정된다.
 
-**fathe**r라는 이름의 **div**박스에 포지션을 `relative`를 주면 그 안에 있는 태그 이름인 **child** 가 **father** 박스 안에서 움직인다. (`right: 10px;` `top: 10px;` 만큼 남기고 이동한다.)
+**fathe**r라는 이름의 **div**박스에 포지션을 `relative`를 주면 그 안에 있는 **child** 가 **father** 박스 안에서 움직인다. (`right: 10px;` `top: 10px;` 만큼 남기고 이동한다.)
 
 만약 `relative`가 없다면 **father** 박스와 관계없이 **웹전체를 기준**으로 움직인다. (position: relative; 를 지우고 실행시켜서 비교)
 
