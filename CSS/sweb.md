@@ -181,16 +181,16 @@ css 파일을 이렇게 작성하면 된다.
 <br>
 
 - `border-radius: 값(px 또는 %);` 테두리를 값에따라 둥글게 만든다.
-  - border-width: 5px;
-  - border-color: black;
-  - border-style: solid;
-
-예를들어, 위의 세줄은 이렇게 한줄로 표현 가능하다. `border : 5px solid black;` (폭,스타일,색상 순서)
 
 <br>
 
 - `border : px값 solid 색상;`
   테두리를 직선(solid)으로 설정한 색상으로 픽셀값(px)만큼 지정한다.
+  - border-width: 5px;
+  - border-color: black;
+  - border-style: solid;
+
+예를들어, 위의 세줄은 이렇게 한줄로 표현 가능하다. `border : 5px solid black;` (폭,스타일,색상 순서)
 
 <br>
 
