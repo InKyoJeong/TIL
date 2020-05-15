@@ -1,5 +1,7 @@
 # CSS Grid Layout
 
+> 그리드는 수평선과 수직선이 교차해서 이루어진 집합체이다. 각 요소는 이러한 열과 행으로 된 라인을 따라 생성된 그리드에 배치할 수 있다.
+
 ---
 
 📌Content
@@ -20,7 +22,7 @@
 
 ## 그리드 트랙
 
-그리드의 행과 열은 `grid-template-columns`와 `grid-template-rows` 프로퍼티로 정의한다.
+그리드의 행과 열은 `grid-template-columns`와 `grid-template-rows` 프로퍼티로 정의한다. 그리드 트랙은 그리드에 그려진 두 라인 사이의 공간을 말한다.
 
 ### fr
 
@@ -47,6 +49,8 @@
 
 ![grid1](./images/grid1.png)
 
+<br>
+
 - `2fr`과 `1fr` 트랙 두개를 지정한 결과
 
 ```css
@@ -57,6 +61,8 @@
 ```
 
 ![grid2](./images/grid2.png)
+
+<br>
 
 - 고정된 크기의 트랙과 비율로 섞은 트랙
 
@@ -95,6 +101,8 @@
 }
 ```
 
+<br>
+
 - 목록 중 일부분에만 사용하기
 
 ```css
@@ -107,6 +115,8 @@
 ![grid4](./images/grid4.png)
 
 처음에 20px 트랙을 생성하고 그다음 `1fr` 트랙을 6번 반복해서 채운후 마지막에 다시 20px 트랙을 붙인 그리드이다.
+
+<br>
 
 - 트랙의 목록을 함께 나열하기 : 트랙의 반복 패턴 생성
 
@@ -143,6 +153,77 @@
 
 ![grid6](./images/grid6.png)
 
-<!-- <br>
+<br>
 
-### minmax() -->
+### minmax()
+
+- 명시적 그리드를 설정하거나 자동으로 생성된 행이나 열의 크기를 정의할 때, 트랙의 최소 크기를 정해도 나중에 추가되는 콘텐츠에 맞게 늘어나도록 하려면 `minmax()`함수를 사용한다.
+
+아래 코드는 가로 행의 높이가 _100px_ 밑으로 줄어드는 것은 막고, 콘텐츠가 일정 높이까지 늘어나면 그에 따라 행의 높이도 같이 늘어난다.
+
+```html
+<div class="wrapper">
+  <div>One</div>
+  <div>
+    Two
+    <p>I have some more content in.</p>
+    <p>This makes me taller than 100 pixels.</p>
+  </div>
+  <div>Three</div>
+  <div>Four</div>
+  <div>Five</div>
+</div>
+```
+
+```css
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+}
+```
+
+![grid7](./images/grid7.png)
+
+자동으로 생성된 행의 높이는 최소 _100px_ 이고 최댓값은 _**auto**_ 이다. _**auto**_ 를 지정하면 가로 행에 있는 가장 높은 셀의 크기만큼 자동으로 늘어나서 부족한 공간을 메꿔준다.
+
+<br>
+
+## 그리드 라인
+
+- 그리드 라인을 이용하여 아이템 배치하기
+
+```html
+<div class="wrapper">
+  <div class="box1">One</div>
+  <div class="box2">Two</div>
+  <div class="box3">Three</div>
+  <div class="box4">Four</div>
+  <div class="box5">Five</div>
+</div>
+```
+
+```css
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+}
+
+.box1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.box2 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+```
+
+![grid8](./images/grid8.png)
+
+**box1**은 세로 열 1번~4번 라인까지 (그리드 맨 오른쪽라인), 가로 행은 1번~3번 라인까지이고<br>**box2**는 세로 열 1번~트랙하나까지 (기본값을 사용해서 마지막 라인은 지정할 필요없다), 가로 행 3번~5번 라인까지이다. 나머지 box들은 그리드 빈 자리에 자동으로 배치된다.
