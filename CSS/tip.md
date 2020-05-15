@@ -25,7 +25,7 @@ html { scroll-behavior: smooth; }
 ### 브라우저 지원상황
 
 - Chrome : 61.0
-- IE : Not supported
+- IE / Edge : 79.0
 - FireFox : 36.0
 - Safari : Not supported
 
