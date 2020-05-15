@@ -1,10 +1,8 @@
-# Sass
+## Sass
 
-> CSS pre-processor로서, 코드의 재활용성과 가독성을 높여주어 유지보수를 쉽게해준다.
+Sass는 CSS pre-processor로서, 코드의 재활용성과 가독성을 높여주어 유지보수를 쉽게해준다. 주로 Node.js 환경에서 작업을 할때 [node-sass](https://www.npmjs.com/package/node-sass)를 이용한다.
 
-주로 Node.js 환경에서 작업을 할때 [node-sass](https://www.npmjs.com/package/node-sass)를 이용한다.
-
-# SCSS
+## SCSS란?
 
 기존의 Sass는 `{}`대신 들여쓰기를 사용하였으며 세미콜론(`;`)을 사용하지 않는 문법이였다. Sass버전 3 이상부터는 주 문법이 `.scss` 로 변경되었다.
 
@@ -170,6 +168,8 @@ Partial은 `_partial.scss`처럼 밑줄이 붙은 Sass파일이다. CSS를 모�
 ## Modules
 
 모든 Sass를 하나의 파일로 작성할 필요는 없다. `@use`를 사용하여 분할할 수 있다. `@use`는 다른 Sass 파일을 모듈로 로드하므로 변수, mixin, 함수를 참조할 수 있다.
+
+- SCSS
 
 ```scss
 // _base.scss
