@@ -1,6 +1,6 @@
 # Today I learned
 
-> 오늘 배우거나 알게 된 내용을 기록<br>이해한 만큼만 작성
+> 오늘 배우거나 알게 된 내용을 기록
 
 ---
 
@@ -12,6 +12,7 @@
 ### CSS
 
 - [CSS Tip](https://github.com/InKyoJeong/TIL/blob/master/CSS/tip.md)
+- [CSS Grid Layout](https://github.com/InKyoJeong/TIL/blob/master/CSS/grid/grid.md)
 
 ### Javascript
 
