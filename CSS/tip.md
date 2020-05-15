@@ -80,7 +80,7 @@ place-content: unset;
 ## 4. [속성 선택자 (Attribute selectors)](https://developer.mozilla.org/ko/docs/Web/CSS/Attribute_selectors)
 
 ```css
-/* title이라는 이름의 특성을 가진  <a>를 선택 */
+/* title이라는 이름의 특성을 가진 <a>를 선택 */
 a[title] {
   color: purple;
 }
@@ -91,7 +91,7 @@ a[href="https://example.org"]
   color: green;
 }
 
-/* href이 "example"를 포함하는  <a>를 선택 */
+/* href이 "example"를 포함하는 <a>를 선택 */
 a[href*="example"] {
   font-size: 2em;
 }
