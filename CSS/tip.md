@@ -76,3 +76,38 @@ place-content: unset;
 ```
 
 - Edge(IE) 브라우저에서 지원하지 않는다.
+
+## 4. [속성 선택자 (Attribute selectors)](https://developer.mozilla.org/ko/docs/Web/CSS/Attribute_selectors)
+
+```css
+/* title이라는 이름의 특성을 가진  <a>를 선택 */
+a[title] {
+  color: purple;
+}
+
+/* href이 정확히 "https://example.org"인 <a>를 선택*/
+a[href="https://example.org"]
+{
+  color: green;
+}
+
+/* href이 "example"를 포함하는  <a>를 선택 */
+a[href*="example"] {
+  font-size: 2em;
+}
+
+/* "#"으로 시작하는 href를 가진 <a>를 선택 */
+a[href^="#"] {
+  font-style: italic;
+}
+
+/* ".org"로 끝나는 href를 가진 <a>를 선택 */
+a[href$=".org"] {
+  font-style: italic;
+}
+
+/* class 속성이 "logo"를 포함하는 <a>를 선택*/
+a[class~="logo"] {
+  padding: 2px;
+}
+```
