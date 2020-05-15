@@ -18,8 +18,10 @@
 
 > 부드러운 스크롤 기능을 추가할 수 있다.
 
-```html
-html { scroll-behavior: smooth; }
+```css
+html {
+  scroll-behavior: smooth;
+}
 ```
 
 ### 브라우저 지원상황
@@ -35,3 +37,42 @@ html { scroll-behavior: smooth; }
 - smooth : Allows a smooth animated "scroll effect" between elements within the scrolling box.
 - initial : Sets this property to its default value.
 - inherit : Inherits this property from its parent element.
+
+## 3. [place-content](https://developer.mozilla.org/ko/docs/Web/CSS/place-content)
+
+> align-content와 justify-content의 단축 속성이다.
+
+```css
+place-content: <align-content> <justify-content>;
+```
+
+첫번째 값은 `align-content` 속성값, 두번째 값은 `justify-content` 속성값이다.
+
+```css
+/* Positional alignment */
+/* align-content는 left와 right값을 가지지않음 */
+place-content: center start;
+place-content: start center;
+place-content: end left;
+place-content: flex-start center;
+place-content: flex-end center;
+
+/* Baseline alignment */
+/* justify-content는 baseline값을 가지지않음 */
+place-content: baseline center;
+place-content: first baseline space-evenly;
+place-content: last baseline right;
+
+/* Distributed alignment */
+place-content: space-between space-evenly;
+place-content: space-around space-evenly;
+place-content: space-evenly stretch;
+place-content: stretch space-evenly;
+
+/* Global values */
+place-content: inherit;
+place-content: initial;
+place-content: unset;
+```
+
+- Edge(IE) 브라우저에서 지원하지 않는다.
