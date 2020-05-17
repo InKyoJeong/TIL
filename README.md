@@ -35,6 +35,7 @@
   - [전개 연산자 (Spread Operator)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/spread.md)
   - [프로미스 (Promise)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/promise.md)
   - [async/await](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/async-await.md)
+  - [심볼(Symbol)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/symbol.md)
 
 ### Node.js
 

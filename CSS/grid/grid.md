@@ -380,5 +380,11 @@
 
 ![grid12](./images/grid12.png)
 
+<br>
+
+## Reference
+
+[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_concepts_of_grid_layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_concepts_of_grid_layout)
+
 <!-- 심화: 더알아보기 with flexbox -->
 <!-- https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_grid_layout -->
