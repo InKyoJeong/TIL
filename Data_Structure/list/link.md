@@ -73,11 +73,11 @@ int main(){
     head->next = NULL;
 ```
 
-<center><img src="./images/list1.svg" width="300" height="100"></center>
+<center><img src="./images/list1.svg" width="800" height="250"></center>
 
 지금은 노드가 하나밖에 없으니까 next노드는 NULL이다. 이 하나의 노드가 첫번째 노드가 된다. 그래서 이 블록에서는 head가 첫번째 노드를 가리키게 만들어주는 역할을 한다.
 
-- `head->data = "Tuesday"` : head가 가르키는 노드의 데이터 필드에 "Tuesday" 저장
+- `head->data = "Tuesday";` : head가 가르키는 노드의 데이터 필드에 "Tuesday" 저장
 
 - `head->next = NULL;` : 첫번째 노드이자 마지막 노드이므로 NULL값을 저장해서 이것이 마지막 노드임을 표시
 
@@ -92,7 +92,7 @@ int main(){
     head->next = q;
 ```
 
-<center><img src="./images/list2.svg" width="300" height="100"></center>
+<center><img src="./images/list2.svg" width="800" height="250"></center>
 
 - Thursday를 저장하기위한 노드를 만들고 이 노드의 주소를 q라는 포인터 변수에 저장한다.
 
@@ -113,15 +113,15 @@ int main(){
 
 - `q->data = "Monday";` : 먼저 q의 데이터필드에 "Monday"를 저장한다.
 
-<center><img src="./images/list3.svg" width="300" height="100"></center>
+<center><img src="./images/list3.svg" width="800" height="250"></center>
 
 - `q->next = head;` : Monday를 앞쪽에 넣으려면 Monday의 next노드가 Tuesday가 되어야한다. 따라서 q가 가리키고있는 노드의 next필드에 Tuesday노드의 주소(포인터변수 head)를 쓴다.
 
-<center><img src="./images/list4.svg" width="300" height="100"></center>
+<center><img src="./images/list4.svg" width="800" height="250"></center>
 
 - `head = q;` : 이제 더이상 Tuesday가 첫번째 노드가 아니므로 head가 Monday를 가리키도록 바꾼다. Monday의 주소는 q이므로 head = q;
 
-<center><img src="./images/list5.svg" width="300" height="100"></center>
+<center><img src="./images/list5.svg" width="800" height="250"></center>
 
 <br>
 
@@ -135,7 +135,7 @@ int main(){
     }
 ```
 
-<center><img src="./images/list6.svg" width="300" height="100"></center>
+<center><img src="./images/list6.svg" width="800" height="250"></center>
 
 - `Node *p = head;` : p라는 포인터 변수가 선언되고 현재 head에 저장된 값을 p에 쓴다. 따라서 p가 첫번째 노드를 가리키게 된다.
 
