@@ -73,11 +73,8 @@ int main(){
     head->next = NULL;
 ```
 
-![list1](./images/list1.svg){: width="100" height="100"}
-![list1](./images/list1.png){: width="100" height="100"}
-
-<img src="/images/list1.svg" width="300" height="300">
-<img src="/images/list1.png" width="300" height="300">
+<center><img src="./images/list1.svg" width="300" height="100"></center>
+<center><img src="./images/list1.png" width="300" height="100"></center>
 
 지금은 노드가 하나밖에 없으니까 next노드는 NULL이다. 이 하나의 노드가 첫번째 노드가 된다. 그래서 이 블록에서는 head가 첫번째 노드를 가리키게 만들어주는 역할을 한다.
 
