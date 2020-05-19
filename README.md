@@ -70,7 +70,7 @@
 
 ### Data Structure
 
-- [연결리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/linkedlist.md)
+- [연결리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/list/link.md)
 
 ### Algorithm
 

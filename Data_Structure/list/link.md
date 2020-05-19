@@ -34,7 +34,7 @@ typedef struct node Node;
 Node *head = NULL;          //연결리스트의 첫 번째 노드의 주소를 저장할 포인터이다.
 ```
 
-### 예제프로그램
+## 예제프로그램
 
 ```c
 int main(){
@@ -74,10 +74,71 @@ int main(){
 ```
 
 <center><img src="./images/list1.svg" width="300" height="100"></center>
-<center><img src="./images/list1.png" width="300" height="100"></center>
 
 지금은 노드가 하나밖에 없으니까 next노드는 NULL이다. 이 하나의 노드가 첫번째 노드가 된다. 그래서 이 블록에서는 head가 첫번째 노드를 가리키게 만들어주는 역할을 한다.
 
 - `head->data = "Tuesday"` : head가 가르키는 노드의 데이터 필드에 "Tuesday" 저장
 
 - `head->next = NULL;` : 첫번째 노드이자 마지막 노드이므로 NULL값을 저장해서 이것이 마지막 노드임을 표시
+
+<br>
+
+그 다음에는 또다른 노드를 만들어서 두번째 노드를 첫번째 노드의 next노드로 (Tuesday 다음에 Thursday가 오도록) 만들어보자.
+
+```c
+    Node *q = (Node *)malloc(sizeof(Node));
+    q->data = "Thursday";
+    q->next = NULL;
+    head->next = q;
+```
+
+<center><img src="./images/list2.svg" width="300" height="100"></center>
+
+- Thursday를 저장하기위한 노드를 만들고 이 노드의 주소를 q라는 포인터 변수에 저장한다.
+
+- `q->data = "Thursday";`, `q->next = NULL;` : q의 데이터와 next에 "Thursday"와 NULL을 각각 저장한다.
+
+- `head->next = q;` : Tuesday의 next필드에 Thursday노드의 주소를 넣어준다. 즉, head가 가리키고있는 노드의 next필드에 q를 저장한다.
+
+<br>
+
+이번엔 "Monday"라는 노드를 만들어서 "Tuesday"앞에 넣어보자. 연결리스트의 맨 앞에 새로운 노드를 만든다. 아까와 마찬가지로 새로운 노드를 만들고 포인터 변수 q가 새로 만들어진 노드를 가리키도록 한다.
+
+```c
+    q = (Node *)malloc(sizeof(Node));
+    q->data = "Monday";
+    q->next = head;
+    head = q;
+```
+
+- `q->data = "Monday";` : 먼저 q의 데이터필드에 "Monday"를 저장한다.
+
+<center><img src="./images/list3.svg" width="300" height="100"></center>
+
+- `q->next = head;` : Monday를 앞쪽에 넣으려면 Monday의 next노드가 Tuesday가 되어야한다. 따라서 q가 가리키고있는 노드의 next필드에 Tuesday노드의 주소(포인터변수 head)를 쓴다.
+
+<center><img src="./images/list4.svg" width="300" height="100"></center>
+
+- `head = q;` : 이제 더이상 Tuesday가 첫번째 노드가 아니므로 head가 Monday를 가리키도록 바꾼다. Monday의 주소는 q이므로 head = q;
+
+<center><img src="./images/list5.svg" width="300" height="100"></center>
+
+<br>
+
+마지막 부분은 이렇게 만들어진 연결리스트의 각 노드에 저장된 데이터를 순서대로 출력한다.
+
+```c
+    Node *p = head;
+    while(p!=NULL){
+        printf("%s\n", p->data);
+        p = p->next;
+    }
+```
+
+<center><img src="./images/list6.svg" width="300" height="100"></center>
+
+- `Node *p = head;` : p라는 포인터 변수가 선언되고 현재 head에 저장된 값을 p에 쓴다. 따라서 p가 첫번째 노드를 가리키게 된다.
+
+- `while(p!=NULL) {...}` : p가 NULL이 아닌 동안 p.data를 출력한다. 현재 p가 "Monday"를 가리키고 있으니까 거기 저장된 데이터 "Monday"를 출력하고 다음 노드로 넘어간다. p가 가리키는 노드의 next필드에 저장된 값이 NULL이 되면 `p = NULL`이 되면서 while문을 빠져나온다.
+
+- `p = p->next;` : 그다음 노드로 넘어가는 일을 한다. 현재 p가 가리키고있는 노드의 next필드에 저장된 값(그다음 노드의 주소)을 p에 쓴다.
