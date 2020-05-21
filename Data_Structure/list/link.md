@@ -245,6 +245,8 @@ prev->next = temp;
 
 `temp->next` 에 "Ann"의 주소를 써야하는데 그 주소는 `prev.next`에 있으므로 `temp->next = prev->next;`이 된다. 그다음 _**prev**_ 가 "Ann"이 아니라 새로운 노드를 가리키게 한다.
 
+> 여기서 주의할 점은 2번과 3번의 순서를 바꾸면 절대안된다. 연결리스트의 전체 연결이 끊어져버리기 때문이다.
+
 ### insert_after()
 
 ```c
