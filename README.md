@@ -72,6 +72,7 @@
 
 - [연결 리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/list/link.md)
 - [이중 연결 리스트(Double linked list)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/doublelist/doublelink.md)
+- [스택(Stack)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/stack/stack.md)
 
 ### Algorithm
 
