@@ -26,6 +26,8 @@ char *str2 = pop();         //str2는 "D"가 되고 스택의 상태는 (2)로 �
 push("E");                  //스택의 상태가 (3)으로 바뀜
 ```
 
+<br>
+
 ### 스택 구현
 
 #### 링크드 리스트를 사용하는 스택의 구조체 정의
@@ -67,7 +69,9 @@ void Push(int num)
 
 <br>
 
-![stack3](./images/stack3.svg)
+<!-- ![stack3](./images/stack3.svg)  -->
+
+<center><img src="./images/stack4.svg" alt="stack4" width="300"/></center>
 
 여기서 `ptr->next = head->next`를 실행하면 `head->next`가 스택의 가장 윗부분 노드를 가리키므로 새로운 노드가 추가되면 해당 노드의 _**next**_ 값에 `head->next`값에 저장된 주소를 넣는다. 그러면 새로 추가된 노드의 _**next**_ 값은 이전에 추가된 노드를 가리키게 된다. 그다음 `head->next`값을 현재 새로 추가한 노드로 만든다. 따라서 `head->next`값은 다시 가장 윗부분 노드를 가리킨다.
 
@@ -90,6 +94,6 @@ int Pop(void)
 
 <br>
 
-![stack4](./images/stack4.svg)
+<center><img src="./images/stack3.svg" alt="stack3" width="300"/></center>
 
 `ptrNode = head->next`가 되면 ptrNode는 `head->next`가 가리키는 노드를 가리키게 되고 이 노드는 **pop**해야할 노드이다. 그리고 `head->next`에 `head->next->next`값을 넣으면 `head->next`는 위에서 두번째에 있는 노드를 가리키게 된다.
