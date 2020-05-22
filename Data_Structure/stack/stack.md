@@ -102,6 +102,8 @@ int Pop(void)
 
 #### 연결리스트를 사용한 스택 알고리즘
 
+실제 스택 구조를 구현한 전체 소스코드는 다음과 같다.
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -165,17 +167,17 @@ void main()
     Push(1);
     Push(2);
     Push(8);
-    Push(8);
+    Push(10);
     Push(13);
 
-    printf("다섯번의 Push() 함수 호출 후 실행 결과\n");
+    printf("다섯번의 Push() 함수 호출 후 결과\n");
     DisplayStack();
 
     ret = Pop();
     ret = Pop();
     ret = Pop();
 
-    printf("\n세 번의 Pop() 함수 호출 후 실행 결과\n");
+    printf("\n세 번의 Pop() 함수 호출 후 결과\n");
     DisplayStack();
 }
 ```
@@ -183,11 +185,11 @@ void main()
 - 실행 결과
 
 ```
-다섯번의 Push() 함수 호출 후 실행 결과
-head->13->8->8->2->1->end
+다섯번의 Push() 함수 호출 후 결과
+head->13->10->8->2->1->end
 
-세 번의 Pop() 함수 호출 후 실행 결과
+세 번의 Pop() 함수 호출 후 결과
 head->2->1->end
 ```
 
-세번의 **Pop()** 함수를 호출해서, 위에 있는 _13, 8, 8_ 이 스택에서 제거되고 _2, 1_ 이 남은 결과이다.
+세번의 **Pop()** 함수를 호출해서, 위에 있는 _13, 10, 8_ 이 스택에서 제거되고 _2, 1_ 이 남은 결과이다.
