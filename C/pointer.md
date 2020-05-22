@@ -1,0 +1,576 @@
+## 포인터
+
+> 메모리의 주소를 가지고 있는 변수
+
+변수는 자료들을 저장하는 역할을 하므로 메모리(memory)에 만들어진다. 메모리는 각 바이트마다 고유한 주소를 가지고 있다. 메모리의 첫 번째 바이트의 주소는 0, 두번째 바이트의 주소는 1, 이런식으로 각각의 바이트마다 1씩 증가한다.
+
+변수가 메모리상의 어디에 배치되었는지 변수의 주소를 알 수 있다. `주소연산자` `&`는 변수의 이름을 받아서 변수의 주소를 반환한다.
+
+```c
+#include <stdio.h>
+
+int main(){
+    int i = 10;
+    char c = 49;
+    float f = 12.3;
+
+    printf("i의 주소: %d\n", &i);
+    printf("c의 주소: %d\n", &c);
+    printf("f의 주소: %d\n", &f);
+
+    return 0;
+}
+
+//i의 주소: -272632440
+//c의 주소: -272632441
+//f의 주소: -272632448
+```
+
+### 포인터 선언과 초기화
+
+포인터를 선언할때는 자료형을 먼저 쓰고 `*`를 붙인후 포인터의 이름을 쓴다. 여기서 `*`기호는 곱셈과 관련이 없으며 `...을 가리키는` 이라 해석하면 편하다.
+
+```
+int *p;
+```
+
+```
+int *p;
+int i = 10;
+p = &i;
+```
+
+변수 i의 주소가 4였다고 가정하고 p = &i연산을 실행하면 변수 i의 주소인 4가 p에 대입된다.
+이상태를 포인터 변수 p가 변수 i를 가리키게 된다고 말한다.
+
+### 포인터를 통한 간접 참조
+
+포인터 p가 가리키는 주소에 저장된 내용을 가져오려면 p앞에 *기호를 붙여 *p하면 된다. 이것을 포인터를 통하여 메모리를 **간접참조**한다고 한다. 만약 p가 변수 i를 가리킨다고 하면 \*p는 변수 i의 값과 같다.
+
+```c
+#include <stdio.h>
+int main(){
+    int *p;
+    int i = 10;
+    p = &i;
+    printf("%d", *p);
+    return 0;
+}
+// 10
+```
+
+### 포인터를 통해 변수를 변경할 수 있다
+
+```c
+#include <stdio.h>
+
+int main(){
+    int i = 10;
+    int *p;
+
+    p = &i;
+
+    printf("i의 값 = %d\n", i);
+
+    *p = 20;    // *p, 즉 변수 i에 20을 대입한다.
+    printf("i의 값 = %d\n", i);
+    return 0;
+}
+//i의 값 = 10
+//i의 값 = 20
+```
+
+### 포인터 연산
+
+포인터에 대해서는 덧셈과 뺄셈만 허용된다. int형 포인터를 증가시키면 int형의 크기인 4바이트만큼 증가한다. char형 포인터를 증가시키면 char형 크기인 1바이트 만큼 포인터 값이 증가한다. --연산자를 이용해 감소시킬때도 마찬가지. +나 -연산자도 마찬가지.
+
+### 포인터는 왜 사용할까
+
+포인터를 사용할때의 몇 가지 장점이 있다.
+
+- 포인터를 이용하면 `연결리스트`나 `이진트리` 등의 향상된 자료구조를 만들 수 있다. 연결리스트는 포인터를 사용하여 메모리에 흩어져있는 데이터들을 연결하는 자료구조이다. 포인터가 데이터가 저장된 곳을 가리킬 수 있기 때문에 포인터들로 연결된 구조를 생각해 볼 수 있다.
+
+- 데이터의 복수를 피하고 여러 코드들이 데이터를 공유하면서 작업하고자 할 때 포인터를 사용하게 된다. 예를 들어 누군가 블랙홀에 대해 질문했을때 백과사전 전체를 복사해 주는 것보다 백과사전이 있는 곳을 알려주고 520페이지를 보라고 알려주는 편이 효율적일 수 있다.
+
+## 포인터와 함수
+
+### 함수에 인수를 전달하는법
+
+> 함수가 외부로부터 데이터를 전달받는 방법은 크게 두가지
+
+- 값에의한 호출 : 복사본이 전달된다.
+- 참조에의한 호출 : 원본이 전달된다.
+
+```c
+int main (void){
+    int a = 2;
+    int b = 3;
+    sum = add(a, b);        //인수(전달하는 값)
+    ...
+}
+```
+
+```c
+int add(int x, int y){      //매개변수
+    ...
+
+}
+```
+
+C언어에서는 기본적으로 **값에 의한 호출**만을 지원함. `add()`를 호출할 때, 인수로 a와 b를 전달하고 있지만 실제 전달되는 것은 변수 a,b가 아니라 **변수 a,b의 값**이다. 이 값이 매개변수 x와 y로 복사된다. 따라서 add()함수 안에서 x, y를 변경해도 변수 a와 b값에는 전혀 영향을 끼치지 않는다.
+
+C언어에서 참조에 의한 호출은 포인터를 이용해서 간접 구현이 가능하다.
+
+### 값에 의한 전달
+
+```c
+#include <stdio.h>
+void moving(int xpos, int ypos);
+
+int main(void){
+    int x = 10;
+    int y = 20;
+
+    printf("현재의 위치 (%d,%d)\n", x, y);
+    moving(x,y);
+    printf("현재의 위치 (%d,%d)\n", x, y);
+    return 0;
+}
+void moving(int xpos, int ypos)     // 변수의 값이 전달된다.
+{
+    xpos = xpos + 1;
+    ypos = ypos + 1;
+}
+//현재의 위치 (10,20)
+//현재의 위치 (10,20)
+```
+
+위치가 변경되지 않은 이유는 **값에 의한 호출** 이기 때문에 변수의 값이 복사될 뿐, 원본은 변경되지 않은 것이다.
+
+### 참조에 의한 전달
+
+```c
+#include <stdio.h>
+void moving(int *xpos, int *ypos);
+
+int main(void){
+    int x = 10;
+    int y = 20;
+
+    printf("현재의 위치 (%d,%d)\n", x, y);
+    moving(&x,&y);
+    printf("현재의 위치 (%d,%d)\n", x, y);
+    return 0;
+}
+void moving(int *xpos, int *ypos)       // 변수의 주소가 전달된다.
+{
+    *xpos = *xpos + 1;
+    *ypos = *ypos + 1;
+}
+//현재의 위치 (10,20)
+//현재의 위치 (11,21)
+```
+
+변수의 주소를 전달해서 주소를 참조해서 원래 변수의 값이 변경되도록 한다.
+
+### 인수를 변경하지 못하게 하기
+
+함수에 따라 포인터를 통해 인수를 변경하고 싶지 않은 경우도 있다. 예를 들어 포인터를 통해 값을 받고 단순히 출력만 하는 경우도 있다. 매개변수 앞에 `const`를 붙이면 함수 안에서 인수를 변경할 수 없다.
+
+```c
+#include <stdio.h>
+void display(const int *xpos, const int *ypos);
+void moving(int *xpos, int *ypos);
+
+int main(void){
+    int x = 10;
+    int y = 20;
+
+    display(&x, &y);
+    moving(&x, &y);
+    display(&x, &y);
+
+    return 0;
+}
+void display(const int *xpos, const int *ypos){
+    printf("현재위치 : (%d, %d)\n", *xpos, *ypos);
+}
+void moving(int *xpos, int *ypos)
+{
+    *xpos = *xpos + 1;
+    *ypos = *ypos + 1;
+}
+//현재위치 : (10, 20)
+//현재위치 : (11, 21)
+```
+
+### scanf()
+
+**참조에 의한 호출**을 사용하는 대표적인 예가 `scanf`이다. 변수 이름만 전달하면 `scanf()`는 변수에 값을 저장할 수 없다. C에서는 기본적인 인수 전달 방식이 **값에 의한 호출**이기 때문이다. 따라서 변수의 주소를 `scanf()`에 보내 사용자로부터 받은 값이 변수에 저장되도록 해야한다.
+
+## 포인터와 배열
+
+```c
+#include <stdio.h>
+int main(void){
+    int a[] = {10, 20, 30, 40};
+
+    printf("&a[0] = %d\n", &a[0]);
+    printf("&a[1] = %d\n", &a[1]);
+    printf("&a[2] = %d\n", &a[2]);
+
+    printf("a = %d\n", a);
+
+    return 0;
+}
+//&a[0] = -272632464
+//&a[1] = -272632460
+//&a[2] = -272632456
+//a = -272632464
+```
+
+배열요소의 주소를 출력해보면 요소들이 메모리에서 연속된 공간을 차지하고 있음을 알 수 있다. a가 `int`형 배열이므로 각 요소들이 차지하는 메모리 공간은 4바이트이다. 여기서 배열의 이름을 출력하면 배열의 첫번째 요소의 주소와 같다.
+
+따라서 배열 이름은 배열의 첫 번째 요소를 가리키는 포인터처럼 사용할 수 있다.
+
+```c
+#include <stdio.h>
+int main(void){
+    int a[] = {10, 20, 30, 40};
+
+    printf("*a = %u\n", *a);            // a[0]과 같음
+    printf("*(a+1) = %u\n", *(a+1));    // a[1]과 같음
+    printf("*(a+2) = %u\n", *(a+2));
+
+    return 0;
+}
+//*a = 10
+//*(a+1) = 20
+//*(a+2) = 30
+```
+
+### 포인터를 배열처럼 사용하기
+
+```c
+#include <stdio.h>
+int main(void){
+    int a[] = {10, 20, 30, 40};
+    int *p;
+
+    p = a;      // 포인터 p에 배열이름 a를 대입하면 배열의 첫번째주소가 p에 대입되는것과 똑같다.
+
+    printf("a[0]=%d a[1]=%d a[2]=%d \n", a[0], a[1], a[2]);
+    printf("p[0]=%d p[1]=%d p[2]=%d \n", a[0], a[1], a[2]);
+    return 0;
+}
+//a[0]=10 a[1]=20 a[2]=30
+//p[0]=10 p[1]=20 p[2]=30
+```
+
+### 함수로 배열을 전달하기
+
+```c
+#include <stdio.h>
+void update_array(int x[])
+{
+    x[0] = 99;
+}
+int main(void)
+{
+    int a[] = {10, 20, 30, 40};
+    update_array(a);
+    printf("a[0]=%d a[1]=%d a[2]=%d \n", a[0], a[1], a[2]);
+
+    return 0;
+}
+// a[0]=99 a[1]=20 a[2]=30
+```
+
+배열은 원본이 전달되는 것처럼 보인다.
+
+배열의 이름 a는 배열을 가리키는 주소. 따라서 배열 a를 update_array()에 전달하면 배열의 주소가 변수 x에 복사되어 원본이 전달되는 것과 마찬가지이다. 주소를 통해 요소들의 값을 변경할 수 있기 때문이다.
+
+### 배열 원소의 합 계산 (배열버전)
+
+```c
+#include <stdio.h>
+int get_sum(int a[], int n);
+
+int main(void)
+{
+    int data[] = {10,20,30,40,50};
+    int value;
+
+    value = get_sum(data, 5);
+
+    printf("%d \n", value);
+    return 0;
+}
+
+int get_sum(int a[], int n)
+{
+    int i;
+    int sum =0;
+
+    for(i =0; i<n; i++){
+        sum += a[i];
+
+    }
+    return sum;
+}
+//150
+```
+
+### 배열 원소의 합 계산 (포인터버전)
+
+```c
+#include <stdio.h>
+int get_sum(int *p, int n);
+
+int main(void)
+{
+    int data[] = {10,20,30,40,50};
+    int value;
+
+    value = get_sum(data, 5);
+
+    printf("%d \n", value);
+    return 0;
+}
+
+int get_sum(int *p, int n)
+{
+    int i;
+    int sum =0;
+
+    for(i =0; i<n; i++){
+        sum += *(p+i);
+
+    }
+    return sum;
+}
+//150
+```
+
+### 함수포인터
+
+> 포인터는 변수뿐만 아니라 함수도 가리킬 수 있다.
+
+- 예제
+
+```c
+#include <stdio.h>
+int get_min(int, int);
+int main(void)
+{
+    int n1, n2, result;
+    int(*pf)(int, int);     //함수포인터 선언
+
+    printf("첫번째값: ");
+    scanf("%d", &n1);
+    printf("두번째값: ");
+    scanf("%d", &n2);
+
+    pf = get_min;       //함수포인터에 get_min()함수의 주소대입
+    result = pf(n1,n2);     //원칙적으로 (*pf)(n1,n2)지만 *을 생략해도됨
+
+    printf("더 작은값: %d입니다.\n", result);
+
+    return 0;
+}
+
+int get_min(int a, int b)
+{
+    if( a<b){
+        return a;
+    }else{
+        return b;
+    }
+}
+//첫번째값: 44
+//두번째값: 22
+//더 작은값: 22입니다.
+```
+
+### 함수포인터 용도
+
+> 입력에따라 서로 다른 함수를 호출할때 함수포인터를 사용하면 편리하게 작성할수있다.
+
+```c
+#include <stdio.h>
+void menu1(void);
+void menu2(void);
+void menu3(void);
+
+int main(void)
+{
+    int choice;
+
+    int (*pf[3])(void);
+
+    pf[0] = menu1;
+    pf[1] = menu2;
+    pf[2] = menu3;
+
+    printf("메뉴를 입력하세요 (0:김밥, 1:라면, 2:냉면)");
+    scanf("%d", &choice);
+
+    if(choice >= 0 && choice <= 2){
+        pf[choice]();       //함수포인터를 사용하지않았으면 if-esle문이나 switch문을 사용했어야함
+    }
+    return 0;
+}
+
+void menu1(void){
+    printf("김밥");
+}
+void menu2(void){
+    printf("라면");
+}
+void menu3(void){
+    printf("냉면");
+}
+```
+
+## 문자열과 포인터
+
+### 포인터로 문자열 가리키기
+
+```c
+char s[ ] = "HelloWorld";       //배열로 문자열을 초기화해서 저장
+
+s : H e l l o W o r l d \0      //데이터세그먼트(값을 변경할 수 있는 메모리영역)
+```
+
+```c
+char *p = "HelloWorld";     //포인터를 정의하고 문자열의 주소로 포인터를 초기화
+
+p
+데이터 세그먼트(값을 변경할 수 있는 메모리 영역)
+
+H e l l o W o r l \0
+텍스트 세그먼트(값을 읽기만 하고 변경할 수 없는 메모리 영역)
+```
+
+- 차이점
+
+```c
+char s[ ] = "HelloWorld";
+s = "Goodbye";      // 실행오류
+```
+
+```c
+char *p = "HelloWorld";
+p = "Goodbye";  //"Goodbye"가 저장된 주소로 포인터의 값을 변경함
+```
+
+포인터 변수 p는 데이터 세그먼트에 있으므로 값을 변경할 수 있다. 따라서 다른 문자열 상수의 주소를 p에 저장할 수 있다. 또한 배열 s에는 새로운 문자열을 저장할 수 있다.
+
+```c
+char s[] = "HelloWorld";
+s[0] = 'a';     // 가능함
+```
+
+```c
+char *p = "HelloWorld";
+p[0] = 'a'      //실행오류. p가 가리키는 공간은 변경불가
+```
+
+### 여러개의 문자열 저장하기
+
+```c
+char s[3][6] = {
+    "init",
+    "add",
+    "push"
+};
+
+printf("%s", s[1]);     //add
+```
+
+포인터의 배열을 사용하여 여러개의 문자열을 저장할 수도 있다.
+
+```c
+int main(void)
+{
+    char *p[3] = {"January", "February", "March"};
+    int i;
+
+    for(i = 0; i < 3; i++){
+        printf("%d월은 %s입니다.\n", i, p[i]);
+    }
+    return 0;
+}
+// 0월은 January입니다.
+// 1월은 February입니다.
+// 2월은 March입니다.
+```
+
+#### 여러개의 단어들을 포인터를 이용하여 저장하기
+
+```c
+#define BUFFER_SIZE 100
+#include <stdio.h>
+int main(){
+    char *words[100];
+    int n = 0;
+    char buffer[BUFFER_SIZE];
+
+    while (n<4 && scanf("%s", buffer) != EOF){
+        words[n] = strdup(buffer);
+        n++;
+    }
+    for(int i=0; i<4; i++){
+        printf("%s\n", words[i]);
+    }
+    return 0;
+}
+```
+
+#### 대소문자,숫자 포함된 암호입력받기
+
+```c
+// 암호를 생성하시오: 123456
+// 숫자,소문자,대문자를 섞어서 암호를 다시 만드세요!
+// 암호를 생성하시오: abcdef
+// 숫자,소문자,대문자를 섞어서 암호를 다시 만드세요!
+// 암호를 생성하시오: ABCDEF
+// 숫자,소문자,대문자를 섞어서 암호를 다시 만드세요!
+// 암호를 생성하시오: abCDe3
+// 적절한 암호입니다.
+
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+    int i;
+    char password[10];
+    int is_number = 0;
+    int is_lower = 0;
+    int is_upper = 0;
+
+
+
+    while(1){
+        printf("암호를 생성하시오: ");
+        scanf(" %s", password);
+        for(i = 0; i < strlen(password); i++){
+            if(password[i] >= '0' && password[i] <= '9'){
+                is_number = 1;
+            }else if(password[i] >= 'a' && password[i] <= 'z'){
+                is_lower = 1;
+            }else if(password[i] >= 'A' && password[i] <= 'Z'){
+                is_upper = 1;
+            }
+        }
+
+        if((is_number == 1) && (is_upper == 1) && (is_lower == 1)){
+            printf("적절한 암호입니다.");
+            break;
+        }else{
+            printf("숫자,소문자,대문자를 섞어서 암호를 다시 만드세요! ");
+        }
+    }
+    return (0);
+}
+```
