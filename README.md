@@ -51,6 +51,13 @@
   - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
 - [몽고디비(mongoDB)](https://github.com/InKyoJeong/TIL/blob/master/Database/mongoDB/mongo.md)
 
+### Data Structure
+
+- [연결 리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/list/link.md)
+- [이중 연결 리스트(Double linked list)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/doublelist/doublelink.md)
+- [스택(Stack)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/stack/stack.md)
+- [큐(Queue)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/queue/queue.md)
+
 ### React
 
 - [누구든지 하는 리액트](https://github.com/InKyoJeong/TIL/blob/master/React/basic.md)
@@ -67,12 +74,6 @@
 - [파일 입출력](https://github.com/InKyoJeong/TIL/blob/master/C/file.md)
 - [전처리기](https://github.com/InKyoJeong/TIL/blob/master/C/preprocessor.md)
 - [동적 메모리](https://github.com/InKyoJeong/TIL/blob/master/C/dynamic.md)
-
-### Data Structure
-
-- [연결 리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/list/link.md)
-- [이중 연결 리스트(Double linked list)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/doublelist/doublelink.md)
-- [스택(Stack)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/stack/stack.md)
 
 ### Algorithm
 
