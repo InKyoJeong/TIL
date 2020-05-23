@@ -21,6 +21,8 @@
 int Queue[MAX];
 ```
 
+<br>
+
 #### 초기화 함수
 
 ```c
@@ -36,7 +38,7 @@ void InitializeQueue(void)
 
 <br>
 
-### Put() 함수
+#### Put() 함수
 
 ```c
 void Put(int num)
@@ -56,7 +58,7 @@ void Put(int num)
 
 <br>
 
-### Get() 함수
+#### Get() 함수
 
 ```c
 int Get(void)
@@ -173,3 +175,67 @@ Front->1->2->8->10->13->Rear
 Front->10->13->Rear
 두 번의 Get() 함수 호출 후 결과
 ```
+
+<br>
+
+### 연결리스트를 사용한 큐의 구현
+
+큐는 배열로 사용하는 것이 구현하기도 편하고 관리도 편하지만 연결리스트를 사용하여 만들 수도 있다.
+
+#### 노드 정의
+
+```c
+typedef struct _NODE {
+    int data;
+    struct _NODE *next;
+} NODE;
+```
+
+링크 하나, 저장할 데이터가 한 개인 구조이다.
+
+<br>
+
+#### 초기화 함수
+
+```c
+void InitializeQueue(void)
+{
+    Front = (NODE *)malloc(sizeof(NODE));
+    Rear = (NODE *)malloc(sizeof(NODE));
+    Front->next = Rear;
+    Rear->next = Rear;
+}
+```
+
+front와 rear에 메모리를 할당한 뒤 링크를 서로 연결시켜 큐를 초기화한다.
+
+<br>
+
+#### Put() 함수
+
+```c
+void Put(int num)
+{
+    ptrNode = (NODE *)malloc(sizeof(NODE));
+    ptrNode->data = num;
+
+    if(Front->next == Rear){
+        Front->next = ptrNode;
+        ptrNode->next = Rear;
+        Rear->next = ptrNode;
+    }else {
+        Rear->next->next = ptrNode;
+        ptrNode->next = Rear;
+        Rear->next = ptrNode;
+    }
+}
+```
+
+큐가 비어있는 경우 (`Front->next`가 Rear를 가리키는 경우) `Front->next`값이 새로 추가되는 노드인 ptrNode를 가리키게 한다. 그리고 `ptrNode->next`는 Rear를 가리키게 하고 `Rear->next`는 ptrNode를 가리키게 한다.
+
+![queue5](./images/queue5.svg)
+
+<!--
+#### 연결리스트를 사용한 큐 알고리즘
+
+연결리스트를 사용한 큐의 전체 코드는 다음과 같다. -->
