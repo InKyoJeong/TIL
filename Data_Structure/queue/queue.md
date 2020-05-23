@@ -249,7 +249,7 @@ void Put(int num)
 int Get(void)
 {
     int ret;
-    Node *deleteNode;
+    NODE *deleteNode;
     printf("\n");
 
     if(Front->next == Rear)
@@ -270,9 +270,150 @@ int Get(void)
 
 먼저 큐가 비었는지 확인하고 비어있지 않으면 deleteNode값이 `Front->next`값을 가리키게 하고 `Front->next`값이 `deleteNode->next`값을 가리키게 한다. 그리고 deleteNode값의 데이터를 출력하고 free()함수로 노드를 제거한다.
 
-<!--
+<br>
+
+#### DisplayQueue() 함수
+
+```c
+void DisplayQueue(void)
+{
+    NODE *ptrTemp;
+
+    if(Front->next != Rear){
+        for(ptrTemp = Front->next; ptrTemp->next != Rear; ptrTemp = ptrTemp->next){
+            printf("%d->", ptrTemp->data);
+        }
+
+        printf("%d", ptrTemp->data);
+    }
+    else if(Front->next == Rear)
+        printf("Queue is Empty\n");
+}
+```
+
+`Front->next`값이 Rear를 가리킬 때까지 연결리스트를 이동하며 각 노드 데이터를 출력한다.
+
 <br>
 
 #### 연결리스트를 사용한 큐 알고리즘
 
-연결리스트를 사용한 큐의 전체 코드는 다음과 같다. -->
+연결리스트를 사용한 큐의 전체 코드는 다음과 같다.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct _NODE {
+    int data;
+    struct _NODE *next;
+} NODE;
+
+NODE *Front, *Rear;
+NODE *ptrNode;
+
+void InitializeQueue(void);
+void Put(int);
+int Get(void);
+void DisplayQueue(void);
+
+void InitializeQueue(void)
+{
+    Front = (NODE *)malloc(sizeof(NODE));
+    Rear = (NODE *)malloc(sizeof(NODE));
+    Front->next = Rear;
+    Rear->next = Rear;
+}
+
+void Put(int num)
+{
+    ptrNode = (NODE *)malloc(sizeof(NODE));
+    ptrNode->data = num;
+
+    if(Front->next == Rear){
+        Front->next = ptrNode;
+        ptrNode->next = Rear;
+        Rear->next = ptrNode;
+    }else {
+        Rear->next->next = ptrNode;
+        ptrNode->next = Rear;
+        Rear->next = ptrNode;
+    }
+}
+
+int Get(void)
+{
+    int ret;
+    NODE *deleteNode;
+    printf("\n");
+
+    if(Front->next == Rear)
+        printf("Queue is Empty\n");
+    else{
+        deleteNode = Front->next;
+        Front->next = deleteNode->next;
+        ret = deleteNode->data;
+        printf("get() : %d", ret);
+
+        free(deleteNode);
+    }
+    return ret;
+}
+
+void DisplayQueue(void)
+{
+    NODE *ptrTemp;
+
+    if(Front->next != Rear){
+        for(ptrTemp = Front->next; ptrTemp->next != Rear; ptrTemp = ptrTemp->next){
+            printf("%d->", ptrTemp->data);
+        }
+
+        printf("%d", ptrTemp->data);
+    }
+    else if(Front->next == Rear)
+        printf("Queue is Empty\n");
+}
+
+void main()
+{
+    int ret;
+    InitializeQueue();
+    printf("Put() 함수 호출하기\n");
+
+    Put(1);
+    Put(2);
+    Put(8);
+    Put(10);
+    Put(13);
+
+    printf("다섯 번의 Put() 함수 호출 결과: ");
+    DisplayQueue();
+
+    ret = Get();
+    ret = Get();
+    ret = Get();
+
+    printf("\n세 번의 Get() 함수 호출 결과: ");
+    DisplayQueue();
+
+    ret = Get();
+    ret = Get();
+
+    printf("\n두 번의 Get() 함수 호출 결과: ");
+    DisplayQueue();
+}
+```
+
+- 실행 결과
+
+```
+Put() 함수 호출하기
+다섯 번의 Put() 함수 호출 결과: 1->2->8->10->13
+get() : 1
+get() : 2
+get() : 8
+세 번의 Get() 함수 호출 결과: 10->13
+get() : 10
+get() : 13
+두 번의 Get() 함수 호출 결과: Queue is Empty
+```
