@@ -231,11 +231,43 @@ void Put(int num)
 }
 ```
 
+![queue6](./images/queue6.svg)
+
 큐가 비어있는 경우 (`Front->next`가 Rear를 가리키는 경우) `Front->next`값이 새로 추가되는 노드인 ptrNode를 가리키게 한다. 그리고 `ptrNode->next`는 Rear를 가리키게 하고 `Rear->next`는 ptrNode를 가리키게 한다.
 
-![queue5](./images/queue5.svg)
+<br>
 
-<!--
+![queue7](./images/queue7.svg)
+
+기존의 노드가 존재하는 경우는 `Rear->next->next`값이 ptrNode를 가리키게하고(1) `ptrNode->next`는 Rear값을 가리키게 하고(2) `Rear->next`는 새로운 노드 ptrNode를 가리키게 한다(3).
+
+<br>
+
+#### Get() 함수
+
+```c
+int Get(void)
+{
+    int ret;
+    Node *deleteNode;
+    printf("\n");
+
+    if(Front->next == Rear)
+        printf("Queue is Empty\n");
+    else{
+        deleteNode = Front->next;
+        Front->next = deleteNode->next;
+        ret = deleteNode->data;
+        printf("get() : %d", ret);
+
+        free(deleteNode);
+    }
+    return ret;
+}
+```
+
+<br>
+
 #### 연결리스트를 사용한 큐 알고리즘
 
-연결리스트를 사용한 큐의 전체 코드는 다음과 같다. -->
+연결리스트를 사용한 큐의 전체 코드는 다음과 같다.
