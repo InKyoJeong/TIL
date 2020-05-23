@@ -266,8 +266,13 @@ int Get(void)
 }
 ```
 
+![queue8](./images/queue8.svg)
+
+먼저 큐가 비었는지 확인하고 비어있지 않으면 deleteNode값이 `Front->next`값을 가리키게 하고 `Front->next`값이 `deleteNode->next`값을 가리키게 한다. 그리고 deleteNode값의 데이터를 출력하고 free()함수로 노드를 제거한다.
+
+<!--
 <br>
 
 #### 연결리스트를 사용한 큐 알고리즘
 
-연결리스트를 사용한 큐의 전체 코드는 다음과 같다.
+연결리스트를 사용한 큐의 전체 코드는 다음과 같다. -->
