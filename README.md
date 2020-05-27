@@ -57,6 +57,7 @@
 - [이중 연결 리스트(Double linked list)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/doublelist/doublelink.md)
 - [스택(Stack)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/stack/stack.md)
 - [큐(Queue)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/queue/queue.md)
+- [시간복잡도와 점근적 분석](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/time.md)
 
 ### React
 
