@@ -109,3 +109,20 @@ int main(){
     return 0;
 }
 ```
+
+### #ifndef ~ #endif
+
+> ifndef는 if not define이다.
+
+헤더파일이 겹치는 것을 막기위한 매크로이다. 이전에 `include`되어 있으면 `#endif`쪽으로 점프하여 결국 한번 선언되는 것이다.
+
+```c
+#ifndef HEADERFILE_H
+#define HEADERFILE_H
+
+...
+
+#endif
+```
+
+먼저 _**HEADERFILE_H**_ 가 정의되어있는지 살펴보고 정의되어 있지 않으면 바로 다음줄에서 정의한다. 이미 정의되어 있다면 `#endif`를 만날 때까지 사이의 모든 코드를 무시한다.

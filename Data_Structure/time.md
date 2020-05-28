@@ -175,3 +175,12 @@ void insertion_sort(int n, int data[]) {
   - 힙 정렬(heap sort) 등
 - 데이터가 배열이 아닌 연결리스트에 저장되어 있다면?
   - O(n²)의 시간복잡도를 벗어나기 어렵다.
+
+<br>
+
+<!-- # 시간복잡도 분석 예
+
+## push and pop : 배열로 구현한 경우
+
+```c
+void push(Stack s, Item i) -->
