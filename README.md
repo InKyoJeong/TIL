@@ -58,6 +58,7 @@
 - [스택(Stack)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/stack/stack.md)
 - [큐(Queue)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/queue/queue.md)
 - [시간복잡도와 점근적 분석](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/time.md)
+- [열혈 자료구조](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/DS_using_C.md)
 
 ### React
 
@@ -75,6 +76,10 @@
 - [파일 입출력](https://github.com/InKyoJeong/TIL/blob/master/C/file.md)
 - [전처리기](https://github.com/InKyoJeong/TIL/blob/master/C/preprocessor.md)
 - [동적 메모리](https://github.com/InKyoJeong/TIL/blob/master/C/dynamic.md)
+
+<!-- ### C++
+
+- [기초 연습](https://github.com/InKyoJeong/TIL/blob/master/C++/print.md) -->
 
 ### Algorithm
 
