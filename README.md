@@ -58,7 +58,8 @@
 - [스택(Stack)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/stack/stack.md)
 - [큐(Queue)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/queue/queue.md)
 - [시간복잡도와 점근적 분석](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/time.md)
-- [열혈 자료구조](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/DS_using_C.md)
+- [트리(Tree)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/tree.md)
+<!-- - [열혈 자료구조](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/DS_using_C.md) -->
 
 ### React
 
