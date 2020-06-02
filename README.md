@@ -78,9 +78,11 @@
 - [전처리기](https://github.com/InKyoJeong/TIL/blob/master/C/preprocessor.md)
 - [동적 메모리](https://github.com/InKyoJeong/TIL/blob/master/C/dynamic.md)
 
-<!-- ### C++
+### C++
 
-- [기초 연습](https://github.com/InKyoJeong/TIL/blob/master/C++/print.md) -->
+- [기초 연습 (입/출력, 오버로딩, 매개변수, inline, namespace)](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
+- [기초 연습2](https://github.com/InKyoJeong/TIL/blob/master/C++/basic2.md)
+- [문제풀이](https://github.com/InKyoJeong/TIL/blob/master/C++/problem.md)
 
 ### Algorithm
 
