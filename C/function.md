@@ -137,3 +137,85 @@ int main(void){
 - 전역변수는 컴파일러에 의해 자동적으로 0으로 초기화 된다.
 - 지역변수는 자동으로 초기화되지않으며 초깃값을 정하지않으면 쓰레기값이 저장된다.
 - 지역변수는 블록이 시작될때 생성되고 블록 끝에서 소멸된다.
+
+### 소수,약수 구하기
+
+```
+>> MENU
+(1)약수출력 (2)소수출력 (3)종료 [메뉴선택] : 1
+임의의 정수 입력 :10
+1 2 5 10
+>> MENU
+(1)약수출력 (2)소수출력 (3)종료 [메뉴선택] : 2
+임의의 정수 입력 :13
+13는 소수입니다.
+>> MENU
+(1)약수출력 (2)소수출력 (3)종료 [메뉴선택] : 3
+```
+
+```c
+#include <stdio.h>
+int is_prime(int n);
+int is_sub(int n);
+
+int main()
+{
+    while(1){
+        int menu;
+        printf(">> MENU\n(1)약수출력 (2)소수출력 (3)종료 [메뉴선택] : ");
+        scanf("%d", &menu);
+
+        if(menu == 1)
+        {
+            int n,result;
+            printf("임의의 정수 입력 :");
+            scanf("%d", &n);
+            result = is_sub(n);
+            printf("%d\n", result);
+        }
+        else if(menu == 2)
+        {
+            int n,result;
+            printf("임의의 정수 입력 :");
+            scanf("%d", &n);
+            result = is_prime(n);
+            if(result == 1)
+            {
+                printf("%d는 소수입니다.\n", n);
+            }
+            else
+            {
+                printf("%d는 소수가 아닙니다.\n", n);
+            }
+        }
+        else
+            break;
+
+    }
+
+    return 0;
+}
+
+int is_sub(int n)
+{
+    int i;
+    for(i=1; i<n; i++){
+        if(n% i == 0)
+        {
+            printf("%d ", i);
+        }
+    }
+    return i;
+}
+
+int is_prime(int n)
+{
+    int i;
+    for(i=2; i<n; i++){
+        if(n%i == 0){
+            return 0;
+        }
+    }
+    return 1;
+}
+```
