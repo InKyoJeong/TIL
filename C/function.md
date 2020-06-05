@@ -155,8 +155,8 @@ int main(void){
 
 ```c
 #include <stdio.h>
+void is_sub(int n);
 int is_prime(int n);
-int is_sub(int n);
 
 int main()
 {
@@ -167,11 +167,11 @@ int main()
 
         if(menu == 1)
         {
-            int n,result;
+            int n;
             printf("임의의 정수 입력 :");
             scanf("%d", &n);
-            result = is_sub(n);
-            printf("%d\n", result);
+            is_sub(n);
+            printf("\n");
         }
         else if(menu == 2)
         {
@@ -196,16 +196,16 @@ int main()
     return 0;
 }
 
-int is_sub(int n)
+
+void is_sub(int x)
 {
     int i;
-    for(i=1; i<n; i++){
-        if(n% i == 0)
+    for(i=1; i<=x; i++){
+        if(x%i == 0)
         {
             printf("%d ", i);
         }
     }
-    return i;
 }
 
 int is_prime(int n)
