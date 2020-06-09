@@ -77,6 +77,7 @@
 - [파일 입출력](https://github.com/InKyoJeong/TIL/blob/master/C/file.md)
 - [전처리기](https://github.com/InKyoJeong/TIL/blob/master/C/preprocessor.md)
 - [동적 메모리](https://github.com/InKyoJeong/TIL/blob/master/C/dynamic.md)
+- [정적변수 (static)](https://github.com/InKyoJeong/TIL/blob/master/C/var.md)
 
 ### C++
 
