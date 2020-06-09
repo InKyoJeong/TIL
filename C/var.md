@@ -81,3 +81,82 @@ void increaseNum(static int num)
     num++;
 }
 ```
+
+<br>
+
+### 정적변수, 지역변수, 전역변수로 프로그램만들기
+
+```
+    [은행 자동 업무 시스템]
+1. 입금
+2. 출금
+3. 조회
+4. 종료
+[선택(1-4)] 1
+입금액 : 2000
+    [은행 자동 업무 시스템]
+1. 입금
+2. 출금
+3. 조회
+4. 종료
+[선택(1-4)] 2
+출금액 : 400
+    [은행 자동 업무 시스템]
+1. 입금
+2. 출금
+3. 조회
+4. 종료
+[선택(1-4)] 3
+총금액 :1600
+    [은행 자동 업무 시스템]
+1. 입금
+2. 출금
+3. 조회
+4. 종료
+[선택(1-4)] 4
+```
+
+```c
+#include <stdio.h>
+
+int input;      //전역변수
+
+int main()
+{
+    while(1)
+    {
+        printf("    [은행 자동 업무 시스템]  \n");
+        printf("1. 입금\n");
+        printf("2. 출금\n");
+        printf("3. 조회\n");
+        printf("4. 종료\n");
+        printf("[선택(1-4)] ");
+
+        scanf("%d", &input);
+
+        static int num = 0;     //정적변수
+
+        if(input == 1)
+        {
+            int in;             //지역변수
+            printf("입금액 : ");
+            scanf("%d", &in);
+            num += in;
+
+        }
+        else if(input == 2)
+        {
+            int out;            //지역변수
+            printf("출금액 : ");
+            scanf("%d", &out);
+            num -= out;
+        }
+        else if(input == 3)
+             printf("총금액 :%d\n", num);
+        else
+            break;
+    }
+
+    return 0;
+}
+```
