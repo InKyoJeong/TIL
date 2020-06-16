@@ -342,10 +342,12 @@ a[9]:    12
 ```c
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #define SIZE 10
 
 int main()
 {
+    srand((unsigned int)time(NULL));
     int a[SIZE] = {0};
     int i;
     int max = 0, num = 0;
@@ -367,4 +369,5 @@ int main()
 
     return 0;
 }
+
 ```
