@@ -322,3 +322,49 @@ int main()
 ```
 
 `freq[person]++;` : 후보의 번호가 person에 입력되면 해당 배열 원소의 값을 하나 증가시킨다.
+
+### 난수 발생 함수로 발생빈도 구하기
+
+```
+a[0]:     7
+a[1]:     7
+a[2]:     9
+a[3]:    14
+a[4]:     9
+a[5]:    11
+a[6]:     8
+a[7]:    11
+a[8]:    12
+a[9]:    12
+최빈값: 3, 발생빈도: 14회
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 10
+
+int main()
+{
+    int a[SIZE] = {0};
+    int i;
+    int max = 0, num = 0;
+
+    for (i=0; i<100; i++)
+        ++a[rand() % 10];
+
+    for(i=0; i< SIZE; i++)
+    {
+        printf("a[%d]:    %2d\n", i, a[i]);
+        if(a[i] > max)
+        {
+            num = i;
+            max = a[i];
+        }
+    }
+     printf("최빈값: %d, 발생빈도: %d회\n", num, max);
+
+
+    return 0;
+}
+```
