@@ -88,6 +88,7 @@
 ### Algorithm
 
 - [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
+- [선택 정렬 알고리즘](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/selectsort.md)
 
 ### Operating System
 
