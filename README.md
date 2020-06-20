@@ -44,12 +44,9 @@
   - [미들웨어(middleware)](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/middleware.md)
   - [템플릿 엔진 : Pug](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/pug.md)
 
-### Database
+### React
 
-- [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md)
-- [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/mysql.md)
-  - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
-- [몽고디비(mongoDB)](https://github.com/InKyoJeong/TIL/blob/master/Database/mongoDB/mongo.md)
+- [누구든지 하는 리액트](https://github.com/InKyoJeong/TIL/blob/master/React/basic.md)
 
 ### Data Structure
 
@@ -61,9 +58,17 @@
 - [트리(Tree)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/tree.md)
 <!-- - [열혈 자료구조](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/DS_using_C.md) -->
 
-### React
+### Algorithm
 
-- [누구든지 하는 리액트](https://github.com/InKyoJeong/TIL/blob/master/React/basic.md)
+- [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
+- [기본 정렬 알고리즘](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
+
+### Database
+
+- [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md)
+- [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/mysql.md)
+  - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
+- [몽고디비(mongoDB)](https://github.com/InKyoJeong/TIL/blob/master/Database/mongoDB/mongo.md)
 
 ### C
 
@@ -84,11 +89,6 @@
 - [기초 연습 (입/출력, 오버로딩, 매개변수, inline, namespace)](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
 - [기초 연습2](https://github.com/InKyoJeong/TIL/blob/master/C++/basic2.md)
 - [문제풀이](https://github.com/InKyoJeong/TIL/blob/master/C++/problem.md)
-
-### Algorithm
-
-- [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
-- [기본 정렬 알고리즘](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
 
 ### Operating System
 
