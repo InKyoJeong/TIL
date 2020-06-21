@@ -56,6 +56,7 @@
 - [큐(Queue)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/queue/queue.md)
 - [시간복잡도와 점근적 분석](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/time.md)
 - [트리(Tree)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/tree.md)
+- [우선순위 큐(Priority Queue)와 힙(Heap)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/heap/heap.md)
 <!-- - [열혈 자료구조](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/DS_using_C.md) -->
 
 ### Algorithm
