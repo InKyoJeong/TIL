@@ -214,6 +214,8 @@ int GetHiPriChildIDX(Heap * ph, int idx)
 
 if문은 자식 노드가 존재하지 않을때를 말한다. numOfData는 마지막 노드의 인덱스값이므로 인덱스값을 얻어온게(존재하지 않는 노드의 인덱스값) 마지막 인덱스 값보다 크다면 자식 노드가 존재하지 않는 것이다.
 
+<center><img src="./images/heap0.svg" alt="stack3" width="500"/></center>
+
 else if는 자식노드가 왼쪽 자식 노드 하나만 존재할때를 의미한다. 자식노드의 인덱스 값이 마지막 노드인지 판단한다.
 
 ```c
