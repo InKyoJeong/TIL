@@ -12,9 +12,11 @@
 
 힙은 **완전 이진 트리**이다. 완전 이진 트리는 잎 노드들이 트리의 왼쪽부터 차곡차곡 채워진 트리이다.
 
-![heap1](./images/heap1.svg)
+<!-- ![heap1](./images/heap1.svg) -->
 
-<center><img src="./images/heap1.svg" alt="stack3" width="300"/></center>
+<center><img src="./images/heap1.svg" alt="stack3" width="500"/></center>
+
+<br>
 
 ### 힙에 데이터 삽입하기
 
@@ -24,8 +26,30 @@
 2. 그리고 삽압한 노드를 부모 노드와 비교한다. 부모 노드보다 크면 제 위치에 삽입된 것이므로 연산을 종료한다.
 3. 부모 노드보다 작다면 부모 노드와 삽입한 노드의 위치를 바꾼다. 바꾸고 나면 두번째 단계를 다시 진행한다.
 
-![heap2](./images/heap2.svg)
+<!-- ![heap2](./images/heap2.svg) -->
 
-<center><img src="./images/heap2.svg" alt="stack3" width="300"/></center>
+<center><img src="./images/heap2.svg" alt="stack3" width="500"/></center>
+
+예를들어, 이러한 최소 힙이 있고 숫자 3을 추가한다고 하자. 위와 같이 마지막 위치에 노드를 추가하고 부모노드와 우선순위를 비교한다. 부모 노드보다 크므로 위치를 바꿔야 한다.
+
+<center><img src="./images/heap3.svg" alt="stack3" width="500"/></center>
+
+그리고 다시 부모 노드와 비교한다. 이번에도 부모 노드의 우선순위가 낮으므로 위치를 바꾼다.
+
+<center><img src="./images/heap4.svg" alt="stack3" width="500"/></center>
+
+마지막으로 루트 노드와 비교하는데, 부모 노드보다 우선순위가 높지 않으므로 제 위치를 찾은 것이다.
+
+<br>
 
 ### 힙에서 데이터 삭제하기
+
+삭제 과정은 먼저 루트 노드를 삭제하고 최고 깊이, 최 우측에 있는 노드를 루트 노드로 옮겨온다.
+
+<center><img src="./images/heap5.svg" alt="stack3" width="500"/></center>
+
+그 다음으로 노드를 삽입할 때와 유사하게, 제자리를 찾게 한다. 옮겨온 노드의 양쪽 자식을 비교하여 작은 쪽 자식과 위치를 교환한다.
+
+<center><img src="./images/heap6.svg" alt="stack3" width="500"/></center>
+
+이렇게 빈 공간을 채워서 삭제 과정을 마무리한다.
