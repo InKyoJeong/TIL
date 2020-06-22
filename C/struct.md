@@ -156,7 +156,7 @@ struct point{
     int y;
 };
 struct point p1 = {3,4};
-struct print *ptr;  //구조체의 포인터 선언
+struct point *ptr;  //구조체의 포인터 선언
 ptr = &p1;  //구조체 주소를 포인터에 대입
 ```
 

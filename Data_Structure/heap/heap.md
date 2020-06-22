@@ -53,3 +53,260 @@
 <center><img src="./images/heap6.svg" alt="stack3" width="500"/></center>
 
 이렇게 빈 공간을 채워서 삭제 과정을 마무리한다.
+
+<br>
+
+### 힙 구현
+
+힙이 트리라서 연결리스트로 구현해야할 것 같지만 연결리스트 기반 구현은 새로운 노드를 힙의 마지막 위치에 추가하는 것이 어렵다는 문제가 있다. 그래서 힙은 배열로 구현한다.
+
+### 노드의 인덱스 값 얻기
+
+배열 기반 힙을 구현하려면 인덱스 값을 얻는 방법을 알아야 한다.
+
+- 왼쪽 자식 노드의 인덱스 값 : 부모 노드의 인덱스 값 \* 2
+- 오른쪽 자식 노드의 인덱스 값 : 부모 노드의 인덱스 값 \* 2 + 1
+- 부모 노드의 인덱스 값 : 자식 노드의 인덱스 값 / 2
+
+### SimpleHeap.h
+
+```c
+#ifndef __SIMPLE_HEAP_H__
+#define __SIMPLE_HEAP_H__
+
+#define TRUE 1
+#define FALSE 0
+
+#define HEAP_LEN 100
+
+typedef int Priority;
+typedef char HData;
+
+typedef struct _heapElem
+{
+    Priority pr;        //값이 작을수록 높은 우선순위
+    HData data;
+} HeapElem;
+
+typedef struct _heap
+{
+    int numOfData;
+    HeapElem heapArr[HEAP_LEN];
+} Heap;
+
+void HeapInit(Heap * ph);
+int HIsEmpty(Heap * ph);
+
+void HInsert(Heap * ph, HData data, Priority pr);
+HData HDelete(Heap * ph);
+
+#endif
+```
+
+- 힙은 완전 이진 트리
+- 힙의 구현은 배열을 기반으로 하며 인덱스가 0인 요소는 비워둠
+- 힙에 저장된 노드 개수 = 마지막 노드 고유번호
+- 노드의 고유번호 = 노드가 저장되는 배열의 인덱스 값
+- 우선순위를 나타내는 정수 값이 작을수록 높은 우선순위를 나타냄
+
+### SimpleHeap.c
+
+```c
+#include "SimpleHeap.h"
+
+void HeapInit(Heap * ph)    //힙 초기화
+{
+    ph->numOfData = 0;
+}
+
+int HIsEmpty(Heap * ph)     //힙이 비었는지 확인
+{
+    if(ph->numOfData == 0)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+int GetParentIDX(int idx)   //부모 노드의 인덱스 값 반환
+{
+    return idx/2;
+}
+
+int GetLChildIDX(int idx)   //왼쪽 자식 노드의 인덱스 값 반환
+{
+    return idx*2;
+}
+
+int GetRChildIDX(int idx)   //오른쪽 자식 노드의 인덱스 값 반환
+{
+    return GetLChildIDX(idx)+1;
+}
+
+int GetHiPriChildIDX(Heap * ph, int idx)
+{
+    if(GetLChildIDX(idx) > ph->numOfData)
+        return 0;
+    else if(GetLChildIDX(idx) == ph->numOfData)
+        return GetLChildIDX(idx);
+    else
+    {
+        if(ph->heapArr[GetLChildIDX(idx)].pr > ph->heapArr[GetRChildIDX(idx)].pr)
+            return GetRChildIDX(idx);
+        else
+            return GetLChildIDX(idx);
+    }
+}
+
+void HInsert(Heap * ph, HData data, Priority pr)
+{
+    int idx = ph->numOfData+1;
+    HeapElem nelem = {pr, data};
+
+    while(idx != 1)
+    {
+        if(pr < (ph->heapArr[GetParentIDX(idx)].pr))
+        {
+            ph->heapArr[idx] = ph->heapArr[GetParentIDX(idx)];
+            idx = GetParentIDX(idx);
+        }
+        else
+            break;
+    }
+
+    ph->heapArr[idx] = nelem;
+    ph->numOfData += 1;
+}
+
+HData HDelete(Heap * ph)
+{
+    HData retData = (ph->heapArr[1]).data;
+    HeapElem lastElem = ph->heapArr[ph->numOfData];
+
+    int parentIdx = 1;
+    int childIdx;
+
+    while(childIdx = GetHiPriChildIDX(ph, parentIdx))
+    {
+        if(lastElem.pr <= ph->heapArr[childIdx].pr)
+            break;
+        ph->heapArr[parentIdx] = ph->heapArr[childIdx];
+        parentIdx = childIdx;
+    }
+
+    ph->heapArr[parentIdx] = lastElem;
+    ph->numOfData -= 1;
+    return retData;
+}
+```
+
+#### GetHiPriChildIDX 함수
+
+```c
+int GetHiPriChildIDX(Heap * ph, int idx)
+{
+    if(GetLChildIDX(idx) > ph->numOfData)
+        return 0;
+    else if(GetLChildIDX(idx) == ph->numOfData)
+        return GetLChildIDX(idx);
+```
+
+if문은 자식 노드가 존재하지 않을때를 말한다. numOfData는 마지막 노드의 인덱스값이므로 인덱스값을 얻어온게(존재하지 않는 노드의 인덱스값) 마지막 인덱스 값보다 크다면 자식 노드가 존재하지 않는 것이다.
+
+else if는 자식노드가 왼쪽 자식 노드 하나만 존재할때를 의미한다. 자식노드의 인덱스 값이 마지막 노드인지 판단한다.
+
+```c
+    else
+    {
+        if(ph->heapArr[GetLChildIDX(idx)].pr > ph->heapArr[GetRChildIDX(idx)].pr)
+            return GetRChildIDX(idx);
+        else
+            return GetLChildIDX(idx);
+    }
+}
+```
+
+else는 자식 노드가 둘다 존재할때를 말한다. if문에서는 오른쪽 자식 노드의 우선순위가 높으면 오르쪽 자식 노드의 인덱스 값을 반환한다 (값이 작을수록 높은 우선순위). else는 왼쪽자식 노드의 우선순위가 높으면 왼쪽자식 노드의 인덱스 값을 반환한다.
+
+<br>
+
+#### HDelete 함수
+
+```c
+HData HDelete(Heap * ph)
+{
+    HData retData = (ph->heapArr[1]).data;
+    HeapElem lastElem = ph->heapArr[ph->numOfData];
+
+    int parentIdx = 1;      //루트노드가 위치해야할 인덱스 값 저장
+    int childIdx;
+```
+
+HDelete 함수는 마지막 노드를 임시 저장하여 그에 맞는 자리를 찾아나간다. 첫줄은 반환을 위해 삭제할 데이터를 백업한다. `[1]`은 루트노드의 인덱스이다. `parentIdx`에는 마지막 노드가 저장될 위치 정보가 담긴다.
+
+```c
+    while(childIdx = GetHiPriChildIDX(ph, parentIdx))
+    {
+        if(lastElem.pr <= ph->heapArr[childIdx].pr)
+            break;      // 제자리 찾으면 반복문 탈출
+        ph->heapArr[parentIdx] = ph->heapArr[childIdx];
+        parentIdx = childIdx;
+    }
+
+    ph->heapArr[parentIdx] = lastElem;  //마지막 노트 최종 저장
+    ph->numOfData -= 1;
+    return retData;
+}
+```
+
+첫줄은 1이라는 인덱스 기준으로 자식노드를 살펴본다. 1이라는 값을 이용해서 자식노드 중 누가 우선순위가 더 높은지 확인해서 그 우선순위가 높은 자식노드의 인덱스 값을 얻어온다.
+
+그다음 if문에서는 백업받아놓은 마지막 노드의 우선순위와 1이라는 인덱스 값을 이용해 얻어온 자식노드의 우선순위를 비교한다. 마지막 노드의 우선순위가 높으면 반복문을 탈출한다.
+
+<center><img src="./images/heap7.svg" alt="stack3" width="500"/></center>
+
+`ph->heapArr[parentIdx] = ph->heapArr[childIdx];` 은 마지막 노드보다 우선순위가 높으니, 비교대상 노드의 위치를 한 레벨 올린다. `parentIdx = childIdx;`는 마지막 노드가 저장될 위치정보를 한 레벨 내린다. 반복문을 빠져나오면 `parentIdx`에는 마지막 노드의 위치정보가 저장된다.
+
+그리고 `numOfData`값을 1빼주고 삭제한 노드의 데이터를 반환하고 연산이 끝난다.
+
+<br>
+
+### SimpleHeapMain.c
+
+```c
+#include <stdio.h>
+#include "SimpleHeap.h"
+
+int main(void)
+{
+    Heap heap;
+    HeapInit(&heap);
+
+    HInsert(&heap, 'A', 1);
+    HInsert(&heap, 'B', 2);
+    HInsert(&heap, 'C', 3);
+    printf("%c \n", HDelete(&heap));
+
+    HInsert(&heap, 'A', 1);
+    HInsert(&heap, 'B', 2);
+    HInsert(&heap, 'C', 3);
+    printf("%c \n", HDelete(&heap));
+
+    while(!HIsEmpty(&heap))
+        printf("%c \n", HDelete(&heap));
+
+    return 0;
+}
+```
+
+- 실행결과
+
+```
+A
+A
+B
+B
+C
+C
+```
+
+우선순위가 높은 데이터들부터 꺼내졌음을 알 수 있다.
