@@ -199,6 +199,8 @@ HData HDelete(Heap * ph)
 }
 ```
 
+<br>
+
 #### GetHiPriChildIDX 함수
 
 ```c
@@ -267,6 +269,46 @@ HDelete 함수는 마지막 노드를 임시 저장하여 그에 맞는 자리�
 `ph->heapArr[parentIdx] = ph->heapArr[childIdx];` 은 마지막 노드보다 우선순위가 높으니, 비교대상 노드의 위치를 한 레벨 올린다. `parentIdx = childIdx;`는 마지막 노드가 저장될 위치정보를 한 레벨 내린다. 반복문을 빠져나오면 `parentIdx`에는 마지막 노드의 위치정보가 저장된다.
 
 그리고 `numOfData`값을 1빼주고 삭제한 노드의 데이터를 반환하고 연산이 끝난다.
+
+<br>
+
+#### HInsert 함수
+
+HInsert함수도 마찬가지로 임시공간에 저장해두고 인덱스 값만 유지한다.
+
+```c
+void HInsert(Heap * ph, HData data, Priority pr)
+{
+    int idx = ph->numOfData+1;
+    HeapElem nelem = {pr, data};    //새 노드의 생성 및 초기화
+```
+
+`int idx = ph->numOfData+1;`는 새 노드가 저장될 인덱스 값을 `idx`에 저장하는데, 마지막 노드 그 다음 위치이므로 **+1** 이다.
+
+```c
+    while(idx != 1)
+    {
+        if(pr < (ph->heapArr[GetParentIDX(idx)].pr))    //새 노드의 우선순위가 높다면
+        {
+            ph->heapArr[idx] = ph->heapArr[GetParentIDX(idx)];
+            idx = GetParentIDX(idx);
+        }
+        else        //새 노드의 우선순위가 높지않으면
+            break;
+    }
+
+    ph->heapArr[idx] = nelem;      //새 노드를 배열에 저장
+    ph->numOfData += 1;
+}
+```
+
+`while`문은 새 노드가 저장될 위치가 루트 노드의 위치가 아니면 반복한다. if문은 부모노드 인덱스 값을 얻어와서, 새 노드와 부모노드의 우선순위를 비교한다. 새 노드의 우선순위가 높지 않다면 빠져나간다.
+
+`ph->heapArr[idx] = ph->heapArr[GetParentIDX(idx)];`는 새 노드의 우선순위가 높으므로 부모노드를 한 레벨 내린다.
+
+<center><img src="./images/heap8.svg" alt="stack3" width="500"/></center>
+
+`idx = GetParentIDX(idx);`는 부모노드의 인덱스 값을 얻어서 `idx`에 저장한다.
 
 <br>
 
