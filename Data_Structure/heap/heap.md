@@ -354,3 +354,34 @@ C
 ```
 
 우선순위가 높은 데이터들부터 꺼내졌음을 알 수 있다.
+
+<br>
+
+### 쓸만한 수준의 힙
+
+SimpleHeap은 우선순위를 직접 결정해야하므로 프로그래머가 우선순위의 판단 기준을 힙에 설정할 수 있게 바꾼다.
+
+```c
+typedef struct _heap
+{
+    PriorityComp * comp;        //typedef int PriorityComp(HData d1, HData d2);
+    int numOfData;
+    HData heapArr[HEAP_LEN];    //typedef char HData;
+} Heap;
+```
+
+`PriorityComp * comp;`는 우선순위를 판단하는 기준을 함수로 정의하고, 그 함수의 주소값을 저장한다.
+
+```c
+typedef int PriorityComp (HData d1, HData d2);
+```
+
+- 첫번째 인자의 우선순위가 높으면 0보다 큰값 반환
+- 두번째 인자의 우선순위가 높으면 0보다 작은값 반환
+- 첫번째와 두번째 인자의 우선순위가 같으면 0반환
+
+### 함수 변경
+
+- **_int GetHiPriChildIDX(Heap \* ph, int idx);_**
+- **_void HInsert(Heap \* ph, HData data);_**
+- **_HData HDelete(Heap \* ph);_**
