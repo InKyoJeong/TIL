@@ -385,3 +385,87 @@ typedef int PriorityComp (HData d1, HData d2);
 - **_int GetHiPriChildIDX(Heap \* ph, int idx);_**
 - **_void HInsert(Heap \* ph, HData data);_**
 - **_HData HDelete(Heap \* ph);_**
+
+<br>
+
+## 힙을 이용한 우선순위 큐 구현
+
+### PriorityQueue.h
+
+```c
+#ifndef __PRIORITY_QUEUE_H__
+#define __PRIORITY_QUEUE_H__
+
+#include "UsefulHeap.h"
+
+typedef Heap PQueue;
+typedef HData PQData;
+
+void PQueueInit(PQueue * ppq, PriorityComp pc);
+int PQIsEmpty(PQueue * ppq);
+
+void PEnqueue(PQueue * ppq, PQData data);
+PQData PDequeue(PQueue * ppq);
+
+#endif
+```
+
+### PriorityQueue.c
+
+```c
+#include "PriorityQueue.h"
+#include "UsefulHeap.h"
+
+void PQueueInit(PQueue * ppq, PriorityComp pc)
+{
+    HeapInit(ppq, pc);
+}
+
+int PQIsEmpty(PQueue * ppq)
+{
+    return HIsEmpty(ppq);
+}
+
+void PEnqueue(PQueue * ppq, PQData data)
+{
+    HInsert(ppq, data);
+}
+
+PQData PDequeue(PQueue * ppq)   //우선순위가 가장 높은 데이터 삭제
+{
+    return HDelete(ppq);
+}
+```
+
+### PriorityQueueMain.c
+
+```c
+#include <stdio.h>
+#include "PriorityQueue.h"
+
+int DataPriorityComp(char ch1, char ch2)
+{
+    return ch2-ch1;
+}
+
+int main(void)
+{
+    PQueue pq;
+    PQueueInit(&pq, DataPriorityComp);
+
+    PEnqueue(&pq, 'A');
+    PEnqueue(&pq, 'B');
+    PEnqueue(&pq, 'C');
+    printf("%c \n", PDequeue(&pq));
+
+    PEnqueue(&pq, 'A');
+    PEnqueue(&pq, 'B');
+    PEnqueue(&pq, 'C');
+    printf("%c \n", PDequeue(&pq));
+
+    while(!PQIsEmpty(&pq))
+        printf("%c \n", PDequeue(&pq));
+
+    return 0;
+}
+```
