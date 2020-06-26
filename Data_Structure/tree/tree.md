@@ -146,16 +146,6 @@ BTreeNode * MakeExpTree(char exp[]);
 이 함수는 후위 표기법의 수식을 문자열 형태로 입력받고, 수식 트리를 구성하고 수식트리의 루트 노드의 주소값을 반환한다.
 
 ```c
-int EvaluateExpTree(BTreeNode * bt);
-```
-
-이 함수는 인자로 전달된 수식트리의 수식을 계산해서 결과를 반환한다.
-
-- 피연산자는 스택으로 옮긴다.
-- 연산자는 스택에서 두 개의 피연산자를 꺼내 자식노드로 연결한다.
-- 자식 노드를 연결해서 만든 트리는 다시 스택으로 옮긴다.
-
-```c
 BTreeNode * MakeExpTree(char exp[])
 {
     Stack stack;
@@ -186,4 +176,125 @@ BTreeNode * MakeExpTree(char exp[])
 }
 ```
 
+- 피연산자는 스택으로 옮긴다.
+- 연산자는 스택에서 두 개의 피연산자를 꺼내 자식노드로 연결한다.
+- 자식 노드를 연결해서 만든 트리는 다시 스택으로 옮긴다.
+
 if는 피연산자일 때, else는 연산자일 때를 말한다. `exp[i]-'0'`는 문자를 정수로 바꾼다. (0은 ASCII코드 값으로 48, 1은 49, 2는 50 ... 이므로 문자'1'을 정수 1로 바꾸려면 '1'-'0'으로 표현하면 된다.)
+
+<br>
+
+### 수식 트리 순회
+
+수식 트리를 순회하는 코드는 먼저 노드에 저장된 데이터를 출력하는 함수를 정의하고, 위에서 구현한 순회 함수들을 이용한다.
+
+- 노드에 저장된 데이터를 출력
+
+```c
+void PrintNodeData(int data)
+{
+    if(0<=data && data<=9)
+        printf("%d ", data);    //피연산자 출력
+    else
+        printf("%c ", data);    //연산자 출력
+}
+```
+
+- 전위 표기법으로 수식 출력
+
+```c
+void PrintPrefixTypeExp(BTreeNode * bt)
+{
+    PreorderTraverse(bt, PrintNodeData);
+}
+```
+
+- 중위 표기법으로 수식 출력
+
+```c
+void PrintInfixTypeExp(BTreeNode * bt)
+{
+    InorderTraverse(bt, PrintNodeData);
+}
+```
+
+- 후위 표기법으로 수식 출력
+
+```c
+void PrintPostfixTypeExp(BTreeNode * bt)
+{
+    PostorderTraverse(bt, PrintNodeData);
+}
+```
+
+<br>
+
+### 수식 트리 계산
+
+```c
+int EvaluateExpTree(BTreeNode * bt);
+```
+
+이 함수는 인자로 전달된 수식트리의 수식을 계산해서 결과를 반환한다.
+
+```c
+int EvaluateExpTree(BTreeNode * bt)
+{
+    int op1, op2;
+
+    op1 = GetData(GetLeftSubTree(bt));      //첫번째 피연산자
+    op2 = GetData(GetRightSubTree(bt));     //두번째 피연산자
+
+    switch(GetData(bt))
+    {
+        ...생략
+    }
+}
+```
+
+이 함수는 두 개의 자식노드의 두 피연산자를 확인하고 부모노드에 저장된 연산자로 연산한다. 그러나 자식 노드에 피연산자가 아닌 서브 트리가 있다면 문제가 된다. 따라서 재귀적으로 다시 바꿀 수 있다.
+
+```c
+int EvaluateExpTree(BTreeNode * bt)
+{
+    int op1, op2;
+
+    op1 = EvaluateExpTree(GetLeftSubTree(bt));      //왼쪽 서브 트리 계산
+    op2 = EvaluateExpTree(GetRightSubTree(bt));     //오른쪽 서브 트리 계산
+
+    switch(GetData(bt))
+    {
+        ...생략
+    }
+}
+```
+
+이렇게 하면 서브트리의 서브트리가 있어도 문제가 없다. 여기에 자식노드가 단말노드일 경우를 고려하고 재귀함수 탈출조건을 추가하여 완성한 코드는 아래와 같다.
+
+```c
+int EvaluateExpTree(BTreeNode * bt)
+{
+    int op1, op2;
+
+    if(GetLeftSubTree(bt)==NULL && GetRightSubTree(bt)==NULL)   //단말 노드일 경우
+        return GetData(bt);
+
+    op1 = EvaluateExpTree(GetLeftSubTree(bt));
+    op2 = EvaluateExpTree(GetRightSubTree(bt));
+
+    switch(GetData(bt))
+    {
+        case '+';
+            return op1+op2;
+        case '-';
+            return op1-op2;
+        case '*';
+            return op1*op2;
+        case '/';
+            return op1/op2;
+    }
+    return 0;
+}
+```
+
+서브 트리가 추가로 달려있지 않은 단말노드 주소값이면, 그 단말노드에 저장된 피연산자를 반환한다.
