@@ -150,3 +150,40 @@ int EvaluateExpTree(BTreeNode * bt);
 ```
 
 이 함수는 인자로 전달된 수식트리의 수식을 계산해서 결과를 반환한다.
+
+- 피연산자는 스택으로 옮긴다.
+- 연산자는 스택에서 두 개의 피연산자를 꺼내 자식노드로 연결한다.
+- 자식 노드를 연결해서 만든 트리는 다시 스택으로 옮긴다.
+
+```c
+BTreeNode * MakeExpTree(char exp[])
+{
+    Stack stack;
+    BTreeNode * pnode;
+
+    int expLen = strlen(exp);
+    int i;
+
+    StackInit(&stack);
+
+    for(i = 0; i<expLen; i++)
+    {
+        pnode = MakeBTreeNode();
+
+        if(isdigit(exp[i]))
+        {
+            SetData(pnode, exp[i]-'0');
+        }
+        else
+        {
+            MakeRightSubTree(pnode, SPop(&stack));
+            MakeLeftSubTree(pnode, SPop(&stack));
+            SetData(pnode, exp[i]);
+        }
+        SPush(&stack, pnode);
+    }
+    return SPop(&stack);
+}
+```
+
+if는 피연산자일 때, else는 연산자일 때를 말한다. `exp[i]-'0'`는 문자를 정수로 바꾼다. (0은 ASCII코드 값으로 48, 1은 49, 2는 50 ... 이므로 문자'1'을 정수 1로 바꾸려면 '1'-'0'으로 표현하면 된다.)
