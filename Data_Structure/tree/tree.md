@@ -117,11 +117,7 @@ void PostorderTraverse(BTreeNode * bt)
 
 ## 수식 트리(Expression Tree)
 
-수식 트리는 이진 트리를 이용해 수식을 표현한 것이다.
-
-#### 수식 트리의 연산 과정
-
-수식 트리는 루트 노드에 저장된 연산자의 연산을 하되, 두 개의 자식 노드에 저장된 두 피연산자를 대상으로 연산을 한다.
+수식 트리는 이진 트리를 이용해 수식을 표현한 것이다. 수식 트리는 루트 노드에 저장된 연산자의 연산을 하되, 두 개의 자식 노드에 저장된 두 피연산자를 대상으로 연산을 한다.
 
 <center><img src="./images/tree11.svg" alt="tree11" width="400"/></center>
 
@@ -137,7 +133,7 @@ void PostorderTraverse(BTreeNode * bt)
 
 ### 후위 표기법 기반 수식트리 구성
 
-중위 표기법의 수식을 수식 트리로 바로 표현하기는 어려우므로 후위 표기법을 거쳐서 수식 트리로 표현한다.
+중위 표기법의 수식을 수식 트리로 바로 표현하기는 어려우므로 **후위 표기법을 거쳐서** 수식 트리로 표현한다. 후위 표기법 수식에서 앞에 나오는 피연산자와 연산자로 트리 하단을 만들고, 수식 트리 윗부분을 구성해 나간다.
 
 ```c
 BTreeNode * MakeExpTree(char exp[]);
@@ -146,6 +142,8 @@ BTreeNode * MakeExpTree(char exp[]);
 이 함수는 후위 표기법의 수식을 문자열 형태로 입력받고, 수식 트리를 구성하고 수식트리의 루트 노드의 주소값을 반환한다.
 
 ```c
+// ...(헤더파일 생략)
+
 BTreeNode * MakeExpTree(char exp[])
 {
     Stack stack;
@@ -160,11 +158,11 @@ BTreeNode * MakeExpTree(char exp[])
     {
         pnode = MakeBTreeNode();
 
-        if(isdigit(exp[i]))
+        if(isdigit(exp[i]))     //피연산자일 경우
         {
-            SetData(pnode, exp[i]-'0');
+            SetData(pnode, exp[i]-'0');     //문자를 정수로 변경
         }
-        else
+        else        //연산자일 경우
         {
             MakeRightSubTree(pnode, SPop(&stack));
             MakeLeftSubTree(pnode, SPop(&stack));
@@ -176,11 +174,13 @@ BTreeNode * MakeExpTree(char exp[])
 }
 ```
 
+과정은 다음과 같다.
+
 - 피연산자는 스택으로 옮긴다.
 - 연산자는 스택에서 두 개의 피연산자를 꺼내 자식노드로 연결한다.
 - 자식 노드를 연결해서 만든 트리는 다시 스택으로 옮긴다.
 
-if는 피연산자일 때, else는 연산자일 때를 말한다. `exp[i]-'0'`는 문자를 정수로 바꾼다. (0은 ASCII코드 값으로 48, 1은 49, 2는 50 ... 이므로 문자'1'을 정수 1로 바꾸려면 '1'-'0'으로 표현하면 된다.)
+`if`는 피연산자일 때, `else`는 연산자일 때를 말한다. **_exp[i]-'0'_** 는 문자를 정수로 바꾼다. (0은 _ASCII_ 코드 값으로 48, 1은 49, 2는 50 ... 이므로 문자'1'을 정수 1로 바꾸려면 '1'-'0'으로 표현하면 된다.)
 
 <br>
 
@@ -298,3 +298,36 @@ int EvaluateExpTree(BTreeNode * bt)
 ```
 
 서브 트리가 추가로 달려있지 않은 단말노드 주소값이면, 그 단말노드에 저장된 피연산자를 반환한다.
+
+### main함수
+
+main함수 예시이다.
+
+```c
+int main(void)
+{
+    char exp[] = "31+7*";
+    BTreeNode * eTree = MakeExpTree(exp);
+
+    printf("전위 표기법으로 출력: ");
+    PrintPrefixTypeExp(eTree);
+
+    printf("중위 표기법으로 출력: ");
+    PrintInfixTypeExp(eTree);
+
+    printf("후위 표기법으로 출력: ");
+    PrintPostfixTypeExp(eTree);
+
+    printf("계산 결과: %d \n", EvaluateExpTree(eTree));
+
+    return 0;
+}
+```
+
+```
+전위 표기법으로 출력: * + 3 1 7
+중위 표기법으로 출력: 3 + 1 * 7
+후위 표기법으로 출력: 3 1 + 7 *
+
+계산 결과: 28
+```
