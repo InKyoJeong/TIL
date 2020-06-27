@@ -4,6 +4,8 @@
 
 트리는 비선형 자료구조이며, 계층적 관계를 표현하는 자료구조이다.
 
+<br>
+
 ### 노드 주요 용어
 
 - 루트 노드(root node) : 연결된 노드가 한군데로 모이는 최상위 노드
@@ -28,6 +30,7 @@
 <center><img src="./images/tree1.svg" alt="tree4" width="400"/></center>
 
 포화 이진 트리는 리프 노드를 제외한 모든 노드가 두 개의 자식을 가지고 있는 트리이다. 즉, 모든 레벨이 꽉 찬 이진 트리를 말한다.
+
 <br>
 
 ### 완전 이진 트리(Complete Binary Tree)
@@ -40,9 +43,9 @@
 
 ## 이진트리 구현
 
-이진 트리는 배열과 연결리스트 둘다 구현 가능하지만 연결리스트로 표현하는 것이 더 유연하다.
-
 <center><img src="./images/tree77.svg" alt="tree77" width="400"/></center>
+
+이진 트리는 배열과 연결리스트 둘다 구현 가능하지만 연결리스트로 표현하는 것이 더 유연하다.
 
 ```c
 void MakeLeftSubTree(BTreeNode * main, BTreeNode * sub)
@@ -327,9 +330,11 @@ int EvaluateExpTree(BTreeNode * bt)
 
 서브 트리가 추가로 달려있지 않은 단말노드 주소값이면, 그 단말노드에 저장된 피연산자를 반환한다.
 
+<br>
+
 ### main함수
 
-main함수 예시이다.
+수식 트리의 main함수 예시이다.
 
 ```c
 int main(void)
