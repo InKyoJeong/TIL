@@ -38,6 +38,34 @@
 
 <br>
 
+## 이진트리 구현
+
+이진 트리는 배열과 연결리스트 둘다 구현 가능하지만 연결리스트로 표현하는 것이 더 유연하다.
+
+<center><img src="./images/tree77.svg" alt="tree77" width="400"/></center>
+
+```c
+void MakeLeftSubTree(BTreeNode * main, BTreeNode * sub)
+{
+    if(main->left != NULL)
+        free(main->left);
+
+    main->left = sub;
+}
+
+void MakeRightSubTree(BTreeNode * main, BTreeNode * sub)
+{
+    if(main->right != NULL)
+        free(main->right);
+
+    main->right = sub;
+}
+```
+
+위의 두 함수는 왼쪽 또는 오른쪽 서브트리가 존재하면 해당 트리를 삭제하고 새로운 왼쪽 또는 오른쪽 서브트리를 연결한다.
+
+<br>
+
 ## 이진트리 순회
 
 둘 이상의 노드로 이뤄진 서브트리를 삭제하려면 모든 노드를 방문해야 한다. 모든 노드를 방문하는 것을 **순회**라고 한다.
