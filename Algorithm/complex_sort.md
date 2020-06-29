@@ -2,6 +2,7 @@
 
 [힙 정렬(Heap Sort)](#힙-정렬)<br/>
 [병합 정렬(Merge Sort)](#병합-정렬)<br/>
+[퀵 정렬(Quick Sort)](#퀵-정렬)<br/>
 
 <br>
 
@@ -25,7 +26,7 @@
 
 병합 정렬은 데이터가 1개 남을때까지 분할한다. 재귀적인 구현을 위해 둘로 나누는 과정을 반복한다.
 
-<img src="./mergesort.svg" alt="mergesort" width="400"/>
+<img src="./images/mergesort.svg" alt="mergesort" width="400"/>
 
 ### 구현
 
@@ -89,7 +90,7 @@ void MergeTwoArea(int arr[], int left, int mid, int right)
 
 `frontIdx`와 `rearIdx`에 각각 병합할 두 영역의 첫번째 위치정보(인덱스 값)이 담긴다. `frontIdx`는 배열의 앞쪽 영역, `rearIdx`는 배열의 뒷쪽 영역을 가리키며, `mid+1`의 위치부터 뒤쪽영역이 시작된다.
 
-<img src="./mergesort2.svg" alt="mergesort2" width="400"/>
+<img src="./images/mergesort2.svg" alt="mergesort2" width="400"/>
 
 위와 같이 두 영역을 합치기 전 상태에서, 저장된 값들을 하나씩 증가하면서 비교한다.
 
@@ -98,7 +99,7 @@ void MergeTwoArea(int arr[], int left, int mid, int right)
 - **3**과 **4**를 비교해서 **3**이 더 작으므로 **sortArr**로 이동시키고, **frontIdx**값을 하나 증가시킨다.
 - 이런식으로 7과 4비교, 7과 5비교, 7과 6을 비교한다.
 
-<img src="./mergesort3.svg" alt="mergesort3" width="400"/>
+<img src="./images/mergesort3.svg" alt="mergesort3" width="400"/>
 
 이렇게 계속해서 비교하고 **_rearIdx_** 를 증가시키다보면 **_right_** 를 넘어서며, 비교가 끝나게된다. 즉 `rearIdx`가 `right`보다 커지는 경우는 배열의 뒤쪽 영역의 데이터들이 모두 옮겨진 상태이며 `frontIdx`가 `mid`보다 커지는 경우는 앞쪽 데이터들이 옮겨진 상태이다.
 
@@ -184,4 +185,113 @@ int main(void)
 1 2 3 4 5 6 7
 ```
 
-병합 정렬의 시간복잡도는 비교연산과 이동연산 모두 O(NlogN)이므로 O(NlogN)이다.
+병합 정렬의 시간복잡도는 비교연산과 이동연산 모두 O(NlogN)이므로 **O(NlogN)** 이다.
+
+<br>
+
+## 퀵 정렬
+
+퀵 정렬도 분할정복에 근거해 만들어진 정렬이다.
+
+<img src="./images/quick1.svg" alt="quick1" width="400"/>
+
+`left`는 정렬대상의 가장 왼쪽, `right`는 오른쪽, `pivot(피벗)`은 중심점을 뜻한다. `low`는 피벗을 제외한 가장 왼쪽 지점, `high`는 피벗을 제외한 가장 오른쪽 지점을 가리킨다.
+
+`low`는 피벗보다 큰 값(우선순위가 낮은 데이터)을 만날때까지 오른쪽으로 이동하고, `high`는 피벗보다 작은 값(우선순위가 높은 데이터)을 만날때까지 왼쪽으로 이동한다.
+
+<img src="./images/quick2.svg" alt="quick2" width="400"/>
+
+이동한 후에 데이터를 서로 교환한다.
+
+<br>
+
+<img src="./images/quick3.svg" alt="quick3" width="400"/>
+
+계속해서 `low`는 피벗보다 큰값, `high`는 피벗보다 작은 값을 찾아 이동시키고 교환한다.
+
+<br>
+
+<img src="./images/quick4.svg" alt="quick4" width="400"/>
+
+`high`와 `low`가 교차되는 상태가 되면, 이번에는 `pivot`과 `high`를 교환한다.
+
+<br>
+
+<img src="./images/quick5.svg" alt="quick5" width="400"/>
+
+`pivot`이 정렬되며 제위치를 찾게된다. 피벗의 왼쪽에는 피벗보다 작은값, 오른쪽에는 큰값들이 위치한다. 이제 왼쪽 영역과 오른쪽 영역에 퀵정렬 과정을 반복한다.
+
+이 과정은 `left`와 `right`가 교차될때까지 (`left > right` 일때까지) 진행하면된다.
+
+### 구현
+
+```c
+#include <stdio.h>
+
+void Swap(int arr[], int idx1, idx2)
+{
+    int temp = arr[idx1];
+    arr[idx1] = arr[idx2];
+    arr[idx2] = temp;
+}
+
+int Partition(int arr[], int left, int right)
+{
+    int pivot = arr[left];  //피벗은 가장왼쪽
+    int low = left+1;
+    int high = right;
+
+    while(low <= high)      //교차되지 않을때까지 반복
+    {
+        //피벗보다 큰 값을 찾음
+        while(pivot >= arr[low] && low <= right)
+            low++;          //low를 오른쪽으로 이동
+
+        //피벗보다 작은값을 찾음. left+1로 high와 경계 검사한 이유는 가장왼쪽의 피벗 제외
+        while(pivot <= arr[high] && high >= (left+1))
+            high--;         //high를 왼쪽으로 이동
+
+        if(low <= high)     //교차되지 않은 상태면 Swap 실행
+            Swap(arr, low, high);
+    }
+
+    Swap(arr, left, high);  //피벗과 high가 가리키는 대상 교환
+    return high;            //옮겨진 피벗의 위치정보 반환
+}
+
+void QuickSort(int arr[], int left, int right)
+{
+    if(left <= right)
+    {
+        int pivot = Partition(arr, left, right);
+        QuickSort(arr, left, pivot-1);
+        QuickSort(arr, pivot+1, right);
+    }
+}
+```
+
+#### main함수 예시
+
+```c
+int main(void)
+{
+    int arr[7] = {3,2,4,1,7,6,5};
+
+    int len = sizeof(arr)/sizeof(int);
+    int i;
+
+    QuickSort(arr, 0, sizeof(arr)/sizeof(int)-1);
+
+    for(i=0; i<len; i++)
+        printf("%d ", arr[i]);
+
+    printf("\n");
+    return 0;
+}
+```
+
+```
+1 2 3 4 5 6 7
+```
+
+퀵 정렬의 시간복잡도는 **O(NlogN)** 이다. 데이터의 이동이 데이터 비교에비해 적고, 별도 메모리 공간이 필요하지 않으므로 동일한 빅오를 갖는 정렬 알고리즘들 보다 평균적으로 가장 빠르다.
