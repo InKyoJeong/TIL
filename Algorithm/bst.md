@@ -16,7 +16,7 @@
 
 #### Case 1: 삭제할 노드가 단말노드일 경우
 
-<img src="./images/bst.svg" alt="bst" width="400"/>
+<img src="./images/bst.svg" alt="bst"/>
 
 삭제할 노드가 단말노드인 경우에는 그냥 삭제하면 된다.
 
@@ -35,7 +35,7 @@ if(삭제할 노드가 단말노드)
 
 #### Case 2: 삭제할 노드가 하나의 자식노드를 갖는 경우
 
-<img src="./images/bst2.svg" alt="bst2" width="400"/>
+<img src="./images/bst2.svg" alt="bst2" />
 
 삭제하려는 노드(9)의 부모(8)가 삭제하려는 노드의 자식(10)을 가리키게 한다.
 
@@ -62,11 +62,11 @@ if(삭제할 노드가 하나의 자식노드를 가짐)
 
 #### Case 3: 삭제할 노드가 두개의 자식노드를 갖는 경우
 
-<img src="./images/bst3.svg" alt="bst3" width="400"/>
+<img src="./images/bst3.svg" alt="bst3" />
 
 삭제할 노드의 **오른쪽 서브트리에서 가장 작은노드**를 삭제하려는 노드로 대체한다. 삭제과정은 세가지 단계로 진행된다.
 
-<img src="./images/bst4.svg" alt="bst4" width="400"/>
+<img src="./images/bst4.svg" alt="bst4" />
 
 - **단계 1**: 삭제할 노드를 대체할 노드를 찾음
 - **단계 2**: 대체할 노드에 저장된 값을 삭제할 노드에 대입
