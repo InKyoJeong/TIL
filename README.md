@@ -65,6 +65,7 @@
 - 정렬 알고리즘
   - [선택/ 삽입/ 버블 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
   - [힙/ 병합/ 퀵 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/complex_sort.md)
+- [이진 탐색 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bst.md)
 
 ### Database
 
