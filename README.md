@@ -44,7 +44,7 @@
   - [미들웨어(middleware)](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/middleware.md)
   - [템플릿 엔진 : Pug](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/express/pug.md)
 
-### Data Structure
+### Data Structure & Algorithm
 
 - [연결 리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/list/link.md)
 - [이중 연결 리스트(Double linked list)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/doublelist/doublelink.md)
@@ -53,15 +53,13 @@
 - [시간복잡도와 점근적 분석](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/time.md)
 - [트리(Tree) : 이진트리/순회/수식트리](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/tree/tree.md)
 - [우선순위 큐(Priority Queue)와 힙(Heap)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/heap/heap.md)
-<!-- - [열혈 자료구조](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/DS_using_C.md) -->
 
-### Algorithm
-
-- [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
-- 정렬 알고리즘
+* [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
+* 정렬 알고리즘
   - [선택/ 삽입/ 버블 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
   - [힙/ 병합/ 퀵 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/complex_sort.md)
-- [이진 탐색 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bst.md)
+* [이진 탐색 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bst.md)
+* [AVL 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/avl.md)
 
 ### Database
 

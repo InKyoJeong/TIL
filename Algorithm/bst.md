@@ -58,6 +58,22 @@ if(삭제할 노드가 하나의 자식노드를 가짐)
 }
 ```
 
+- **_ChangeLeftSubTree_**, **_ChangeRightSubTree_** 함수
+
+: 왼쪽 자식 노드(왼쪽 서브트리)와 오른쪽 자식 노드(오른쪽 서브트리)를 교체하는 함수이다.
+
+```c
+void ChangeLeftSubTree(BTreeNode * main, BTreeNode * sub)
+{
+    main->left = sub;
+}
+
+void ChangeRightSubTree(BTreeNode * main, BTreeNode * sub)
+{
+    main->right = sub;
+}
+```
+
 <br>
 
 #### Case 3: 삭제할 노드가 두개의 자식노드를 갖는 경우
