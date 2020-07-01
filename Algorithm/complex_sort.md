@@ -229,7 +229,7 @@ int main(void)
 ```c
 #include <stdio.h>
 
-void Swap(int arr[], int idx1, idx2)
+void Swap(int arr[], int idx1, int idx2)
 {
     int temp = arr[idx1];
     arr[idx1] = arr[idx2];
@@ -295,7 +295,7 @@ int main(void)
 1 2 3 4 5 6 7
 ```
 
-퀵 정렬의 시간복잡도는 **O(NlogN)** 이다. 데이터의 이동이 데이터 비교에비해 적고, 별도 메모리 공간이 필요하지 않으므로 동일한 빅오를 갖는 정렬 알고리즘들 보다 평균적으로 가장 빠르다.
+퀵 정렬의 시간복잡도는 **O(NlogN)** 이다. 데이터의 이동이 데이터 비교에비해 적고, 별도 메모리 공간이 필요하지 않으므로 동일한 빅오를 갖는 정렬 알고리즘들 보다 평균적으로 가장 빠르다. 그러나 최악의경우 **O(N²)** 를 가지는 케이스를 만들 수도 있다.
 
 <br>
 

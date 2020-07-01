@@ -125,8 +125,8 @@ void PreorderTraverse(BTreeNode * bt)
         return;
 
     printf("%d \n", bt->data);
-    InorderTraverse(bt->left);
-    InorderTraverse(bt->right);
+    PreorderTraverse(bt->left);
+    PreorderTraverse(bt->right);
 }
 ```
 
@@ -138,8 +138,8 @@ void PostorderTraverse(BTreeNode * bt)
     if(bt == NULL)
         return;
 
-    InorderTraverse(bt->left);
-    InorderTraverse(bt->right);
+    PostorderTraverse(bt->left);
+    PostorderTraverse(bt->right);
     printf("%d \n", bt->data);
 }
 ```
