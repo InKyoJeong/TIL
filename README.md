@@ -60,6 +60,7 @@
   - [힙/ 병합/ 퀵 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/complex_sort.md)
 * [이진 탐색 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bst.md)
 * [AVL 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/avl.md)
+* [테이블, 해쉬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/table-hash.md)
 
 ### Database
 
