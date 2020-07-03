@@ -86,8 +86,8 @@
 
 ### C++
 
-- [기초 연습 (입/출력, 오버로딩, 매개변수, inline, namespace)](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
-- [기초 연습2](https://github.com/InKyoJeong/TIL/blob/master/C++/basic2.md)
+- [기초 연습1](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
+- [기초 연습2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
 - [문제풀이](https://github.com/InKyoJeong/TIL/blob/master/C++/problem.md)
 
 ### React
