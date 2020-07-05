@@ -796,3 +796,70 @@ int main()
 //num1: 10
 //num2: 34.65
 ```
+
+<br>
+
+## 정수와 문자의 최대/최소값 (min, max)
+
+```cpp
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    auto result1 = min(1,5);
+    auto result2 = max('a', 'z');
+
+    cout<<result1<<endl;
+    cout<<result2<<endl;
+
+    auto result3 = minmax({'a', 'n', 'z'});
+    auto result4 = minmax({1,2,3});
+
+    cout<<result3.first<<", "<<result3.second<<endl;
+    cout<<result4.first<<", "<<result4.second<<endl;
+    return 0;
+}
+
+//1
+//z
+//a, z
+//1, 3
+```
+
+- 자료형 `auto`는 반환형이 무엇인지 모를때 유용한 키워드
+- `max`함수에 a와 z를 넘기고, 아스키 코드 값을 기준으로 반환됨(a=97, z=122)
+- `auto`키워드로 받은 결과의 `first`는 최소, `second`는 최대값
+
+<br>
+
+## 포인터
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int num1 = 10;
+    int *pointer1 = &num1;
+
+    double num2 = 23.4;
+    double *pointer2 = &num2;
+
+    cout<<"num1: "<<num1<<endl;
+    cout<<"pointer1: "<<pointer1<<endl;
+
+    cout<<"num2: "<<num2<<endl;
+    cout<<"pointer2: "<<pointer2<<endl;
+    return 0;
+}
+//num1: 10
+//pointer1: 0x7ffeefbff588
+//num2: 23.4
+//pointer2: 0x7ffeefbff578
+```
