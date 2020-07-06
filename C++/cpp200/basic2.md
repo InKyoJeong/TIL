@@ -1,4 +1,12 @@
+[#1](#1)<br/>
+
 > 문자열, 명시적변환, 순환문, floor/ceil, abs/pow/sqrt, static_cast, 문자열함수
+
+[#2](#2)<br/>
+
+> Call by Value, Call by Reference, const변수, enum, 배열, 구조체(struct)
+
+## #1
 
 ## 문자형 변수(char)
 
@@ -863,3 +871,513 @@ int main()
 //num2: 23.4
 //pointer2: 0x7ffeefbff578
 ```
+
+<br>
+
+## #2
+
+## Call by Value 이해
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+void Func(int arg)
+{
+    cout<<"변경 전: "<<arg<<endl;
+    arg += 10;
+    cout<<"변경 후: "<<arg<<endl;
+}
+
+int main()
+{
+    int year = 10;
+
+    Func(year);
+
+    cout<<"함수 종료 후: "<<year<<endl;
+    return 0;
+}
+
+//변경 전: 10
+//변경 후: 20
+//함수 종료 후: 10
+```
+
+- `arg+=10`에서 year에 10을 더했는데 main함수에서는 여전히 10이다.
+- **_Call by Value_** 는 인자로 넘어온 값을 내부적으로 복사해서 사용한다.
+- 따라서 `year`변수에 직접 10을 더한게 아니라 내부적으로 복사한 값에 10을 더한셈이다.
+
+<br>
+
+## Call by Reference 이해
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void Func1(int &arg)
+{
+    cout<<"변경 전: "<<arg<<endl;
+    arg += 10;
+    cout<<"변경 후: "<<arg<<endl;
+}
+
+void Func2(string &info)
+{
+    info += "981년";
+}
+
+int main()
+{
+    int year = 10;
+
+    Func1(year);
+    cout<<"Func1 함수 종료 후: "<<year<<endl;
+
+    string king_info = "고려 성종 즉위년: ";
+    Func2(king_info);
+    cout<<king_info<<endl;
+
+    return 0;
+}
+//변경 전: 10
+//변경 후: 20
+//Func1 함수 종료 후: 20
+//고려 성종 즉위년: 981년
+```
+
+- 함수 인자로 int자료형 주소를 가리키는 포인터를 받는다.
+- 함수 인자로 string자료형 주소를 가리키는 포인터를 받는다.
+- Func1함수는 인자를 복사하지않고 인자의 주소를 가리키는 포인터를 사용하기 때문에 year변수 값이 증가한다.
+- 포인터가 가리키는 곳(주소)의 값을 직접 바꾸는 것이다.
+
+<br>
+
+## const 변수
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    const string myJob = "student";
+
+    string question = "who r u? :";
+    string answer = "my job is :";
+
+    cout<<question<<myJob<<endl;
+    cout<<answer<<myJob<<endl;
+
+    return 0;
+}
+//who r u? :student
+//my job is :student
+```
+
+- `const`는 변경되지 않을 변수들을 관리한다.
+
+<br>
+
+## enum
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+enum Status
+{
+    normal = 0,
+    abnormal,
+    disconnect = 100,
+    close
+};
+
+int main()
+{
+    Status number = close;
+
+    if(number == Status::normal)
+        cout<<"Status: normal"<<endl;
+    else if(number == abnormal)
+        cout<<"Status: abnormal"<<endl;
+    else if(number == disconnect)
+        cout<<"Status: disconnect"<<endl;
+    else
+        cout<<"Status: close"<<endl;
+
+    return 0;
+}
+
+//Status: close
+```
+
+- 상수 집합을 선언하고 4개 값을 추가했다. 요소는 콤마로 구분하고, 값을 설정하지 않아도 자동으로 할당된다.
+- enum의 요소들은 정수형 값을 갖는다. 각 요소는 이전 요소 값보다 자동으로 1이 커진다. 따라서 `abnormal`은 1이고 `close`는 101이다.
+- 요소들은 `Status::normal`처럼 호출할 수도 있고 `abnormal`처럼 요소 이름만으로 사용도 가능함
+
+<br>
+
+## enum class
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+enum Status
+{
+    normal = 0,
+    abnormal,
+    disconnect = 100,
+    close
+};
+
+
+enum class MachineStatus : char
+{
+    normal = 'n',
+    abnormal,
+    disconnect = 100,
+    close
+};
+
+int main()
+{
+    MachineStatus machine = MachineStatus::abnormal;
+
+    if(machine == MachineStatus::normal)
+        cout<<"Status: normal"<<endl;
+    else if(machine == MachineStatus::abnormal)
+        cout<<"Status: abnormal"<<endl;
+    else if(machine == MachineStatus::disconnect)
+        cout<<"Status: disconnect"<<endl;
+    else
+        cout<<"Status: close"<<endl;
+
+    return 0;
+}
+```
+
+- 같은 이름의 enum 요소를 사용할 수 있다.
+- `enum class`를 선언하고 int 와 char형태로 선언할 수 있다.
+- `enum`과 다르게 `enum class`요소는 enum class이름을 먼저 기입해야한다.
+
+<br>
+
+## 1차원, 2차원 배열 초기화
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int data1[3] = {0,1,2};
+    int data2[2][2] = {{0, }, };
+    int data3[2][2];
+
+    cout<<"== data1 =="<<endl;
+    for(int i=0; i<3; i++)
+        cout<<"data1["<<i<<"] = "<<data1[i]<<endl;
+
+    cout<<endl<<"== data2 =="<<endl;
+    for(int i=0; i<2; i++)
+    {
+        for(int j=0; j<2; j++)
+            cout<<"data2["<<i<<"]["<<j<<"] = "<<data2[i][j]<<endl;
+    }
+
+    cout<<endl<<"== data3 =="<<endl;
+    for(int i=0; i<2; i++)
+    {
+        for(int j=0; j<2; j++)
+            cout<<"data3["<<i<<"]["<<j<<"] = "<<data3[i][j]<<endl;
+    }
+
+    return 0;
+}
+```
+
+```
+== data1 ==
+data1[0] = 0
+data1[1] = 1
+data1[2] = 2
+
+== data2 ==
+data2[0][0] = 0
+data2[0][1] = 0
+data2[1][0] = 0
+data2[1][1] = 0
+
+== data3 ==
+data3[0][0] = 0
+data3[0][1] = 1
+data3[1][0] = 0
+data3[1][1] = 0
+```
+
+- data2 는 모두 0으로 초기화
+- data3 는 초기값이 설정되어있지 않아 쓰레기값이 출력됨
+
+<br>
+
+## 1차원 배열 함수 인자 사용
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+void Print1(int *arr)
+{
+    cout<<"== Print1 =="<<endl;
+    cout<<arr[0]<<", "<<arr[1]<<", "<<arr[2]<<endl;
+
+    arr[1] = 1000;
+}
+
+void Print2(int arr[])
+{
+    cout<<"== Print2 =="<<endl;
+    cout<<arr[0]<<", "<<arr[1]<<", "<<arr[2]<<endl;
+
+    arr[2] = 2000;
+}
+
+int main()
+{
+    int data[3] = {0,1,2};
+
+    Print1(data);
+    Print2(data);
+
+    cout<<"== 결과 =="<<endl;
+    cout<<data[0]<<", "<<data[1]<<", "<<data[2]<<endl;
+
+    return 0;
+}
+```
+
+```
+== Print1 ==
+0, 1, 2
+== Print2 ==
+0, 1000, 2
+== 결과 ==
+0, 1000, 2000
+```
+
+<br>
+
+## 2차원 배열 사용
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int data1[2][2] = {1, 2, 3};
+    int data2[2][3] = { {1, } };
+
+    cout<<"data1[0][0] = "<<data1[0][0]<<endl;
+    cout<<"data1[0][1] = "<<data1[0][1]<<endl;
+    cout<<"data1[1][0] = "<<data1[1][0]<<endl;
+    cout<<"data1[1][1] = "<<data1[1][1]<<endl;
+
+    cout<<endl;
+
+    cout<<"data2[0][0] = "<<data2[0][0]<<endl;
+    cout<<"data2[0][1] = "<<data2[0][1] + 1<<endl;
+    cout<<"data2[0][2] = "<<data2[0][2] + 2<<endl;
+    cout<<"data2[1][0] = "<<data2[1][0] + 3<<endl;
+    cout<<"data2[1][1] = "<<data2[1][1] + 4<<endl;
+    cout<<"data2[1][2] = "<<data2[1][2] + 5<<endl;
+
+    return 0;
+}
+```
+
+```
+data1[0][0] = 1
+data1[0][1] = 2
+data1[1][0] = 3
+data1[1][1] = 0
+
+data2[0][0] = 1
+data2[0][1] = 1
+data2[0][2] = 2
+data2[1][0] = 3
+data2[1][1] = 4
+data2[1][2] = 5
+```
+
+- 정수 4개 담는 2차원배열 선언하고 **1,2,3,0** 으로 초기화
+- 정수 6개 담는 2차원배열 선언하고 **1,0,0,0,0,0** 으로 초기화
+
+<br>
+
+## 배열 일부 변경하기(fill)
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int data1[10] = {0, };
+    fill(data1, data1+3, 10);
+    fill(data1+4, data1+8, 20);
+
+    cout<<"== data1 결과 =="<<endl;
+    for(int i=0; i<10; i++)
+        cout<<data1[i]<<", ";
+
+    vector<int> data2({0,1,2,3,4,5,6,7});
+    fill(data2.begin(), data2.begin()+3, 30);
+
+    cout<<endl<<endl<<"== data2 결과 =="<<endl;
+    for(int i=0, size = data2.size(); i<size; i++)
+        cout<<data2.at(i)<<", ";
+
+    return 0;
+}
+```
+
+```
+== data1 결과 ==
+10, 10, 10, 0, 20, 20, 20, 20, 0, 0,
+
+== data2 결과 ==
+30, 30, 30, 3, 4, 5, 6, 7,
+```
+
+- `fill`함수를 사용하기위해 **algorithm**을 include
+- `fill`함수는 첫번째인자로 수정할 배열영역의 시작위치, 두번째는 마지막위치, 세번째는 수정할 값을 받는다.
+
+#### 배열 일부 변경하기(fill_n)
+
+`fill_n()`함수는 두번째 인자로 수정할 **개수**를 받는다.
+
+<br>
+
+## 구조체 (struct)
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Person
+{
+    string name;
+    string age;
+    string birthday = "알 수 없음";
+} Singer[2];
+
+int main()
+{
+    Person taeyeon;
+    taeyeon.name = "태연";
+    taeyeon.age = "32세";
+    taeyeon.birthday = "1989년 03월 09일";
+
+    Singer[0].name = "아이유";
+    Singer[0].age = "29세";
+    Singer[1].name = "권진아";
+    Singer[1].age = "26세";
+
+    cout<<"== 가수 태연 =="<<endl;
+    cout<<taeyeon.name<<endl;
+    cout<<taeyeon.age<<endl;
+    cout<<taeyeon.birthday<<endl;
+    cout<<endl;
+
+    cout<<"== 다른 가수 =="<<endl;
+    cout<<Singer[0].name<<endl;
+    cout<<Singer[0].age<<endl;
+    cout<<Singer[0].birthday<<endl;
+    cout<<endl;
+    cout<<Singer[1].name<<endl;
+    cout<<Singer[1].age<<endl;
+    cout<<Singer[1].birthday<<endl;
+
+    return 0;
+}
+```
+
+```
+== 가수 태연 ==
+태연
+32세
+1989년 03월 09일
+
+== 다른 가수 ==
+아이유
+29세
+알 수 없음
+
+권진아
+26세
+알 수 없음
+```
+
+<br>
+
+### 구조체를 함수 인자로 사용
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Singer
+{
+    string name;
+    string age;
+    string birthday;
+} taeyeon;
+
+
+void Print(Singer *who)
+{
+    cout<<"taeyeon.name = "<< who->name <<endl;
+    cout<<"taeyeon.age = "<< who->age <<endl;
+    cout<<"taeyeon.birthday = "<< who->birthday <<endl;
+}
+
+int main()
+{
+    taeyeon.name = "태연";
+    taeyeon.age = "31세";
+    taeyeon.birthday = "1989년 3월";
+
+    Print(&taeyeon);
+
+    return 0;
+}
+```
+
+```
+taeyeon.name = 태연
+taeyeon.age = 31세
+taeyeon.birthday = 1989년 3월
+```
+
+- Print는 구조체인자를 포인터로 받는 함수. 포인터이기 때문에 `.`대신 `->`를 사용
