@@ -88,10 +88,10 @@
 
 - [기초 연습1](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
 - [기초 연습2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
+- [입력 함수](https://github.com/InKyoJeong/TIL/blob/master/C++/cin.md)
 - [Range-based for](https://github.com/InKyoJeong/TIL/blob/master/C++/for.md)
-- [C++ STL](https://github.com/InKyoJeong/TIL/blob/master/C++/stl.md)
+- [STL 정리](https://github.com/InKyoJeong/TIL/blob/master/C++/stl.md)
 - [Class](https://github.com/InKyoJeong/TIL/blob/master/C++/class.md)
-- [문제풀이](https://github.com/InKyoJeong/TIL/blob/master/C++/problem.md)
 
 ### React
 
