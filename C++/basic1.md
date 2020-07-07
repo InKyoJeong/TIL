@@ -650,3 +650,62 @@ int main()
 22
 33
 ```
+
+<br>
+
+## new & delete
+
+> malloc & free를 대신한다.
+
+```cpp
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+
+using namespace std;
+
+char * MakeStrAdr(int len)
+{
+    // char * str = (char*)malloc(sizeof(char)*len);
+    char * str = new char[len];
+    return str;
+}
+
+int main(void)
+{
+    char * str = MakeStrAdr(20);
+    strcpy(str, "I am student");
+    cout<<str<<endl;
+    // free(str);
+    delete []str;
+    return 0;
+}
+```
+
+- int형 변수 할당 : `int * ptr1 = new int;`
+- double형 변수 할당 : `double * ptr2 = new double;`
+- 길이가5인 int형 배열할당 : `int * arr1 = new int[5];`
+
+- int형 변수 소멸 : `delete ptr1;`
+- double형 변수 소멸 : `delete ptr1;`
+- int형 배열 소멸 : `delete []arr1;`
+
+<br>
+
+## C++ 헤더파일
+
+C언어의 라이브러리의 함수들은 C++라이브러리에도 포함되어있다. 헤더파일의 .h를 빼고 c를 앞에 붙이면 된다.
+
+```c
+//C
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+//C++
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <cstring>
+```
