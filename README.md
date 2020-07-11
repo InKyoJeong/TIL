@@ -86,9 +86,9 @@
 
 ### C++
 
-- [기초 연습1](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
-- [기초 연습2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
-- [입력 함수](https://github.com/InKyoJeong/TIL/blob/master/C++/cin.md)
+- [기초1](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
+- [기초2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
+- [cin, getline](https://github.com/InKyoJeong/TIL/blob/master/C++/cin.md)
 - [Range-based for](https://github.com/InKyoJeong/TIL/blob/master/C++/for.md)
 - [STL 정리](https://github.com/InKyoJeong/TIL/blob/master/C++/stl.md)
 - [Class](https://github.com/InKyoJeong/TIL/blob/master/C++/class.md)

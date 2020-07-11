@@ -57,6 +57,66 @@ int main()
 }
 ```
 
+- 예시 1
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main(){
+
+    vector<int> v;
+
+    v.push_back(5);
+    v.push_back(11);
+    v.push_back(99);
+
+    v.pop_back();
+
+    for(int i=0; i<v.size(); i++)
+        cout<< v[i] <<'\n';
+
+    return 0;
+}
+//5
+//11
+```
+
+<br>
+
+- 예시 2
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+int n;
+cin>>n;
+vector<int> a(n);
+
+    for(int i=0; i<n; i++){
+        cin>> a[i];
+    }
+
+    for(int i=0; i<n; i++){
+        cout<< a[i];
+    }
+
+    return 0;
+
+}
+//4 (입력)
+//6 7 8 9 (입력)
+//6789 (출력)
+
+```
+
 <br>
 
 ## stack
