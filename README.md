@@ -62,6 +62,7 @@
 * [AVL 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/avl.md)
 * [테이블, 해쉬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/table-hash.md)
 * [그래프(Graph)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/graph/graph.md)
+* [다이나믹 프로그래밍](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dp.md)
 
 ### Database
 
@@ -99,7 +100,7 @@
 
 ### Operating System
 
-- [운영체제](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
+- [운영체제란](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
 
 ### Python
 
