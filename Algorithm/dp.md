@@ -20,4 +20,43 @@
 > 다이나믹의 구현 방식에는 두가지 방법이 있음
 
 - Top-down : 재귀 사용
+  - 큰 문제부터 문제를 쪼개가면서
+  - 작은 문제를 만들고 합쳐가면서 원래 문제를 푼다.
 - Bottom-up : 반복문 사용
+  - 문제를 크기가 작은 문제부터 차례대로 푼다.
+  - 문제의 크기를 조금씩 크게 만든다.
+  - 작은문제를 풀면서 왔기때문에 큰문제는 항상 풀수있다.
+  - 계속 반복하면 큰 문제를 풀 수 있다.
+
+### Top-down 예시
+
+```cpp
+int memo[100];
+int fibonacci(int n){
+  if(n <= 1){
+    return n;
+  } else{
+    if(memo[n] > 0){    //메모된 값이 있는지 없는지 비교
+      return memo[n];
+    }
+    memo[n] = fibonacci(n-1) + fibonacci(n-2);
+    return memo[n];
+  }
+}
+```
+
+### Bottom-up 예시
+
+```cpp
+int d[100];
+int fibonacci(int n){
+  d[0] = 0;
+  d[1] = 1;
+  for(int i=2; i<=n; i++){
+    d[i] = d[i-1] + d[i-2];
+  }
+  return d[n];
+}
+```
+
+작은문제 두개 풀어두고, 그다음 작은문제는 2니까 2부터 n까지 증가
