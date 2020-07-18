@@ -53,15 +53,16 @@
 - [시간복잡도와 점근적 분석](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/time.md)
 - [트리(Tree) : 이진트리/순회/수식트리](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/tree/tree.md)
 - [우선순위 큐(Priority Queue)와 힙(Heap)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/heap/heap.md)
-
-* [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
-* 정렬 알고리즘
+- [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
+- 정렬 알고리즘
   - [선택/ 삽입/ 버블 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
   - [힙/ 병합/ 퀵 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/complex_sort.md)
-* [이진 탐색 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bst.md)
-* [AVL 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/avl.md)
-* [테이블, 해쉬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/table-hash.md)
-* [그래프(Graph)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/graph/graph.md)
+- [이진 탐색 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bst.md)
+- [AVL 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/avl.md)
+- [테이블, 해쉬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/table-hash.md)
+- [그래프(Graph)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/graph/graph.md)
+
+* [수학](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/math.md)
 * [다이나믹 프로그래밍](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dp.md)
 
 ### Database

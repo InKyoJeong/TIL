@@ -36,14 +36,16 @@ int fibonacci(int n){
   if(n <= 1){
     return n;
   } else{
-    if(memo[n] > 0){    //메모된 값이 있는지 없는지 비교
-      return memo[n];
+    if(memo[n] > 0){    // 메모이제이션 - 메모된 값이 있는지 없는지 비교
+      return memo[n];   // 0보다 큰값이 있다는것은 이전에 정답을 구한적 있다는 것이므로 또 구하지않고 넘어감
     }
     memo[n] = fibonacci(n-1) + fibonacci(n-2);
     return memo[n];
   }
 }
 ```
+
+메모이제이션 부분이 없다면 시간복잡도가 2의n승 이지만 메모이제이션을 추가하면 시간복잡도가 n으로 줄어든다.
 
 ### Bottom-up 예시
 
