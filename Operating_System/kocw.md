@@ -85,6 +85,6 @@ I/O device - 입출력 관리 : 각기다른 입출력장치와 컴퓨터 간에
 
 ## System Structure & Program Execution
 
-![os1](./os1.png)
+![os1](./images/os1.png)
 
 컴퓨터 시스템은 크게 CPU와 메모리로 구성된 컴퓨터와 IO device로 구성되어있음

@@ -65,6 +65,11 @@
 * [수학](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/math.md)
 * [다이나믹 프로그래밍](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dp.md)
 
+### Operating System
+
+- [운영체제란](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/os.md)
+- [프로세스와 스레드](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/process.md)
+
 ### Database
 
 - [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md)
@@ -99,11 +104,7 @@
 
 - [누구든지 하는 리액트](https://github.com/InKyoJeong/TIL/blob/master/React/basic.md)
 
-### Operating System
-
-- [운영체제란](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/os.md)
-
-### Python
+<!-- ### Python
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/Python/1_Basic.md)
 - [변수와 입,출력](https://github.com/InKyoJeong/TIL/blob/master/Python/2_var.md)
@@ -126,4 +127,4 @@
 - [회문판별, N-gram 만들기](https://github.com/InKyoJeong/TIL/blob/master/Python/19_ngram.md)
 - [함수](https://github.com/InKyoJeong/TIL/blob/master/Python/20_function.md)
 - [재귀호출 / 람다표현식](https://github.com/InKyoJeong/TIL/blob/master/Python/21_recursive.md)
-- [클로저](https://github.com/InKyoJeong/TIL/blob/master/Python/22_closure.md)
+- [클로저](https://github.com/InKyoJeong/TIL/blob/master/Python/22_closure.md) -->
