@@ -101,7 +101,7 @@
 
 ### Operating System
 
-- [운영체제란](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/Intro.md)
+- [운영체제란](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/os.md)
 
 ### Python
 
