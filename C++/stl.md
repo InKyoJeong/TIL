@@ -1,9 +1,10 @@
-## C++ STL 기본 사용법
+## C++ STL
 
-- [vector](#vector)
-- [stack](#stack)
-- [queue](#queue)
-- [deque](#deque)
+- [<vector>](#vector)
+- [<algorithm>](#algorithm)
+- [<stack>](#stack)
+- [<queue>](#queue)
+- [<deque>](#deque)
 
 ---
 
@@ -115,6 +116,63 @@ vector<int> a(n);
 //6 7 8 9 (입력)
 //6789 (출력)
 
+```
+
+<br>
+
+## algorithm
+
+### max_element(), min_element()
+
+`max_element()`, `min_element()` 함수 : `begin(), end()`를 이용해서 배열이나 벡터 등에서 최대, 최소값을 구할 수 있다. 값을 참조하려면 `*` 연산자를 붙여야 한다.
+
+### 예시
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> v;
+
+    v.push_back(1);
+    v.push_back(3);
+    v.push_back(4);
+    v.push_back(5);
+    v.push_back(2);
+
+    cout << *min_element(v.begin(), v.end()) << '\n';
+    cout << *max_element(v.begin(), v.end()) << '\n';
+
+    return 0;
+}
+// 1
+// 5
+```
+
+- 반드시 시작부터 끝까지 찾을 필요는 없다. 만약 `max_element(v.begin()+2, v.begin()+5)`라고 사용했다면 `v[2]`부터 `v[4]`까지 중 최대값을 찾는다.
+
+<br>
+#### 문자열도 가능
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string str = "algorithm";
+    cout << *min_element(str.begin(), str.end()) << '\n';
+    cout << *max_element(str.begin(), str.end()) << '\n';
+    return 0;
+}
+//a
+//t
 ```
 
 <br>
