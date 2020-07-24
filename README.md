@@ -71,6 +71,7 @@
 - [프로세스와 스레드](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/process.md)
 - [CPU 스케줄링](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/cpu_sch.md)
 - [병행 프로세스와 동기화](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/concurrent.md)
+- [교착상태(Deadlock)](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/deadlock.md)
 
 ### Database
 
