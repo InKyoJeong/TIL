@@ -72,6 +72,7 @@
 - [CPU 스케줄링](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/cpu_sch.md)
 - [병행 프로세스와 동기화](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/concurrent.md)
 - [교착상태(Deadlock)](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/deadlock.md)
+- [메모리 관리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/memory.md)
 
 ### Database
 
