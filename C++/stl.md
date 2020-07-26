@@ -1,7 +1,12 @@
-## C++ STL, 헤더
+## C++ STL, 헤더파일 정리
+
+> PS를 할때 사용하는 stl 정리하는 파일
 
 - [vector](#vector)
 - [algorithm](#algorithm)
+  - max_element(), min_element()
+  - sort()
+  <!-- - stable_sort() -->
 - [stack](#stack)
 - [queue](#queue)
 - [deque](#deque)
@@ -177,6 +182,121 @@ int main()
 //a
 //t
 ```
+
+<br>
+
+### sort()
+
+- `sort()`는 기본적으로 **오름차순으로 정렬**을 해준다.
+- 첫 원소의 주소와 마지막 원소의 다음 주소를 인자로 넘겨준다.
+  - `sort(arr, arr+n)`
+  - `sort(v.begin(), v.end())`
+- 비교 함수도 만들어서 같이 넘겨줄 수 있다.
+  - `sort(arr1, arr1+n, cmp);`
+
+### 예시 - vector
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int main (){
+    int n;
+    cin>>n;
+    vector<int> v(n);
+
+
+    for(int i=0; i<n; i++){
+        cin>>v[i];
+    }
+
+    sort(v.begin(), v.end());
+
+    cout<<"sort후 결과: ";
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<' ';
+    }
+
+    return 0;
+}
+//4 (n입력)
+//8 9 1 2 (v입력)
+//sort후 결과: 1 2 8 9
+```
+
+### 예시 - 배열
+
+```cpp
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main (){
+
+    int a[5];
+    for(int i=0; i<5; i++){
+           cin>>a[i];
+    }
+
+    sort(a, a+5);
+
+    cout<<"sort후 결과: ";
+    for(int i=0; i<5; i++){
+        cout<<a[i]<<' ';
+    }
+    return 0;
+}
+//9 8 7 2 1
+//sort후 결과: 1 2 7 8 9
+```
+
+#### 비교함수 예시
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+bool cmp(const int a, const int b){
+    return a>b;
+}
+
+int main (){
+    int n;
+    cin>>n;
+    vector<int> v(n);
+
+
+    for(int i=0; i<n; i++){
+        cin>>v[i];
+    }
+
+    sort(v.begin(), v.end(), cmp);
+
+    cout<<"sort후 결과: ";
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<' ';
+    }
+
+    return 0;
+}
+//4
+//8 9 1 2
+//sort후 결과: 9 8 2 1 (내림차순)
+```
+
+<!-- <br>
+
+### stable_sort()
+
+- `sort`와 사용법은 같지만 다른점은 **정렬하는 원소값이 같은 경우**이다.
+- 원소가 같은경우 `sort`는 랜덤, `stable_sort`는 순서를 보존함 -->
 
 <br>
 
