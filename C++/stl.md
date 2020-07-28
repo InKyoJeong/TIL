@@ -127,6 +127,34 @@ vector<int> a(n);
 
 <br>
 
+- 예시 3
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    vector<string> a(n);
+    for (int i=0; i<n; i++) {
+        cin >> a[i];
+    }
+
+    for (int i=0; i<n; i++) {
+        cout<< a[i][0]<<'\n';
+    }
+    return 0;
+}
+//2       (n 입력)
+//abbb    (a[0] 입력)
+//cbbb    (a[1] 입력)
+//a       a[0][0]
+//c       a[0][1]
+```
+
+<br>
+
 ## algorithm
 
 ### max_element(), min_element()

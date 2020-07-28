@@ -117,6 +117,8 @@ function sayHello() {
 sayHello();
 ```
 
+<br>
+
 반면 함수가 **함수 표현식(function expression)** 으로 선언되면, 함수는 현재 스코프의 최상단으로 호이스팅되지 않는다.
 
 ```js
@@ -216,6 +218,8 @@ function outerFunction() {
 outerFunction()(); // I see the outer variable!
 ```
 
+<br>
+
 클로저는 외부 함수의 변수에 접근할 수 있기 때문에, 보통 두가지 목적으로 사용된다.
 
 1. 사이드 이펙트(side effects) 제어
@@ -243,7 +247,7 @@ function (x) {
 
 ```js
 function makeCake() {
-  setTimeout((_) => console.log("Made a cake"), 1000);
+  setTimeout(() => console.log("Made a cake"), 1000);
 }
 ```
 
@@ -253,7 +257,7 @@ function makeCake() {
 
 ```js
 function makeCake(flavor) {
-  setTimeout((_) => console.log(`Made a ${flavor} cake!`), 1000);
+  setTimeout(() => console.log(`Made a ${flavor} cake!`), 1000);
 }
 ```
 
@@ -273,7 +277,7 @@ makeCake("banana");
 ```js
 function prepareCake(flavor) {
   return function () {
-    setTimeout((_) => console.log(`Made a ${flavor} cake!`), 1000);
+    setTimeout(() => console.log(`Made a ${flavor} cake!`), 1000);
   };
 }
 
@@ -325,7 +329,7 @@ function prepareCake(flavor) {
   // Adding debugger
   debugger;
   return function () {
-    setTimeout((_) => console.log(`Made a ${flavor} cake!`), 1000);
+    setTimeout(() => console.log(`Made a ${flavor} cake!`), 1000);
   };
 }
 
@@ -346,7 +350,7 @@ function prepareCake(flavor) {
   return function () {
     // Adding debugger
     debugger;
-    setTimeout((_) => console.log(`Made a ${flavor} cake!`), 1000);
+    setTimeout(() => console.log(`Made a ${flavor} cake!`), 1000);
   };
 }
 
