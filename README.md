@@ -69,6 +69,10 @@
 - [메모리 관리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/memory.md)
 - [가상 메모리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/virtual_memory.md)
 
+### HTTP
+
+- [HTTP 기초](https://github.com/InKyoJeong/TIL/blob/master/HTTP/basic.md)
+
 ### Database
 
 - [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md)
