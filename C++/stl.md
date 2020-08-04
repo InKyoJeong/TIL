@@ -333,6 +333,9 @@ int main (){
 - 순열을 생성해 주는 함수. algorithm 헤더 파일에 정의되어 있다.
 - `next_permutation` 은 오름차순으로 순열을 생성해 주고,
 - `perv_permutation` 은 내림차순으로 순열을 생성해 준다.
+- 모든 경우에 대해서 정렬을 할 필요가 있을 경우에는 원본 container를 미리 `sort` 해 둘 필요가 있다.
+
+### 예시
 
 ```cpp
 #include<iostream>
@@ -364,6 +367,75 @@ int main(){
 // 1 2 0
 // 2 0 1
 // 2 1 0
+```
+
+<br>
+
+### 직접 구현
+
+```cpp
+// 다음순열
+// a[i-1] < a[i] 인 가장 큰 i를 찾는다
+// j>=i 면서 a[j] > a[i-1]를 만족하는 가장 큰 j를 찾는다
+// a[i-1]과 a[j]를 swap한다
+// a[i]부터 순열을 뒤집는다
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+bool next_permutation(vector<int> &a, int n){
+    int i = n-1;
+    while(i > 0 && a[i-1] >= a[i]){         // a[i-1] < a[i] 인 가장 큰 i를 찾는다
+         i -= 1;                            // a[i-1]이 더 크면 계속 i를 왼쪽으로
+    }
+    if(i <= 0){
+        return false;       // 제일끝까지 왼쪽으로 가면, 다음순열이 없음. 마지막 순열
+    }
+    int j = n-1;            //j>=i 면서 a[j] > a[i-1]를 만족하는 가장 큰 j를 찾는다
+    while(a[j] <= a[i-1]){
+        j -= 1;
+    }
+    swap(a[i-1], a[j]);     //a[i-1]과 a[j]를 swap한다
+
+    // a[i]부터 순열을 뒤집는다
+    j = n-1;
+    while(i < j){
+        swap(a[i], a[j]);
+        i += 1;
+        j -= 1;
+    }
+    return true;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int> a(n);
+    for(int i=0; i<n; i++){
+        cin>>a[i];
+    }
+    if(next_permutation(a, n)){
+        for(int i=0; i<n; i++){
+            cout<<a[i]<<" ";
+        }
+    }else{
+        cout<<"-1";
+    }
+    cout<<'\n';
+    return 0;
+}
+
+// 4 (n크기 입력)
+// 1 2 3 4 (배열 입력)
+// 1 2 4 3 (다음순열 출력)
 ```
 
 <br>
