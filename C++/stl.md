@@ -4,8 +4,9 @@
 
 - [vector](#vector)
 - [algorithm](#algorithm)
-  - max_element(), min_element()
-  - sort()
+  - [max_element(), min_element()](#element)
+  - [sort()](#sort)
+  - [next_permutation, prev_permutation](#permutation)
   <!-- - stable_sort() -->
 - [stack](#stack)
 - [queue](#queue)
@@ -157,7 +158,7 @@ int main() {
 
 ## algorithm
 
-### max_element(), min_element()
+### <a name="element"></a>max_element(), min_element()
 
 `max_element()`, `min_element()` 함수 : `begin(), end()`를 이용해서 배열이나 벡터 등에서 최대, 최소값을 구할 수 있다. 값을 참조하려면 `*` 연산자를 붙여야 한다.
 
@@ -213,7 +214,7 @@ int main()
 
 <br>
 
-### sort()
+### <a name="sort"></a>sort()
 
 - `sort()`는 기본적으로 **오름차순으로 정렬**을 해준다.
 - 첫 원소의 주소와 마지막 원소의 다음 주소를 인자로 넘겨준다.
@@ -325,6 +326,45 @@ int main (){
 
 - `sort`와 사용법은 같지만 다른점은 **정렬하는 원소값이 같은 경우**이다.
 - 원소가 같은경우 `sort`는 랜덤, `stable_sort`는 순서를 보존함 -->
+<br>
+
+### <a name="permutation"></a>next_permutation, prev_permutation
+
+- 순열을 생성해 주는 함수. algorithm 헤더 파일에 정의되어 있다.
+- `next_permutation` 은 오름차순으로 순열을 생성해 주고,
+- `perv_permutation` 은 내림차순으로 순열을 생성해 준다.
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int main(){
+
+    vector<int> v;
+
+    for(int i=0 ; i<3 ; i++){
+        v.push_back(i);
+    }
+
+    do{
+        for(int i=0 ; i<(int)v.size() ; i++){
+            cout<<v[i]<<" ";
+        }
+        cout<<'\n';
+    }while(next_permutation(v.begin(),v.end()));
+
+    return 0;
+}
+
+// 0 1 2
+// 0 2 1
+// 1 0 2
+// 1 2 0
+// 2 0 1
+// 2 1 0
+```
 
 <br>
 
