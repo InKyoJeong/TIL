@@ -151,7 +151,57 @@ int main() {
 //abbb    (a[0] 입력)
 //cbbb    (a[1] 입력)
 //a       a[0][0]
-//c       a[0][1]
+//c       a[1][0]
+```
+
+<br>
+
+### 이차원 vector
+
+- 사용 예시
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    vector<vector<int>> Vec2D;
+
+    vector<int> v1;
+    v1.push_back(11);
+    v1.push_back(22);
+    v1.push_back(33);
+    Vec2D.push_back(v1);
+
+    cout<< "Vec2D[0].size() : "<< Vec2D[0].size() <<'\n';
+
+
+    vector<int> v2;
+    for(int i=0; i<5; i++){
+        v2.push_back(i);
+    }
+    Vec2D.push_back(v2);
+
+    cout<< "Vec2D[1].size() : "<< Vec2D[1].size() <<'\n';
+
+     cout<< "Vec2D.size() : "<< Vec2D.size() <<'\n';
+
+    for(int i=0; i<Vec2D.size(); i++){
+        cout<< "Vec2D["<< i << "] : ";
+        for(int j=0; j<Vec2D[i].size(); j++){
+            cout<< Vec2D[i][j] << " ";
+        }
+        cout<<'\n';
+    }
+    return 0;
+}
+//Vec2D[0].size() : 3
+//Vec2D[1].size() : 5
+//Vec2D.size() : 2
+
+//Vec2D[0] : 11 22 33
+//Vec2D[1] : 0 1 2 3 4
 ```
 
 <br>
@@ -367,6 +417,37 @@ int main(){
 // 1 2 0
 // 2 0 1
 // 2 1 0
+```
+
+<br>
+
+### 예시 2
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+
+    vector<int> d(n);
+    for (int i=0; i<n; i++) {
+        d[i] = i;
+    }
+
+    if(next_permutation(d.begin(), d.end())){
+        for (int i=0; i<n; i++) {
+            cout<<d[i]<<' ';
+        }
+    };
+    return 0;
+}
+
+// 4            (d크기 입력)
+// 0 1 3 2      (출력 : 0 1 2 3의 다음순열 출력됨!)
 ```
 
 <br>
