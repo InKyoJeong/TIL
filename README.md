@@ -18,6 +18,7 @@
 ### Javascript
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/Basic.md)
+- [undefined vs null](https://github.com/InKyoJeong/TIL/blob/master/JS/undefined.md)
 - [String](https://github.com/InKyoJeong/TIL/blob/master/JS/String.md)
 - [Array](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
 - [Object](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
@@ -72,7 +73,7 @@
 ### HTTP
 
 - [HTTP 기초](https://github.com/InKyoJeong/TIL/blob/master/HTTP/1_basic.md)
-<!-- - [URL & 리소스](https://github.com/InKyoJeong/TIL/blob/master/HTTP/2_URL.md) -->
+- [URL & 리소스](https://github.com/InKyoJeong/TIL/blob/master/HTTP/2_URL.md)
 
 ### Database
 
