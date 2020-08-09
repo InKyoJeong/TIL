@@ -4,6 +4,8 @@
 
 ---
 
+<br>
+
 ## 1. em과 rem차이
 
 > em과 rem 모두 길이가 유연한 가변 단위로서, 디자인에 설정된 폰트 크기에 따라 브라우저에 의해 픽셀값으로 변환됨
@@ -14,7 +16,19 @@
 
 <!-- 참고 : [https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984](https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984) -->
 
-## 2. [scroll-behavior Property](https://www.w3schools.com/cssref/pr_scroll-behavior.asp)
+<br>
+
+## 2. CSS Resetting
+
+주로 [Eric Meyer의 Reset.css](https://meyerweb.com/eric/tools/css/reset/)를 사용한다.
+
+#### 쓰는이유 ?
+
+브라우저별로 태그에 대한 기본 스타일링이 다르기 때문에, 기본적인 것들을 초기화해서 사용한다.
+
+<br>
+
+## 3. [scroll-behavior Property](https://www.w3schools.com/cssref/pr_scroll-behavior.asp)
 
 > 부드러운 스크롤 기능을 추가할 수 있다.
 
@@ -38,7 +52,9 @@ html {
 - initial : Sets this property to its default value.
 - inherit : Inherits this property from its parent element.
 
-## 3. [place-content](https://developer.mozilla.org/ko/docs/Web/CSS/place-content)
+<br>
+
+## 4. [place-content](https://developer.mozilla.org/ko/docs/Web/CSS/place-content)
 
 > align-content와 justify-content의 단축 속성이다.
 
@@ -77,7 +93,9 @@ place-content: unset;
 
 - Edge(IE) 브라우저에서 지원하지 않는다.
 
-## 4. [속성 선택자 (Attribute selectors)](https://developer.mozilla.org/ko/docs/Web/CSS/Attribute_selectors)
+<br>
+
+## 5. [속성 선택자 (Attribute selectors)](https://developer.mozilla.org/ko/docs/Web/CSS/Attribute_selectors)
 
 ```css
 /* title이라는 이름의 특성을 가진 <a>를 선택 */

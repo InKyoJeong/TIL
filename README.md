@@ -23,7 +23,7 @@
 - [Array](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
 - [Object](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
-- [Hoisting](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
+- [Hoisting(호이스팅)](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
 - [IIFE (즉시실행 함수)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
 - [객체지향 프로그래밍(OOP)](https://github.com/InKyoJeong/TIL/blob/master/JS//OOP/intro.md)
   - [This](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/This.md)
