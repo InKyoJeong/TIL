@@ -114,7 +114,10 @@
 
 ### React
 
-- [누구든지 하는 리액트](https://github.com/InKyoJeong/TIL/blob/master/React/basic.md)
+- [리액트란?](https://github.com/InKyoJeong/TIL/blob/master/React/1_start.md)
+- [JSX](https://github.com/InKyoJeong/TIL/blob/master/React/2_jsx.md)
+
+<!-- - [누구든지 하는 리액트](https://github.com/InKyoJeong/TIL/blob/master/React/basic.md) -->
 
 <!-- ### Python
 

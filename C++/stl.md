@@ -156,6 +156,27 @@ int main() {
 
 <br>
 
+- `vector<자료형> 변수명 = { 변수1, 변수2, 변수3... }`
+  - 백터 생성 후 오른쪽 변수 값으로 초기화
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    vector<int>v = { 7, 8, 9};
+
+    cout<<v[0]<<'\n';   //7
+    cout<<v[1]<<'\n';   //8
+    cout<<v[2]<<'\n';   //9
+
+    return 0;
+}
+```
+
+<br>
+
 ### 이차원 vector
 
 - 사용 예시
