@@ -27,7 +27,9 @@
 - [IIFE (즉시실행 함수)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
 - [실행 컨텍스트(Execution Context)](https://github.com/InKyoJeong/TIL/blob/master/JS/execution.md)
 - [객체지향 프로그래밍(OOP)](https://github.com/InKyoJeong/TIL/blob/master/JS//OOP/intro.md)
-  - [This](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this.md)
+  - This
+    - [상황에 따라 달라지는 this](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this1.md)
+    - [명시적으로 this를 바인딩하기](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this2.md)
   - [생성자, Prototype](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor&prototype.md)
   - [클래스(Class), 상속](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
 - ES6 (ES2015+)
