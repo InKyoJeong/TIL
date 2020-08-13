@@ -5,6 +5,7 @@
 - [vector](#vector)
 - [algorithm](#algorithm)
   - [max_element(), min_element()](#element)
+  - [minmax_element()](#minmax)
   - [sort()](#sort)
   - [next_permutation, prev_permutation](#permutation)
   <!-- - stable_sort() -->
@@ -281,6 +282,38 @@ int main()
 }
 //a
 //t
+```
+
+<br>
+
+### <a name="minmax"></a>minmax_element()
+
+- `minmax_element` 함수는 최대와 최소값을 동시에 구할 수 있다.
+
+```cpp
+#include <iostream>
+#include <algorithm>    // std::minmax_element
+#include <vector>
+using namespace std;
+
+int main () {
+    vector<int> v;
+    v.push_back(1);
+    v.push_back(9);
+    v.push_back(3);
+    v.push_back(7);
+
+    auto result = minmax_element(v.begin(), v.end());
+
+    cout << "최소 값: " << *result.first;
+    cout<<'\n';
+    cout << "최대 값: " << *result.second;
+    cout<<'\n';
+
+    return 0;
+}
+//최소 값: 1
+//최대 값: 9
 ```
 
 <br>

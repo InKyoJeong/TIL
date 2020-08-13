@@ -1,6 +1,6 @@
 ## 함수형 컴포넌트
 
-- 공식 문서에서는 함수형 컴포넌트와 Hooks를 사용권장
+- 공식 문서에서는 **함수형 컴포넌트와 Hooks**를 사용권장
 
 ```jsx
 import React from "react";
