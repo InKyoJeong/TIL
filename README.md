@@ -121,7 +121,7 @@
 - [React란?](https://github.com/InKyoJeong/TIL/blob/master/React/1_start.md)
 - [JSX](https://github.com/InKyoJeong/TIL/blob/master/React/2_jsx.md)
 - [Component](https://github.com/InKyoJeong/TIL/blob/master/React/3_component.md)
-- [Events](https://github.com/InKyoJeong/TIL/blob/master/React/events.md)
+- [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
 
 <!-- ### Python
 
