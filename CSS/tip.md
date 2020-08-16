@@ -132,7 +132,7 @@ a[class~="logo"] {
 
 <br>
 
-## 6. overflow
+## 6. [overflow](https://developer.mozilla.org/ko/docs/Web/CSS/overflow)
 
 - 요소의 콘텐츠가 너무 커서 요소의 블록에 맞출 수 없을 때의 처리법을 지정
 
@@ -148,7 +148,6 @@ overflow: auto;
 ```html
 <div class="outer">
   <div class="inner"></div>
-  <div></div>
 </div>
 ```
 
@@ -168,4 +167,4 @@ overflow: auto;
 
 <!-- ![over](./images/overflow.png) -->
 
-<img src="./images/overflow.png" width="300" height="300">
+<img src="./images/overflow.png" width="400" height="400">
