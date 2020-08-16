@@ -129,3 +129,43 @@ a[class~="logo"] {
   padding: 2px;
 }
 ```
+
+<br>
+
+## 6. overflow
+
+- 요소의 콘텐츠가 너무 커서 요소의 블록에 맞출 수 없을 때의 처리법을 지정
+
+```css
+overflow: visible;
+overflow: hidden;
+overflow: scroll;
+overflow: auto;
+```
+
+- 예시
+
+```html
+<div class="outer">
+  <div class="inner"></div>
+  <div></div>
+</div>
+```
+
+```css
+.outer {
+  border: 1px solid black;
+  height: 300px;
+  width: 300px;
+  overflow: auto;
+}
+.inner {
+  width: 100%;
+  height: 600px;
+  background: linear-gradient(white, black);
+}
+```
+
+<!-- ![over](./images/overflow.png) -->
+
+<img src="./images/overflow.png" width="300" height="300">

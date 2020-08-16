@@ -570,6 +570,7 @@ const [first, two] = array;
 
 #### <a name="useState"></a>useState
 
+- `useState`함수 인자에는 상태의 초기값을 넣음(값의 형태는 자유. 숫자,문자열,객체,배열 가능)
 - 함수를 호출하면 배열이 반환되는데, 배열의 **첫번째 원소**는 **현재 상태**, **두번째 원소**는 **상태를 바꿔**주는 함수임
 
 ```js
@@ -658,6 +659,31 @@ return (
 ```
 
 ![state4](./images/state4.png)
+
+<br>
+
+#### state 값을 바꿀때는 setState나 useState로 전달받은 세터함수를 사용
+
+- 사본을 만들어 업데이트
+
+```js
+//객체에서. 사본만들고 b를 덮어쓴예시
+const obj = { a: 1, b: 2, c: 3 };
+const nextObj = { ...obj, b: 5 };
+
+// nextObj
+// {a: 1, b: 5, c: 3}
+```
+
+```js
+//배열에서. 예시
+const arr = [
+  { id: 1, value: true },
+  { id: 2, value: false },
+];
+let nextArr = arr.concat({ id: 3 }); //새항목추가
+nextArr.filter((item) => item.id !== 2); //id가 2아닌것들만 반환
+```
 
 <br>
 

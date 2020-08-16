@@ -374,3 +374,62 @@ const EventTest2 = () => {
 
 export default EventTest2;
 ```
+
+<br>
+
+- input이 많아지면 `e.target.name`을 활용하는게 좋음
+
+```js
+import React, { useState } from "react";
+
+const EventTest2 = () => {
+  const [form, setForm] = useState({
+    yourname: "",
+    message: "",
+  });
+  const { yourname, message } = form;
+  const onChange = (e) => {
+    const nextForm = {
+      ...form,
+      [e.target.name]: e.target.value,
+    };
+    setForm(nextForm);
+  };
+  const onClick = () => {
+    alert(yourname + "," + message);
+    setForm({
+      yourname: "",
+      message: "",
+    });
+  };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onClick();
+    }
+  };
+
+  return (
+    <div>
+      <h2>Event Test</h2>
+      <input
+        type="text"
+        name="yourname"
+        placeholder="이름"
+        value={yourname}
+        onChange={onChange}
+      />
+      <input
+        type="text"
+        name="message"
+        placeholder="입력하세요"
+        value={message}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
+      />
+      <button onClick={onClick}>Send</button>
+    </div>
+  );
+};
+
+export default EventTest2;
+```
