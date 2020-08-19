@@ -85,6 +85,16 @@
   - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
 - [몽고디비(mongoDB)](https://github.com/InKyoJeong/TIL/blob/master/Database/mongoDB/mongo.md)
 
+### React
+
+- [React란?](https://github.com/InKyoJeong/TIL/blob/master/React/1_start.md)
+- [JSX](https://github.com/InKyoJeong/TIL/blob/master/React/2_jsx.md)
+- [Component](https://github.com/InKyoJeong/TIL/blob/master/React/3_component.md)
+- [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
+- [ref](https://github.com/InKyoJeong/TIL/blob/master/React/5_ref.md)
+- [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)
+- [라이프사이클 메서드](https://github.com/InKyoJeong/TIL/blob/master/React/7_lifecycle.md)
+
 ### Node.js
 
 - 익스프레스(Express.js)
@@ -115,16 +125,6 @@
 - [기초1](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
 - [기초2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
 - [Class](https://github.com/InKyoJeong/TIL/blob/master/C++/class.md)
-
-### React
-
-- [React란?](https://github.com/InKyoJeong/TIL/blob/master/React/1_start.md)
-- [JSX](https://github.com/InKyoJeong/TIL/blob/master/React/2_jsx.md)
-- [Component](https://github.com/InKyoJeong/TIL/blob/master/React/3_component.md)
-- [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
-- [ref](https://github.com/InKyoJeong/TIL/blob/master/React/5_ref.md)
-- [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)
-- [라이프사이클 메서드](https://github.com/InKyoJeong/TIL/blob/master/React/7_lifecycle.md)
 
 <!-- ### Python
 

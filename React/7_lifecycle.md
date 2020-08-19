@@ -124,10 +124,10 @@ shouldComponentUpdate(nextProps, nextState) {...}
 
 <br>
 
-### ComponentDidUpdate 메서드
+### componentDidUpdate 메서드
 
 ```js
-ComponentDidUpdate(prevProps, prevState, snapshot) {...}
+componentDidUpdate(prevProps, prevState, snapshot) {...}
 ```
 
 - 리렌더링 완료한 후 실행
