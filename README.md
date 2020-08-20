@@ -127,7 +127,7 @@
 - [기초2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
 - [Class](https://github.com/InKyoJeong/TIL/blob/master/C++/class.md)
 
-### Seminar
+### Seminar/ Conference
 
 - [NAVER TECH CONCERT 2020: Front-End](https://github.com/InKyoJeong/TIL/blob/master/Seminar/2020naver.md)
 
