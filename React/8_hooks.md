@@ -271,3 +271,98 @@ export default Info2;
 ## useMemo
 
 - `useMemo`는 함수형 컴포넌트 내부에서 발생하는 연산을 최적화할 수 있음
+- 렌더링하는 과정에서 특정 값이 바뀌었을때만 연산을 실행, 원하는 값이 안바뀌었으면 이전에 연산한 결과를 다시 사용
+
+```js
+import React, { useState } from "react";
+
+const getAverage = (numbers) => {
+  console.log("평균 계산중");
+  if (numbers.length === 0) return 0;
+  const sum = numbers.reduce((a, b) => a + b);
+  return sum / numbers.length;
+};
+
+const Average = () => {
+  const [list, setList] = useState([]);
+  const [number, setNumber] = useState("");
+
+  const onChange = (e) => {
+    setNumber(e.target.value);
+  };
+
+  const onInsert = (e) => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber("");
+  };
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} />
+      <button onClick={onInsert}>등록</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>평균 : {getAverage(list)}</div>
+    </div>
+  );
+};
+
+export default Average;
+```
+
+```js
+// useMemo 사용 - 인풋내용이 바뀔때는 평균값을 다시계산하지않음
+//...
+
+  const avg = useMemo(() => getAverage(list), [list]);
+
+  return (
+    <div>
+      <input value={number} onChange={onChange} />
+      <button onClick={onInsert}>등록</button>
+      <ul>
+        {list.map((value, index) => (
+          <li key={index}>{value}</li>
+        ))}
+      </ul>
+      <div>평균 : {avg}</div>
+    </div>
+  );
+};
+
+export default Average;
+```
+
+<br>
+
+## useCallback
+
+- `useMemo`와 비슷함. 렌더링성능 최적화에 쓰임
+- 첫번째 피라미터에 **생성하고 싶은함수**를, 두번째 피라미터에 어떤 값이 바뀔때 함수를 새로 생성해야하는지 알려주는 **배열**을 넣음
+
+```js
+//...
+const onChange = useCallback((e) => {
+  setNumber(e.target.value);
+}, []); //컴포넌트가 처음 렌더링될때만 함수생성
+
+const onInsert = useCallback(
+  (e) => {
+    const nextList = list.concat(parseInt(number));
+    setList(nextList);
+    setNumber("");
+  },
+  [number, list] //number나 list가 바뀌었을때만 함수생성
+);
+//...
+```
+
+<br>
+
+## useRef
+
+- 함수형 컴포넌트에서 `ref`를 쉽게 사용하게 해줌

@@ -94,6 +94,7 @@
 - [ref](https://github.com/InKyoJeong/TIL/blob/master/React/5_ref.md)
 - [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)
 - [라이프사이클 메서드](https://github.com/InKyoJeong/TIL/blob/master/React/7_lifecycle.md)
+- [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/8_hooks.md)
 
 ### Node.js
 
@@ -125,6 +126,10 @@
 - [기초1](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
 - [기초2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
 - [Class](https://github.com/InKyoJeong/TIL/blob/master/C++/class.md)
+
+### Seminar
+
+- [NAVER TECH CONCERT 2020: Front-End](https://github.com/InKyoJeong/TIL/blob/master/Seminar/2020naver.md)
 
 <!-- ### Python
 
