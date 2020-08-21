@@ -202,3 +202,37 @@ const CSSModule = () => {
 ```
 $ yarn add styled-components
 ```
+
+### 사용방식
+
+- `styled.태그명`
+
+```js
+const MyComponent = styled.div`
+  font-size: 10px;
+`;
+```
+
+- 컴포넌트 자체에 스타일링
+
+```js
+const StyledLink = styled(Link)`
+  color: red;
+`;
+```
+
+- 스타일에서 props 조회
+
+```js
+const Box = styled.div`
+  background: ${(props) => props.color || "red"};
+  padding: 1rem;
+  display: flex;
+`;
+```
+
+`props`를 조회해서 `props.color`값을 사용하고, 값이 주어지지않으면 `red`를 사용
+
+```js
+<Box color="black">...</Box>
+```

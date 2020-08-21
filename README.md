@@ -12,7 +12,8 @@
 ### CSS
 
 - [CSS Tip](https://github.com/InKyoJeong/TIL/blob/master/CSS/tip.md)
-- [CSS Grid Layout](https://github.com/InKyoJeong/TIL/blob/master/CSS/grid/grid.md)
+- [CSS Selector](https://github.com/InKyoJeong/TIL/blob/master/CSS/selector.md)
+- [Grid Layout](https://github.com/InKyoJeong/TIL/blob/master/CSS/grid/grid.md)
 - [Sass (SCSS)](https://github.com/InKyoJeong/TIL/blob/master/CSS/sass.md)
 
 ### Javascript
