@@ -13,7 +13,7 @@
 
 - [CSS Tip](https://github.com/InKyoJeong/TIL/blob/master/CSS/tip.md)
 - [CSS Selector](https://github.com/InKyoJeong/TIL/blob/master/CSS/selector.md)
-- [Grid Layout](https://github.com/InKyoJeong/TIL/blob/master/CSS/grid/grid.md)
+- [CSS Grid Layout](https://github.com/InKyoJeong/TIL/blob/master/CSS/grid/grid.md)
 - [Sass (SCSS)](https://github.com/InKyoJeong/TIL/blob/master/CSS/sass.md)
 
 ### Javascript
@@ -96,6 +96,8 @@
 - [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)
 - [라이프사이클 메서드](https://github.com/InKyoJeong/TIL/blob/master/React/7_lifecycle.md)
 - [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/8_hooks.md)
+- [컴포넌트 스타일링](https://github.com/InKyoJeong/TIL/blob/master/React/9_style.md)
+- [리액트 라우터](https://github.com/InKyoJeong/TIL/blob/master/React/10_router.md)
 
 ### Node.js
 

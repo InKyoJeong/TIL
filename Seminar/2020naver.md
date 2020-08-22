@@ -60,7 +60,7 @@
 - [https://github.com/naver/fe-news/](https://github.com/naver/fe-news/)
   - 네이버 FE 엔지니어들이 큐레이션해 발행하는 주요한 기술 소식
 - [https://d2.naver.com/](https://d2.naver.com/)
-  - 네이버 개발자들이 직업 정리한 실전 개발 경험과 지식 블로그
+  - 네이버 개발자들이 직접 정리한 실전 개발 경험과 지식 블로그
 - [https://nuli.navercorp.com/](https://nuli.navercorp.com/)
   - NULI 접근성 세미나
 - [https://deview.kr/](https://deview.kr/)

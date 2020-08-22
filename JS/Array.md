@@ -24,7 +24,7 @@ console.log(whatIsPop); // white
 
 ### Array.shift()
 
-> shift() 메서드는 배열에서 첫 번째 요소를 제거하고, **제거된 요소**를 반환한다. 이 메서드는 배열의 길이를 변하게 한다.
+> shift() 메서드는 배열에서 **첫 번째 요소를 제거**하고, **제거된 요소**를 반환한다. 이 메서드는 배열의 길이를 변하게 한다.
 
 ```js
 const number = ["1", "2", "3"];
@@ -124,3 +124,51 @@ arr.reduce(callback[, initialValue])
   - `currentIndex` : 처리할 현재 요소의 인덱스. initialValue를 제공한 경우 0, 아니면 1부터 시작
   - `array` : reduce()를 호출한 배열.
 - `initialValue` : callback의 최초 호출에서 첫 번째 인수에 제공하는 값. 초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용함
+
+### Array.find()
+
+> find() 메서드는 주어진 판별 함수를 만족하는 **첫 번째 요소의 값을 반환**한다. 그런 요소가 없다면 undefined를 반환한다.
+
+```js
+const array = [1, 3, 5, 7, 9];
+const found = array.find((e) => e > 5);
+
+console.log(found);
+// 7
+```
+
+### Array.findIndex()
+
+> findIndex() 메서드는 주어진 판별 함수를 만족하는 배열의 첫 번째 요소에 대한 **인덱스를 반환**한다. 만족하는 요소가 없으면 -1을 반환한다.
+
+```js
+const array = [5, 6, 11, 44, 66];
+const found = array.findIndex((e) => e > 9);
+
+console.log(found);
+// 2
+```
+
+### Array.splice()
+
+> splice() 메서드는 배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용을 변경한다.
+
+```js
+array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+```
+
+- `start` : 배열의 변경을 시작할 인덱스. 음수인 경우 배열의 끝에서부터 요소를 센다.
+- `deleteCount` : 배열에서 제거할 요소의 수. `0`이하이면 제거하지않는다.
+- `item` : 배열에 추가할 요소. 지정하지 않으면 splice()는 요소를 제거하기만 한다.
+
+```js
+const words = ["apple", "book", "movie"];
+words.splice(1, 0, "add"); //1번 인덱스에서 제거하지않고 "add"추가
+console.log(words);
+// ["apple", "add", "book", "movie"]
+
+const words2 = ["apple", "book", "movie"];
+words2.splice(2, 1); //2번 인덱스에서 1개 제거
+console.log(words2);
+// ["apple", "book"]
+```
