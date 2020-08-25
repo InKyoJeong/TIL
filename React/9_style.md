@@ -248,8 +248,8 @@ const Button = styled.button`
   background: white;
   color: black;
   padding: 0.5rem;
+  //(생략)
 
- //...
  /* inverted 값이 true일때 특정 스타일 부여 */
   ${(props) =>
     props.inverted &&
