@@ -172,3 +172,18 @@ words2.splice(2, 1); //2번 인덱스에서 1개 제거
 console.log(words2);
 // ["apple", "book"]
 ```
+
+### Array.indexOf()
+
+> indexOf() 메서드는 배열에서 지정된 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고 존재하지 않으면 -1을 반환한다.
+
+```js
+arr.indexOf(searchElement[, fromIndex])
+```
+
+```js
+const item = ["apple", "ms", "samsung"];
+console.log(item.indexOf("ms")); //1
+```
+
+- 두번째 매개변수를 추가하면 **검색을 시작할 색인**
