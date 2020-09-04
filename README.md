@@ -20,7 +20,7 @@
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/Basic.md)
 - [undefined vs null](https://github.com/InKyoJeong/TIL/blob/master/JS/undefined.md)
-- [String](https://github.com/InKyoJeong/TIL/blob/master/JS/String.md)
+- [연산자](https://github.com/InKyoJeong/TIL/blob/master/JS/operator.md)
 - [Array](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
 - [Object](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
