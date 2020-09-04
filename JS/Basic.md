@@ -1,4 +1,4 @@
-#### Variable
+## Variable
 
 변수를 만들때는 기본적으로 이렇게 작동한다.
 
@@ -25,9 +25,11 @@ a = 4;
 console.log(b, a); // TypeError: Assignment to constant variable.
 ```
 
-const는 변수를 바꿀 수 없다. 변수를 선언할 때는 기본적으로 const를 사용한다.
+`const`는 변수를 바꿀 수 없다. 변수를 선언할 때는 기본적으로 `const`를 사용한다.
 
-#### comment (주석)
+<br>
+
+## comment (주석)
 
 ```js
 // 한줄 처리
@@ -37,7 +39,7 @@ const는 변수를 바꿀 수 없다. 변수를 선언할 때는 기본적으로
 */
 ```
 
-#### string
+## string
 
 ```js
 const what = "Github";
@@ -51,7 +53,7 @@ console.log(what); //Github
 const what = "1234567";
 ```
 
-#### Boolean : True or False
+### Boolean : True or False
 
 ```js
 const what = true;
@@ -59,7 +61,7 @@ const what = true;
 
 true/false는 텍스트가 아니다. 소문자로 쓰고, `""` 없이 사용한다. 이진법에서 `true`는 `1`, `false`는 `0`이다.
 
-#### Float : 소숫점이 있는것
+### Float : 소숫점이 있는것
 
 ```js
 const what = 55.1;
@@ -67,7 +69,46 @@ const what = 55.1;
 
 > Camel case: js에서는 변수명을 소문자로 시작해서 변수명 중간에는 스페이스 대신 대문자로 쓴다. ex) daysOfWeek
 
-#### Array
+<br>
+
+## for/in
+
+`for/in`문은 객체 안의 프로퍼티를 순회하는 반복문이다.
+
+```js
+for (변수 in 객체 표현식) {...}
+```
+
+```js
+const obj = { a: 1, b: 2, c: 3 };
+for (const p in obj) {
+  console.log(p);
+}
+// a
+// b
+// c
+```
+
+`for/in`문은 프로퍼티 이름만 꺼내서 변수에 할당한다. 따라서 반복문 안에서 프로퍼티 값을 가져오려면 괄호 연산자를 사용해야한다.
+
+- 예시
+
+```js
+const obj = { a: 1, b: 2, c: 3 };
+
+for (const p in obj) {
+  console.log(`${p}: ${obj[p]}`);
+}
+
+// expected output:
+// "a: 1"
+// "b: 2"
+// "c: 3"
+```
+
+<br>
+
+## Array
 
 ```js
 const monday = "Mon";
@@ -95,7 +136,9 @@ Array는 0부터 시작하기때문에 3번째 요일을 알고싶다고 하면 
 console.log(daysOfWeek[2]); // Wed
 ```
 
-#### Object
+<br>
+
+## Object
 
 Array와 Object의 다른점은 Object에는 각 `value`에 이름을 줄 수 있다는 것이다.
 
@@ -104,7 +147,7 @@ const info = {
   name: "Nico",
   age: 33,
   gender: "Male",
-  isHandsome: true
+  isHandsome: true,
 };
 
 console.log(info); // {name: "Nico", age: 33, gender: "Male", isHandsome: true}
@@ -123,7 +166,7 @@ const info = {
   name: "Nico",
   age: 33,
   gender: "Male",
-  isHandsome: true
+  isHandsome: true,
 };
 
 console.log(info.gender); //Male
@@ -148,19 +191,19 @@ const info = {
   favFood: [
     {
       name: "Kimchi",
-      fatty: false
+      fatty: false,
     },
     {
       name: "Burger",
-      fatty: true
-    }
-  ]
+      fatty: true,
+    },
+  ],
 };
 
 console.log(info.favFood[0].fatty); //false
 ```
 
-##### console.log vs info.favFood
+### console.log vs info.favFood
 
 `console`은 info가 object인 것처럼 object다.
 `console`이라는 object가 있고 `log`라는 키가 있다.
@@ -188,7 +231,9 @@ console.log(console);
 
 이런것들을 `내장함수(built-in function)`라고 한다.
 
-#### Function
+<br>
+
+## Function
 
 ```js
 function sayHello() {
@@ -210,7 +255,7 @@ sayHello("Nico"); // Hello Nico
 
 - 자바스크립트에서는 `""`도 string이고 `''`도 string이다
 
-#### 백틱활용
+### 백틱활용
 
 ```js
 function sayHello(name, age) {
@@ -220,7 +265,7 @@ function sayHello(name, age) {
 sayHello("Nico", 25); // Hello Nico you are 25 years old
 ```
 
-#### return (x) vs console.log
+### return (x) vs console.log
 
 ```js
 function sayHello(name, age) {
@@ -251,13 +296,13 @@ console.log(greetNico);
 
 sayHello함수는 어떤 값을 반환하지만 `console.log`로 찍어주진않기 때문에 여기선 하나의 console.log를 갖게 된다.
 
-##### 계산 연습
+#### 계산 연습
 
 ```js
 const calculator = {
-  plus: function(a, b) {
+  plus: function (a, b) {
     return a + b;
-  }
+  },
 };
 
 const plusNumber = calculator.plus(5, 5);
