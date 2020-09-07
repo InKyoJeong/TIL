@@ -189,3 +189,37 @@ console.log(item.indexOf("ms")); //1
 ```
 
 - 두번째 매개변수를 추가하면 **검색을 시작할 색인**
+
+### Array.sort()
+
+```js
+arr.sort([compareFunction]);
+```
+
+- `compareFunction` : 정렬 순서를 결정하는데 사용되는 함수. 이를 생략하면 유니코드 순으로 정렬된다.
+
+  - `compareFunction(a, b)`이 **0보다 작은 경우** a를 b보다 낮은 색인으로 정렬한다. 즉, a가 먼저온다.
+  - `compareFunction(a, b)`이 **0보다 큰 경우** b를 a보다 낮은 인덱스로 소트한다.
+
+- 반환 값 : 정렬한 배열. 복사본이 만들어지는게 아니라, **원래 배열이 정렬되는 것**이다.
+
+```js
+// 숫자 비교 예시 (오름차순)
+const a = [5, 2, 6, 8, 9, 1, 3];
+a.sort((a, b) => a - b); //[1, 2, 3, 5, 6, 8, 9]
+```
+
+- 문자는 a-b 와같이 할수 없기때문에 부등호로 비교하여 1 or -1을 리턴하는 식으로 사용
+
+```js
+// 문자 비교 예시
+const items = [
+  { name: "Taeyeon", age: 11 },
+  { name: "Mary", age: 33 },
+  { name: "John", age: 22 },
+];
+items.sort((a, b) => (a.name > b.name ? 1 : -1));
+// {name: "John", age: 22}
+// {name: "Mary", age: 33}
+// {name: "Taeyeon", age: 11}
+```
