@@ -8,6 +8,7 @@
   - **수식 안에서** 묵시적 변환
   - **parseInt / parseFloat** 함수 사용
   - **Number** 함수 활용
+- 논리값으로 변환
 
 <br>
 
@@ -54,10 +55,13 @@ String([1, 2, 3]); //"1,2,3"
 
 ```js
 const a = "22";
-console.log(a - 3); //19
+console.log(a - 3); // 19
 
-const b = "99";
-console.log(+b); //99
+const b = "77";
+console.log(b - 0); // 77
+
+const c = "99";
+console.log(+c); // 99
 ```
 
 2. **_parseInt_** 와 **_parseFloat_** 함수 사용
@@ -89,3 +93,17 @@ Number(true); // 1
 Number([1, 2, 3]); // NaN
 Number(null); //0
 ```
+
+<br>
+
+## 논리값으로 변환
+
+모든 값을 논리값으로 바꾸는 방법 두가지
+
+```js
+!!x;
+Boolean(x);
+```
+
+- `!!`로 값의 타입을 논리타입으로 바꿀 수 있음
+  - !연산자는 논리타입이 아닌 값의 타입을 논리타입으로 바꾸고, 그다음에 !를 더붙여 참과 거짓을 바꾼다.

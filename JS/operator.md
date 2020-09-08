@@ -1,3 +1,19 @@
+## 논리 연산자
+
+- a `&&` b : a와 b 모두 true면 true, 아니면 false
+- a `||` b : a와 b 중 하나라도 true면 true, 모두 false면 false
+- `!`a : a가 true면 false, false면 true
+
+## 피연산자 평가
+
+- 논리 연산자의 피연산자는 논리값이 아니여도 됨
+- 피연산자가 논리값이 아니면 다음과같이 타입변환이 됨
+
+**_0, -0, 빈문자열(""), NaN, null, undefined_** : `false`
+**_0을 제외한 숫자, 빈 문자열을 제외한 문자열, 모든 객체, 심벌_** : `true`
+
+<br>
+
 ## 문자열 제어
 
 > String 객체 메서드
