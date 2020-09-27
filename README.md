@@ -100,6 +100,11 @@
 - [컴포넌트 스타일링](https://github.com/InKyoJeong/TIL/blob/master/React/9_style.md)
 - [리액트 라우터](https://github.com/InKyoJeong/TIL/blob/master/React/10_router.md)
 
+<!-- ### React Native
+
+- [Environment](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/environment.md)
+- [Style](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/style.md) -->
+
 ### Node.js
 
 - 익스프레스(Express.js)
@@ -134,6 +139,10 @@
 ### Seminar/ Conference
 
 - [NAVER TECH CONCERT 2020: Front-End](https://github.com/InKyoJeong/TIL/blob/master/Seminar/2020naver.md)
+
+### etc
+
+- [zsh, homebrew](https://github.com/InKyoJeong/TIL/blob/master/etc/zsh.md)
 
 <!-- ### Python
 

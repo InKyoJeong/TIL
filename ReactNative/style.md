@@ -1,13 +1,3 @@
-## Start
-
-### Expo
-
-```
-$ npm install --global expo-cli
-
-$ expo init my-project
-```
-
 ## Style
 
 ### inline style
@@ -43,11 +33,11 @@ const styles = StyleSheet.create({
 
 ### marginVertical
 
-`marginVertical` = `marginBotton` + `marginTop`과 같다.
+`marginVertical` = `marginBotton` + `marginTop`
 
 ### shadow
 
-- `shadowColor`, `shadowOffset` 같은 shadow 속성은 IOS애서만 가능
+- `shadowColor`, `shadowOffset` 같은 shadow 속성은 IOS에서만 가능
 - Android는 `elevation`으로 가능
 
 ### <ScrollView>
