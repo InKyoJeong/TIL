@@ -79,6 +79,7 @@
 
 - [HTTP 기초](https://github.com/InKyoJeong/TIL/blob/master/HTTP/1_basic.md)
 - [URL & 리소스](https://github.com/InKyoJeong/TIL/blob/master/HTTP/2_URL.md)
+- [HTTP 메시지](https://github.com/InKyoJeong/TIL/blob/master/HTTP/3_HTTPmsg.md)
 
 ### Database
 
