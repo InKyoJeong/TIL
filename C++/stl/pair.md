@@ -70,3 +70,30 @@ int main()
 
 // 3c
 ```
+
+```cpp
+#include <iostream>
+#include <utility>
+#include <vector>
+
+using namespace std;
+
+vector<pair<int, int>> e;
+
+int main()
+{
+    e.push_back({0,1});
+    e.push_back({1,2});
+    e.push_back({2,3});
+
+    cout<< e[0].first <<" "<< e[0].second <<'\n';
+    cout<< e[1].first <<" "<< e[1].second <<'\n';
+    cout<< e[2].first <<" "<< e[2].second <<'\n';
+
+    return 0;
+}
+
+// 0 1
+// 1 2
+// 2 3
+```
