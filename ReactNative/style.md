@@ -62,42 +62,6 @@ const styles = StyleSheet.create({
 
 <br>
 
-## Icon
-
-- expo : [https://icons.expo.fyi/](https://icons.expo.fyi/)
-
-### Use
-
-> example: Ionicons
-
-```js
-import { Ionicons } from "@expo/vector-icons";
-
-//...
-
-<Ionicons name="md-remove" size={24} />;
-```
-
-<br>
-
-## Device Rotate (orientations)
-
-- expo에서 기기를 돌려보면 가로모드가 적용되지않음
-- expo에서 기본값으로 락되어있음
-
-```js
-//app.json
-  "expo": {
-    //...
-    "orientation": "portrait",    //세로모드
-    //...
-```
-
-- `"orientation": "landscape",` : 가로모드 ex)게임
-- `"orientation": "default",` : 회전 가능함
-
-<br>
-
 ### KeyboardAvoidingView
 
 - 키보드가 입력칸을 가릴경우 조절하기
@@ -126,9 +90,47 @@ width: Dimensions.get("window").width / 4,
 
 <br>
 
-## Font
+## Expo
 
-### Fetch
+### Icon
+
+- expo : [https://icons.expo.fyi/](https://icons.expo.fyi/)
+
+#### Use
+
+> example: Ionicons
+
+```js
+import { Ionicons } from "@expo/vector-icons";
+
+//...
+
+<Ionicons name="md-remove" size={24} />;
+```
+
+<br>
+
+### Device Rotate (orientations)
+
+- expo에서 기기를 돌려보면 가로모드가 적용되지않음
+- expo에서 기본값으로 락되어있음
+
+```js
+//app.json
+  "expo": {
+    //...
+    "orientation": "portrait",    //세로모드
+    //...
+```
+
+- `"orientation": "landscape",` : 가로모드 ex)게임
+- `"orientation": "default",` : 회전 가능함
+
+<br>
+
+### Font
+
+#### Fetch
 
 - **Add Fonts** file (to asset Folder)
 - `expo install expo-font`
@@ -158,7 +160,7 @@ export default function App() {
 //...
 ```
 
-### Use
+#### Use
 
 ```js
 title:{

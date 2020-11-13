@@ -134,3 +134,40 @@ int main()
     return 0;
 }
 ```
+
+<br>
+
+## priority_queue
+
+> 우선순위큐
+
+- 기본 생성자 형식 `priority_queue< [Data Type] > [변수이름];`
+  - ex) `priority_queue<int> pq;`
+- 정렬 기준 변경하면
+  - `priority_queue< [Data Type], [Container Type], [정렬기준] > [변수이름];`
+
+```cpp
+#include <cstdio>
+#include <queue>
+using namespace std;
+
+priority_queue<int> pq;
+//priority_queue<int , vector<int>, less<int>> pq; 와 동일
+
+int main(){
+    pq.push(3);
+    pq.push(2);
+    pq.push(1);
+    pq.push(7);
+    pq.push(3);
+    pq.push(9);
+    while (!pq.empty()) {
+        printf("%d ",pq.top());
+        pq.pop();
+    }
+}
+// 9 7 3 3 2 1
+```
+
+`priority_queue<int , vector<int>, greater<int>> pq;` 이면
+// 1 2 3 3 7 9
