@@ -493,3 +493,26 @@ return 0;
 // c     99      0143     0x63
 // d     100      0144     0x64
 ```
+
+<br>
+
+## 최댓값과 최솟값 표현
+
+- `limits.h` 헤더 파일에는 부호 있는 정수와 부호 없는 정수의 최솟값과 최댓값이 정의되어 있다.
+
+```cpp
+#include <iostream>
+#include <limits.h>
+
+using namespace std;
+
+int main() {
+
+    cout<< INT_MAX <<'\n';  // 2147483647
+    cout<< INT_MIN <<'\n';  // -2147483648
+
+    cout<< CHAR_MAX <<'\n'; // 127
+    cout<< LONG_MAX <<'\n'; // 9223372036854775807
+    return 0;
+}
+```
