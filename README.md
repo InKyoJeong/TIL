@@ -107,6 +107,7 @@
 - [Environment](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/environment.md)
 - [Package Install & Link](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/library.md)
 - [Style](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/style.md)
+- [RN Tip](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/tip.md)
 
 ### Node.js
 
