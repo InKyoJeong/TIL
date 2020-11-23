@@ -26,6 +26,7 @@
 - [Object](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
 - [Hoisting (호이스팅)](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
+- [반복문 클로저](https://github.com/InKyoJeong/TIL/blob/master/JS/closure.md)
 - [IIFE (즉시실행 함수)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
 - [실행 컨텍스트(Execution Context)](https://github.com/InKyoJeong/TIL/blob/master/JS/execution.md)
 - [객체지향 프로그래밍(OOP)](https://github.com/InKyoJeong/TIL/blob/master/JS//OOP/intro.md)
@@ -42,7 +43,6 @@
   - [async/await](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/async-await.md)
   - [이터레이터와 for/of](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/iterator.md)
   - [심볼(Symbol)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/symbol.md)
-  <!-- - [스코프(Scope)와 클로저(Closures)](https://github.com/InKyoJeong/TIL/blob/master/JS/closure.md) -->
 
 ### Data Structure & Algorithm
 
