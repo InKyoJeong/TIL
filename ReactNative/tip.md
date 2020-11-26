@@ -23,6 +23,8 @@
 
 - **_xCode : General > Identity > Display Name_** 수정
 
+<br>
+
 ## 아이콘 제네레이터
 
 ### Android
@@ -43,6 +45,8 @@ xed ./ios
 
 - _[앱이름]/Images.xcassets_ 에서 _AppIcon_ 선택하여 위치에맞게 삽입
 
+<br>
+
 ## Alert
 
 ```js
@@ -50,3 +54,12 @@ Alert.alert("제목", "내용", [{ text: "확인" }]);
 ```
 
 `'제목'`부분을 넣어야 `Android`에서 에러가 발생하지않는다.
+
+<br>
+
+## 디바이스 테스트
+
+### 안드로이드 기기테스트
+
+- 프로젝트가아니라 Android 폴더에서 열어야함
+- 터미널에서 연결된 기기확인 : `adb devices`

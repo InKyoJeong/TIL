@@ -30,10 +30,10 @@
 - [IIFE (즉시실행 함수)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
 - [실행 컨텍스트(Execution Context)](https://github.com/InKyoJeong/TIL/blob/master/JS/execution.md)
 - [객체지향 프로그래밍(OOP)](https://github.com/InKyoJeong/TIL/blob/master/JS//OOP/intro.md)
-  - [상황에 따라 달라지는 this](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this1.md)
-  - [명시적으로 this를 바인딩하기](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this2.md)
-  - [생성자, Prototype](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor&prototype.md)
-  - [클래스(Class), 상속](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
+- [상황에 따라 달라지는 this](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this1.md)
+- [명시적으로 this를 바인딩하기](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this2.md)
+- [생성자, Prototype](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor&prototype.md)
+- [클래스(Class), 상속](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
 - ES6 (ES2015+)
   - [const, let](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/const.md)
   - [화살표 함수 (Arrow Function)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/arrow.md)
@@ -54,9 +54,8 @@
 - [트리(Tree) : 이진트리/순회/수식트리](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/tree/tree.md)
 - [우선순위 큐(Priority Queue)와 힙(Heap)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/heap/heap.md)
 - [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
-- 정렬 알고리즘
-  - [선택/ 삽입/ 버블 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
-  - [힙/ 병합/ 퀵 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/complex_sort.md)
+- [선택/ 삽입/ 버블 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
+- [힙/ 병합/ 퀵 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/complex_sort.md)
 - [이진 탐색 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bst.md)
 - [AVL 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/avl.md)
 - [테이블, 해쉬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/table-hash.md)
@@ -94,13 +93,13 @@
 - [React란?](https://github.com/InKyoJeong/TIL/blob/master/React/1_start.md)
 - [JSX](https://github.com/InKyoJeong/TIL/blob/master/React/2_jsx.md)
 - [Component](https://github.com/InKyoJeong/TIL/blob/master/React/3_component.md)
-- [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
+<!-- - [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
 - [ref](https://github.com/InKyoJeong/TIL/blob/master/React/5_ref.md)
 - [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)
 - [라이프사이클 메서드](https://github.com/InKyoJeong/TIL/blob/master/React/7_lifecycle.md)
 - [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/8_hooks.md)
 - [컴포넌트 스타일링](https://github.com/InKyoJeong/TIL/blob/master/React/9_style.md)
-- [리액트 라우터](https://github.com/InKyoJeong/TIL/blob/master/React/10_router.md)
+- [리액트 라우터](https://github.com/InKyoJeong/TIL/blob/master/React/10_router.md) -->
 
 ### React Native
 
