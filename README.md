@@ -43,6 +43,7 @@
   - [async/await](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/async-await.md)
   - [이터레이터와 for/of](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/iterator.md)
   - [심볼(Symbol)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/symbol.md)
+- [커링 (Currying)](https://github.com/InKyoJeong/TIL/blob/master/JS/curry.md)
 
 ### Data Structure & Algorithm
 

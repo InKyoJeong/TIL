@@ -63,3 +63,56 @@ Alert.alert("제목", "내용", [{ text: "확인" }]);
 
 - 프로젝트가아니라 Android 폴더에서 열어야함
 - 터미널에서 연결된 기기확인 : `adb devices`
+
+<br>
+
+## 가로모드 해제
+
+### iOS
+
+- **_Info.plist_**
+
+```
+<key>UISupportedInterfaceOrientations</key>
+ <array>
+    <string>UIInterfaceOrientationPortrait</string>
+   	<string>UIInterfaceOrientationLandscapeLeft</string>		//제거
+	<string>UIInterfaceOrientationLandscapeRight</string>		//제거
+</array>
+...
+```
+
+### Android
+
+- **_android/app/src/main/AndroidManifest.xml_**
+
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.bp.oheadline">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme">
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+
+        // ↓ 여기에 코드를 추가
+        android:screenOrientation="portrait"
+
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+    </application>
+</manifest>
+```
