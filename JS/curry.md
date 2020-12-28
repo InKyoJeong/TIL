@@ -34,3 +34,5 @@ first(2); // 3
 ```
 
 `add`함수가 반환하는 함수에서 `x`를 참조하고 있기 때문에, `add`함수의 호출이 끝난 이후에도 스코프가 유지되는 클로저를 사용한 패턴.
+
+<!-- https://project42da.github.io/javascript/2019/02/06/js-curry.html -->
