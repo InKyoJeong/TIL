@@ -20,6 +20,7 @@
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/Basic.md)
 - [undefined vs null](https://github.com/InKyoJeong/TIL/blob/master/JS/undefined.md)
+- [데이터 타입](https://github.com/InKyoJeong/TIL/blob/master/JS/DataType.md)
 - [명시적 타입 변환](https://github.com/InKyoJeong/TIL/blob/master/JS/string.md)
 - [연산자](https://github.com/InKyoJeong/TIL/blob/master/JS/operator.md)
 - [Array](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
