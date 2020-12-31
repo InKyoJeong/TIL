@@ -66,7 +66,9 @@ inner 함수 내부에서 변수에 값을 할당하고 inner 함수 실행이 �
 
 한 실행 컨텍스트가 콜 스택의 맨 위에 쌓이는 순간이 현재 실행할 코드에 관여하게 되는 시점이다. 이렇게 어떤 실행 컨텍스트가 활성화될 때 자바스크립트 엔진이 해당 컨텍스트에 관련된 코드들을 실행하는데 필요한 환경 정보들을 수집하고 실행 컨텍스트 객체에 저장한다.
 
-이 객체는 자바스크립트 엔진이 활용할 목적으로 생성할 뿐 개발자가 코드로 확인할 순 없다. 여기 담기는 정보들은 다음과 같다.
+이 객체는 자바스크립트 엔진이 활용할 목적으로 생성할 뿐 개발자가 코드로 확인할 순 없다.
+
+여기 담기는 정보들:
 
 - **_VariableEnvironment_** : 현재 컨텍스트 내의 식별자들에 대한 정보 + 외부 환경 정보, 선언 시점의 _LexicalEnvironment_ 의 스냅샷으로, 변경 사항은 반영되지 않음
 - **_LexicalEnvironment_** : 처음에는 _VariableEnvironment_ 와 같지만 변경 사항이 실시간으로 반영됨
@@ -74,9 +76,13 @@ inner 함수 내부에서 변수에 값을 할당하고 inner 함수 실행이 �
 
 <br>
 
+즉, 처음 캡쳐떴을때 값만 신경쓰고 그 뒤에 값이 바뀌는건 상관하지않는게 _VariableEnvironment_, 이후에 값이 변경되는것을 계속 반영하고있는게 _LexicalEnvironment_
+
+<br>
+
 ## <a name="variable"></a>VariableEnvironment
 
-_VariableEnvironment_ 에 담기는 내용은 _LexicalEnvironment_ 와 같지만 최초 실행 시의 스냅샷을 유지한다는 점이 다르다. 실행 컨텍스트를 생성할 때 _VariableEnvironment_ 에 정보를 먼저 담고, 그대로 복사해서 _LexicalEnvironment_ 를 만들고, 이후에는 주로 _LexicalEnvironment_ 를 활용한다. 초기화 과정 중에는 사실상 완전히 동일하다.
+_VariableEnvironment_ 에 담기는 내용은 _LexicalEnvironment_ 와 같지만 `최초 실행 시의 스냅샷을 유지`한다는 점이 다르다. 실행 컨텍스트를 생성할 때 _VariableEnvironment_ 에 정보를 먼저 담고, 그대로 복사해서 _LexicalEnvironment_ 를 만들고, 이후에는 주로 _LexicalEnvironment_ 를 활용한다. 초기화 과정 중에는 사실상 완전히 동일하다.
 
 <br>
 
@@ -86,13 +92,16 @@ LexicalEnvironment(렉시컬 환경) 컴포넌트는 자바스크립트 엔진�
 
 자바스크립트 엔진은 해당 자바스크립트 코드의 유효범위 안에 있는 식별자와 그 식별자가 가리키는 값을 키와 값의 쌍으로 바인드해서 LexicalEnvironment(렉시컬 환경) 컴포넌트에 기록한다.
 
-LexicalEnvironment(렉시컬 환경) 컴포넌트는 **_Environment Record(환경 레코드)_** 와 **_Outer Lexical Environment Reference(외부 렉시컬 환경 참조 컴포넌트)_** 로 구성되어 있다.
+LexicalEnvironment(렉시컬 환경) 컴포넌트는
+
+- **_Environment Record(환경 레코드)_** 와
+- **_Outer Lexical Environment Reference(외부 렉시컬 환경 참조 컴포넌트)_** 로 구성됨.
 
 <br>
 
 ### <a name="er"></a>Environment Record(환경 레코드)
 
-유효 범위 안에 포함된 식별자를 기록하고 실행하는 영역이다. 자바스크립트 엔진은 유효 범위 안의 식별자와 결과값을 바인드해서 환경 레코드에 기록한다.
+**유효 범위 안에 포함된 식별자를 기록**하고 실행하는 영역이다. 자바스크립트 엔진은 유효 범위 안의 식별자와 결과값을 바인드해서 환경 레코드에 기록한다.
 
 #### Environment Record(환경 레코드)와 호이스팅
 
@@ -142,7 +151,9 @@ function a() {
 a();
 ```
 
-이번에는 위의 코드를 보면 첫번째 줄에서 b값이 없으니 에러나 undefined가 뜰것 같지만 그렇지 않다. 변수는 선언부와 할당부를 나눠 선언부만 끌어올리지만 **함수 선언은 함수 전체**를 끌어올린다. 따라서 다음과 같은 형태가 된다.
+이번에는 위의 코드를 보면 첫번째 줄에서 b값이 없으니 에러나 undefined가 뜰것 같지만 그렇지 않다. 변수는 선언부와 할당부를 나눠 선언부만 끌어올리지만 `함수 선언은 함수 전체`를 끌어올림.
+
+따라서 다음과같음:
 
 ```js
 function a() {
@@ -198,6 +209,8 @@ x(); //Error
 ```
 
 기명 함수 표현식은 외부에서는 함수명으로 함수를 호출할 수 없고 함수 내부에서만 접근할 수 있다.
+
+<br>
 
 #### 상대적으로 함수 표현식이 안전하다
 
@@ -310,21 +323,21 @@ console.log(a); //1
 ### 정리
 
 - **실행 컨텍스트**는 실행할 코드에 제공할 환경 정보들을 모아놓은 객체
-- 실행 컨텍스트는 전역 공간에서 자동으로 생성되는 전역 컨텍스트, eval, 함수 실행에 의한 컨텍스트 등이 있음
-- 실행 컨텍스트 객체는 활성화되는 시점에 **_VariableEnvironment_**, **_LexicalEnvironment_**, **_ThisBinding_** 세가지 정보를 수집함
+  - 실행 컨텍스트는 전역 공간에서 자동으로 생성되는 전역 컨텍스트, eval, 함수 실행에 의한 컨텍스트 등이 있음
+  - 실행 컨텍스트 객체는 활성화되는 시점에 **_VariableEnvironment_**, **_LexicalEnvironment_**, **_ThisBinding_** 세가지 정보를 수집함
 
-* **_VariableEnvironment_** 와 **_LexicalEnvironment_** 는 매개변수명, 변수 식별자, 선언한 함수 함수명 등을 수집하는 **_environmentRecord_** 와 바로 직전 컨텍스트의 **_LexicalEnvironment_** 정보를 참조하는 **_outerEnvironment-Reference_** 로 구성됨
+* **_VariableEnvironment_** 와 **_LexicalEnvironment_** 는 매개변수명, 변수 식별자, 선언한 함수 함수명 등을 수집하는 `environmentRecord` 와 바로 직전 컨텍스트의 **_LexicalEnvironment_** 정보를 참조하는 `outerEnvironment-Reference` 로 구성됨
 
 - **호이스팅**은 **_environmentRecord_** 의 수집 과정을 추상화한 개념으로, 실행 컨텍스트가 관여하는 코드 집단의 최상단으로 끌어올리는 것
-- 변수 선언과 할당이 동시에 됐으면 '선언부'만 호이스팅하고 할당과정은 자리에 남아서, 함수 선언문과 함수 표현식의 차이 발생
+  - 변수 선언과 할당이 동시에 됐으면 '선언부'만 호이스팅하고 할당과정은 자리에 남아서, 함수 선언문과 함수 표현식의 차이 발생
 
 * **스코프**는 변수의 유효범위이고, **_outerEnvironment-Reference_** 는 해당 함수가 선언된 위치의 **_LexicalEnvironment_** 를 참조함
 * 코드 상에서 어떤 변수에 접근하려고 하면 현재 컨텍스트의 **_LexicalEnvironment_** 를 탐색해서 발견되면 그값을 반환, 발견하지 못하면 다시 **_outerEnvironment-Reference_** 에 담긴 **_LexicalEnvironment_** 를 탐색
 * 전역 컨텍스트의 **_LexicalEnvironment_** 까지 탐색해도 해당 변수를 못찾으면 undefined 반환
 
 - 전역 컨텍스트의 **_LexicalEnvironment_** 에 담긴 변수를 전역변수라고 함
-- 그밖의 함수에 의해 생성된 실행 컨텍스트의 변수들은 지역변수임
-- 안전한 코드 구성을 위해서는 전역변수 사용을 최소화
+  - 그밖의 함수에 의해 생성된 실행 컨텍스트의 변수들은 지역변수임
+  - 안전한 코드 구성을 위해서는 전역변수 사용을 최소화
 
 * _this_ 에는 실행 컨텍스트를 활성화하는 당시에 지정된 _this_ 가 저장됨
-* 함수를 호출하는 방법에 따라 값이 달라지는데, 지정하지 않았으면 전역객체가 저장됨
+  - 함수를 호출하는 방법에 따라 값이 달라지는데, 지정하지 않았으면 전역객체가 저장됨
