@@ -27,10 +27,10 @@
 - [Object](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
 - [Hoisting (호이스팅)](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
-- [반복문 클로저](https://github.com/InKyoJeong/TIL/blob/master/JS/closure.md)
+- [콜백함수](https://github.com/InKyoJeong/TIL/blob/master/JS/callback.md)
 - [IIFE (즉시실행 함수)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
 - [실행 컨텍스트(Execution Context)](https://github.com/InKyoJeong/TIL/blob/master/JS/execution.md)
-- [객체지향 프로그래밍(OOP)](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/intro.md)
+- [클로저](https://github.com/InKyoJeong/TIL/blob/master/JS/closure.md)
 - [상황에 따라 달라지는 this](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this1.md)
 - [명시적으로 this를 바인딩하기](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this2.md)
 - [생성자, Prototype](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor&prototype.md)
@@ -155,7 +155,7 @@
 - [브라우저 동작원리](https://github.com/InKyoJeong/TIL/blob/master/etc/browser.md)
   - [Critical Rendering Path](https://github.com/InKyoJeong/TIL/blob/master/etc/crp.md)
 - [zsh, homebrew](https://github.com/InKyoJeong/TIL/blob/master/etc/zsh.md)
-
+- [객체지향 프로그래밍(OOP)이란?](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/intro.md)
 <!-- ### Python
 
 * [Basic](https://github.com/InKyoJeong/TIL/blob/master/Python/1_Basic.md)

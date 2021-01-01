@@ -578,9 +578,9 @@ const [first, two] = array;
 import React, { useState } from "react";
 
 const Login = () => {
-  const [message, setFoo] = useState("");
-  const onClickLogin = () => setFoo("Log In");
-  const onClickLogout = () => setFoo("Log Out");
+  const [message, setMessage] = useState("");
+  const onClickLogin = () => setMessage("Log In");
+  const onClickLogout = () => setMessage("Log Out");
 
   return (
     <div>
@@ -607,58 +607,6 @@ export default App;
 ```
 
 ![state3](./images/state3.png)
-
-<br>
-
-#### useState 여러번 사용
-
-- `useState`는 한 컴포넌트에서 여러번 사용 가능
-
-```js
-// Login.js
-import React, { useState } from "react";
-
-const Login = () => {
-  const [message, setFoo] = useState("");
-  const onClickLogin = () => setFoo("Log In");
-  const onClickLogout = () => setFoo("Log Out");
-
-  const [test, setBoo] = useState("black");
-
-  return (
-    <div>
-      <button onClick={onClickLogin}>로그인</button>
-      <button onClick={onClickLogout}>로그아웃</button>
-      <h2 style={{ color: test }}>{message}</h2>
-
-      <button style={{ color: "red" }} onClick={() => setBoo("red")}>
-        빨강
-      </button>
-    </div>
-  );
-};
-```
-
-위와 같음
-
-```js
-//...
-const [color, setColor] = useState("black");
-
-return (
-  <div>
-    <button onClick={onClickLogin}>로그인</button>
-    <button onClick={onClickLogout}>로그아웃</button>
-    <h2 style={{ color }}>{message}</h2>
-
-    <button style={{ color: "red" }} onClick={() => setColor("red")}>
-      빨강
-    </button>
-  </div>
-);
-```
-
-![state4](./images/state4.png)
 
 <br>
 

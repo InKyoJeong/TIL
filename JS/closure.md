@@ -1,3 +1,41 @@
+## 클로저
+
+> 함수와 그 함수가 선언될 당시의 lexical environment가 만났을때 나오는 현상
+
+- 실행 컨텍스트 A의 내부에서 함수 B를 선언한 상황
+  - 컨텍스트 A에서 선언한 **변수**를 내부함수 B에서 **접근**할 경우에만 발생하는 특수한 현상
+  - B의 _outerEnvironmentReference_ 는 A의 _environmentRecord_ 를 참조
+- 즉, 컨텍스트 A에서 선언한 변수 a를 참조하는 내부함수 B를 A의 외부로 전달할 경우, A가 종료된 후에도 a가 사라지지 않는 현상
+  - 함수 종료 후에도 사라지지않는 지역변수를 만들 수 있다.
+
+<br>
+
+1. outer에 대한 실행 컨텍스트 열리고 `a:1, inner함수` 담김
+
+![closure](./images/closure.png)
+
+2. outer끝나면서 inner 반환되고 outer2에 담김 > outer2에 담긴게 inner함수이고, inner함수 내부에서 a를 참조하고 있다. 그러니까 outer라는 실행 컨텍스트는 종료됐는데 참조 카운트 a가 아직 살아있는 상태.
+
+![closure2](./images/closure2.png)
+
+3. outer2를 호출하면 inner 컨텍스트가 쌓이고 a가 2로 바뀜
+
+![closure3](./images/closure3.png)
+
+4. 실행 종료되고 console.log 찍힘 > 2가 출력됨
+
+![closure4](./images/closure4.png)
+
+5. 두번째 줄 실행하면 inner 컨텍스트가 다시 열리면서 2가 3이되고 3이 출력되면서 끝남
+
+![closure5](./images/closure5.png)
+
+6. outer 의 environmentRecord 의 `a`는 계속 참조된 상태로 남아있다. 전역 컨텍스트가 종료되기 전까지.
+
+![closure6](./images/closure6.png)
+
+<br>
+
 ## 반복문 클로저
 
 ```js
