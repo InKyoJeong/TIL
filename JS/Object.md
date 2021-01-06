@@ -165,7 +165,3 @@ user.fullName = "Kwon JinAh";
 console.log(user.lastname); //Kwon
 console.log(user.name); //JinAh
 ``` -->
-
-```
-
-```
