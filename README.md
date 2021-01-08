@@ -88,6 +88,8 @@
 
 <!-- - [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md) -->
 
+- [데이터베이스 기능](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/1_db.md)
+- [트랜잭션](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/2_tran.md)
 - [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/mysql.md)
   - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
 - [몽고디비(mongoDB)](https://github.com/InKyoJeong/TIL/blob/master/Database/mongoDB/mongo.md)
@@ -97,6 +99,7 @@
 - [React란?](https://github.com/InKyoJeong/TIL/blob/master/React/1_start.md)
 - [JSX](https://github.com/InKyoJeong/TIL/blob/master/React/2_jsx.md)
 - [Component](https://github.com/InKyoJeong/TIL/blob/master/React/3_component.md)
+- [useEffect](https://github.com/InKyoJeong/TIL/blob/master/React/hooks.md)
 <!-- - [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
 - [ref](https://github.com/InKyoJeong/TIL/blob/master/React/5_ref.md)
 - [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)

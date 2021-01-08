@@ -30,9 +30,19 @@ $ npm install <package>
 $ npm install -g <package>
 ```
 
-<br>
-
 반대로 `npm uninstall <package>`는 패키지를 제거한다.
+
+### NPM 전역 설치 경로
+
+```
+# window
+%USERPROFILE%\AppData\Roaming\npm\node_modules
+
+# mac
+/usr/local/lib/node_modules
+```
+
+<br>
 
 <br>
 
@@ -102,7 +112,7 @@ $ npm run <script_name>
 
 <br>
 
-버전의 범위 규칙은 다음과 같고 주로 **캐럿(^)**을 사용한다.
+버전의 범위 규칙은 다음과 같고 주로 **캐럿(^)** 을 사용한다.
 
 - 캐럿기호 `^` : 동일한 Major 범위에서 특정 버전보다 큰 모든 것을 포함한다. 예를 들어 **^1.0.4**표기는 **1.0.4**부터 **2.0.0**미만 까지이다.
 - 틸드기호 `~` : 동일한 Minor 범위에서 특정 버전보다 큰 모든 것을 포함한다.
@@ -127,3 +137,11 @@ $ npm run <script_name>
 
 - https://semver.org/
 - https://docs.npmjs.com/
+
+<br>
+
+## 개발용 라이브러리와 배포용 라이브러리 구분
+
+- 설치된 배포용 라이브러리는 `npm run build`로 빌드를 하면 최종 애플리케이션 코드 안에 포함
+- 만약 설치 옵션에 `-D`를 주었다면 해당 라이브러리는 빌드하고 배포할 때 애플리케이션 코드에서 빠진다.
+  - 최종 애플리케이션에 포함되어야 하는 라이브러리는 -D로 설치하면 안됨

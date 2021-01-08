@@ -107,3 +107,23 @@ useEffect(() => {
   });
 }, [term]);
 ```
+
+<br>
+
+### cleanup 함수
+
+- 컴포넌트가 언마운트 되기 전이나 업데이트 되기 직전에 어떤 작업을 수행하고 싶을때 반환함
+
+```js
+useEffect(() => {
+  console.log("Initial Render or term was changed");
+
+  return () => {
+    console.log("CLEAN UP");
+  };
+}, [term]);
+
+// input value가 term이고 업데이트시
+// CLEAN UP
+// Initial Render or term was changed
+```
