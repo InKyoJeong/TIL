@@ -47,6 +47,10 @@
   - [제너레이터](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/generator.md)
 - [커링 (Currying)](https://github.com/InKyoJeong/TIL/blob/master/JS/curry.md)
 
+### Typescript
+
+- [Fundamentals](https://github.com/InKyoJeong/TIL/blob/master/TS/ts.md)
+
 ### Data Structure & Algorithm
 
 - [연결 리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/list/link.md)
