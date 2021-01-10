@@ -50,7 +50,7 @@ $ tsc filename.ts
 // 문자열
 let str: string = "hello";
 
-// 숫자
+// 숫자
 let num: number = 10;
 
 // 배열
@@ -397,4 +397,94 @@ class Person {
   }
 }
 const capt = new Person('Steve', 100);
+```
+
+<br>
+
+## 제네릭 
+
+- 타입을 마치 함수의 파라미터처럼 사용하는 것
+
+```js
+function getText(text) {
+  return text;
+}
+
+getText('hi'); // 'hi'
+getText(10); // 10
+getText(true); // true
+```
+
+위 함수는 text라는 파라미터에 값을 넘겨 받아 text를 반환하는데 `hi, 10, true` 등 어떤 값이 들어가더라도 그대로 반환한다.
+
+제네릭은 **함수를 호출할 때** 아래와 같이 함수 안에서 사용할 타입을 넘겨줄 수 있다.
+
+```ts
+function getText<T>(text: T): T {
+  return text;
+}
+
+getText<string>('hi');
+getText<number>(10);
+getText<boolean>(true);
+```
+
+### 인터페이스에 제네릭 선언하기
+
+```ts
+interface Dropdown{
+    value: string;
+    selected: boolean;
+}
+
+const obj: Dropdown = { value: 10, selected: false}; //'number' is not assignable to type 'string'
+const obj: Dropdown = { value: 'abc', selected: false}; 
+```
+
+- 인터페이스에 제네릭을 선언하면
+
+```ts
+interface Dropdown<T>{
+    value: T;
+    selected: boolean;
+}
+
+const obj: Dropdown<string> = { value: 'abc', selected: false};
+```
+
+이렇게 인터페이스에 제네릭을 선언해서 타입을 바꿀 수 있다.
+
+<br>
+
+```ts
+// 제네릭의 타입 제한
+function logTextLength<T>(text: T[]): T[] {
+    console.log(text.length);
+    return text;
+} 
+logTextLength<string>(['ho','ss']);
+
+// 제네릭 타입제한 - 정의된 타입 이용
+interface LengthType {
+    length: number;
+}
+
+function logTextLength<T extends LengthType>(text: T): T{
+    text.length;
+    return text;
+}
+logTextLength(10);
+logTextLength({ length: 10});
+
+// 제네릭 타입제한 - keyof
+interface ShoppingItem {
+    name: string;
+    price: number;
+    stock: number;
+}
+
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T{
+    return itemOption;
+}
+getShoppingItemOption('name');
 ```
