@@ -1,4 +1,7 @@
-# 템플릿 엔진 Pug
+- [pug](#pug11)
+- [ejs](#ejs11)
+
+# <a name="pug11"></a>템플릿 엔진 Pug
 
 ```js
 //...
@@ -407,3 +410,66 @@ app.use(function (err, req, res, next) {
 `res.render`에 변수를 대입하는것 외에도 이렇게 `res.locals`속성에 값을 대입해 템플릿 엔진에 변수를 넣을 수 있다.
 
 `error`객체는 시스템환경이 development인 경우만 표시. 배포환경인 경우 에러메세지가 표시되지 않는다.
+
+<br>
+
+# <a name="pug11"></a>EJS
+
+- `<%= %>`로 자바스크립트 추가
+
+```ejs
+<h1>Home PAGE <%= 'Hello world'.toUpperCase() %></h1>
+```
+
+- data 넘기기
+
+```js
+app.get("/rand", (req, res) => {
+  const num = Math.floor(Math.random() * 10) + 1;
+  res.render("random", { rand: num });
+  //같게 하면 { num }
+});
+```
+
+```ejs
+<h1>Your rand num is..: <%= rand %></h1>
+```
+
+- 조건문 : `<% %>`
+
+```ejs
+<h1>Your rand num is..: <%= num %></h1>
+    <% if(num %2 === 0){%>
+    <h2>This is even num</h2>
+    <% } else{%>
+    <h2>This is odd num</h2>
+    <% }%>
+```
+
+- 삼항연산자
+
+```
+<h3><%= num %2 ===0 ? 'EVEN' : 'ODD' %></h3>
+```
+
+<br>
+
+- 반복문
+
+```ejs
+<ul>
+    <% for(let cat of cats) {%>
+    <li><%= cat %></li>
+    <% }%>
+</ul>
+```
+
+<br>
+
+- include : `<%- %>`
+
+```ejs
+<%- include('partials/head') %>
+
+//...
+```

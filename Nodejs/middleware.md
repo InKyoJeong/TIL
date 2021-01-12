@@ -61,9 +61,11 @@ app.use(helmet());
 // ...
 ```
 
+<br>
+
 ## body-parser
 
-요청의 본문을 해석해주는 미들웨어. 폼 데이터나 AJAX요청의 데이터를 처리한다.
+- 요청의 본문을 해석해주는 미들웨어. 폼 데이터나 AJAX요청의 데이터를 처리함
 
 ```js
 //...
@@ -74,7 +76,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //...
 ```
 
-익스프레스 4.16.0 부터는 body-parser일부기능이 내장됐기때문에 설치하지 않고도 다음과같이 할 수 있다.
+- 익스프레스 4.16.0 부터는 body-parser일부기능이 내장됐기때문에 설치하지 않고도 다음과같이 할 수 있다.
 
 ```js
 app.use(express.json());
@@ -83,12 +85,17 @@ app.use(express.urlencoded({ extended: false }));
 
 **json**은 JSON형식의 데이터 전달방식이고, **URL-encoded**는 주소형식으로 데이터를 보내는 방식이다.
 
-body-parser가 필요한 경우도 있다. JSON, URL-encoded형식의 본문외에도 Raw, Text형식 본문을 해석가능하다.
+- `extended`옵션 : 내부적으로 `true` 를 하면 `qs` 모듈을 사용하고, `false` 면 `query-string` 모듈사용
+
+- body-parser가 필요한 경우도 있음
+  - JSON, URL-encoded 형식의 본문외에도 Raw, Text형식 본문을 해석가능하다.
 
 ```js
 app.use(bodyParser.raw());
 app.use(bodyParser.text());
 ```
+
+<br>
 
 ## cookie-parser
 

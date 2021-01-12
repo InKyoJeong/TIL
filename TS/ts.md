@@ -124,20 +124,20 @@ log("hello", "world");
 - 클래스
 
 ```ts
-interface User{
-    age: number;
-    name: string;
+interface User {
+  age: number;
+  name: string;
 }
 
 // 변수에 사용
 const taeyeon: User = {
-    age: 33,
-    name: '태연'
-}
+  age: 33,
+  name: "태연",
+};
 
 // 함수의 매개변수에 사용
-function getUser(user: User){
-    console.log(user);
+function getUser(user: User) {
+  console.log(user);
 }
 getUser(taeyeon);
 ```
@@ -145,14 +145,14 @@ getUser(taeyeon);
 ### 함수의 스펙(구조)에 사용
 
 ```ts
-interface SumFunction{
-    (a: number, b: number): number;
+interface SumFunction {
+  (a: number, b: number): number;
 }
 
 var sum: SumFunction;
-sum = function(a: number, b: number): number{
-    return a+b;
-}
+sum = function (a: number, b: number): number {
+  return a + b;
+};
 ```
 
 <br>
@@ -162,27 +162,27 @@ sum = function(a: number, b: number): number{
 ### 인덱싱
 
 ```ts
-interface StringArray{
-    [index: number]: string;
+interface StringArray {
+  [index: number]: string;
 }
 
-let arr: StringArray = ['a', 'b', 'c'];
+let arr: StringArray = ["a", "b", "c"];
 arr[0]; //'a'
 ```
 
 ### 딕셔너리 패턴
 
 ```ts
-interface StringRegexDictionary{
-    [key: string]: RegExp;
+interface StringRegexDictionary {
+  [key: string]: RegExp;
 }
 
 let obj: StringRegexDictionary = {
-    cssFile: /\.css$/,
-    jsFile: /\.js$/,
-}
+  cssFile: /\.css$/,
+  jsFile: /\.js$/,
+};
 
-obj['cssFile'] = 'a';   // 'a'형식은 'RegExp'형식에 할당될수없음
+obj["cssFile"] = "a"; // 'a'형식은 'RegExp'형식에 할당될수없음
 ```
 
 <br>
@@ -190,15 +190,15 @@ obj['cssFile'] = 'a';   // 'a'형식은 'RegExp'형식에 할당될수없음
 ## 인터페이스 확장
 
 ```ts
-interface Person{
-    name: string;
-    age: number;
+interface Person {
+  name: string;
+  age: number;
 }
 
-interface Developer{
-    name: string;
-    age: number;
-    language: string;
+interface Developer {
+  name: string;
+  age: number;
+  language: string;
 }
 ```
 
@@ -228,11 +228,11 @@ let kyo: Developer = {
 
 ```ts
 // string 타입을 사용할 때
-const name: string = 'kyo';
+const name: string = "kyo";
 
 // 타입 별칭을 사용할 때
 type MyName = string;
-const name: MyName = 'kyo';
+const name: MyName = "kyo";
 ```
 
 - interface 레벨의 복잡한 타입에도 별칭 부여 가능
@@ -241,7 +241,7 @@ const name: MyName = 'kyo';
 type Developer = {
   name: string;
   skill: string;
-}
+};
 ```
 
 <br>
@@ -260,11 +260,11 @@ type Developer = {
 ```ts
 //ex) string말고 다른 타입을 쓰고 싶을때
 
-function logMessage(value: string | number){
-    console.log(value);
+function logMessage(value: string | number) {
+  console.log(value);
 }
 
-logMessage('ssss');
+logMessage("ssss");
 logMessage(100);
 ```
 
@@ -302,14 +302,14 @@ interface Person {
   age: number;
 }
 
-function askSomeone(someone: Developer & Person){
-    someone.name;
-    someone.skill;
-    someone.age;
-  }
+function askSomeone(someone: Developer & Person) {
+  someone.name;
+  someone.skill;
+  someone.age;
+}
 
-askSomeone({name:'개발자', skill: '앱개발'}); //Property 'age' is missing in type ...  
-askSomeone({name:'개발자', skill: '앱개발', age: 100});
+askSomeone({ name: "개발자", skill: "앱개발" }); //Property 'age' is missing in type ...
+askSomeone({ name: "개발자", skill: "앱개발", age: 100 });
 ```
 
 <br>
@@ -322,8 +322,8 @@ askSomeone({name:'개발자', skill: '앱개발', age: 100});
 
 ```ts
 enum Shoes {
-    Nike,
-    Adidas
+  Nike,
+  Adidas,
 }
 
 let myShoes = Shoes.Nike;
@@ -331,12 +331,13 @@ console.log(myShoes); //0
 ```
 
 - 초기 값 없으면 0부터 차례로 1씩 증가
+
 ```ts
 enum Direction {
   Up, // 0
   Down, // 1
   Left, // 2
-  Right // 3
+  Right, // 3
 }
 ```
 
@@ -344,8 +345,8 @@ enum Direction {
 
 ```ts
 enum Shoes {
-    Nike = '나이키',
-    Adidas = '아디다스'
+  Nike = "나이키",
+  Adidas = "아디다스",
 }
 let myShoes = Shoes.Nike;
 console.log(myShoes); //나이키
@@ -354,23 +355,22 @@ console.log(myShoes); //나이키
 ### 예시
 
 ```ts
-enum Answer{
-    Yes = 'Y',
-    No = 'N',
+enum Answer {
+  Yes = "Y",
+  No = "N",
 }
 
-function askQuestion(answer: Answer){
-    if(answer === Answer.Yes){
-        console.log('정답');
-    }
-    if(answer === Answer.No){
-        console.log('오답');
-    }
+function askQuestion(answer: Answer) {
+  if (answer === Answer.Yes) {
+    console.log("정답");
+  }
+  if (answer === Answer.No) {
+    console.log("오답");
+  }
 }
-
 
 askQuestion(Answer.Yes);
-askQuestion('Yes') //(X) 이넘에서 제공하는 값만 넘길수 있음
+askQuestion("Yes"); //(X) 이넘에서 제공하는 값만 넘길수 있음
 ```
 
 <br>
@@ -383,8 +383,9 @@ function Person(name, age) {
   this.name = name;
   this.age = age;
 }
-const hulk = new Person('Banner', 33);
+const hulk = new Person("Banner", 33);
 ```
+
 ```ts
 // ES6 + 타입스크립트
 class Person {
@@ -396,12 +397,12 @@ class Person {
     this.age = age;
   }
 }
-const capt = new Person('Steve', 100);
+const capt = new Person("Steve", 100);
 ```
 
 <br>
 
-## 제네릭 
+## 제네릭
 
 - 타입을 마치 함수의 파라미터처럼 사용하는 것
 
@@ -410,7 +411,7 @@ function getText(text) {
   return text;
 }
 
-getText('hi'); // 'hi'
+getText("hi"); // 'hi'
 getText(10); // 10
 getText(true); // true
 ```
@@ -424,7 +425,7 @@ function getText<T>(text: T): T {
   return text;
 }
 
-getText<string>('hi');
+getText<string>("hi");
 getText<number>(10);
 getText<boolean>(true);
 ```
@@ -432,24 +433,24 @@ getText<boolean>(true);
 ### 인터페이스에 제네릭 선언하기
 
 ```ts
-interface Dropdown{
-    value: string;
-    selected: boolean;
+interface Dropdown {
+  value: string;
+  selected: boolean;
 }
 
-const obj: Dropdown = { value: 10, selected: false}; //'number' is not assignable to type 'string'
-const obj: Dropdown = { value: 'abc', selected: false}; 
+const obj: Dropdown = { value: 10, selected: false }; //'number' is not assignable to type 'string'
+const obj: Dropdown = { value: "abc", selected: false };
 ```
 
 - 인터페이스에 제네릭을 선언하면
 
 ```ts
-interface Dropdown<T>{
-    value: T;
-    selected: boolean;
+interface Dropdown<T> {
+  value: T;
+  selected: boolean;
 }
 
-const obj: Dropdown<string> = { value: 'abc', selected: false};
+const obj: Dropdown<string> = { value: "abc", selected: false };
 ```
 
 이렇게 인터페이스에 제네릭을 선언해서 타입을 바꿀 수 있다.
@@ -459,32 +460,32 @@ const obj: Dropdown<string> = { value: 'abc', selected: false};
 ```ts
 // 제네릭의 타입 제한
 function logTextLength<T>(text: T[]): T[] {
-    console.log(text.length);
-    return text;
-} 
-logTextLength<string>(['ho','ss']);
+  console.log(text.length);
+  return text;
+}
+logTextLength<string>(["ho", "ss"]);
 
 // 제네릭 타입제한 - 정의된 타입 이용
 interface LengthType {
-    length: number;
+  length: number;
 }
 
-function logTextLength<T extends LengthType>(text: T): T{
-    text.length;
-    return text;
+function logTextLength<T extends LengthType>(text: T): T {
+  text.length;
+  return text;
 }
 logTextLength(10);
-logTextLength({ length: 10});
+logTextLength({ length: 10 });
 
 // 제네릭 타입제한 - keyof
 interface ShoppingItem {
-    name: string;
-    price: number;
-    stock: number;
+  name: string;
+  price: number;
+  stock: number;
 }
 
-function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T{
-    return itemOption;
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+  return itemOption;
 }
-getShoppingItemOption('name');
+getShoppingItemOption("name");
 ```
