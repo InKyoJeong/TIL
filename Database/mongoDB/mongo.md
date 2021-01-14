@@ -24,6 +24,8 @@ To verify that MongoDB is running, search for mongod in your running processes:
 ps aux | grep -v grep | grep mongod
 ```
 
+#### 관리자 계정 추가
+
 ```
 $ brew services start mongodb-community@4.4
 
@@ -45,8 +47,8 @@ $ code /usr/local/etc/mongod.conf
 몽고디비가 인증을 사용하도록 설정
 
 ```
-//(vscode)    /usr/local/etc/mongod.conf
-
+$ code /usr/local/etc/mongod.conf
+//아래 두줄추가
 ...
 security:
     authorization: enabled
@@ -65,6 +67,86 @@ $ mongo admin -u ingg -p 비밀번호
 
 ```
 $ brew upgrade mongodb/brew/mongodb-community
+```
+
+<br>
+
+#### 데이터베이스별 관리자 계정 생성
+
+예를 들어, 도서관 관리자 계정을 추가한다고하면
+
+- 먼저 접속
+
+```
+$ mongo -u ingg
+```
+
+- use 명령으로 데이터베이스를 선택
+
+```
+use library
+```
+
+- 데이터베이스의 관리자 계정을 추가하고 비밀번호입력
+  - role: `readWrite` - 읽기만허용, `dbOwner` - 모든 수정/삭제 권한 등
+  - [다른 권한 참고 mongodb: built-in-roles](https://docs.mongodb.com/manual/reference/built-in-roles/)
+
+```
+db.createUser({
+    user: "subadmin",
+    pwd: passwordPrompt(),
+    roles: [ { role: "readWrite", db: "library" } ]
+})
+```
+
+- 사용자 계정 조회는 `db.getUsers()`로 가능하다.
+  - 삭제는 `db.dropUser('아이디')`
+
+```
+> db.getUsers()
+[
+	{
+		"_id" : "library.subadmin",
+		"userId" : UUID("3663cd92-3bff-4f76-b7ed-411b5afeb0ee"),
+		"user" : "subadmin",
+		"db" : "library",
+		"roles" : [
+			{
+				"role" : "readWrite",
+				"db" : "library"
+			}
+		],
+		"mechanisms" : [
+			"SCRAM-SHA-1",
+			"SCRAM-SHA-256"
+		]
+	}
+]
+>
+```
+
+- 종료하고 다시 접속
+- root 접속과 다른 점은 **뒤에 DB명을 써야함**. (안쓰면 권한문제로 오류)
+
+```
+> exit
+$ mongo -u subadmin library
+```
+
+- `db` : 현재 사용중인 DB확인
+
+```
+> db
+library
+```
+
+- 자료 추가해보면
+
+```
+> db.book.insert({ name:'로빈훗의 대모험' })
+WriteResult({ "nInserted" : 1 })
+> show dbs
+library  0.000GB
 ```
 
 <br>
@@ -271,17 +353,44 @@ WriteResult({ "nRemoved" : 1 })
 
 ## 몽구스(Mongoose)
 
+> [https://mongoosejs.com/](https://mongoosejs.com/)
+
 MySQL에 시퀄라이즈가 있다면 몽고디비에는 몽구스(mongoose)가 있다. 몽구스는 시퀄라이즈와 달리 ODM(Object Document Mapping)이다. 몽고디비는 릴레이션이 아니라 다큐먼트를 사용한다.
 
 ES2015 프로미스와 가독성이 높은 쿼리빌더를 지원한다.
 
 ```
-$ express [프로젝트명] --view=pug
-
-$ cd [프로젝트명]
-$ npm install
 $ npm i mongoose
 ```
+
+```js
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/test", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(()>{
+//...
+}).catch(()=>{
+//...
+})
+
+```
+
+<br>
+
+#### Schema Types
+
+- String
+- Number
+- Date
+- Buffer
+- Boolean
+- Mixed
+- ObjectId
+- Array
+- Decimal128
+- Map
+- Schema
 
 <br>
 
@@ -294,6 +403,203 @@ mongodb://[username:password@]host[:port]/[database][?options]]
 ```
 
 `[]`부분은 있어도되고 없어도된다. `username`과 `password`에 몽고디비 계정이름과 비밀번호, `host`에 localhost, `port`에 27017, `database`에 admin을 넣는다.
+
+```js
+//ex)
+
+mongoose
+  .connect("mongodb://subadmin:비밀번호@localhost:27017/library", {...}
+```
+
+<br>
+
+## repl
+
+```
+$ node
+> .load index.js
+
+```
+
+### Find with mongoose
+
+- `find`
+
+```
+//모두
+> Movie.find({}).then(data=>console.log(data)
+
+//특정
+> Movie.find({rating:'PG-13'}).then(data =>console.log(data))
+
+//이상($gte)
+> Movie.find({year: {$gte:2010 } }).then(data =>console.log(data))
+```
+
+- `FindByID`
+
+```
+
+> Movie.findById('5ffffbb0401f90eeefffdd83').then(m => console.log(m))
+```
+
+<br>
+
+### Update with mongoose
+
+- `updateOne`, `updateMany`
+
+```
+//title이 Amadeus인 데이터의 year을 변경
+> Movie.updateOne({title: 'Amadeus'}, {year:1984}).then(res => console.log(res))
+// updateMany
+> Movie.updateMany({title: {$in: ['Amadeus' , 'Stand By Me']} }, {score:10}).then(res=>console.log(res))
+
+```
+
+- `findOneAndUpdate`
+  - `updateOne` 이랑 차이 : `findOneAndUpdate`는 문서를 반환
+
+```
+// 7.0 으로 업뎃했는데 7.8나옴 (이전데이터)
+
+> Movie.findOneAndUpdate({ title: 'The Iron Giant'}, { score: 7.0 }).then(m => console.log(m))
+
+Promise { <pending> }
+> (node:61167) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{
+  _id: 5fffecb1bfb275e0ff8f59e3,
+  title: 'The Iron Giant',
+  year: 1999,
+  score: 7.5,
+  rating: 'PG',
+  __v: 0
+}
+```
+
+- 업데이트된 데이터를 return 하려면 세번째 인자로 `new` 넣는다
+
+```
+> Movie.findOneAndUpdate({ title: 'The Iron Giant'}, { score: 7.8 }, {new: true}).then(m => console.log(m))
+
+Promise { <pending> }
+> {
+  _id: 5fffecb1bfb275e0ff8f59e3,
+  title: 'The Iron Giant',
+  year: 1999,
+  score: 7.8,
+  rating: 'PG',
+  __v: 0
+}
+```
+
+<br>
+
+### Delete with mongoose
+
+- `remove` (deprecated)
+
+```
+> Movie.remove({title: 'Amelie'}).then(msg => console.log(msg))
+Promise { <pending> }
+> (node:61167) DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead.
+{ n: 2, ok: 1, deletedCount: 2 }
+```
+
+- `deleteMany`
+
+```
+// 1999이상 모두제거
+> Movie.deleteMany({ year: {$gte: 1999}}).then(msg => console.log(msg))
+```
+
+- `findOneAndDelete` : 삭제한 data 반환
+
+```
+> Movie.findOneAndDelete({ title: 'Alien' }).then(m => console.log(m))
+
+Promise { <pending> }
+> {
+  _id: 5fffecb1bfb275e0ff8f59e2,
+  title: 'Alien',
+  year: 1979,
+  score: 8.1,
+  rating: 'R',
+  __v: 0
+}
+```
+
+<br>
+
+## [SchemaType Options](https://mongoosejs.com/docs/schematypes.html#schematype-options)
+
+```js
+const productSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    maxLength: 20,
+  },
+  price: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  onSale: {
+    type: Boolean,
+    default: false,
+  },
+  categories: [String], // string 배열. ex) ["AAA", "BBB"]
+  // type: [String]
+  qty: {
+    online: {
+      type: Number,
+      default: 0,
+    },
+    inStore: {
+      type: Number,
+      default: 0,
+    },
+  },
+  size: {
+    type: String,
+    enum: ["S", "M", "L"],
+  },
+});
+```
+
+- All Schema Types
+  - `required` : true면, 필수
+  - `default` : default로 값을 추가
+- String
+  - `maxLength` : 최대길이
+  - `enum`: 검사할 배열.
+- Number
+  - `min`, `max`
+
+```js
+//...
+
+const bike = new Product({
+  name: "Mountain Bike",
+  price: 599,
+  categories: ["AAA", "BBB"],
+  size: "XS", //'XS' is not valid enum
+});
+```
+
+- Validation이 적용되게 하려면 세번째인자에 `runValidators:true` 추가
+
+```js
+
+Product.findOneAndUpdate(
+  { name: "Mountain Bike" },
+  { price: -9 },    //error (min:0)
+  { new: true, runValidators: true }
+)
+  .then( ...)
+```
 
 <br>
 

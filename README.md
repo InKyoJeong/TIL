@@ -92,7 +92,7 @@
 
 <!-- - [데이터베이스 이론](https://github.com/InKyoJeong/TIL/blob/master/Database/dku_db.md) -->
 
-- [데이터베이스 기능](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/1_db.md)
+- [데이터베이스](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/1_db.md)
 - [트랜잭션](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/2_tran.md)
 - [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/mysql.md)
   - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
