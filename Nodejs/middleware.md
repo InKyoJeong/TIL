@@ -27,6 +27,8 @@ GET /stylesheets/style.css 200 3.659 ms - 111
 
 각각의 요청이 커스텀 미들웨어를 작동시켰다. 이렇게 서버가 받은 요청은 미들웨어를타고 라우터까지 전달된다. `next()`를 호출해야 다음 미들웨어로 넘어간다.
 
+<br>
+
 ## morgan
 
 GET / 200 248.630 ms - 170 과 같은 로그는 `morgan`미들웨어에서 나오는것이다. 요청에 대한 정보를 콘솔에 기록한다.
@@ -45,6 +47,8 @@ GET / 200 248.630 ms - 170 의 의미는..
 
 HTTP요청(GET) 주소(/) HTTP상태코드(200) 응답속도(248.630 ms) 응답바이트( - 170)
 ```
+
+<br>
 
 ## helmet
 
@@ -99,7 +103,8 @@ app.use(bodyParser.text());
 
 ## cookie-parser
 
-요청에 동봉된 쿠키를 해석해준다.
+- 요청에 동봉된 쿠키를 해석해줌
+- 해석된 쿠키들은 `req.cookies`객체에 들어감
 
 ```js
 //app.js
@@ -110,11 +115,29 @@ app.use(cookieParser());
 //...
 ```
 
-해석된 쿠키들은 `req.cookies`객체에 들어간다.
+### 서명된 쿠키
+
+- 첫번째 인자로 문자열을 넣을 수 있음
+  - 쿠키들이 문자열로 서명된 쿠키가 됨
+  - 서명된 쿠키는 클라이언트에서 수정하면 에러발생하므로 위험한 행동 방지할 수 있음
+- 쿠키에 서명하는 것은 숨기거나 암호화를 하는것은 아님, 간섭을 방지하는 것
+
+```js
+app.use(cookieParser("my secret"));
+```
+
+```js
+app.get("/ex..", (req, res) => {
+  res.cookie("fruit", "grape", { signed: true });
+});
+```
+
+<br>
 
 ## static
 
-`static`미들웨어는 정적인 파일들을 제공한다. 익스프레스를 설치하면 따라오므로 따로 설치할 필요없다.
+- `static`미들웨어는 정적인 파일들을 제공
+- 익스프레스 설치하면 따라옴
 
 ```js
 // app.js
@@ -135,9 +158,12 @@ app.use(express.static(path.join(__dirname, "public")));
 //...
 ```
 
+<br>
+
 ## express-session
 
-세션관리 미들웨어이다. 로그인 등의 세션을 구현할때 유용하다. 직접설치해야한다.
+- 세션관리 미들웨어
+  - 로그인 등의 세션을 구현할때 유용함
 
 ```
 $ npm i express-session
@@ -163,15 +189,19 @@ app.use(
 
 - `resave`는 요청이 왔을때 세션에 수정사항이 생기지않아도 세션을 다시 저장할지에 대한 설정
 - `saveUninitalized`는 세션에 저장할 내역에 없어도 세션을 다시 저장할지에 대한 설정. 보통 방문자 추적에 사용
-- `secret`은 필수항목으로 cookie-parser의 비밀키 같은 역할. 쿠키를 안전하게 전송하려면 쿠키에 서명을 추가해야하고, 쿠키를 서명하는데 `secret`값이 필요
+- `secret`은 필수항목으로 `cookie-parser`의 비밀키 같은 역할.
+  - 쿠키를 안전하게 전송하려면 쿠키에 서명을 추가해야하고, 쿠키를 서명하는데 `secret`값이 필요
 - `cookie`는 세션쿠키에 대한 설정이다. `maxAge, domain, path, expires, sameSite, httpOnly, secure`등 쿠키옵션이 모두 제공된다.
 
-express-session은 `req`객체 안에 `req.session`객체를 만든다.
+- express-session은 `req`객체 안에 `req.session`객체를 만든다.
+
+<br>
 
 ## connect-flash
-
-일회성 메세지들을 웹 브라우저에 나타낼때 좋다.
 
 ```
 $ npm i connect-flash
 ```
+
+- 일회성 메세지들을 웹 브라우저에 나타낼때 좋음
+- `flash`미들웨어는 `cookie-parser`와 `express-session`을 이용하므로 이것들보다 뒤에 위치해야함
