@@ -203,5 +203,6 @@ app.use(
 $ npm i connect-flash
 ```
 
-- 일회성 메세지들을 웹 브라우저에 나타낼때 좋음
+- `req.flash(키,값)`
+- **일회성 메세지**들을 웹 브라우저에 나타낼때 좋음
 - `flash`미들웨어는 `cookie-parser`와 `express-session`을 이용하므로 이것들보다 뒤에 위치해야함
