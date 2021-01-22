@@ -223,3 +223,13 @@ items.sort((a, b) => (a.name > b.name ? 1 : -1));
 // {name: "Mary", age: 33}
 // {name: "Taeyeon", age: 11}
 ```
+
+### includes()
+
+> 배열이 특정 요소를 포함하고 있는지 판별
+
+```js
+const array = ["AA", "BB", "CC"];
+
+console.log(array.includes("BB")); //true
+```
