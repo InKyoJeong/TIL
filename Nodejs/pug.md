@@ -413,7 +413,7 @@ app.use(function (err, req, res, next) {
 
 <br>
 
-# <a name="pug11"></a>EJS
+# <a name="ejs11"></a>EJS
 
 - `<%= %>`로 자바스크립트 추가
 
