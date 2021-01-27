@@ -192,6 +192,7 @@ app.use(
 - `secret`은 필수항목으로 `cookie-parser`의 비밀키 같은 역할.
   - 쿠키를 안전하게 전송하려면 쿠키에 서명을 추가해야하고, 쿠키를 서명하는데 `secret`값이 필요
 - `cookie`는 세션쿠키에 대한 설정이다. `maxAge, domain, path, expires, sameSite, httpOnly, secure`등 쿠키옵션이 모두 제공된다.
+- `secure:true ` : https에서만 쿠키가 구성됨.
 
 - express-session은 `req`객체 안에 `req.session`객체를 만든다.
 

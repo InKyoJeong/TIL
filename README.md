@@ -167,6 +167,8 @@
   - [Critical Rendering Path](https://github.com/InKyoJeong/TIL/blob/master/etc/crp.md)
 - [zsh, homebrew](https://github.com/InKyoJeong/TIL/blob/master/etc/zsh.md)
 - [객체지향 프로그래밍(OOP)이란?](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/intro.md)
+- [동기,비동기/ 블로킹,논블로킹 이해하기](https://github.com/InKyoJeong/TIL/blob/master/etc/blocking.md)
+
 <!-- ### Python
 
 * [Basic](https://github.com/InKyoJeong/TIL/blob/master/Python/1_Basic.md)
