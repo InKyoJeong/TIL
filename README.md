@@ -161,13 +161,17 @@
 
 - [NAVER TECH CONCERT 2020: Front-End](https://github.com/InKyoJeong/TIL/blob/master/Seminar/2020naver.md)
 
+### Web
+
+- [브라우저 동작원리](https://github.com/InKyoJeong/TIL/blob/master/Web/browser.md)
+  - [Critical Rendering Path](https://github.com/InKyoJeong/TIL/blob/master/Web/crp.md)
+- [GraphQL이란](https://github.com/InKyoJeong/TIL/blob/master/Web/graphql.md)
+
 ### etc
 
-- [브라우저 동작원리](https://github.com/InKyoJeong/TIL/blob/master/etc/browser.md)
-  - [Critical Rendering Path](https://github.com/InKyoJeong/TIL/blob/master/etc/crp.md)
 - [zsh, homebrew](https://github.com/InKyoJeong/TIL/blob/master/etc/zsh.md)
 - [객체지향 프로그래밍(OOP)이란?](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/intro.md)
-- [동기,비동기/ 블로킹,논블로킹 이해하기](https://github.com/InKyoJeong/TIL/blob/master/etc/blocking.md)
+- [동기/비동기, 블로킹/논블로킹 이해하기](https://github.com/InKyoJeong/TIL/blob/master/etc/blocking.md)
 
 <!-- ### Python
 
