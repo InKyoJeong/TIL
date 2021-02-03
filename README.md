@@ -87,6 +87,8 @@
 - [HTTP 기초](https://github.com/InKyoJeong/TIL/blob/master/HTTP/1_basic.md)
 - [URL & 리소스](https://github.com/InKyoJeong/TIL/blob/master/HTTP/2_URL.md)
 - [HTTP 메시지](https://github.com/InKyoJeong/TIL/blob/master/HTTP/3_HTTPmsg.md)
+- [3-way-handshake](https://github.com/InKyoJeong/TIL/blob/master/HTTP/3way.md)
+- [GET vs POST](https://github.com/InKyoJeong/TIL/blob/master/HTTP/getpost.md)
 
 ### Database
 
@@ -113,7 +115,7 @@
 - [React란?](https://github.com/InKyoJeong/TIL/blob/master/React/1_start.md)
 - [JSX](https://github.com/InKyoJeong/TIL/blob/master/React/2_jsx.md)
 - [Component](https://github.com/InKyoJeong/TIL/blob/master/React/3_component.md)
-- [useEffect](https://github.com/InKyoJeong/TIL/blob/master/React/hooks.md)
+- [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/hooks.md)
 <!-- - [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
 - [ref](https://github.com/InKyoJeong/TIL/blob/master/React/5_ref.md)
 - [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)

@@ -242,7 +242,7 @@ const Box = styled.div`
 ### props 조건부 스타일링
 
 ```js
-import styled, { css } from "styled-components'
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
   background: white;
@@ -250,7 +250,7 @@ const Button = styled.button`
   padding: 0.5rem;
   //(생략)
 
- /* inverted 값이 true일때 특정 스타일 부여 */
+  /* inverted 값이 true일때 특정 스타일 부여 */
   ${(props) =>
     props.inverted &&
     css`
@@ -261,5 +261,5 @@ const Button = styled.button`
 
 // ...
 
-<Button inverted={true}>테두리</Button>
+<Button inverted={true}>테두리</Button>;
 ```

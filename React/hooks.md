@@ -1,4 +1,9 @@
-## useEffect
+- [useEffect](#useeffect)
+- [useMemo, useCallback](#usememo)
+
+<br>
+
+## <a name="useeffect"></a>useEffect
 
 > 리액트 컴포넌트가 렌더링 될때마다 특정 작업수행
 
@@ -127,3 +132,31 @@ useEffect(() => {
 // CLEAN UP
 // Initial Render or term was changed
 ```
+
+<br>
+
+## <a name="usememo"></a>useMemo
+
+- 함수형 컴포넌트 내부에서 발생하는 연산을 최적화
+- 함수의 리턴값을 기억함
+
+## useCallback
+
+- 함수 자체를 기억. 함수 생성 자체가 오래걸리거나 비용이 클때 사용
+- **두번째 파라미터**에는 배열을 넣음
+  - useEffect처럼 얘가 바뀌면 실행
+- 자식컴포넌트의 props로 넘길때는 부모로부터 받은 함수가 계속 같구나 라고 인식되게 함수를 useCallback으로 감싼다.
+
+```js
+// 그래야 최적화가 된다.
+const onChangeId = useCallback((e) => {
+  setId(e.target.value);
+}, []);
+```
+
+#### useMemo, useCallback은 기억하는 함수
+
+- 무조건 감싸는게 좋지는 않음
+- 까먹어야할 필요도 있음
+  - 두번째 배열 요소들이 바뀌었을때
+  - ex) 로또 번호 추첨
