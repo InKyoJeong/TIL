@@ -10,7 +10,7 @@
 
 ### POST
 
-- **POST**방식의 request는 **_HTTP Message_**의 **Body** 부분에 데이터가 담겨서 전송됨
+- **POST**방식의 request는 **_HTTP Message_** 의 **Body** 부분에 데이터가 담겨서 전송됨
 - 데이터 크기가 GET 방식보다 크고 보안면에서 더 나음
 
 <br>

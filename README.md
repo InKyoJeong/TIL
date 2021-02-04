@@ -26,16 +26,17 @@
 - [배열 메서드](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
 - [객체](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
-- [Hoisting (호이스팅)](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
+- [호이스팅 (Hoisting)](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
 - [콜백함수](https://github.com/InKyoJeong/TIL/blob/master/JS/callback.md)
-- [IIFE (즉시실행 함수)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
+- [즉시실행 함수 (IIFE)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
 - [실행 컨텍스트(Execution Context)](https://github.com/InKyoJeong/TIL/blob/master/JS/execution.md)
 - [클로저](https://github.com/InKyoJeong/TIL/blob/master/JS/closure.md)
 - [상황에 따라 달라지는 this](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this1.md)
 - [명시적으로 this를 바인딩하기](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this2.md)
 - [생성자, Prototype](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor&prototype.md)
 - [클래스(Class), 상속](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
-- ES6 (ES2015+)
+- [커링 (Currying)](https://github.com/InKyoJeong/TIL/blob/master/JS/curry.md)
+- ES6 +
   - [const, let](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/const.md)
   - [화살표 함수 (Arrow Function)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/arrow.md)
   - [비구조화 할당 (Object Destructuring)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/destructuring.md)
@@ -45,7 +46,7 @@
   - [이터레이터와 for/of](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/iterator.md)
   - [심볼(Symbol)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/symbol.md)
   - [제너레이터](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/generator.md)
-- [커링 (Currying)](https://github.com/InKyoJeong/TIL/blob/master/JS/curry.md)
+  - [옵셔널 체이닝 (optional chaining)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/opchain.md)
 
 ### Typescript
 
@@ -82,7 +83,7 @@
 - [메모리 관리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/memory.md)
 - [가상 메모리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/virtual_memory.md)
 
-### HTTP
+### HTTP & Network
 
 - [HTTP 기초](https://github.com/InKyoJeong/TIL/blob/master/HTTP/1_basic.md)
 - [URL & 리소스](https://github.com/InKyoJeong/TIL/blob/master/HTTP/2_URL.md)
