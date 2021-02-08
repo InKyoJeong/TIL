@@ -165,9 +165,9 @@ Obj1 === Obj2; // false
 Obj1.a === Obj2.a; // true
 ```
 
-- `Obj1 === Obj2`는 참이지만 `Obj1.a === Obj2.a`가 `false`가 나옴
+- `Obj1 === Obj2`는 `false`이지만 `Obj1.a === Obj2.a`가 `true`가 나옴
   - 즉, 깊은 복사가 된 것은 제일 바깥의 Depth뿐임
-  - 두 번째 Depth 이상의 요소들은 **얕은 복사(Shallow copy)**를 하게 됨
+  - 두 번째 Depth 이상의 요소들은 **얕은 복사(Shallow copy)** 를 하게 됨
 - `Object.assign()` 도 마찬가지
 
 <br>
