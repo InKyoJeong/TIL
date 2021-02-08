@@ -153,12 +153,13 @@
   - [pair](https://github.com/InKyoJeong/TIL/blob/master/C++/stl/pair.md)
   - [algorithm](https://github.com/InKyoJeong/TIL/blob/master/C++/stl/algorithm.md)
   - [stack, queue, deque](https://github.com/InKyoJeong/TIL/blob/master/C++/stl/stack-queue.md)
+  - [unordered_map](https://github.com/InKyoJeong/TIL/blob/master/C++/stl/unordered_map.md)
 - [cin, getline](https://github.com/InKyoJeong/TIL/blob/master/C++/cin.md)
 - [Range-based for](https://github.com/InKyoJeong/TIL/blob/master/C++/for.md)
 - [문자열, 숫자변환](https://github.com/InKyoJeong/TIL/blob/master/C++/string.md)
 - [기초1](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
 - [기초2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
-- [Class](https://github.com/InKyoJeong/TIL/blob/master/C++/class.md)
+<!-- - [Class](https://github.com/InKyoJeong/TIL/blob/master/C++/class.md) -->
 
 ### Seminar/ Conference
 

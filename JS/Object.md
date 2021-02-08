@@ -106,6 +106,107 @@ console.log(Object.keys(object1));
 
 <br>
 
+## 객체의 복사
+
+### 얕은 복사(Shallow copy)
+
+- 객체가 담겨있는 변수를 다른 변수에 할당하면 call by reference (데이터 복사가 아닌 참조)가 일어남
+  - 한 변수의 데이터를 변경하면 다른 변수의 데이터도 함께 변경됨
+
+```js
+const dog1 = { name: "zero" };
+const dog2 = dog1;
+
+dog1.name = "ginger";
+
+dog2.name; // ginger
+dog1 === dog2; // true (같은 데이터 주소를 바라보고 있는 두 변수)
+```
+
+- 데이터가 그대로 하나 더 생성된 것이 아니라, 해당 데이터의 메모리 주소를 전달하게 됨
+  - 결국 한 데이터를 공유하게 되는 것
+
+<br>
+
+### 깊은 복사(Depth copy)
+
+- 한 데이터의 공유가 아닌, 똑같은 구조의 객체를 하나 더 생성
+
+### Object.assign()
+
+```js
+const originObj = { a: 1 };
+
+const newObj = Object.assign({}, originObj); //빈 Object에 originObj를 병합
+
+newObj; //  { a: 1 }
+originObj === newObj; // false
+```
+
+### 전개 연산자
+
+```js
+const Obj1 = { a: 1, b: 2 };
+
+const Obj2 = { ...Obj1 };
+
+Obj2; // {a:1, b:2}
+Obj1 === Obj2; // false
+```
+
+#### 하지만, 현재의 Depth 이상으로는 깊은 복사를 하지 않음
+
+```js
+const Obj1 = { a: { b: 1 } };
+
+const Obj2 = { ...Obj1 };
+
+Obj1 === Obj2; // false
+Obj1.a === Obj2.a; // true
+```
+
+- `Obj1 === Obj2`는 참이지만 `Obj1.a === Obj2.a`가 `false`가 나옴
+  - 즉, 깊은 복사가 된 것은 제일 바깥의 Depth뿐임
+  - 두 번째 Depth 이상의 요소들은 **얕은 복사(Shallow copy)**를 하게 됨
+- `Object.assign()` 도 마찬가지
+
+<br>
+
+### 완벽한 깊은 복사하기
+
+1. 재귀적으로 깊은 복사를 수행
+
+<br>
+
+2. Lodash의 `cloneDeep` 함수사용
+
+```js
+var objects = [{ a: 1 }, { b: 2 }];
+
+var deep = _.cloneDeep(objects);
+console.log(deep[0] === objects[0]); // false
+```
+
+<br>
+
+3. JSON.parse()와 JSON.stringify()함수 사용
+
+```js
+const Obj1 = { a: { b: 1 } };
+const Obj2 = { ...Obj1 };
+
+const Obj3 = JSON.parse(JSON.stringify(Obj1));
+
+Obj3; // {a: {…}}
+// 전개 연산자의 경우,
+Obj1 === Obj2; //false
+Obj1.a === Obj2.a; //true
+
+//JSON.parse(JSON.stringify())의 경우
+Obj1 === Obj3; //false
+Obj1.a === Obj3.a; //false
+```
+
 <!-- ## 접근자 프로퍼티
 
 - 객체의 프로퍼티는 두 종류로 나뉨
