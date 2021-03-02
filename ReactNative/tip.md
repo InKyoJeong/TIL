@@ -116,3 +116,10 @@ Alert.alert("제목", "내용", [{ text: "확인" }]);
     </application>
 </manifest>
 ```
+
+<br>
+
+## KeyboardAvoidingView
+
+- `ScrollView` 안에서 `KeyboardAvoidingView`이 동작하지 않음
+- [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view) 를 사용
