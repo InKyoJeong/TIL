@@ -50,3 +50,11 @@ $ echo 'export PATH="$(yarn global bin):$PATH"' >> ~/.zshrc
 ```
 
 기본 쉘이 zsh인 경우 `echo 'export PATH="$(yarn global bin):$PATH"' >> ~/.bash_profile` 대신에 `~/.zshrc`로 설치
+
+#### 공식 문서에서는 global로 권장
+
+```
+$ npm install --global yarn
+```
+
+<!-- 현재 맥에 이걸로 재설치(2021/04) -->
