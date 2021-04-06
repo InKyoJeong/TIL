@@ -134,6 +134,27 @@
 - [Style](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/style.md)
 - [RN Tip](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/tip.md)
 
+### Web
+
+- [브라우저 동작원리](https://github.com/InKyoJeong/TIL/blob/master/Web/browser.md)
+  - [Critical Rendering Path](https://github.com/InKyoJeong/TIL/blob/master/Web/crp.md)
+- [GraphQL이란](https://github.com/InKyoJeong/TIL/blob/master/Web/graphql.md)
+
+### Linux
+
+- [리눅스 vi/vim 명령어](https://github.com/InKyoJeong/TIL/blob/master/Linux/vi.md)
+- [SSH 란?](https://github.com/InKyoJeong/TIL/blob/master/Linux/ssh.md)
+
+### etc
+
+- [zsh, homebrew](https://github.com/InKyoJeong/TIL/blob/master/etc/zsh.md)
+- [객체지향 프로그래밍(OOP)이란?](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/intro.md)
+- [동기/비동기, 블로킹/논블로킹 이해하기](https://github.com/InKyoJeong/TIL/blob/master/etc/blocking.md)
+
+### Seminar/ Conference
+
+- [NAVER TECH CONCERT 2020: Front-End](https://github.com/InKyoJeong/TIL/blob/master/Seminar/2020naver.md)
+
 ### C
 
 - [기초 연습](https://github.com/InKyoJeong/TIL/blob/master/C/basic.md)
@@ -162,27 +183,6 @@
 - [기초1](https://github.com/InKyoJeong/TIL/blob/master/C++/basic1.md)
 - [기초2](https://github.com/InKyoJeong/TIL/blob/master/C++/cpp200/basic2.md)
 <!-- - [Class](https://github.com/InKyoJeong/TIL/blob/master/C++/class.md) -->
-
-### Seminar/ Conference
-
-- [NAVER TECH CONCERT 2020: Front-End](https://github.com/InKyoJeong/TIL/blob/master/Seminar/2020naver.md)
-
-### Web
-
-- [브라우저 동작원리](https://github.com/InKyoJeong/TIL/blob/master/Web/browser.md)
-  - [Critical Rendering Path](https://github.com/InKyoJeong/TIL/blob/master/Web/crp.md)
-- [GraphQL이란](https://github.com/InKyoJeong/TIL/blob/master/Web/graphql.md)
-
-### Linux
-
-- [리눅스 vi/vim 명령어](https://github.com/InKyoJeong/TIL/blob/master/Linux/vi.md)
-- [SSH 란?](https://github.com/InKyoJeong/TIL/blob/master/Linux/ssh.md)
-
-### etc
-
-- [zsh, homebrew](https://github.com/InKyoJeong/TIL/blob/master/etc/zsh.md)
-- [객체지향 프로그래밍(OOP)이란?](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/intro.md)
-- [동기/비동기, 블로킹/논블로킹 이해하기](https://github.com/InKyoJeong/TIL/blob/master/etc/blocking.md)
 
 <!-- ### Python
 
