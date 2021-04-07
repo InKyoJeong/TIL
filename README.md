@@ -25,6 +25,7 @@
 - [연산자](https://github.com/InKyoJeong/TIL/blob/master/JS/operator.md)
 - [배열 메서드](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
 - [객체](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
+- [정규 표현식](https://github.com/InKyoJeong/TIL/blob/master/JS/regex.md)
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
 - [호이스팅 (Hoisting)](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
 - [콜백함수](https://github.com/InKyoJeong/TIL/blob/master/JS/callback.md)

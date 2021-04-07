@@ -287,14 +287,14 @@ console.log(user.name); //JinAh
 
 ```js
 let obj = {
-	get propName(){
-		// getter // obj.propName을 실행할때 실행되는 코드
-	}
+  get propName() {
+    // getter // obj.propName을 실행할때 실행되는 코드
+  },
 
-	set propName(value){
-		// setter // obj.propName = value를 실행할때 실행되는 코드
-	}
-}
+  set propName(value) {
+    // setter // obj.propName = value를 실행할때 실행되는 코드
+  },
+};
 ```
 
 `getter` 메서드는 `obj.propName`으로 프로퍼티를 읽으려고 할 때 실행되고
