@@ -24,6 +24,7 @@
 - [명시적 타입 변환](https://github.com/InKyoJeong/TIL/blob/master/JS/string.md)
 - [연산자](https://github.com/InKyoJeong/TIL/blob/master/JS/operator.md)
 - [배열 메서드](https://github.com/InKyoJeong/TIL/blob/master/JS/Array.md)
+- [유사 배열 객체](https://github.com/InKyoJeong/TIL/blob/master/JS/yousa.md)
 - [객체](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
 - [정규 표현식](https://github.com/InKyoJeong/TIL/blob/master/JS/regex.md)
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
