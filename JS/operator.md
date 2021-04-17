@@ -1,3 +1,22 @@
+## + 연산자
+
+- `+` 연산자는 더하기 연산과 문자열 연결 연산을 수행
+- 모두 숫자일 경우에만 더하기 연산, 나머지는 문자열 연결 연산이 이뤄짐
+
+```js
+const add1 = 1 + 2;
+const add2 = "hi" + "js";
+const add3 = 1 + "js";
+const add4 = 1 + "4";
+
+console.log(add1); // 3
+console.log(add2); // hijs
+console.log(add3); // 1js
+console.log(add4); // 12 (string)
+```
+
+<br>
+
 ## 논리 연산자
 
 - a `&&` b : a와 b 모두 true면 true, 아니면 false
@@ -64,6 +83,8 @@ console.log(Person.name); // undefined
 console.log(Person); // {job: "student"}
 ```
 
+<br>
+
 ### typeof
 
 - 데이터 타입을 조사함
@@ -71,4 +92,32 @@ console.log(Person); // {job: "student"}
 ```js
 const ex = "ABC";
 console.log(typeof ex); //string
+```
+
+- 주의할 점은 **null과 배열**이 `object`, **함수**는 `funtion`
+
+```js
+typeof null; // "object";
+typeof []; // "object";
+
+const nullTest = null;
+console.log(typeof nullTest === null); // false
+```
+
+<br>
+
+## !! 연산자
+
+- `!!`의 역할은 **피연산자를 불린값으로 변환**함
+- 객체는 값이 빈 객체라도 `true`로 변환됨
+
+```js
+console.log(!!{}); // true
+
+console.log(!!3); // true
+console.log(!!0); // false
+console.log(!!"string"); // true
+
+console.log(!!null); // false
+console.log(!!undefined); // false
 ```
