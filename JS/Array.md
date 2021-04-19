@@ -1,6 +1,6 @@
 ## 배열 메서드
 
-### Array.push()
+### Array.prototype.push()
 
 > push() 메서드는 배열의 끝에 하나 이상의 요소를 추가하고, **배열의 새로운 길이**를 반환한다.
 
@@ -12,7 +12,7 @@ console.log(name); // (4) ["a", "b", "c", "d"]
 console.log(whatisPush); // 4
 ```
 
-### Array.pop()
+### Array.prototype.pop()
 
 > pop() 메서드는 배열에서 마지막 요소를 제거하고 그 **요소**를 반환한다.
 
@@ -24,7 +24,7 @@ console.log(color); // ["black"]
 console.log(whatIsPop); // white
 ```
 
-### Array.shift()
+### Array.prototype.shift()
 
 > shift() 메서드는 배열에서 **첫 번째 요소를 제거**하고, **제거된 요소**를 반환한다. 이 메서드는 배열의 길이를 변하게 한다.
 
@@ -36,7 +36,7 @@ console.log(number); //["2", "3"]
 console.log(whatisShift); // 1
 ```
 
-### Array.forEach()
+### Array.prototype.forEach()
 
 인수로받은 함수를 배열의 요소별로 한번씩 실행한다. **각각의 아이템에 대해서 어떠한 시행만 하는 것**을 의미한다. 새로운 배열을 `return`하는 `map`과 `filter`와 다르다. user에 저장, 로컬스토리지에 저장, API로 보낸다던가 경고를 보낸다던가 할 수 있다.
 
@@ -50,7 +50,7 @@ posts.forEach((post) => console.log(post));
 // Bye
 ```
 
-### Array.map()
+### Array.prototype.map()
 
 > array의 각 item에 function을 적용하고 array를 반환한다.
 
@@ -67,7 +67,7 @@ friends.map((current) => {
 // friends.map(current => current + "Test"); 와 같다.
 ```
 
-### Array.filter()
+### Array.prototype.filter()
 
 > filter() 메서드는 주어진 함수의 테스트를 통과하는 모든 요소를 모아 새로운 배열로 반환한다.
 
@@ -79,7 +79,7 @@ const result = words.filter((word) => word.length > 6);
 console.log(result); // expected output: Array ["exuberant", "destruction"]
 ```
 
-### Array.concat()
+### Array.prototype.concat()
 
 > concat 메서드는 인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환한다.
 
@@ -92,7 +92,7 @@ const z = x.concat(y);
 console.log(z); // (5) ["A", "B", "C", "D", "E"]
 ```
 
-### Array.join()
+### Array.prototype.join()
 
 > 배열의 모든 요소값을 문자열로 바꾼후에 인수로 받은 문자로 연결해서 반환한다.
 
@@ -101,7 +101,7 @@ const x = ["AA", "BB", "CC"];
 x.join("-"); // "AA-BB-CC"
 ```
 
-### Array.reduce()
+### Array.prototype.reduce()
 
 ```js
 const array1 = [1, 2, 3, 4];
@@ -127,7 +127,7 @@ arr.reduce(callback[, initialValue])
   - `array` : reduce()를 호출한 배열.
 - `initialValue` : callback의 최초 호출에서 첫 번째 인수에 제공하는 값. 초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용함
 
-### Array.find()
+### Array.prototype.find()
 
 > find() 메서드는 주어진 판별 함수를 만족하는 **첫 번째 요소의 값을 반환**한다. 그런 요소가 없다면 undefined를 반환한다.
 
@@ -139,7 +139,7 @@ console.log(found);
 // 7
 ```
 
-### Array.findIndex()
+### Array.prototype.findIndex()
 
 > findIndex() 메서드는 주어진 판별 함수를 만족하는 배열의 첫 번째 요소에 대한 **인덱스를 반환**한다. 만족하는 요소가 없으면 -1을 반환한다.
 
@@ -151,7 +151,7 @@ console.log(found);
 // 2
 ```
 
-### Array.splice()
+### Array.prototype.splice()
 
 > splice() 메서드는 배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용을 변경한다.
 
@@ -175,7 +175,7 @@ console.log(words2);
 // ["apple", "book"]
 ```
 
-### Array.indexOf()
+### Array.prototype.indexOf()
 
 > indexOf() 메서드는 배열에서 지정된 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고 존재하지 않으면 -1을 반환한다.
 
@@ -190,7 +190,7 @@ console.log(item.indexOf("ms")); //1
 
 - 두번째 매개변수를 추가하면 **검색을 시작할 색인**
 
-### Array.sort()
+### Array.prototype.sort()
 
 ```js
 arr.sort([compareFunction]);
@@ -224,7 +224,7 @@ items.sort((a, b) => (a.name > b.name ? 1 : -1));
 // {name: "Taeyeon", age: 11}
 ```
 
-### includes()
+### Array.prototype.includes()
 
 > 배열이 특정 요소를 포함하고 있는지 판별
 
