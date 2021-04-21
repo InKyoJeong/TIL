@@ -112,3 +112,73 @@ console.log(add.result); //3
   - 함수의 인자로 전달가능
   - 함수의 리턴값으로 리턴가능
   - 동적으로 프로퍼티 생성 및 할당 가능
+
+<br>
+
+## 함수 객체의 기본 프로퍼티
+
+```js
+function add(x, y) {
+  return x + y;
+}
+console.dir(add);
+// ƒ add(x, y)
+//   arguments: null
+//   caller: null
+//   length: 2
+//   name: "add"
+//   prototype: {constructor: ƒ}
+//   __proto__: ƒ ()
+//   [[FunctionLocation]]: VM100:1
+//   [[Scopes]]: Scopes[1]
+```
+
+- name 프로퍼티 : 함수 이름
+- caller 프로퍼티 : 자신을 호출한 함수
+- arguments 프로퍼티 : 함수를 호출할 때 전달된 인자값 (위에서는 add() 함수가 호출된 상태가 아니므로 null)
+- length 프로퍼티 : 함수 실행될때 인자 개수
+
+<br>
+
+#### prototype 프로퍼티
+
+- 모든 함수는 객체로서 `prototype 프로퍼티`를 가짐
+- 모든 객체의 부모를 나타내는 내부 프로퍼티인 `[[Prototype]]`과 구별해야함
+  - `prototype 프로퍼티`는 함수가 생성될때 만들어지고, `constructor` 프로퍼티 하나만 있는 객체를 가리킴
+  - `constructor` 프로퍼티는 자신과 연결된 함수를 가리킴
+
+![constructor](./images/constructor.png)
+
+#### 차이점
+
+- `[[Prototype]]`와 `prototype 프로퍼티`는 둘다 프로토타입 객체를 가리키지만, 함수 객체가 가지는 `prototype 프로퍼티`는 이 함수가 생성자로 사용될때 이 함수를 통해 생성된 객체의 부모역할을 하는 프로토타입 객체를 가리킨다.
+
+<br>
+
+## arguments 객체
+
+- 자바스크립트에서는 함수를 호출할 때 인수들과 함께 `arguments` 객체가 함수 내부로 전달됨
+
+```js
+function myFunc(arg1, arg2) {
+  console.dir(arguments);
+}
+myFunc(1, 2);
+// Arguments(2)
+//    0: 1
+//    1: 2
+//    callee: ƒ myFunc(arg1, arg2)
+//    length: 2
+//    Symbol(Symbol.iterator): ƒ values()
+//    __proto__: Object
+```
+
+- 넘겨지지 않은 인자는 `undefined` 가 할당됨
+
+```js
+function myFunc(arg1, arg2) {
+  console.log(arg1, arg2);
+}
+myFunc(33, 44); // 33 44
+myFunc(55); // 55 undefined
+```

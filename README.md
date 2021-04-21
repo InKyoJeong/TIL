@@ -19,7 +19,7 @@
 ### Javascript
 
 - [Basic](https://github.com/InKyoJeong/TIL/blob/master/JS/Basic.md)
-- 데이터 타입 & 연산자
+- 데이터 타입
   - [undefined vs null](https://github.com/InKyoJeong/TIL/blob/master/JS/undefined.md)
   - [데이터 타입](https://github.com/InKyoJeong/TIL/blob/master/JS/DataType.md)
   - [명시적 타입 변환](https://github.com/InKyoJeong/TIL/blob/master/JS/string.md)
@@ -28,19 +28,17 @@
   - [객체](https://github.com/InKyoJeong/TIL/blob/master/JS/Object.md)
   - [유사 배열 객체](https://github.com/InKyoJeong/TIL/blob/master/JS/yousa.md)
   - [배열/객체 차이](https://github.com/InKyoJeong/TIL/blob/master/JS/Array_Object.md)
-- 함수 & 프로토타입 체이닝
+- 함수
   - [함수](https://github.com/InKyoJeong/TIL/blob/master/JS/function.md)
-  - [프로토타입]
-    <!-- (https://github.com/InKyoJeong/TIL/blob/master/JS/prototype.md) -->
-    <!-- - this -->
-  - [상황에 따라 달라지는 this](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this1.md)
-  - [명시적으로 this를 바인딩하기](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this2.md)
-  - [호이스팅 (Hoisting)](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
   - [콜백함수](https://github.com/InKyoJeong/TIL/blob/master/JS/callback.md)
   - [즉시실행 함수 (IIFE)](https://github.com/InKyoJeong/TIL/blob/master/JS/IIFE.md)
-- 실행컨텍스트 & 클로저
+  - [호이스팅 (Hoisting)](https://github.com/InKyoJeong/TIL/blob/master/JS/Hoisting.md)
+  - [this](https://github.com/InKyoJeong/TIL/blob/master/JS/this_binding.md)
+  - [call, apply, bind](https://github.com/InKyoJeong/TIL/blob/master/JS/apply_call_bind.md)
+  - [프로토타입](https://github.com/InKyoJeong/TIL/blob/master/JS/prototype.md)
+  <!-- - 실행컨텍스트 & 클로저
   - 실행컨텍스트
-  - 클로저
+  - 클로저 -->
   <!-- - 객체지향 프로그래밍
   - 클래스
   - 상속 -->

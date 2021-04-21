@@ -1,10 +1,6 @@
-[이전글: 상황에 따라 달라지는 this](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/about_this1.md)
-
-<br>
-
 ### 📌Contents
 
-- [명시적으로 this를 바인딩하기](#specify)
+- 명시적으로 this를 바인딩하기
   - [call 메서드](#call)
   - [apply 메서드](#apply)
   - [bind 메서드](#bind)
@@ -12,9 +8,14 @@
 
 ---
 
-## <a name="specify"></a>명시적으로 this를 바인딩하기
+<br>
 
-지금까지 상황별로 `this`에 어떤 값이 바인딩 되는지 알아봤지만, 이 규칙을 깨고 `this`에 별도의 대상을 바인딩할 수 있다.
+## 명시적으로 this를 바인딩하기
+
+- `apply(), call()`메서드로 `this`에 별도의 대상을 바인딩할 수 있다.
+- 모든 함수의 부모 객체인 `Function.prototype` 객체의 메서드 이므로 모든함수가 사용가능
+
+<br>
 
 ### <a name="call"></a>call 메서드
 
@@ -56,6 +57,8 @@ obj.method.call({ a: 4 }, 5, 6); // 4 5 6
 ```js
 Function.prototype.apply(thisArg[, argsArray])
 ```
+
+- 결국 `본질적인 기능은 함수 호출`이다.
 
 `apply`메서드는 `call`메서드와 기능적으로 완전히 동일하다. 그러나 `call`메서드는 첫번째 인자를 제외한 나머지 인자들을 호출할 매개변수로 지정하고, `apply`메서드는 두번째 인자를 **배열**로 받아 그 배열의 요소들을 호출할 함수의 매개변수로 지정한다는 차이가 있다.
 
