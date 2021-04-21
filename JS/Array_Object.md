@@ -48,7 +48,7 @@ console.log(colorObj.length); // undefined
 - colorObj는 배열이 아니라서 `push()`같은 표준 배열 메서드가 존재하지 않는다.
 - 배열과 객체가 **자신의 부모인 프로토타입 객체가 다르기 때문**
 
-![proto](./images/proto.png)
+![proto1](./images/proto1.png)
 
 - 객체 리터럴 방식으로 생성한 객체 : `Object.prototype 객체`가 프로토타입 (객체 표준 메서드를 포함하고 있음)
 
