@@ -350,3 +350,21 @@ console.log(user.fullName); // Baek Yerin
 ```
 
 이렇게 getter와 setter 메서드를 구현하면 객체엔 `fullName`이라는 읽고 쓸 순 있지만 실제로는 존재하지 않는 가상의 프로퍼티가 생김
+
+<br>
+
+## Map
+
+- Map 객체는 키-값 쌍을 저장하며 각 쌍의 삽입 순서도 기억하는 콜렉션
+- 아무 값(객체와 원시 값)이라도 키와 값으로 사용가능
+
+#### 메서드
+
+- `Map.prototype.get(key)` : 주어진 키(Key)에 해당되는 값(value)을 반환하고, 만약 없으면 undefined를 반환한다.
+- `Map.prototype.has(key)` : Map 객체 안에 주어진 key/value pair가 있는지 검사하고 Boolean 값을 반환한다.
+- `Map.prototype.set(key, value)` : Map 객체에 주어진 키(Key)에 값(Value)를 집어넣고, Map 객체를 반환한다.
+
+#### for ... of
+
+- **Map**은 `for..of` 반복문을 사용해 순회 가능
+  - `for...of` 반복문은 각 순회에서 `[key, value]`로 이루어진 배열을 반환
