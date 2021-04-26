@@ -81,50 +81,6 @@ obj.method.apply({ a: 4 }, [5, 6]); // 4 5 6
 
 <br>
 
-#### call, apply
-
-```js
-// call 메서드
-const singer = {
-  name: "Taeyeon",
-  fanCode: "TY",
-  age: 32,
-  fans: [],
-  // fan: function() {} 와 같음
-  fan(fanNum, fanName) {
-    console.log(`${fanName}'s number is ${fanNum}`);
-    this.fans.push({ who: `${this.fanCode}${fanNum}`, fanName });
-  },
-};
-
-singer.fan(229, "John");
-singer.fan(252, "Mary");
-console.log(singer); // {name: "Taeyeon", fanCode: "TY", age: 32, fans: Array(2), fan: ƒ}
-
-const dancer = {
-  name: "Zero",
-  fanCode: "ZR",
-  age: 29,
-  fans: [],
-};
-
-const fan = singer.fan;
-fan(99, "Zero"); // Uncaught TypeError: Cannot read property 'fans' of undefined
-// 더이상 메서드가 아니고 함수로 호출했으므로 오류발생
-
-fan.call(singer, 99, "Zero"); // Zero's number is 99
-// 다른객체로 bind도 가능
-fan.call(dancer, 777, "Nero");
-
-// apply 메서드 : 배열 형태로 넣기
-const applyFan = [888, "Kyo"];
-fan.apply(dancer, applyFan);
-// 이렇게해도 같다
-fan.call(dander, ...applyFan);
-```
-
-<br>
-
 ### <a name="bind"></a>bind 메서드
 
 ```js
@@ -246,6 +202,127 @@ obj.outer();
 ```
 
 위의 예시에서 내부함수 부분을 화살표 함수로 바꿨다. 이렇게하면 별도의 변수로 `this`를 우회하거나, _call/apply/bind_ 를 적용할 필요가없어 간결하다.
+
+<br>
+
+## call, apply, bind 예제
+
+```js
+// 📌 call 메서드
+const singer = {
+  name: "Taeyeon",
+  fanCode: "TY",
+  age: 32,
+  fans: [],
+  // fan: function() {} 와 같음
+  fan(fanNum, fanName) {
+    console.log(`${fanName}'s number is ${fanNum}`);
+    this.fans.push({ who: `${this.fanCode}${fanNum}`, fanName });
+  },
+};
+
+singer.fan(229, "John");
+singer.fan(252, "Mary");
+console.log(singer); // {name: "Taeyeon", fanCode: "TY", age: 32, fans: Array(2), fan: ƒ}
+
+const dancer = {
+  name: "Jinah",
+  fanCode: "JN",
+  age: 29,
+  fans: [],
+};
+
+const fan = singer.fan;
+fan(99, "Zero"); // Uncaught TypeError: Cannot read property 'fans' of undefined
+// 더이상 메서드가 아니고 함수로 호출했으므로 오류발생
+
+fan.call(singer, 99, "Zero"); // Zero's number is 99
+fan.call(dancer, 777, "Nero"); // 다른객체로 bind도 가능
+
+// 📌 apply 메서드 : 배열 형태로 넣기
+const applyFan = [888, "Kyo"];
+fan.apply(dancer, applyFan);
+fan.call(dander, ...applyFan); // (이렇게해도 동일)
+
+// 📌 bind 메서드 : 곧바로 함수를 호출하지 않음. 새로운 함수리턴
+const fanDancer = fan.bind(dancer);
+fanDancer(999, "INGG");
+
+// 인자를 미리 넣기가 가능
+const fanSinger = fan.bind(singer, 11);
+fanSinger("Anna");
+fanSinger("Bona");
+```
+
+<br>
+
+#### ▶︎ bind 메서드 : 이벤트리스너에서
+
+```html
+<html>
+  <head>
+    <title>test</title>
+  </head>
+  <body>
+    <button class="buy">Buy new ticket</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+```
+
+```js
+const singer = {
+  name: "Taeyeon",
+  fanCode: "TY",
+  age: 32,
+  fans: [],
+  // fan: function() {} 와 같음
+  fan(fanNum, fanName) {
+    console.log(`${fanName}'s number is ${fanNum}`);
+    this.fans.push({ who: `${this.fanCode}${fanNum}`, fanName });
+  },
+};
+
+singer.tickets = 300;
+singer.buyTicket = function () {
+  console.log(this); // <button class="buy">Buy new ticket</button>
+
+  this.tickets++;
+  console.log(this.tickets); // NaN
+};
+
+document.querySelector(".buy").addEventListener("click", singer.buyTicket);
+
+// NaN인 이유: singer.buyTicket 이 핸들러 함수가  document.querySelector(".buy") 이 요소에 묶인다.
+// 그래서 this가 button element 를 가르킨다.
+
+// 따라서 singer.buyTicket가 singer 객체를 가리키게 해야한다.
+// bind를 이용해서 변경 해보면
+document
+  .querySelector(".buy")
+  .addEventListener("click", singer.buyTicket.bind(singer));
+// 이제 singer 객체가 this가 됐으므로, 버튼을 클릭하면 정상적으로 1씩 증가한다.
+```
+
+<Br>
+
+#### ▶︎ bind 메서드 : Partial application (preset parameters)
+
+```js
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200)); // 220
+const addVAT = addTax.bind(null, 0.25); // (null은 인자를 쓰지않을때)
+console.log(addVAT(100)); // 125
+
+// 위의 bind를 쓰지않고 함수로 똑같이 만들면
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+const addVAT2 = addTaxRate(0.25);
+console.log(addVAT2(100)); // 125
+```
 
 <br>
 
