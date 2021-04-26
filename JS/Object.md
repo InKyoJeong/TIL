@@ -358,11 +358,16 @@ console.log(user.fullName); // Baek Yerin
 - Map 객체는 키-값 쌍을 저장하며 각 쌍의 삽입 순서도 기억하는 콜렉션
 - 아무 값(객체와 원시 값)이라도 키와 값으로 사용가능
 
+#### 속성
+
+- `Map.prototype.size` : Map 객체에 들어있는 key/value pair의 수를 반환
+
 #### 메서드
 
 - `Map.prototype.get(key)` : 주어진 키(Key)에 해당되는 값(value)을 반환하고, 만약 없으면 undefined를 반환한다.
 - `Map.prototype.has(key)` : Map 객체 안에 주어진 key/value pair가 있는지 검사하고 Boolean 값을 반환한다.
 - `Map.prototype.set(key, value)` : Map 객체에 주어진 키(Key)에 값(Value)를 집어넣고, Map 객체를 반환한다.
+- `Map.prototype.delete(key)` : 주어진 키(Key)와 해당되는 값(Value)를 제거
 
 #### for ... of
 

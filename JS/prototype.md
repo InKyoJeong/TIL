@@ -32,8 +32,6 @@ console.dir(test);
 
 ## 프로토타입 체이닝
 
-<hr>
-
 ```js
 var obj = {
   name: "foo",

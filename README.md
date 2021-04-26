@@ -36,14 +36,8 @@
   - [this](https://github.com/InKyoJeong/TIL/blob/master/JS/this_binding.md)
   - [call, apply, bind](https://github.com/InKyoJeong/TIL/blob/master/JS/apply_call_bind.md)
   - [프로토타입](https://github.com/InKyoJeong/TIL/blob/master/JS/prototype.md)
-  <!-- - 실행컨텍스트 & 클로저
-  - 실행컨텍스트
-  - 클로저 -->
-  <!-- - 객체지향 프로그래밍
-  - 클래스
-  - 상속 -->
-  <!-- - [실행 컨텍스트(Execution Context)](https://github.com/InKyoJeong/TIL/blob/master/JS/execution.md)
-  - [클로저](https://github.com/InKyoJeong/TIL/blob/master/JS/closure.md) -->
+- [실행컨텍스트](https://github.com/InKyoJeong/TIL/blob/master/JS/EC.md)
+- [클로저](https://github.com/InKyoJeong/TIL/blob/master/JS/closure.md)
 - [정규 표현식](https://github.com/InKyoJeong/TIL/blob/master/JS/regex.md)
 - [DOM](https://github.com/InKyoJeong/TIL/blob/master/JS/Dom.md)
 - [생성자](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor.md)
