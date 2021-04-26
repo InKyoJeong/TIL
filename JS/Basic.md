@@ -308,3 +308,40 @@ const calculator = {
 const plusNumber = calculator.plus(5, 5);
 console.log(plusNumber); // 10
 ```
+
+<br>
+
+## strict 모드
+
+> 스크립트의 시작 혹은 함수의 시작 부분에 "use strict"(또는 'use strict')를 선언
+
+#### 실수를 에러로 변환
+
+- hasDriver에서 s를 빼고 콘솔에 출력한 결과
+
+```js
+"use strict";
+
+let hasDriversLicense = false;
+const passTest = true;
+
+if (passTest) {
+  hasDriverLicense = true;
+}
+
+if (hasDriversLicense) {
+  console.log("I can drive!");
+}
+// Uncaught ReferenceError: hasDriverLicense is not defined
+```
+
+<br>
+
+#### 예약된 키워드 등을 변수로 사용불가
+
+```js
+"use strict";
+
+const interface = "dd";
+// script.js:19 Uncaught SyntaxError: Unexpected strict mode reserved word
+```

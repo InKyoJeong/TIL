@@ -81,6 +81,50 @@ obj.method.apply({ a: 4 }, [5, 6]); // 4 5 6
 
 <br>
 
+#### call, apply
+
+```js
+// call 메서드
+const singer = {
+  name: "Taeyeon",
+  fanCode: "TY",
+  age: 32,
+  fans: [],
+  // fan: function() {} 와 같음
+  fan(fanNum, fanName) {
+    console.log(`${fanName}'s number is ${fanNum}`);
+    this.fans.push({ who: `${this.fanCode}${fanNum}`, fanName });
+  },
+};
+
+singer.fan(229, "John");
+singer.fan(252, "Mary");
+console.log(singer); // {name: "Taeyeon", fanCode: "TY", age: 32, fans: Array(2), fan: ƒ}
+
+const dancer = {
+  name: "Zero",
+  fanCode: "ZR",
+  age: 29,
+  fans: [],
+};
+
+const fan = singer.fan;
+fan(99, "Zero"); // Uncaught TypeError: Cannot read property 'fans' of undefined
+// 더이상 메서드가 아니고 함수로 호출했으므로 오류발생
+
+fan.call(singer, 99, "Zero"); // Zero's number is 99
+// 다른객체로 bind도 가능
+fan.call(dancer, 777, "Nero");
+
+// apply 메서드 : 배열 형태로 넣기
+const applyFan = [888, "Kyo"];
+fan.apply(dancer, applyFan);
+// 이렇게해도 같다
+fan.call(dander, ...applyFan);
+```
+
+<br>
+
 ### <a name="bind"></a>bind 메서드
 
 ```js
