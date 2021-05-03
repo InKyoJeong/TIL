@@ -77,11 +77,11 @@ Math.max(...a); //8
 ```js
 const a = {
   first: "name",
-  second: "age"
+  second: "age",
 };
 
 const b = {
-  thrid: "address"
+  thrid: "address",
 };
 
 const two = { a, b };
@@ -94,11 +94,11 @@ console.log(two); // ▶ {a: {…}, b: {…}}
 ```js
 const a = {
   first: "name",
-  second: "age"
+  second: "age",
 };
 
 const b = {
-  thrid: "address"
+  thrid: "address",
 };
 
 const two = { ...a, ...b };
@@ -108,12 +108,4 @@ console.log(two); // ▶ {first: "name", second: "age", thrid: "address"}
 
 두개의 Object의 콘텐츠를 가지게 되었다.
 
-#### 마찬가지로 Function에서도 작동한다.
-
-```js
-const info = (something, args) => console.log(...args);
-```
-
-이렇게 하면 누군가 제공한 *Argument*를 `console.log`할 수 있다.
-
-> 전개 연산자는 React프로젝트에서 자주 사용한다. 두개의 Object를 병합하거나, 어떤 대상의 복사본을 만들거나, 어떤 한 콘텐츠를 다른 배열에 넣는 등의 상황에 사용한다.
+<br>

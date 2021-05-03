@@ -48,6 +48,7 @@
   - [화살표 함수 (Arrow Function)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/arrow.md)
   - [비구조화 할당 (Object Destructuring)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/destructuring.md)
   - [전개 연산자 (Spread Operator)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/spread.md)
+  - [Rest Parameter](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/rest.md)
   - [프로미스 (Promise)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/promise.md)
   - [async/await](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/async-await.md)
   - [이터레이터와 for/of](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/iterator.md)
