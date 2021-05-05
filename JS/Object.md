@@ -94,14 +94,27 @@ JSON.parse(text[, reviver])
 > 주어진 객체의 속성 이름의 배열을 반환한다.
 
 ```js
-const object1 = {
+const obj1 = {
   a: "somestring",
   b: 42,
   c: false,
 };
 
-console.log(Object.keys(object1));
-// expected output: Array ["a", "b", "c"]
+console.log(Object.keys(obj1)); // ["a", "b", "c"]
+```
+
+## Object.values()
+
+> 속성의 값들로 이루어진 배열을 리턴
+
+```js
+const obj1 = {
+  a: "kkk",
+  b: 123,
+  c: false,
+};
+
+console.log(Object.values(obj1)); // ["kkk", 123, false]
 ```
 
 <br>

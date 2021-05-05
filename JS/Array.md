@@ -103,6 +103,52 @@ x.join("-"); // "AA-BB-CC"
 
 ### Array.prototype.reduce()
 
+- acc (accmulator) 는 콜백의 반환값을 누적
+  - initialValue를 제공한 경우에는 initialValue의 값
+- cur (currentValue) 처리할 현재 요소.
+
+```js
+const array = [2, 3, 4, 5];
+
+const balance = array.reduce(function (acc, cur, i, arr) {
+  console.log(`Iteration ${i}: ${acc}`);
+  return acc + cur;
+}, 0);
+
+// Iteration 0: 0
+// Iteration 1: 2
+// Iteration 2: 5
+// Iteration 3: 9
+
+console.log(balance); // 14
+```
+
+```js
+// Maximum value
+const movements = [200, 450, -400, 3000, -600, -100, 70, 1300];
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) {
+    return acc;
+  } else {
+    return mov;
+  }
+}, movements[0]);
+console.log(max);
+```
+
+<br>
+
+```js
+arr.reduce(callback[, initialValue])
+```
+
+- `callback` : 4가지 인수를 받는다.
+  - `accumulator` : 반복될때마다 축적되는 값
+  - `currentValue` : 처리할 현재 요소. accumulator와 currentValue 더해진 값이 다시 accumulator 들어가는 반복문이라고 보면 편함
+  - `currentIndex` : 처리할 현재 요소의 인덱스. initialValue를 제공한 경우 0, 아니면 1부터 시작
+  - `array` : reduce()를 호출한 배열.
+- `initialValue` : callback의 최초 호출에서 첫 번째 인수에 제공하는 값. 초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용함
+
 ```js
 const array1 = [1, 2, 3, 4];
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -116,16 +162,7 @@ console.log(array1.reduce(reducer, 5));
 // expected output: 15
 ```
 
-```js
-arr.reduce(callback[, initialValue])
-```
-
-- `callback` : 4가지 인수를 받는다.
-  - `accumulator` : 반복될때마다 축적되는 값
-  - `currentValue` : 처리할 현재 요소. accumulator와 currentValue 더해진 값이 다시 accumulator 들어가는 반복문이라고 보면 편함
-  - `currentIndex` : 처리할 현재 요소의 인덱스. initialValue를 제공한 경우 0, 아니면 1부터 시작
-  - `array` : reduce()를 호출한 배열.
-- `initialValue` : callback의 최초 호출에서 첫 번째 인수에 제공하는 값. 초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용함
+<br>
 
 ### Array.prototype.find()
 
