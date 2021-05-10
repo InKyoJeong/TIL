@@ -89,3 +89,11 @@ $ git add .
 $ git commit -m "Apply .gitignore"
 $ git push
 ```
+
+<br>
+
+## PR(pull request)을 merge 하지 않고 local로 받기
+
+```bash
+$ git pull origin pull/[PR_NUM]/head:pr-[PR_NUM]
+```
