@@ -127,6 +127,7 @@
 - [Component](https://github.com/InKyoJeong/TIL/blob/master/React/3_component.md)
 - [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/hooks.md)
 - [불변성, immer](https://github.com/InKyoJeong/TIL/blob/master/React/immer.md)
+- [React.memo()](https://github.com/InKyoJeong/TIL/blob/master/React/react_memo.md)
 <!-- - [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
 - [ref](https://github.com/InKyoJeong/TIL/blob/master/React/5_ref.md)
 - [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)
