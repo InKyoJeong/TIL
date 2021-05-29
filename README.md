@@ -125,6 +125,7 @@
 - [React란?](https://github.com/InKyoJeong/TIL/blob/master/React/1_start.md)
 - [JSX](https://github.com/InKyoJeong/TIL/blob/master/React/2_jsx.md)
 - [Component](https://github.com/InKyoJeong/TIL/blob/master/React/3_component.md)
+- [Style](https://github.com/InKyoJeong/TIL/blob/master/React/style.md)
 - [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/hooks.md)
 - [불변성, immer](https://github.com/InKyoJeong/TIL/blob/master/React/immer.md)
 - [React.memo()](https://github.com/InKyoJeong/TIL/blob/master/React/react_memo.md)
