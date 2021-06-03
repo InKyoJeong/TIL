@@ -95,7 +95,7 @@
 
 <!-- - [HTTP 기초](https://github.com/InKyoJeong/TIL/blob/master/HTTP/1_basic.md) -->
 
-- [네트워크 기초 (TCP/IP)](https://github.com/InKyoJeong/TIL/blob/master/HTTP/tcp.md)
+- [네트워크 기초 (TCP/IP)](https://github.com/InKyoJeong/TIL/blob/master/HTTP/basic.md)
   - [3-way-handshake](https://github.com/InKyoJeong/TIL/blob/master/HTTP/3way.md)
 - [URL & 리소스](https://github.com/InKyoJeong/TIL/blob/master/HTTP/2_URL.md)
 - [HTTP 프로토콜 구조](https://github.com/InKyoJeong/TIL/blob/master/HTTP/http.md)

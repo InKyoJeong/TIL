@@ -19,7 +19,7 @@
 SYN/ACK로 송신측에 접속하며 패킷을 수신했음을 전하고,<br>
 마지막으로 송신측이 ACK 플래그로 패킷 교환 완료됨을 전함<br>
 
-> SYN : Synchronization. 동기화. 연결요청 플래그
+> SYN : Synchronization. 동기화. 연결요청 플래그<br>
 > ACK : Acknowledgement. '알겠다'라는 응답을 알려주는 패킷
 
 <br>

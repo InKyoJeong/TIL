@@ -1,5 +1,3 @@
-> HTTP 구조
-
 ## HTTP는 클라이언트와 서버간의 통신을 한다
 
 - 리소스를 필요하다고 **요구하는 쪽이 클라이언트**
@@ -104,7 +102,7 @@ Content-Type: text/plain: charset=UTF-8
 
 ![cook2](./images/cook2.png)
 
-```
+```bash
 # 리퀘스트 (보관하던 쿠키를 자동송신)
 GET /image/ HTTP /1.1
 Host: www.xxx.com
