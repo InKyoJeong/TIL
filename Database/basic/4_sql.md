@@ -3,6 +3,8 @@
   - [UPDATE (갱신)](#update-u)
   - [INSERT (등록)](#insert-c)
   - [DELETE (제거)](#delete-d)
+- [뷰, 서브쿼리](#view)
+- [결합](#join)
 
 ---
 
@@ -412,7 +414,7 @@ INSERT INTO 테이블명(열1, 열2, ...) VALUES (값1, 값2, ...)
 
 ```sql
 mysql> INSERT INTO city VALUES (DEFAULT, 'Gimpo', 'KOR', 'Kyonggi', 359865);
-Query OK, 1 row affected (0.00 sec)
+-- Query OK, 1 row affected (0.00 sec)
 ```
 
 ```sql
@@ -429,3 +431,221 @@ mysql> SELECT * FROM city WHERE countrycode = 'KOR' AND district = 'Kyonggi';
 ```
 
 <br>
+
+- 복수 행 입력 : VALUES 뒤에 괄호를 콤마로 연결하여 작성
+
+```sql
+mysql> INSERT INTO city (name, countrycode, district, population) VALUES ('Test11', 'KOR','Kyonggi', 19191919), ('Test22', 'KOR', 'Kyonggi', 29292929);
+-- Query OK, 2 rows affected (0.01 sec)
+-- Records: 2  Duplicates: 0  Warnings: 0
+```
+
+```sql
+mysql> SELECT * FROM city WHERE countrycode = 'KOR' AND district = 'Kyonggi';
++------+------------+-------------+----------+------------+
+| ID   | Name       | CountryCode | District | Population |
++------+------------+-------------+----------+------------+
+| 2338 | Songnam    | KOR         | Kyonggi  |     869094 |
+-- ...
+| 4083 | Test11     | KOR         | Kyonggi  |   19191919 |
+| 4084 | Test22     | KOR         | Kyonggi  |   29292929 |
++------+------------+-------------+----------+------------+
+```
+
+<br>
+
+## <a name="delete-d"></a>데이터 제거
+
+#### DELETE 문
+
+```sql
+DELETE FROM 테이블명;        --전체행이 제거되므로 주로 아래 처럼 사용
+DELETE FROM 테이블명 WHERE 조건;
+```
+
+```sql
+-- 마지막에 추가한 TEST22 를 삭제
+
+mysql> DELETE FROM city WHERE id = 4084;
+-- Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM city WHERE countrycode = 'KOR' AND district = 'Kyonggi';
++------+------------+-------------+----------+------------+
+| ID   | Name       | CountryCode | District | Population |
++------+------------+-------------+----------+------------+
+| 2338 | Songnam    | KOR         | Kyonggi  |     869094 |
+-- ...
+| 4083 | Test11     | KOR         | Kyonggi  |   19191919 |
++------+------------+-------------+----------+------------+
+```
+
+<br>
+
+## <a name="view"></a>뷰
+
+- 테이블과 동일하지만 데이터는 가지고 있지 않음
+  - 복잡한 SELECT 문을 일일이 매번 기술할 필요가 없다
+  - 필요한 열과행만 보여주고, 갱신 시에도 뷰 정의에 따른 갱신으로 한정 가능
+  - 위의 두가지를 데이터 저장없이 실현 가능. 뷰를 제거해도 참조하는 테이블은 영향을 받지않음
+
+#### CREATE VIEW : 뷰 작성
+
+```sql
+CREATE VIEW 뷰 명 (열명1, 열명2, ...) AS SELECT 문;
+```
+
+<br>
+
+- 경기도의 _id, name, population_ 을 표시하는 뷰 _(citykyonggi)_ 작성
+
+```sql
+mysql> CREATE VIEW citykyonggi AS SELECT id, name, population from city where countrycode = 'KOR' AND district = 'Kyonggi';
+-- Query OK, 0 rows affected (0.03 sec)
+
+mysql> SELECT * FROM citykyonggi;
++------+------------+------------+
+| id   | name       | population |
++------+------------+------------+
+| 2338 | Songnam    |     869094 |
+| 2339 | Puchon     |     779412 |
+| 2340 | Suwon      |     755550 |
+| 2392 | Hanam      |     115812 |
+-- ...
+| 4082 | Test22     |      22222 |
+| 4083 | Test11     |   19191919 |
++------+------------+------------+
+22 rows in set (0.00 sec)
+```
+
+- 인구 _(population)_ 가 700만 보다 많은 도시 뷰 _(largecity)_ 작성
+- _WITH CHECK OPTION_ 은 뷰에 참조된 테이블에 행을 _INSERT_ 또는 _UPDATE_ 하는 것을 제약
+
+```sql
+mysql> CREATE VIEW largecity AS SELECT * FROM city WHERE population > 7000000 WITH CHECK OPTION;
+-- Query OK, 0 rows affected (0.03 sec)
+```
+
+- 작성한 뷰 확인
+
+```sql
+mysql> SELECT * FROM largecity;
++------+-------------------+-------------+------------------+------------+
+| ID   | Name              | CountryCode | District         | Population |
++------+-------------------+-------------+------------------+------------+
+|  206 | São Paulo         | BRA         | São Paulo        |    9968485 |
+-- ...
+| 2331 | Seoul             | KOR         | Seoul            |    9981619 |
+-- ...
+| 3793 | New York          | USA         | New York         |    8008278 |
+| 4083 | Test11            | KOR         | Kyonggi          |   19191919 |
++------+-------------------+-------------+------------------+------------+
+```
+
+<br>
+
+## 서브쿼리 실행
+
+> 서브쿼리란 부모 쿼리 안에 작성하는 내부의 SELECT 쿼리
+
+- SELECT 문의 결과를 데이터처럼 다루거나 수치처럼 취급해서 조건문에 이용 가능하다.
+- 이런 쿼리를 메인 쿼리와 대비하여 **서브 쿼리**라고 함
+
+```sql
+-- 한국 도시만을 가진 뷰 작성
+
+mysql> CREATE VIEW citykorea AS SELECT id, name, district, population FROM city WHERE countrycode = 'KOR';
+-- Query OK, 0 rows affected (0.02 sec)
+
+-- 한국 도시중 인구가 평균 이상인 도시 수
+mysql> SELECT count(*) FROM citykorea WHERE population > (SELECT avg(population) FROM citykorea);
++----------+
+| count(*) |
++----------+
+|        9 |
++----------+
+```
+
+<br>
+
+## <a name="join"></a>결합(JOIN)
+
+- SQL은 **2개 이상의 테이블을 대상으로 실행**하는 것도 가능
+- 결합은 하나의 테이블에 있는 열만으로 데이터가 충족되지 않는 경우, 열을 가지고 오는 조작
+- 2개 테이블의 행을 결합시키기 위한 **결합조건**을 지정
+  - **내부결합과 외부결합** 등이 있음
+
+<br>
+
+#### 내부 결합(Inner Join)
+
+```sql
+SELECT 선택하고 싶은 열리스트 FROM 첫번째 테이블명 INNER JOIN 두번째 테이블명 ON 결합조건;
+```
+
+(_country_ 테이블 예시)
+
+```sql
+
+mysql> SELECT * FROM country;
++------+----------------------------------------------+---------------+---------------------------+-------------+-----------+------------+----------------+------------+------------+----------------------------------------------+----------------------------------------------+--------------------------------------+---------+-------+
+| Code | Name                                         | Continent     | Region                    | SurfaceArea | IndepYear | Population | LifeExpectancy | GNP        | GNPOld     | LocalName                                    | GovernmentForm                               | HeadOfState                          | Capital | Code2 |
++------+----------------------------------------------+---------------+---------------------------+-------------+-----------+------------+----------------+------------+------------+----------------------------------------------+----------------------------------------------+--------------------------------------+---------+-------+
+| ABW  | Aruba                                        | North America | Caribbean                 |      193.00 |      NULL |     103000 |           78.4 |     828.00 |     793.00 | Aruba                                        | Nonmetropolitan Territory of The Netherlands | Beatrix                              |     129 | AW    |
+| AFG  | Afghanistan                                  | Asia          | Southern and Central Asia |   652090.00 |      1919 |   22720000 |           45.9 |    5976.00 |       NULL | Afganistan/Afqanestan                        | Islamic Emirate                              | Mohammad Omar                        |       1
+-- ...
+```
+
+_countrylanguage_ 테이블에는 각 국가에서 사용하는 언어가 등록되어 있음
+
+```sql
+mysql> SELECT * FROM countrylanguage where countrycode = 'KOR';
++-------------+----------+------------+------------+
+| CountryCode | Language | IsOfficial | Percentage |
++-------------+----------+------------+------------+
+| KOR         | Chinese  | F          |        0.1 |
+| KOR         | Korean   | T          |       99.9 |
++-------------+----------+------------+------------+
+```
+
+전세계에서 한국어를 사용하는 국가 조회
+
+```sql
+mysql> SELECT * FROM countrylanguage WHERE language = 'Korean';
++-------------+----------+------------+------------+
+| CountryCode | Language | IsOfficial | Percentage |
++-------------+----------+------------+------------+
+| GUM         | Korean   | F          |        3.3 |
+| JPN         | Korean   | F          |        0.5 |
+| KOR         | Korean   | T          |       99.9 |
+| MNP         | Korean   | F          |        6.5 |
+| PRK         | Korean   | T          |       99.9 |
+| USA         | Korean   | F          |        0.3 |
++-------------+----------+------------+------------+
+```
+
+위에서 GUM, MNP등의 국가 코드가 어느 국가인지 알기 힘드므로, 국가코드에서 국가명을 검색하여 추가하기
+
+```sql
+mysql> SELECT countrylanguage.*, country.name FROM countrylanguage INNER JOIN country ON countrylanguage.countrycode = country.code WHERE countrylanguage.language = 'Korean';
++-------------+----------+------------+------------+--------------------------+
+| CountryCode | Language | IsOfficial | Percentage | name                     |
++-------------+----------+------------+------------+--------------------------+
+| GUM         | Korean   | F          |        3.3 | Guam                     |
+| JPN         | Korean   | F          |        0.5 | Japan                    |
+| KOR         | Korean   | T          |       99.9 | South Korea              |
+| MNP         | Korean   | F          |        6.5 | Northern Mariana Islands |
+| PRK         | Korean   | T          |       99.9 | North Korea              |
+| USA         | Korean   | F          |        0.3 | United States            |
++-------------+----------+------------+------------+--------------------------+
+```
+
+<br>
+
+#### 외부 결합(Outer Join)
+
+```sql
+SELECT 선택하고 싶은 열리스트 FROM 첫번째 테이블명 LEFT OUTER JOIN 두번째 테이블명 ON 결합조건;
+```
+
+- 내부 결합은 2개의 테이블에서 결합 조건에 일치하는 것을 얻어내지만
+- **외부 결합**은 2개의 테이블 중 **왼쪽 테이블(첫번째)의 전체행이 표시**되고, **다른 테이블 행 데이터는 결합조건과 일치할때** 그 값이 되고, 일치하는것 없으면 _NULL_ 이 됨
