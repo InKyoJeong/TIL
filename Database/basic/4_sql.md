@@ -1,3 +1,13 @@
+- SQL 기본
+  - [SELECT (검색)](#select-r)
+  - [UPDATE (갱신)](#update-u)
+  - [INSERT (등록)](#insert-c)
+  - [DELETE (제거)](#delete-d)
+
+---
+
+<br>
+
 ## SQL 기본
 
 - SQL은 DBMS에 저장된 테이블을 조작하기 위해 사용
@@ -54,7 +64,7 @@ mysql> show tables;
 
 <br>
 
-## SELECT 문 응용조작
+## <a name="select-r"></a>SELECT 문 응용조작
 
 #### SELECT : 데이터 선택
 
@@ -249,7 +259,7 @@ mysql> select min(population), max(population), sum(population), avg(population)
 ```sql
 -- district 별로 그룹 나눠서 몇개 도시가 있는지 확인
 
-mysql> SELECT district, count(*) from city where countrycode = 'KOR' GROUP BY district;
+mysql> SELECT district, count(*) from city WHERE countrycode = 'KOR' GROUP BY district;
 +---------------+----------+
 | district      | count(*) |
 +---------------+----------+
@@ -275,7 +285,7 @@ mysql> SELECT district, count(*) from city where countrycode = 'KOR' GROUP BY di
 - `HAVING` : 조건을 지정해 그룹 구분
 
 ```sql
-mysql> SELECT district, count(*) from city where countrycode = 'KOR' GROUP BY district HAVING count(*) = 6;
+mysql> SELECT district, count(*) from city WHERE countrycode = 'KOR' GROUP BY district HAVING count(*) = 6;
 +---------------+----------+
 | district      | count(*) |
 +---------------+----------+
@@ -284,3 +294,138 @@ mysql> SELECT district, count(*) from city where countrycode = 'KOR' GROUP BY di
 +---------------+----------+
 2 rows in set (0.00 sec)
 ```
+
+<br>
+
+## <a name="update-u"></a>데이터 갱신
+
+#### UPDATE 문 : 데이터 변경
+
+- `UPDATE 테이블명 SET 열명 = 값`
+- `SET`으로 지정한 열 이외의 것은 변경되지않음
+
+Kyonggi(경기) 도시를 검색해보면
+
+```sql
+mysql> SELECT * from city WHERE countrycode = 'KOR' AND district = 'Kyonggi';
++------+------------+-------------+----------+------------+
+| ID   | Name       | CountryCode | District | Population |
++------+------------+-------------+----------+------------+
+-- ...
+| 2383 | Shihung    | KOR         | Kyonggi  |     133443 |
+| 2392 | Hanam      | KOR         | Kyonggi  |     115812 |
+| 2396 | Uiwang     | KOR         | Kyonggi  |     108788 |
++------+------------+-------------+----------+------------+
+```
+
+잘못되어 있는 Shihung(시흥)을 Siheung으로 바꾸기
+
+```sql
+mysql> UPDATE city SET name = 'Siheung' WHERE countrycode = 'KOR' AND district = 'Kyonggi' AND name = 'Shihung';
+-- Query OK, 1 row affected (0.00 sec)
+-- Rows matched: 1  Changed: 1  Warnings: 0
+```
+
+다시 조회해보면 시흥이 _Siheung_ 으로 바뀜
+
+```sql
++------+------------+-------------+----------+------------+
+| ID   | Name       | CountryCode | District | Population |
++------+------------+-------------+----------+------------+
+-- ...
+| 2383 | Siheung    | KOR         | Kyonggi  |     133443 |
+| 2392 | Hanam      | KOR         | Kyonggi  |     115812 |
+| 2396 | Uiwang     | KOR         | Kyonggi  |     108788 |
++------+------------+-------------+----------+------------+
+```
+
+- 복수열 동시 갱신
+
+name 열 외에 population 열도 동시에 갱신하기
+
+```sql
+UPDATE city SET name = 'Siheung', population = 429390 WHERE countrycode = 'KOR' AND district = 'Kyonggi' AND name = 'Shihung';
+```
+
+<br>
+
+## <a name="insert-c"></a>데이터 삽입
+
+#### INSERT 문 : 데이터 입력
+
+- INSERT 는 행 단위로 수행되므로 **행을 구성하는 열 정보를 포함한 "테이블의 정의"를 잘 알아야한다**
+- MySQL 에서는 `show create table 테이블명\G`로 알 수 있다. (`\G`는 `;` 대신 사용하면 결과를 세로로 보기 쉽게 표시)
+
+```sql
+mysql> show create table city\G
+*************************** 1. row ***************************
+Table: city
+Create Table: CREATE TABLE `city` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` char(35) NOT NULL DEFAULT '',
+  `CountryCode` char(3) NOT NULL DEFAULT '',
+  `District` char(20) NOT NULL DEFAULT '',
+  `Population` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `CountryCode` (`CountryCode`),
+  CONSTRAINT `city_ibfk_1` FOREIGN KEY (`CountryCode`) REFERENCES `country` (`Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4
+1 row in set (0.00 sec)
+```
+
+- 테이블 정의가 아닌 **열의 정보만 보려면** `desc 테이블명`
+
+```sql
+mysql> desc city;
++-------------+----------+------+-----+---------+----------------+
+| Field       | Type     | Null | Key | Default | Extra          |
++-------------+----------+------+-----+---------+----------------+
+| ID          | int(11)  | NO   | PRI | NULL    | auto_increment |
+| Name        | char(35) | NO   |     |         |                |
+| CountryCode | char(3)  | NO   | MUL |         |                |
+| District    | char(20) | NO   |     |         |                |
+| Population  | int(11)  | NO   |     | 0       |                |
++-------------+----------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+```
+
+<br>
+
+#### 기본키(Primary Key)
+
+- 테이블의 행을 유일하게 특정할 수 있는 **유니크한 값을 저장하는 열**
+- 테이블 하나당 하나만 가능
+- 데이터자체에 특정 유니크 정보가 있으면 그걸 기본키로, 없이 기계적으로 할당하려면 `auto_increment`속성 사용
+
+<br>
+
+#### INSERT 문의 기본 구문
+
+```sql
+INSERT INTO 테이블명(열1, 열2, ...) VALUES (값1, 값2, ...)
+```
+
+<br>
+
+- 경기도(Kyonggi)에 김포(Gimpo)시를 추가
+  - 모든 열에대해 `VALUES` 값 설정하면, 테이블명의 **열 리스트 생략 가능**
+
+```sql
+mysql> INSERT INTO city VALUES (DEFAULT, 'Gimpo', 'KOR', 'Kyonggi', 359865);
+Query OK, 1 row affected (0.00 sec)
+```
+
+```sql
+mysql> SELECT * FROM city WHERE countrycode = 'KOR' AND district = 'Kyonggi';
++------+------------+-------------+----------+------------+
+| ID   | Name       | CountryCode | District | Population |
++------+------------+-------------+----------+------------+
+| 2338 | Songnam    | KOR         | Kyonggi  |     869094 |
+-- ...
+| 2396 | Uiwang     | KOR         | Kyonggi  |     108788 |
+| 4080 | Gimpo      | KOR         | Kyonggi  |     359865 |
++------+------------+-------------+----------+------------+
+19 rows in set (0.00 sec)
+```
+
+<br>

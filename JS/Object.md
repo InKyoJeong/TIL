@@ -386,3 +386,22 @@ console.log(user.fullName); // Baek Yerin
 
 - **Map**은 `for..of` 반복문을 사용해 순회 가능
   - `for...of` 반복문은 각 순회에서 `[key, value]`로 이루어진 배열을 반환
+
+<br>
+
+## Set
+
+- Set 객체는 자료형에 관계 없이 원시 값과 객체 참조 모두 **유일한 값을 저장**
+
+```js
+const set1 = new Set([1, 2, 3, 4, 5]);
+set1.has(1); // true
+
+const mySet = new Set();
+mySet.add(1); // Set { 1 }
+mySet.add(5); // Set { 1, 5 }
+mySet.add(5); // Set { 1, 5 }
+```
+
+- `Set.prototype.has(value)` : Set 객체 내 주어진 값을 갖는 요소가 있는가, _boolean_ 리턴
+- `Set.prototype.add(value)` : Set 객체에 주어진 값을 갖는 **새로운 요소를 추가**
