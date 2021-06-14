@@ -81,15 +81,17 @@
 * [다이나믹 프로그래밍](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dp.md)
 * [DFS, BFS](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dfs-bfs.md)
 
-### Operating System
+### Database
 
-- [운영체제란](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/os.md)
-- [프로세스와 스레드](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/process.md)
-- [CPU 스케줄링](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/cpu_sch.md)
-- [병행 프로세스와 동기화](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/concurrent.md)
-- [교착상태(Deadlock)](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/deadlock.md)
-- [메모리 관리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/memory.md)
-- [가상 메모리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/virtual_memory.md)
+- [데이터베이스란?](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/1_db.md)
+  - [관계형 데이터베이스란](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/2_relational.md)
+  - [아키텍처, 다중화](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/3_architecture.md)
+  - [SQL문 기본](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/4_sql.md)
+  - [트랜잭션](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/5_transaction.md)
+  - [잠금타임아웃, 교착상태](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/6_timeout.md)
+- [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/mysql.md)
+  - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
+- [몽고디비(mongoDB)](https://github.com/InKyoJeong/TIL/blob/master/Database/mongoDB/mongo.md)
 
 ### HTTP & Network
 
@@ -102,16 +104,15 @@
   - [GET vs POST](https://github.com/InKyoJeong/TIL/blob/master/HTTP/getpost.md)
 - [HTTP 메시지](https://github.com/InKyoJeong/TIL/blob/master/HTTP/3_HTTPmsg.md)
 
-### Database
+### Operating System
 
-- [데이터베이스란?](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/1_db.md)
-  - [관계형 데이터베이스란](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/2_relational.md)
-  - [아키텍처, 다중화](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/3_architecture.md)
-  - [SQL문 기본](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/4_sql.md)
-  - [트랜잭션](https://github.com/InKyoJeong/TIL/blob/master/Database/basic/5_transaction.md)
-- [MySQL](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/mysql.md)
-  - [시퀄라이즈(Sequelize)](https://github.com/InKyoJeong/TIL/blob/master/Database/MySQL/sequelize.md)
-- [몽고디비(mongoDB)](https://github.com/InKyoJeong/TIL/blob/master/Database/mongoDB/mongo.md)
+- [운영체제란](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/os.md)
+- [프로세스와 스레드](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/process.md)
+- [CPU 스케줄링](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/cpu_sch.md)
+- [병행 프로세스와 동기화](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/concurrent.md)
+- [교착상태(Deadlock)](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/deadlock.md)
+- [메모리 관리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/memory.md)
+- [가상 메모리](https://github.com/InKyoJeong/TIL/blob/master/Operating_System/virtual_memory.md)
 
 ### Node.js
 
