@@ -147,3 +147,34 @@ function App() {
 #### className
 
 - `class` 대신 `className` 사용
+
+<br>
+
+## JSX In Depth
+
+Fundamentally, JSX just provides syntactic sugar for the `React.createElement(component, props, ...children)` function. The JSX code:
+
+```js
+<MyButton color="blue" shadowSize={2}>
+  Click Me
+</MyButton>;
+
+// compiles into:
+
+React.createElement(MyButton, { color: "blue", shadowSize: 2 }, "Click Me");
+```
+
+## Spread Attributes
+
+- 아래 두 컴포넌트는 동일
+
+```js
+function App1() {
+  return <Greeting firstName="Ben" lastName="Hector" />;
+}
+
+function App2() {
+  const props = { firstName: "Ben", lastName: "Hector" };
+  return <Greeting {...props} />;
+}
+```
