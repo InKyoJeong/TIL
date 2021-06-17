@@ -9,6 +9,10 @@
 - [Git Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Git_Basic.md)
 - [커밋 메세지 작성 Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Commit_Message.md)
 
+### HTML
+
+- [script defer, script async](https://github.com/InKyoJeong/TIL/blob/master/HTML/script.md)
+
 ### CSS
 
 - [CSS Tip](https://github.com/InKyoJeong/TIL/blob/master/CSS/tip.md)
@@ -144,9 +148,9 @@
 ### React Native
 
 - [Environment](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/environment.md)
-- [Package Install & Link](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/library.md)
 - [Style](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/style.md)
 - [RN Tip](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/tip.md)
+<!-- - [Package Install & Link](https://github.com/InKyoJeong/TIL/blob/master/ReactNative/library.md) -->
 
 ### Web
 

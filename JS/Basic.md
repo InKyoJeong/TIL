@@ -315,7 +315,7 @@ console.log(plusNumber); // 10
 
 > 스크립트의 시작 혹은 함수의 시작 부분에 "use strict"(또는 'use strict')를 선언
 
-#### 실수를 에러로 변환
+#### 실수를 에러로 변환해줌
 
 - hasDriver에서 s를 빼고 콘솔에 출력한 결과
 
@@ -337,6 +337,18 @@ if (hasDriversLicense) {
 
 <br>
 
+#### 파일전체 or 함수 스코프에 적용가능, 블록스코프는 불가능
+
+```js
+"use strict"; // 파일 전체에 적용
+
+function f() {
+  "use strict"; // 함수 스코프에 적용
+}
+```
+
+<br>
+
 #### 예약된 키워드 등을 변수로 사용불가
 
 ```js
@@ -345,3 +357,9 @@ if (hasDriversLicense) {
 const interface = "dd";
 // script.js:19 Uncaught SyntaxError: Unexpected strict mode reserved word
 ```
+
+<br>
+
+#### 일반 변수나 제거할 수 없는 프로퍼티를 삭제할 수 없음
+
+ex) `delete x` `delete Object.prototype`
