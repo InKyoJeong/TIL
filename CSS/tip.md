@@ -168,3 +168,14 @@ overflow: auto;
 <!-- ![over](./images/overflow.png) -->
 
 <img src="./images/overflow.png" width="400" height="400">
+
+<br>
+
+## 7. user-select
+
+- 사용자가 텍스트를 선택할 수 있는지 지정
+
+```css
+/* none: 선택하지 못하게 막는다 */
+user-select: none;
+```
