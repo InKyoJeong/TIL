@@ -123,6 +123,7 @@
 - [Node.js란?](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/basic.md)
   - [Node.js 내부 구조, libuv](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/libuv.md)
   - [노드 내장 객체](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/internal.md)
+  - [파일 시스템](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/fs.md)
 - [http 웹서버](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/http.md)
 - [NPM 이란](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/npm.md)
 - [라우터 요청(req), 응답(res) 객체](https://github.com/InKyoJeong/TIL/blob/master/Nodejs/reqres.md)
@@ -141,11 +142,8 @@
 - [불변성, immer](https://github.com/InKyoJeong/TIL/blob/master/React/immer.md)
 - [React.memo()](https://github.com/InKyoJeong/TIL/blob/master/React/react_memo.md)
 <!-- - [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
-- [ref](https://github.com/InKyoJeong/TIL/blob/master/React/5_ref.md)
-- [반복되는 데이터 렌더링](https://github.com/InKyoJeong/TIL/blob/master/React/6_iteration.md)
 - [라이프사이클 메서드](https://github.com/InKyoJeong/TIL/blob/master/React/7_lifecycle.md)
 - [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/8_hooks.md)
-- [컴포넌트 스타일링](https://github.com/InKyoJeong/TIL/blob/master/React/9_style.md)
 - [리액트 라우터](https://github.com/InKyoJeong/TIL/blob/master/React/10_router.md) -->
 
 ### React Native
@@ -159,7 +157,7 @@
 
 - [브라우저 동작원리](https://github.com/InKyoJeong/TIL/blob/master/Web/browser.md)
   - [Critical Rendering Path](https://github.com/InKyoJeong/TIL/blob/master/Web/crp.md)
-- [GraphQL이란](https://github.com/InKyoJeong/TIL/blob/master/Web/graphql.md)
+- [Same-Origin Policy / CORS란?](https://github.com/InKyoJeong/TIL/blob/master/Web/origin.md)
 
 ### Linux
 
@@ -168,6 +166,7 @@
 
 ### etc
 
+- [GraphQL이란](https://github.com/InKyoJeong/TIL/blob/master/etc/graphql.md)
 - [zsh, homebrew](https://github.com/InKyoJeong/TIL/blob/master/etc/zsh.md)
 - [객체지향 프로그래밍(OOP)이란?](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/intro.md)
 - [동기/비동기, 블로킹/논블로킹 이해하기](https://github.com/InKyoJeong/TIL/blob/master/etc/blocking.md)
