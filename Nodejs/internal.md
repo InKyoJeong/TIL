@@ -1,67 +1,140 @@
-## 노드의 내부 구조
+## global
 
-![internal](./internal.png)
+```js
+console.log(global === this); // false
+console.log(this); // {}
+console.log(this === module.exports); //true
 
-우리가 코딩한 js 코드는 노드가 알아서 V8과 libuv에 연결해준다.
+function a() {
+  console.log(global === this); // true
+}
+a();
+```
 
-#### node binding 이란
-
-- 바인딩은 기본적으로 두개의 서로 다른 프로그래밍 언어를 바인드하는 라이브러리
-  - 다른 프로그래밍 언어의 이점을 활용할 수 있다. ex) c/c++은 js보다 훨씬빠르다.
-- V8 엔진은 C++로 작성되어 있고, libuv는 C로 작성된 비동기 I/O 작업을 제공하는 계층을 추가한다.
-  - 그러나 네트워킹, 데이터베이스 쿼리, 파일시스템 I/O 같은 Node.js의 핵심 기능은 Javascript로 작성되었다.
-  - 또한 우리가 작성하는 코드도 js로 작성된다.
-- 서로 다른 프로그래밍 언어로 작성된 이러한 기술 조각들이 서로 통신하려면 바인딩을 사용해야한다.
-
-<br>
-
-## libuv
-
-> OS 커널에서 지원해주는 비동기 작업들은 OS 커널에게 맡기고, 그렇지 않은 작업은 자신의 thread pool에서 처리한다.
-
-<img width="772" alt="lib" src="https://user-images.githubusercontent.com/48676844/122679958-fb809e80-d227-11eb-8526-3eb9a857a799.png">
+- 전역 스코프의 `this` 는 빈 객체다
+- 빈 객체가 나오는 이유는 `this === module.exports`
+- _function_ 안의 `this`는 `global` 이다.
 
 <br>
 
-- libuv는 비동기 I/O 중 두가지 타입을 처리한다.
-  - 파일 시스템(file system) (ex: fs 모듈)
-  - Network
-- _File system I/O_ 작업이나 _crypto_ 의 경우 쓰레드풀에서 처리된다.
-- _Network I/O_ 작업도 병렬로 처리되기는 하지만, OS 커널에서 병렬로 처리된다.
+## 타이머 (setTimeout, setImmediate, process.nextTick)
 
-> 커널이란?
->
-> > 컴퓨터와 전원을 켜면 운영체제는 이와 동시에 수행된다. 한편 소프트웨어가 컴퓨터 시스템에서 수행되기 위해서는 메모리에 그 프로그램이 올라가 있어야 한다. 마찬가지로 운영체제 자체도 소프트웨어로서 전원이 켜짐과 동시에 메모리에 올라가야 한다. 하지만, 운영체제처럼 규모가 큰 프로그램이 모두 메모리에 올라간다면 한정된 메모리 공간의 낭비가 심할것이다. 따라서 운영체제 중 항상 필요한 부분만을 전원이 켜짐과 동시에 메모리에 올려놓고 그렇지 않은 부분은 필요할 때 메모리에 올려서 사용하게 된다. 이때 메모리에 상주하는 운영체제의 부분을 커널이라 한다.
+- `process.nextTick()`, `resolve된 Promise` 순서고, 그다음이 `setTimeout`이나 `setImmediate`이다.
 
-> 스레드 풀 (Thread Pool)
->
-> > - libuv 에는 스레드의 그룹(컬렉션)인 스레드 풀이 있음
-> > - 메인 스레드가 있고, 4개의 디폴트 스레드가 있다.
+- 태스크 큐에 들어가는건 똑같은데, `process.nextTick()`, `Promise` 는 `setTimeout` 보다 호출스택에 먼저 들어간다(새치기를 한다). 정확히는 마이크로 태스크큐로 따로 구분짓는다.
+
+```js
+setImmediate(() => {
+  console.log("immediate");
+});
+process.nextTick(() => {
+  console.log("nextTick");
+});
+setTimeout(() => {
+  console.log("timeout");
+}, 0);
+Promise.resolve().then(() => console.log("promise"));
+
+// nextTick
+// promise
+// timeout
+// immediate
+```
+
+#### setTimeout vs setImmediate
+
+- `setTimeout`, `setImmediate` 얘네둘은 뭐가 먼저일지 모른다. 정확히는 환경에 따라 다르다. 프로세스 성능에 영향을 받는다.
+
+```js
+setTimeout(() => {
+  console.log("timeout");
+}, 0);
+
+setImmediate(() => {
+  console.log("immediate");
+});
+
+// $ node test.js
+// timeout
+// immediate
+
+// $ node test.js
+// immediate
+// timeout
+```
+
+- 그러나 I/O 주기에서 호출하면 `immediate`콜백이 항상 먼저 실행된다.
+
+```js
+const fs = require("fs");
+
+fs.readFile(__filename, () => {
+  setTimeout(() => {
+    console.log("timeout");
+  }, 0);
+  seetImmediate(() => {
+    console.log("immediate");
+  });
+});
+
+// $ node test.js
+// immediate
+// timeout
+```
 
 <br>
 
-## 그래서 비동기 함수는 어떤 경로로 실행되는가?
+## module, exports
 
-> 콜백함수는 호출 스택에 바로 쌓이는 것이 아니라 백그라운드에 존재했다가 지정된 업무, 시간이 되면 태스크 큐(Task Queue)를 거쳐 차례대로(FIFO) 호출 스택으로 올라간다.
+- 모듈이란 특정한 기능을하는 함수나 변수들의 집합
 
-- 백그라운드는 Node 환경에서는 libuv의 스레드 풀(thread pool)이나 OS 커널을 의미한다.
-- 메인 쓰레드가 이벤트 루프쪽이고, 백그라운드 쓰레드가 OS 커널, libuv의 스레드 풀(thread pool)인 셈이다.
+```js
+// var.js
+const odd = "홀";
+const even = "짝";
 
-#### 더 자세하게, 비동기적 코드는 다음과 같이 작동한다.
+module.exports = {
+  odd,
+  even,
+};
+```
 
-1. 코드가 호출 스택에 쌓인 후 실행하되 그것이 비동기 작업이라면 이벤트 루프는 비동기 작업을 위임한다.
-2. Node를 구성하는 libuv는 해당 비동기 작업이 OS커널에서 할 수 있는 것인지, 아닌지(thead pool에서 처리)를 판단하여 비동기 함수를 처리한다.
-3. 비동기 작업을 처리하고 콜백 함수를 이벤트 루프를 통해 태스크 큐에 넘긴다.
-4. 이벤트 루프는 콜스택에 쌓여있는 함수가 없을 때에, 태스크 큐에서 대기하고 있던 콜백함수를 콜스택으로 넘긴다.
-5. 콜스택에 쌓인 콜백함수가 실행되고, 콜스택에서 제거된다.
+```js
+// func.js
+const { odd, even } = require("/var");
+
+function checkNum(num) {
+  if (num % 2 === 0) {
+    return even;
+  } else {
+    return odd;
+  }
+}
+
+module.exports = checkNum;
+```
+
+- `exports` 객체로도 모듈을 만들수 있다.
+
+```js
+// var.js
+exports.odd = "홀";
+exports.even = "짝";
+```
 
 <br>
 
-## Node.js는 완전하게 싱글스레드를 기반으로 동작하지는 않는다.
+## filename, dirname
 
-- libuv는 OS 커널에서 어떤 비동기 작업들을 지원해주는지 알고 있기 때문에, OS 커널에서 지원해주는 비동기 작업들은 OS 커널에게 맡기고 그렇지 않은 작업은 자신의 thread pool에서 처리한다.
-  - 스레드 풀(Thread pool)은 멀티 스레드로 이루어져 있다. 또한, OS 커널 또한 대부분 멀티 스레드이다.
-  - 그래서 Node.js를 완전히 싱글 스레드라고는 할 수 없다.
+- 현재 파일명, 파일경로에 대한 정보제공
+- 경로 처리는 보통 `path` 모듈 사용
 
-<!-- - 다시, I/O들은 OS 커널 혹은 libuv 내의 스레드 풀에서 담당. libuv는 OS 커널에서 어떤 비동기 작업들을 지원해주는지 알고 있기 때문에, OS 커널에서 지원해주는 비동기 작업들은 OS 커널에게 맡기고 그렇지 않은 작업은 자신의 thread pool에서 처리
-- 어쨌거나 위에서 언급한대로 이러한 비동기 작업들은 콜백 함수를 이벤트 루프를 통해 태스크 큐에 넘어가고, 콜 스택이 비어있으면 이벤트 루프가 해당 콜백 함수를 콜 스택으로 옮겨 실행하도록. -->
+```js
+// test.js
+console.log(__filename);
+console.log(__dirname);
+
+// $ node test.js
+// /Users/ingg/Documents/TIL/test.js
+// /Users/ingg/Documents/TIL
+```
