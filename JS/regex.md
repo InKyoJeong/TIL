@@ -21,6 +21,14 @@ const reg = /abc/;
 
 <br>
 
+#### 문자 치환
+
+- 알파벳 소문자, 빼기, 밑줄, 마침표 제외하고 제거
+  - `str.replace(/[^a-z0-9\.\-\_]/gi,'')`
+  - `\w`는 `[A-Za-z0-9_]`와 대응된다. (= `str.replace(/[^\w-_.]/g, '')`)
+
+<br>
+
 #### RegExp 객체의 메서드
 
 - js로 정규 표현식을 사용해 문자열 처리하려면 `RegExp.prototype`의 `test`, `exec` 메서드 사용

@@ -121,3 +121,5 @@ console.log(!!"string"); // true
 console.log(!!null); // false
 console.log(!!undefined); // false
 ```
+
+<br>

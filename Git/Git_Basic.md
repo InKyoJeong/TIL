@@ -97,3 +97,17 @@ $ git push
 ```bash
 $ git pull origin pull/[PR_NUM]/head:pr-[PR_NUM]
 ```
+
+<br>
+
+## stash: commit하지 않고 잠시 저장했다가 나중에 다시 꺼내기
+
+```bash
+$ git stash
+$ git stash list
+# 목록 확인
+$ git stash apply
+# 최근의 stash를 가져와서 적용
+$ git stash apply [stash 이름]
+# stash 이름(ex. stash@{2})에 해당하는 stash를 적용
+```

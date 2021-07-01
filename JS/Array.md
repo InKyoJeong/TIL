@@ -164,6 +164,25 @@ console.log(array1.reduce(reducer, 5));
 
 <br>
 
+#### 객체 내의 값 인스턴스 개수 세기
+
+```js
+let genres = ["classic", "pop", "classic", "classic", "pop"];
+
+let countGenres = genres.reduce((all, v) => {
+  if (v in all) {
+    all[v]++;
+  } else {
+    all[v] = 1;
+  }
+  return all;
+}, {});
+
+console.log(countGenres); // {classic: 3, pop: 2}
+```
+
+<br>
+
 ### Array.prototype.find()
 
 > find() 메서드는 주어진 판별 함수를 만족하는 **첫 번째 요소의 값을 반환**한다. 그런 요소가 없다면 undefined를 반환한다.
