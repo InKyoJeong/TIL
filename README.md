@@ -141,6 +141,7 @@
 - [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/hooks.md)
 - [불변성, immer](https://github.com/InKyoJeong/TIL/blob/master/React/immer.md)
 - [React.memo()](https://github.com/InKyoJeong/TIL/blob/master/React/react_memo.md)
+- [Redux란](https://github.com/InKyoJeong/TIL/blob/master/React/redux.md)
 <!-- - [Events](https://github.com/InKyoJeong/TIL/blob/master/React/4_events.md)
 - [라이프사이클 메서드](https://github.com/InKyoJeong/TIL/blob/master/React/7_lifecycle.md)
 - [Hooks](https://github.com/InKyoJeong/TIL/blob/master/React/8_hooks.md)
