@@ -6,9 +6,7 @@
 
 <br>
 
-### <a name="what-redux"></a>Redux란?
-
-<hr/>
+## Redux란?
 
 ![redux](./images/redux.jpg)
 
@@ -71,3 +69,54 @@ const reducer = (state = initialState, action) => {
 
 export default reducer;
 ```
+
+<br>
+
+### redux-thunk
+
+- 하나의 액션에서 _dispatch_ 를 여러번 가능
+- 하나의 비동기 액션안에 여러개의 동기 액션을 넣을 수 있음
+
+```js
+const INCREMENT_COUNTER = "INCREMENT_COUNTER";
+
+function increment() {
+  return {
+    type: INCREMENT_COUNTER,
+  };
+}
+
+function incrementAsync() {
+  return (dispatch) => {
+    setTimeout(() => {
+      // Yay! Can invoke sync or async actions with `dispatch`
+      dispatch(increment());
+    }, 1000);
+  };
+}
+```
+
+### redux-saga
+
+- _thunk_ 는 위처럼 딜레이를 직접 구현해야 하지만, _saga_ 는 그러한 기능들이 내장됨
+  - 또다른 장점은, 예를들어 _thunk_ 에서는 실수로 클릭을 두번한다면 요청이 두번간다.
+  - 그러나 _saga_ 는 _takeLatest_ 로 마지막것만 요청보내는 기능, 몇초에 몇번까지 허용하는 _throttle_ 등의 기능이 있음
+
+#### generator
+
+```js
+function* genFunction() {
+  while (true) {
+    yield "무한";
+  }
+}
+
+const g = genFunction();
+g.next(); //{value: "무한", done: false}
+g.next(); //{value: "무한", done: false}
+```
+
+- 제네레이터에서는 이게 무한 반복이 안된다
+- 이벤트리스너랑 비슷. 클릭을할때 호출.`next()`를 하게되면 비슷.
+
+<br>
