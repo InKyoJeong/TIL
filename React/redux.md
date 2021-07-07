@@ -72,7 +72,7 @@ export default reducer;
 
 <br>
 
-### redux-thunk
+## redux-thunk
 
 - 하나의 액션에서 _dispatch_ 를 여러번 가능
 - 하나의 비동기 액션안에 여러개의 동기 액션을 넣을 수 있음
@@ -96,7 +96,7 @@ function incrementAsync() {
 }
 ```
 
-### redux-saga
+## redux-saga
 
 - _thunk_ 는 위처럼 딜레이를 직접 구현해야 하지만, _saga_ 는 그러한 기능들이 내장됨
   - 또다른 장점은, 예를들어 _thunk_ 에서는 실수로 클릭을 두번한다면 요청이 두번간다.
@@ -117,6 +117,143 @@ g.next(); //{value: "무한", done: false}
 ```
 
 - 제네레이터에서는 이게 무한 반복이 안된다
-- 이벤트리스너랑 비슷. 클릭을할때 호출.`next()`를 하게되면 비슷.
+
+#### call
+
+- `call` 은 동기
+- `put`은 *dispatch*라고 생각
+
+```js
+function loginAPI(data) {
+  return axios.post("/api/login", data);
+}
+
+function* logIn(action) {
+  try {
+    const result = yield call(loginAPI, action.data); // loginAPI가 리턴할때까지 기다려서 result에 넣는다
+    yield put({
+      type: "LOG_IN_SUCCESS",
+      data: result.data,
+    });
+//...
+```
+
+- then을 하는것과 마찬가지
+
+```js
+function* logIn(action) {
+  try {
+    const result = yield call(loginAPI, action.data);
+    axios.post("/api/login");
+      .then((result)=>{
+        yield put({
+        type: "LOG_IN_SUCCESS",
+        data: result.data,
+        });
+      })
+  }
+```
+
+- **call** 을 쓰면 _loginAPI(action.data)_ 이런식이 아니라 펼쳐줘야 한다.
+  - _call(loginAPI, action.data)_
 
 <br>
+
+#### fork
+
+- `fork`는 비동기함수 호출. 요청보내고 바로 다음 실행. 블로킹을 하지않음
+
+```js
+function* logIn() {
+  try {
+    const result = yield fork(loginAPI);  // 기다리지 않고 바로 다음이 실행되버린다.
+    yield put({
+      type: "LOG_IN_SUCCESS",
+      data: result.data,
+    });
+//...
+```
+
+이렇게 하는것과 같다.
+
+```js
+function* logIn() {
+  try {
+    axios.post("/api/login");
+    yield put({
+      type: "LOG_IN_SUCCESS",
+      data: result.data,
+    });
+//...
+```
+
+<br>
+
+#### take
+
+- 비동기 액션들이 saga에서는 이벤트리스너 비슷한 역할
+  - **LOG_IN** 액션이 들어오면 _logIn_ 제네레이터 함수를 실행
+
+```js
+function* watchLogin() {
+  yield take("LOG_IN", logIn);
+}
+```
+
+- 문제는 딱 한번 실행되므로 while로 감싸서 이벤트리스터 같은 역할을 하게 할 수 있다.
+
+```js
+function* watchLogin() {
+  while (true) {
+    yield take("LOG_IN", logIn);
+  }
+}
+```
+
+<br>
+
+#### takeEvery
+
+- 그러나 직관적이지 않으므로 보통 `takeEvery` 사용
+- *while take*는 동기적으로 동작하지만 _takeEvery_ 는 비동기로 동작한다.
+
+```js
+function* watchLogin() {
+  yield takeEvery("LOG_IN_REQUEST", logIn);
+}
+```
+
+<br>
+
+#### takeLatest
+
+- 여러 액션이 중첩되어 디스패치되면 기존 것들은 무시하고 가장 **마지막** 액션만 처리.
+  - 가끔가다 실수로 두번 눌렀을때. ex)로그인, 글쓰기 등 (_takeEvery_ 는 두번 실행됨)
+  - **이미 완료된 작업을 취소하는게 아니라**, 완료되지 않은것을 없애는것임. ex) 동시에 로딩중이거나..
+  - 첫번째것만 하고싶으면 _takeLeading_ 도 있다.
+
+```js
+function* watchAddPost() {
+  yield takeLatest("ADD_POST_REQUEST", addPost);
+}
+```
+
+- 주의할 점은 : 응답을 취소하는것. 요청까진 취소를 못해서 서버에는 데이터가 두번 저장됨
+- 서버에서 검사해서 첫번째 요청은 등록하고, 두번째는 취소하는 등의 검증을 해도된다.
+
+<br>
+
+#### throttle
+
+- `throttle`을 쓰면 요청 보내는것까지 제한을 둘 수 있다.
+- 아래처럼 2초 설정해놓으면 2초 동안은 request를 한번만 실행가능
+
+```js
+function* watchAddPost() {
+  yield throttle(2000, "ADD_POST_REQUEST", addPost);
+}
+```
+
+- 쓰로틀 vs 디바운싱
+  - **쓰로틀**은 마지막 함수가 호출된 후 일정 시간이 지나기 전에 다시 호출되지 않도록 하는것
+  - **디바운싱**은 연이어 호출되는 함수들중 마지막 함수만 호출하는 것
