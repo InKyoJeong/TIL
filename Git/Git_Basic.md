@@ -111,3 +111,11 @@ $ git stash apply
 $ git stash apply [stash 이름]
 # stash 이름(ex. stash@{2})에 해당하는 stash를 적용
 ```
+
+<br>
+
+## 로컬 Git 저장소 브랜치의 이름을 변경하기
+
+```bash
+$ git branch -m [OLD_BRANCH] [NEW_BRANCH]
+```

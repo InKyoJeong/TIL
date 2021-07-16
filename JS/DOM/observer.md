@@ -42,9 +42,9 @@ const addEventToEl = (elList) => {
   document.addEventListener("scroll", () => {
     elList.forEach((el) => {
       if (isElementInViewport(el)) {
-        el.classList.add("tada");
+        el.classList.add("observer");
       } else {
-        el.classList.remove("tada");
+        el.classList.remove("observer");
       }
     });
   });
