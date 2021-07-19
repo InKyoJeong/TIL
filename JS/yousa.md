@@ -43,6 +43,14 @@ yousa.forEach(function (e) {
 #### Function.prototype.call 메서드를 간접 호출하면 사용 가능
 
 ```js
+let yousa = {
+  0: "aa",
+  1: "bb",
+  2: "cc",
+  3: "dd",
+  length: 4,
+};
+
 Array.prototype.forEach.call(yousa, function (e) {
   console.log(e);
 });
@@ -53,6 +61,15 @@ Array.prototype.forEach.call(yousa, function (e) {
 
 Array.prototype.join.call(yousa, ",");
 // "aa,bb,cc,dd"
+
+// 이렇게 해도 같은 결과
+[].forEach.call(yousa, function (e) {
+  console.log(e);
+});
+// aa
+// bb
+// cc
+// dd
 ```
 
 <br>

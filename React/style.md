@@ -98,7 +98,7 @@ const Navigation = styled.nav`
 - 파라미터를 넘길수도 있음. 디폴트값도 가능
 
 ```js
-const TestRadius = (radius, long = "200") => css`
+const TestRadius = (radius, long = "200px") => css`
   border-radius: ${radius};
   width: ${long};
 `;
@@ -106,7 +106,7 @@ const TestRadius = (radius, long = "200") => css`
 export const FollowButtonContainer = styled(Button)`
   background-color: black;
   color: white;
-  ${TestRadius("20px", "200px")}
+  ${TestRadius("20px")}
   border-color: gray;
 `;
 ```
