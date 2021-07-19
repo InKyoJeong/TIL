@@ -114,8 +114,25 @@ $ git stash apply [stash 이름]
 
 <br>
 
-## 로컬 Git 저장소 브랜치의 이름을 변경하기
+## 로컬 Git 저장소 브랜치 이름을 변경하기
 
 ```bash
 $ git branch -m [OLD_BRANCH] [NEW_BRANCH]
+```
+
+## GitHub 저장소 브랜치 이름을 변경하기
+
+- 먼저 새로 변경한 브랜치 푸시
+
+```bash
+$ git push origin new_branch
+```
+
+- origin의 _old branch_ 를 삭제
+
+```bash
+$ git push origin --delete old_branch
+
+# 또는
+$ git push origin :old_branch
 ```

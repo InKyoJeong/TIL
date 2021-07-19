@@ -1,6 +1,6 @@
 ## React Style
 
-## CSS classes dynamically
+## 1. CSS classes dynamically
 
 ```jsx
 <div className={`form-control ${!isValid ? "invalid" : ""}`}>
@@ -14,7 +14,7 @@
 
 <br>
 
-## Styled Components & Dynamic Props
+## 2. Styled Components & Dynamic Props
 
 ```
 $ npm install --save styled-components
@@ -55,9 +55,65 @@ return (
 );
 ```
 
+### Nesting
+
+- 스타일 속성을 특정하게 부여
+
+```js
+const Card = styled.div`
+  background-color:white;
+`
+...
+const Container = styled.div`
+  height: 100%;
+  width: 100vh;
+  ${Card}{
+    background-color: blue;
+  }
+`
+```
+
+### Mixin and Group
+
+- 재사용 가능한 CSS 그룹
+
+```js
+const Sticky = css`
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.11);
+  color: black;
+`;
+const Navigation = styled.nav`
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  justify-content: flex-start;
+  ${Sticky}
+`;
+```
+
 <br>
 
-## CSS Module
+- 파라미터를 넘길수도 있음. 디폴트값도 가능
+
+```js
+const TestRadius = (radius, long = "200") => css`
+  border-radius: ${radius};
+  width: ${long};
+`;
+
+export const FollowButtonContainer = styled(Button)`
+  background-color: black;
+  color: white;
+  ${TestRadius("20px", "200px")}
+  border-color: gray;
+`;
+```
+
+<br>
+
+## 3. CSS Module
 
 - newly generated class name
 
