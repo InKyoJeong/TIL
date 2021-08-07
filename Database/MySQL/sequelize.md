@@ -43,7 +43,9 @@ db.Sequelize = Sequelize;
 module.exports = db;
 ```
 
-### MySQL 연결하기
+<br>
+
+## MySQL 연결하기
 
 시퀄라이즈로 익스프레스와 MySQL을 연결하기위해 app.js에 코드를 추가한다.
 
@@ -60,7 +62,9 @@ sequelize.sync();
 
 **_require("./models")_** 는 **_require("./models/index.js")_** 와 같다. 폴더내의 index.js파일은 require시 이름을 생략할 수 있다. `sync`메서드는 서버실행시 MySQL과 연동되게 해준다.
 
-### 모델 정의하기
+<br>
+
+## 모델 정의하기
 
 MySQL에서 정의한 테이블을 시퀄라이즈에서도 정의해야한다.
 
@@ -169,7 +173,9 @@ db 객체에 User와 Comment 모델을 담았다.
 
 development.password와 development.databse를 MySQL 커넥션과 일치하게 수정한다. test와 production은 테스트와 배포용이므로 나중에 사용한다.
 
-### 관계 정의하기
+<br>
+
+## 관계 정의하기
 
 > 1:N 관계, 일대일, 다대다 관계가 있다.
 
@@ -251,11 +257,13 @@ async (req, res, next) => {
 };
 ```
 
-### 쿼리
+<Br>
+
+## 쿼리
 
 시퀄라이즈로 CRUD 작업을 하려면 시퀄라이즈 쿼리에 대해 알아야한다.
 
-#### 로우를 생성하는 쿼리
+### create: 로우를 생성하는 쿼리
 
 ```js
 //MySQL:
@@ -273,7 +281,21 @@ User.create({
 
 models 모듈에서 User 모델을 불러와 `create` 메서드를 사용한다. 데이터를 넣을때는 시퀄라이즈 모델에 정의한 자료형대로 넣어야한다.
 
-#### 로우를 조회하는 쿼리
+#### findOrCreate: 특정 요소를 검색하거나, 존재하지 않으면 새로 생성
+
+- `findOrCreate` 메서드는 DB에 특정 요소가 존재하는지 검사
+- 만약 존재한다면 해당하는 인스턴스를 반환, 그렇지 않으면 새로 생성
+
+#### `findOrCreate` 메서드는 검색되었거나 또는 생성된 객체를 포함한 배열, 그리고 boolean값을 반환한다.
+
+```bash
+# ex)
+[ { name:’xxx’,age:’21’}, true ]
+```
+
+<br>
+
+### find, findAll: 로우를 조회하는 쿼리
 
 ```js
 // users테이블의 모든 데이터 조회하는 SQL
@@ -377,7 +399,7 @@ User.findAll({
 });
 ```
 
-#### 로우를 수정하는 쿼리
+### update: 로우를 수정하는 쿼리
 
 `update`메서드로 수정할 수 있다. **첫번째 인자**는 수정할 내용, **두번째 인자**는 수정 대상 로우를 찾는조건이다. `where`옵션에 조건을 적는다.
 
@@ -395,7 +417,7 @@ User.update(
 );
 ```
 
-#### 로우를 삭제하는 쿼리
+### destroy: 로우를 삭제하는 쿼리
 
 ```js
 //MySQL:

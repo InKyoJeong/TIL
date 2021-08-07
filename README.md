@@ -86,6 +86,7 @@
 * [다이나믹 프로그래밍](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dp.md)
 * [DFS, BFS](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dfs-bfs.md)
 * [조합, 순열](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/combination.md)
+* [이분탐색, LowerBound/UpperBound](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/binarysearch.md)
 
 ### Database
 
