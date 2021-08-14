@@ -1,18 +1,50 @@
-### DOM (Document Object Model)
+### DOM (Document Object Model) 이란?
 
-### 1. DOM 트리
+- DOM은 브라우저와 자바스크립트가 상호작용 할수있게 한다.
+- DOM은 **DOM 트리**와 상호작용 하기위한 많은 메서드와 프로퍼티를 가지는 복잡한 API이다.
+  - ex) `.querySelector()`, `.addEventListener()`, `.createElement`, `.innerHTML`, ...
+
+<br/>
+
+## 1. DOM 트리
 
 > 웹페이지 내용은 Document객체가 관리한다. 웹브라우저가 웹페이지를 읽으면 렌더링엔진은 웹페이지의 HTML 문서 구문을 해석하고 Document객체에서 문서내용을 관리하는 DOM 트리라는 객체의 트리 구조를 만든다.
 
-- DOM 트리를 구성하는 객체하나를 `노드(Node)`라고 한다.
+- **DOM 트리를 구성하는 객체** 하나를 `노드(Node)`라고 한다.
+- 각각의 노드는 자바스크립트 객체로 표현된다.
+  - 이 객체는 특별한 노드 메서드/프로퍼티에 접근할 수 있다.
+  - ex) _.textContent_, _.childNodes_, _.parentNode_, _.cloneNode()_, ...
 
-```
-문서 노드 : 전체 문서를 가리키는 Document 객체. document로 참조할 수 있다.
-HTML 요소 노드 : HTML 요소를 가리키는 객체
-텍스트 노드 : 텍스트를 기리키는 객체
-```
+<br>
 
-### 2. 노드 객체 가져오기
+## 노드(Node)
+
+![node](../images/dom.png)
+
+<br/>
+
+#### 노드는 **Element타입, Text타입, Comment타입, Document타입**이 있다.
+
+- `Element타입 노드`는 각 HTML 요소가 프로퍼티나 메서드에 접근할 수 있게한다.
+  - ex프로퍼티) _.innerHTML_, _.classList_, _.children_, _parentElement_, ...
+  - ex메서드) _.append()_, _.remove()_, _insertAdjacentHTML()_, _.querySelector()_, _.closest()_ ...
+  - Element타입은 내부적으로 자식 HTMLElement를 갖는다.
+- `Text타입 노드`는 텍스트를, `Comment타입 노드`는 주석을 가리킨다.
+- `Document 노드`는 전체 문서를 가리키는 노드다.
+  - 중요한 메서드들을 포함한다.
+  - _.querySelector()_, _.createElement()_, _.getElementById()_
+
+#### **또한 메서드와 프로퍼티는 상속되어서**, 모든 child 타입들도 접근할 수 있다.
+
+- ex) HTMLElement도 _.addEventListener()_, _closest()_, ... 등에 접근 가능하다.
+
+#### 중요한 점은 **EventTarget**라는 노드와 Window노드의 부모인 특별한 노드 타입이다.
+
+- 그래서 상속덕분에 addEventListener를 모든 노드 타입마다 마치 자신의 메서드인 것처럼 사용할 수 있는것
+
+<br>
+
+## 2. 노드 객체 가져오기
 
 > javascrip로 HTML요소를 제어하려면 요소 객체를 가져와야한다.
 
@@ -41,7 +73,7 @@ document.getElementsByName("name 속성 값")
 
 ex) ...
     <form>
-        <input type="checkbox" name="food" value="potato" />포테이토
+        <input type="checkbox" name="food" value="potato" />
     </form>
     <script>
       const foods = document.getElementsByName("food");
@@ -59,100 +91,9 @@ class로 찾고싶으면 document.querySelector(".title")
 id는 document.querySelector("#title")
 ```
 
-#### DOM if/else Function Practice
+<br>
 
-- html
-
-```html
-...
-<body>
-	<h1 id="title" class="btn">This works!</h1>
-	<script src="index.js"></script>
-</body>
-</html>
-```
-
-- css
-
-```css
-.btn {
-  cursor: pointer;
-}
-
-h1 {
-  color: #34495e;
-}
-
-.clicked {
-  color: #7f8c8d;
-}
-```
-
-- js
-
-```js
-const title = document.querySelector("#title");
-
-const CLICK_CLASS = "clicked";
-
-function handleClick() {
-  const currentClass = titile.className;
-  if (currentClass !== CLICK_CLASS) {
-    title.className = CLICK_CLASS;
-  } else {
-    titile.className = "";
-  }
-}
-
-function init() {
-  title.addEventListener("click", handleClick);
-}
-
-init();
-```
-
-이렇게하면 btn class가 제거되어버린다.
-
-따라서 `classList`를 사용해보자. `classList`는 메소드를 가진다. (remove, add, toggle, ...)
-
-```js
-const title = document.querySelector("#title");
-const CLICK_CLASS = "clicked";
-
-function handleClick() {
-  const hasClass = title.classList.contains(CLICK_CLASS);
-  if (hasClass) {
-    title.classList.remove(CLICK_CLASS);
-  } else {
-    title.classList.add(CLICK_CLASS);
-  }
-}
-
-function init() {
-  title.addEventListener("click", handleClick);
-}
-
-init();
-```
-
-`toggle`을 사용하여 짧게 만들어보면
-
-```js
-const title = document.querySelector("#title");
-const CLICK_CLASS = "clicked";
-
-function handleClick() {
-  title.classList.toggle(CLICK_CLASS);
-}
-
-function init() {
-  title.addEventListener("click", handleClick);
-}
-
-init();
-```
-
-### 3. HTML 요소의 내용 읽고 쓰기
+## 3. HTML 요소의 내용 읽고 쓰기
 
 요소안의 HTML코드는 `innerHTML` 프로퍼티로 읽고 쓸 수 있다. 요소를 웹페이지에 표시할 때의 텍스트정보는 `textContent`와 `innerText` 프로퍼티를 이용해 읽고 쓸 수 있다.
 
