@@ -45,13 +45,6 @@ html {
 - FireFox : 36.0
 - Safari : Not supported
 
-### Property Value
-
-- auto : Allows a straight jump "scroll effect" between elements within the scrolling box. This is default
-- smooth : Allows a smooth animated "scroll effect" between elements within the scrolling box.
-- initial : Sets this property to its default value.
-- inherit : Inherits this property from its parent element.
-
 <br>
 
 ## 4. [place-content](https://developer.mozilla.org/ko/docs/Web/CSS/place-content)
@@ -179,3 +172,16 @@ overflow: auto;
 /* none: 선택하지 못하게 막는다 */
 user-select: none;
 ```
+
+<br>
+
+## 8. white-space
+
+> 요소가 공백 문자를 처리하는 법을 지정
+
+- `white-space: pre-wrap`
+  - 연속 공백 유지. 줄 바꿈은 개행 문자와 <br> 요소에서 일어남
+  - 한 줄이 너무 길어서 넘칠 경우 자동으로 줄을 바꿈
+- `white-space: pre-line`
+  - 연속 공백을 하나로 합침. 줄바꿈은 개행 문자와 <br> 요소에서 일어나며,
+  - 한 줄이 너무 길어서 넘칠 경우 자동으로 줄을 바꿈
