@@ -45,9 +45,11 @@
 - [정규 표현식](https://github.com/InKyoJeong/TIL/blob/master/JS/regex.md)
 - [DOM 이란](https://github.com/InKyoJeong/TIL/blob/master/JS/DOM/Dom.md)
 - [Intersection Observer](https://github.com/InKyoJeong/TIL/blob/master/JS/DOM/observer.md)
+- [커링 (Currying)](https://github.com/InKyoJeong/TIL/blob/master/JS/curry.md)
 - [생성자](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/constructor.md)
 - [클래스(Class), 상속](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/class.md)
-- [커링 (Currying)](https://github.com/InKyoJeong/TIL/blob/master/JS/curry.md)
+- [setter, getter](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/setter_getter.md)
+- [static method](https://github.com/InKyoJeong/TIL/blob/master/JS/OOP/static.md)
 - ES6 +
   - [const, let](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/const.md)
   - [화살표 함수 (Arrow Function)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/arrow.md)
@@ -57,7 +59,7 @@
   - [프로미스 (Promise)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/promise.md)
   - [async/await](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/async-await.md)
   - [이터레이터와 for/of](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/iterator.md)
-  - [심볼(Symbol)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/symbol.md)
+  <!-- - [심볼(Symbol)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/symbol.md) -->
   - [제너레이터](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/generator.md)
   - [옵셔널 체이닝 (optional chaining)](https://github.com/InKyoJeong/TIL/blob/master/JS/ES6/opchain.md)
 
