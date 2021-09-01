@@ -30,7 +30,7 @@ console.log(x); /// 5
 ```js
 a(); // Uncaught TypeError: a is not a function
 
-var a = function() {
+var a = function () {
   console.log("boo");
 };
 
@@ -62,3 +62,11 @@ let b = 1;
 
 console.log(b);
 ```
+
+<br>
+
+#### 호이스팅 발생이유
+
+- `var a = 2;`는 하나의 구문처럼 보이지만, 자바스크립트 엔진은 그렇게 보지 않는다.
+- `var a`와 `a = 2`라는 구문으로 보고, 첫번째는 컴파일러 단계에서 처리하고, 두번째 구문은 실행 단계에서 처리한다.
+- 이 의미는 **스코프의 모든 선언문은 실행 전에 먼저 처리된다**는 점

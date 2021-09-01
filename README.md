@@ -113,6 +113,7 @@
 - [HTTP 프로토콜 구조](https://github.com/InKyoJeong/TIL/blob/master/HTTP/http.md)
   - [GET vs POST](https://github.com/InKyoJeong/TIL/blob/master/HTTP/getpost.md)
 - [HTTP 메시지](https://github.com/InKyoJeong/TIL/blob/master/HTTP/3_HTTPmsg.md)
+- [프록시/게이트웨이, 캐시](https://github.com/InKyoJeong/TIL/blob/master/HTTP/proxy.md)
 
 ### Operating System
 
