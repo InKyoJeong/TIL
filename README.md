@@ -167,10 +167,11 @@
   - [Critical Rendering Path](https://github.com/InKyoJeong/TIL/blob/master/Web/crp.md)
 - [Same-Origin Policy / CORS란?](https://github.com/InKyoJeong/TIL/blob/master/Web/origin.md)
 
-### Linux
+### Linux/Ubuntu
 
 - [리눅스 vi/vim 명령어](https://github.com/InKyoJeong/TIL/blob/master/Linux/vi.md)
 - [SSH 란?](https://github.com/InKyoJeong/TIL/blob/master/Linux/ssh.md)
+- [SSH 접속시 퍼미션 문제](https://github.com/InKyoJeong/TIL/blob/master/Linux/ssh-permission.md)
 
 ### etc
 
