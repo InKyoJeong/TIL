@@ -136,3 +136,12 @@ $ git push origin --delete old_branch
 # 또는
 $ git push origin :old_branch
 ```
+
+<br>
+
+## git reset으로 커밋 취소
+
+```bash
+$ git reset HEAD^   # 최신 커밋 취소+스테이지 취소
+$ git reset HEAD~2	# (개수) 최근 2개 취소
+```

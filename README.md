@@ -7,7 +7,9 @@
 ### Git
 
 - [Git Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Git_Basic.md)
-- [커밋 메세지 작성 Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Commit_Message.md)
+- [Git LFS](https://github.com/InKyoJeong/TIL/blob/master/Git/lfs.md)
+
+<!-- - [커밋 메세지 작성 Tip](https://github.com/InKyoJeong/TIL/blob/master/Git/Commit_Message.md) -->
 
 ### HTML
 
