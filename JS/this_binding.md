@@ -1,3 +1,6 @@
+> this 바인딩 <br />
+> Regular Function vs Arrow Function
+
 ## this 바인딩
 
 - 함수가 호출되는 방식에 따라 this가 다른 객체를 참조한다.
@@ -223,3 +226,115 @@ console.dir(boo);
 
 - 객체 리터럴 : 자신의 프로토타입 객체가 Object
 - 생성자 함수방식 : 자신의 프로토타입 객체가 **생성자 함수 자체** Person
+
+<br>
+
+## Regular Function vs Arrow Function
+
+- Function call 에서는, `this = undefined`
+  - (strict mode가 아니면 global object인 window)
+- Arrow function 에서는, `this = <this of surrounding function (lexical this)>`
+  - (화살표함수의 바깥의 this값이 화살표함수의 this)
+
+#### 실습 1
+
+```js
+"use strict";
+
+const mary = {
+  firstName: "Mary",
+  year: 1999,
+  calcAge: function () {
+    console.log(this);
+    console.log(2021 - this.year);
+  },
+
+  greet: () => console.log(`Hi, ${this.firstName}`), // Hi, undefined
+};
+
+mary.greet();
+```
+
+- 위에서 화살표함수는 부모 스코프의 `this` 가 **_global scope_** 이므로 `undefined`이 출력
+
+<br>
+
+#### 실습 2
+
+```js
+"use strict";
+
+const mary = {
+  firstName: "Mary",
+  year: 1999,
+  calcAge: function () {
+    console.log(2021 - this.year); // 22
+
+    const isMillenial = function () {
+      console.log(this); // undefined
+      console.log(this.year >= 1988); // Uncaught TypeError: Cannot read properties of undefined (reading 'year')
+    };
+
+    isMillenial();
+  },
+
+  greet: () => console.log(`Hi, ${this.firstName}`),
+};
+
+mary.calcAge();
+```
+
+- 메서드 안에서 실행됐어도, 결국 Regular Function Call 이므로 여기서도 `this`가 `undefined` 이다.
+
+<br>
+
+#### 실습 2 해결 (pre ES6)
+
+- self로 this에 접근하기
+
+```js
+const mary = {
+  firstName: "Mary",
+  year: 1999,
+  calcAge: function () {
+    console.log(2021 - this.year);
+
+    const self = this;
+    const isMillenial = function () {
+      console.log(self); // {firstName: 'Mary', year: 1999, calcAge: ƒ, greet: ƒ}
+      console.log(self.year >= 1988); // true
+    };
+
+    isMillenial();
+  },
+
+  greet: () => console.log(`Hi, ${this.firstName}`),
+};
+
+mary.calcAge();
+```
+
+#### 실습 2 해결 (arrow function)
+
+```js
+const mary = {
+  firstName: "Mary",
+  year: 1999,
+  calcAge: function () {
+    console.log(2021 - this.year);
+
+    const isMillenial = () => {
+      console.log(this); // {firstName: 'Mary', year: 1999, calcAge: ƒ, greet: ƒ}
+      console.log(this.year >= 1988); // true
+    };
+
+    isMillenial();
+  },
+
+  greet: () => console.log(`Hi, ${this.firstName}`),
+};
+
+mary.calcAge();
+```
+
+- 화살표함수는 **parent scope**인 **calcAge 메서드**에서 `this( = mary object)`를 사용하므로 위와 똑같이 작동한다.
