@@ -84,5 +84,5 @@ function solution(target, arr) {
 }
 
 let arr = [11, 22, 33, 44, 55, 66, 75, 88, 88, 99, 101, 102, 103];
-console.log(solution(88, arr)); // 7번 인덱스
+console.log(solution(88, arr)); // 9번 인덱스
 ```
