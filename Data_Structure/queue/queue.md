@@ -2,8 +2,8 @@
 
 큐(queue)는 대기행렬이라고 볼 수 있다. 역시 스택과 마찬가지로 일종의 리스트이다. 단, 데이터의 삽입은 한쪽 끝에서, 삭제는 반대쪽 끝에서만 일어난다. 삽입이 일어나는 쪽을 **rear**, 삭제가 일어나는 쪽을 **front**라고 부른다.
 
-- **insert, enqueue, put** : 큐의 rear에 새로운 원소를 삽입하는 연산
-- **remove, dequeue, get** : 큐의 front에 있는 원소를 큐로부터 삭제하고 반환하는 연산
+- **enqueue, insert, put** : 큐의 rear에 새로운 원소를 삽입하는 연산
+- **dequeue, remove, get** : 큐의 front에 있는 원소를 큐로부터 삭제하고 반환하는 연산
 
 큐는 **FIFO(First In, First Out)** 방식이다. 처음 저장한 데이터를 처음 사용한다는 뜻이다.
 
@@ -13,7 +13,66 @@
 
 <br>
 
-### 배열을 이용한 큐의 구현
+### 큐 구현
+
+```js
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.length = 0;
+  }
+  peek() {
+    return this.first;
+  }
+  enqueue(value) {
+    const newNode = new Node(value);
+    if (this.length === 0) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      const holdingPointer = this.last;
+      holdingPointer.next = newNode;
+      this.last = newNode;
+    }
+    this.length++;
+    return this;
+  }
+  dequeue() {
+    if (!this.first) {
+      return null;
+    }
+    // 한개만 있을때
+    if (this.first === this.last) {
+      this.last = null;
+    }
+    const holdingPointer = this.first;
+    this.first = this.first.next;
+    this.length--;
+    return holdingPointer; // return this;
+  }
+}
+
+const myQueue = new Queue();
+myQueue.peek();
+myQueue.enqueue("AA");
+myQueue.enqueue("BB");
+// first: Node {value: 'AA', next: Node}
+// last: Node {value: 'BB', next: null}
+// length: 2
+myQueue.dequeue();
+```
+
+<!--  -->
+
+<!-- ### 배열을 이용한 큐의 구현
 
 큐는 스택과 달리 배열을 사용하는 것이 좀 더 편하다. 먼저 배열 하나를 정의하여 큐를 위한 자료구조를 준비한다.
 
@@ -416,4 +475,4 @@ get() : 8
 get() : 10
 get() : 13
 두 번의 Get() 함수 호출 결과: Queue is Empty
-```
+``` -->
