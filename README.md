@@ -71,26 +71,26 @@
 
 ### Data Structure & Algorithm
 
-- [연결 리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/list/link.md) / [JS](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/js_likedlist.md)
+- [연결 리스트(Linked List)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/list/link.md) / [JS](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/js_linkedlist.md)
 - [이중 연결 리스트(Double linked list)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/doublelist/doublelink.md) / [JS](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/js_doublelink.md)
 - [스택(Stack)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/stack/stack.md)
 - [큐(Queue)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/queue/queue.md)
-- [시간복잡도와 점근적 분석](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/time.md)
-- [트리(Tree) : 이진트리/순회/수식트리](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/tree/tree.md)
-- [우선순위 큐(Priority Queue)와 힙(Heap)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/heap/heap.md)
-- [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
-- [선택/ 삽입/ 버블 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
-- [힙/ 병합/ 퀵 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/complex_sort.md)
-- [이진 탐색 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bst.md)
+- [트리(Tree): 이진트리/순회/수식트리](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/tree/tree.md)
+- [이진 탐색 트리(BST)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/bst.md)
 - [AVL 트리](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/avl.md)
+- [우선순위 큐(Priority Queue)와 힙(Heap)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/heap/heap.md)
 - [테이블, 해쉬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/table-hash.md)
 - [그래프(Graph)](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/graph/graph.md)
 
+* [시간복잡도와 점근적 분석](https://github.com/InKyoJeong/TIL/blob/master/Data_Structure/time.md)
+* [빅오 표기법](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/bigO.md)
 * [수학](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/math.md)
+* [선택/ 삽입/ 버블 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/basic_sort.md)
+* [힙/ 병합/ 퀵 정렬](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/complex_sort.md)
+* [이분탐색, LowerBound/UpperBound](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/binarysearch.md)
 * [다이나믹 프로그래밍](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dp.md)
 * [DFS, BFS](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/dfs-bfs.md)
 * [조합, 순열](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/combination.md)
-* [이분탐색, LowerBound/UpperBound](https://github.com/InKyoJeong/TIL/blob/master/Algorithm/binarysearch.md)
 
 ### Database
 
